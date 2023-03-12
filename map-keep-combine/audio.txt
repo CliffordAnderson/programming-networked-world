@@ -1,0 +1,117 @@
+Hi everyone. Welcome back to Programming for a Networked World.
+Today, we're going to talk about another way of processing lists.
+Sometimes you come across very long lists,
+and it becomes tedious to use a for loop to iterate through all the items.
+So, in this particular video, we're going to talk about an alternative
+to looping through lists when you want to process every item in a list.
+So, ready to develop your superpowers when it comes to crunching lists?
+Let's get started.
+Okay, we're going to be talking today about map, keep, and combine.
+These three blocks provide really powerful abstractions for working with lists.
+These blocks take a particular operation, or more generally speaking, a function,
+and apply it to each item in the list in turn.
+Let me bring out the map block so we can talk about it in practice.
+The map block, as you see, has two slots.
+It has a ring where we put an operator, and then it has a slot for the list.
+And what it's going to do is apply the operation that's in the ring
+to each item in the list in turn, and then return a new list to you.
+That may sound a little abstract, so let's try something in practice to see how it works.
+I'm going to take over this numbers from 1 to 10 block,
+and as you know, if I click on this, it will create numbers from 1 to 10.
+That's pretty straightforward, and I'm going to drop this into our list slot.
+Now, if we just use it like it is, then you'll see that with nothing in the ring,
+it simply returns the list back to us.
+So here you can see that it just returned 1 to 10.
+But the magic of the map block is that we can take an operator
+and drop it into that slot.
+So now let's imagine that what I want to do is to double each of the items in the list.
+So we would just say times 2 here, and then, you know,
+we have to keep the first space open for each item.
+So 1 times 2 is 2, 2 times 2 is 4, and so forth.
+The problem is that we don't want to go iteratively through this list,
+select each item, and put it into that empty slot.
+What we'd like to do is have this block take care of that for us.
+So the magic of the block is that by leaving that slot open,
+it will simply put in or interpolate each item in the list into that open slot
+and then perform the operation.
+So you can see now that if I click on this,
+I get a new list back with the same number of items,
+but each of the items has doubled.
+So that's fantastic, right?
+Now, what if you wanted to filter a list?
+That is, take some type of Boolean operator and apply it to each item in the list,
+and then return a new list with only the items that passed your Boolean operator,
+passed that filter's test.
+So let's say that I have a list of numbers, like we have 1 to 10,
+but I want to filter out any odd numbers.
+How would I do that?
+Well, there is another block that helps you with that type of filtering.
+It's keep items from a list that pass a certain Boolean test.
+So you see that it's structurally similar to the map block.
+So here, I can take that same list of numbers, I can duplicate it.
+Oops, didn't mean to click on it.
+Let's duplicate it, drop it here.
+Okay, now what do I put in that ring to filter the list?
+I need to think about how I would identify what is even and what's odd.
+So I would use the mod operator for that, and a Boolean equals.
+So here, I would say, okay, anything that's divisible by 2 without remainder is even.
+We can just test that by putting in 2, and you see that that's true,
+but if I put in 3, that's false.
+So in the same way that we left a slot open in the map block,
+for the map block to apply to each item of the list,
+we'll do the same thing here with this block.
+We're going to drop it into the ring, and then I'm going to say,
+keep items such that they pass this test, and then apply it to our list.
+So if we try this, you see that we get back, in fact, a list that's now been filtered.
+All the odd numbers have been filtered out,
+and we get a list that only contains the even numbers,
+that's half the length of our original list.
+Great, but there's one more thing that we can do with these blocks
+that's really kind of fascinating.
+We can also take a list and perform an operation
+that combines all the elements together.
+Now, you might say, like, why would you want to do that?
+Well, imagine that you're trying to create a sum, for example.
+So we've got items 1 through 10, but you might want to say,
+okay, what's the sum of those items?
+So if I wanted to add up 1 through 10, what would the total be?
+So again, we can use the plus here to do that,
+but here you have to think about, we're going to take 1,
+and then we're going to add it to the next item in the list, 2,
+and then we want to take 1 plus 2, 3, and add it to the next item in the list, 3,
+and so on and so forth.
+So we're actually kind of working with two slots here,
+because as we go through the list, we want to have what's been accumulated
+in terms of what's been calculated already,
+and we want to have the new item in the list
+that we want to add to that accumulating number.
+So in order to perform an operation that combines everything,
+we need to leave these two slots open in our operator.
+And so here we will take, as I've already hinted, combine,
+and it's got a similar format, although it puts the ring at the end.
+And so we'll take the numbers 1 through 10,
+and we're just going to take this plus,
+and here we just leave both slots open.
+And kind of incredibly, when you click on this, you get the answer,
+that if you add up 1 through 10, all the numbers in that list,
+you get the result 55.
+So with these three tools in your toolbox,
+you can process lists very quickly and very efficiently.
+They're also, of course, combinable.
+So if you want to apply a map to something,
+maybe double the numbers, and then combine them to get a result,
+you can do that.
+We'll take our numbers 1 through 10 here,
+we'll double everything, and then we'll combine it.
+So here you can see that, in fact, it is double of what we had previously,
+110, rather than 55.
+There's lots of really creative ways that you can apply
+these three blocks in combination.
+And as we go forward in our course, we'll look at some of those,
+particularly as we get results back from our calls out to network services
+that may provide lists of lists, and we need to abstract from those lists,
+gather information, and to turn them into new lists
+that we can then use in our programs.
+So thank you for joining me.
+I hope that you'll try these blocks out,
+and I'll see you in the next video.

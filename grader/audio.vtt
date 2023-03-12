@@ -1,0 +1,104 @@
+WEBVTT
+
+00:00.000 --> 00:08.000
+Hello everyone, Brian here. So today I'm going to show you how we can get started doing the assignments for our course.
+
+00:14.000 --> 00:22.000
+So first of all, we're going to click the link that we can find in the assignment description, and it'll pull up Netsbox as shown here.
+
+00:22.000 --> 00:34.000
+Now this might look like your standard Netsbox setup, except you might notice if you look in the top center, a little bit off to the right, we have this extensions button.
+
+00:34.000 --> 00:47.000
+Now this extensions button, which is shown with this little puzzle piece, has an option underneath when we select it for programming for NetworkWorld, in other words, for this course.
+
+00:47.000 --> 00:57.000
+Now for now, at the time of this recording anyway, we're just showing one assignment here because this is the example assignment that I'm going to use to just kind of demonstrate how to submit,
+
+00:57.000 --> 01:01.000
+but you should see a list of all the assignments that are available for the course.
+
+01:01.000 --> 01:10.000
+When you want to start an assignment, first you just select it from this menu, and you'll be prompted about starting the selected assignment.
+
+01:11.000 --> 01:17.000
+If you decide to start it, it will open up kind of the starter template or starter project that we'll be working from,
+
+01:17.000 --> 01:28.000
+and most of them have a similar structure to this one where we'll have some sort of custom block that we want to open and actually implement.
+
+01:28.000 --> 01:33.000
+So in this case, we can see we have this helpful little comment to look inside the block to find the problem.
+
+01:34.000 --> 01:43.000
+The way that we can actually get started on implementing this block, or in other words, looking inside the block and finding the problem,
+
+01:43.000 --> 01:46.000
+is by right-clicking on the block and selecting edit.
+
+01:46.000 --> 01:56.000
+This will open up a block editor where we can just kind of write the code that we want to, or that's necessary to be able to implement the given block.
+
+01:56.000 --> 02:01.000
+In this case, the block is just testing if a given number is between some lower and upper bound.
+
+02:02.000 --> 02:09.000
+So maybe just as a first pass, I'll just say that nothing is within the range.
+
+02:09.000 --> 02:15.000
+Of course, this isn't going to be an answer we expect to do very well,
+
+02:15.000 --> 02:22.000
+but it should at least illustrate how we can actually then evaluate our kind of intermediate solution.
+
+02:23.000 --> 02:29.000
+If we select the extensions button and go to the programming for a networked world option,
+
+02:29.000 --> 02:33.000
+we can now see that this menu is updated, so we can see we have two options.
+
+02:33.000 --> 02:36.000
+We can grade our assignment, or we can submit the assignment.
+
+02:36.000 --> 02:40.000
+If we select grade the assignment, we'll see that we have a list of tests,
+
+02:40.000 --> 02:45.000
+which only has one passing right now.
+
+02:46.000 --> 02:53.000
+If I change this from false to true and then rerun the test, now we can see we have four out of five tests passing.
+
+02:53.000 --> 02:57.000
+Of course, if this were an assignment that we were actually using in the course,
+
+02:57.000 --> 03:04.000
+we probably would like a better solution to get 80%, but for this example, this is sufficient.
+
+03:04.000 --> 03:12.000
+If I'm happy with the results that I'm getting, I can either select submit here in this grade assignment window,
+
+03:12.000 --> 03:16.000
+or there is also a submit option up here.
+
+03:16.000 --> 03:20.000
+I'm going to select it from this window, and when I click submit,
+
+03:20.000 --> 03:23.000
+now it'll ask us for our Coursera submission info.
+
+03:23.000 --> 03:26.000
+This is where we can enter our Coursera email address,
+
+03:26.000 --> 03:33.000
+and then the token that's provided on the Coursera website when we go to submit our assignment.
+
+03:34.000 --> 03:41.000
+Once you actually select OK, you should be able to see your results posted on the Coursera website,
+
+03:41.000 --> 03:43.000
+and be ready to jump into the next lesson.
+
+03:43.000 --> 03:46.000
+Awesome. See you in the next video.
+

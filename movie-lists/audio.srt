@@ -1,0 +1,468 @@
+1
+00:00:00,000 --> 00:00:04,000
+Hi everyone, welcome back to our series on programming for a networked world.
+
+2
+00:00:05,360 --> 00:00:11,360
+In this video, we're going to the movies. Well, to the movie database at least. Our project is
+
+3
+00:00:11,360 --> 00:00:16,320
+going to query this online database to find films with particular words in the titles.
+
+4
+00:00:16,320 --> 00:00:20,800
+We'll then loop through the results, writing the titles on the stage. Do you know how many
+
+5
+00:00:20,800 --> 00:00:27,440
+treatments of Frankenstein there are? After this nifty exercise, you will. This exercise combines
+
+6
+00:00:27,440 --> 00:00:32,720
+a number of programming concepts that we first met in other videos, including for loops, lists,
+
+7
+00:00:32,720 --> 00:00:38,480
+and variables. You'll see how we can combine these elements to create a sophisticated program,
+
+8
+00:00:38,480 --> 00:00:43,120
+and you'll also get a sneak peek at Netbox's ability to connect with data sources across
+
+9
+00:00:43,120 --> 00:00:48,640
+the internet. All right, ready to channel your inner film critic? Let's get started.
+
+10
+00:00:48,640 --> 00:01:00,720
+Okay, so we're going to retrieve movie titles and list them on the stage. We're going to build
+
+11
+00:01:00,720 --> 00:01:05,280
+this program block by block, and I want to explain the thought process as we move along,
+
+12
+00:01:05,280 --> 00:01:09,680
+but I want to talk a little bit about the call block from the red category before we begin.
+
+13
+00:01:10,320 --> 00:01:17,040
+So let's take a look at that block now. Here I'll bring it over, and it's under the network tab.
+
+14
+00:01:18,720 --> 00:01:29,040
+Here we go. Call. Okay. This call block with its companion run block allows Netbox to make remote
+
+15
+00:01:29,040 --> 00:01:34,400
+procedure calls. That is, these two blocks allow you to connect with other systems and perform
+
+16
+00:01:34,400 --> 00:01:39,200
+some prescribed action. For instance, we're going to use the call block to connect with the
+
+17
+00:01:39,200 --> 00:01:47,040
+movie database API. The term API is short for Application Programming Interface. An API provides
+
+18
+00:01:47,040 --> 00:01:54,400
+the rulebook for interacting with another system. In Netbox, we use this call block to make remote
+
+19
+00:01:54,400 --> 00:01:59,600
+procedure calls to application programming interfaces. These calls allow us, among other
+
+20
+00:01:59,600 --> 00:02:04,160
+things, to request and retrieve information that we would not have otherwise in our program.
+
+21
+00:02:05,040 --> 00:02:09,520
+In this case, for instance, we're going to use the call block to search for movie titles
+
+22
+00:02:09,520 --> 00:02:14,720
+matching a given keyword, and then to display those titles in a list. To do this, we need to
+
+23
+00:02:14,720 --> 00:02:19,840
+use the drop-down menus to navigate to MovieDB, and then we're going to use the drop-down menu
+
+24
+00:02:19,840 --> 00:02:26,560
+to select the precise API that we want to call. So let's see over here. When we do that, we've got a
+
+25
+00:02:26,560 --> 00:02:35,040
+long list, and we want to go to MovieDB, and then we're going to select Search Movie, and you'll see
+
+26
+00:02:35,120 --> 00:02:41,280
+that now it's asking for a string title. Okay, let's add the term Frankenstein.
+
+27
+00:02:43,120 --> 00:02:50,800
+So go over here, put in Frankenstein, and what will happen when we click it?
+
+28
+00:02:52,640 --> 00:03:00,400
+We get back a list of numbers. So what do these numbers represent? Well, we can right-click here
+
+29
+00:03:00,400 --> 00:03:07,920
+and click Help, and we see that for the MovieDB database and the Search Movie operation,
+
+30
+00:03:08,720 --> 00:03:17,120
+that it searches for a given movie and returns movie IDs. So you can search for a title of a movie.
+
+31
+00:03:17,120 --> 00:03:24,720
+It will return to the title of that movie in the MovieDB database. The IDs themselves do not have
+
+32
+00:03:24,720 --> 00:03:29,680
+intrinsic meaning. To get to the titles of the movies to which they correspond, we need to make
+
+33
+00:03:29,680 --> 00:03:36,080
+a call to the MovieDB database again. So let's try that. We're going to take one of these numbers,
+
+34
+00:03:36,080 --> 00:03:42,480
+and then we're going to send it back to the MovieDB database to get the actual title of the
+
+35
+00:03:42,480 --> 00:03:54,960
+movie with that ID in the database. So let's try it with title 3, let's say 3103. So 3103, we call
+
+36
+00:03:54,960 --> 00:04:06,640
+that, and oh, we need to change this now to Movies, and we want to get the title of the movie. So we'll
+
+37
+00:04:06,640 --> 00:04:16,320
+move down here, and now it says, okay, ID 3103. Click on that. So that ID corresponds to the title
+
+38
+00:04:16,320 --> 00:04:22,480
+House of Frankenstein in the MovieDB database. So if you're counting, you see that we have to make
+
+39
+00:04:23,040 --> 00:04:29,600
+two calls to get the title. First, we query for the movie ID, and then we send the movie ID back
+
+40
+00:04:29,600 --> 00:04:36,000
+to get the title of the movie that matches that ID. So if we want to search for, say, 20 movies,
+
+41
+00:04:36,000 --> 00:04:42,480
+we need to make 21 calls in all. First, we get a list of 20 items, and those are the 20 IDs that
+
+42
+00:04:42,480 --> 00:04:46,160
+we're going to use, and then we need to iterate through that list, and we're going to use a
+
+43
+00:04:46,160 --> 00:04:52,880
+for loop for that to go find each of the titles of those IDs in turn. Not every API works the same
+
+44
+00:04:52,880 --> 00:04:58,160
+way, of course. Some allow you to pass a list of IDs, or the equivalent, and to receive a list back
+
+45
+00:04:58,160 --> 00:05:02,720
+so that you can reduce your calls to just two. In general, it's better to minimize your remote
+
+46
+00:05:02,720 --> 00:05:08,640
+procedure calls to avoid tying up other systems and to make your own program go faster. But in the
+
+47
+00:05:08,640 --> 00:05:14,720
+grand scheme of things, calling out 21 times to the MovieDB database shouldn't pose any problems.
+
+48
+00:05:14,720 --> 00:05:19,120
+So we'll be exploring a lot of the remote procedure calls available in NetsBlocks throughout
+
+49
+00:05:19,120 --> 00:05:24,320
+this course, and the team is adding new remote procedure calls all the time. But let's stop with
+
+50
+00:05:24,320 --> 00:05:29,680
+these preliminaries, and let's get started with the project itself. We've got our MovieDB search
+
+51
+00:05:29,680 --> 00:05:35,040
+movie title, and that will be a central block. But we don't want to just ask for Frankenstein,
+
+52
+00:05:35,040 --> 00:05:40,160
+we want to leave it open so you can ask for any type of movie you like. So let's have the program
+
+53
+00:05:40,160 --> 00:05:54,240
+ask a question. What movies would you like? Or maybe it should be which, to be more proper, right?
+
+54
+00:05:56,800 --> 00:06:04,320
+There we go. And then the answer will be contained in this answer. Now, when we make this call out,
+
+55
+00:06:04,320 --> 00:06:08,640
+remember we're going to want to keep this list in memory. We're going to want to iterate through it
+
+56
+00:06:08,640 --> 00:06:15,600
+20 times. So I think that we'll create a variable, and let's do that as a script variable. So I'll
+
+57
+00:06:15,600 --> 00:06:22,160
+put that right here, maybe at the top. And then we're going to set that script variable here
+
+58
+00:06:23,120 --> 00:06:31,440
+to the result of calling out to the MovieDB database for movies with that particular title.
+
+59
+00:06:31,440 --> 00:06:39,520
+Oh, and we need to change this to MovieList, say. Okay, so MovieList, and we'll change that then.
+
+60
+00:06:40,080 --> 00:06:45,840
+Okay, so when this calls out, this should set the variable to MovieList, and then we can
+
+61
+00:06:46,880 --> 00:06:54,480
+work with the results. All right, the other thing that we want to do then is have this program
+
+62
+00:06:55,040 --> 00:06:59,440
+right on the stage. So how should we do that? Well, we'll start with clearing the stage,
+
+63
+00:06:59,440 --> 00:07:03,360
+nothing's written there, and then I think we're going to have under Looks,
+
+64
+00:07:05,840 --> 00:07:14,960
+we're going to use Hide. Okay, so Hide allows us to hide the sprite so the stage is visible,
+
+65
+00:07:14,960 --> 00:07:18,720
+even though the sprite will still be able to write on the stage. So let's try that out.
+
+66
+00:07:20,000 --> 00:07:24,560
+There we go, and there's our question being asked. So, so far, so good. I'll just stop it right there.
+
+67
+00:07:25,520 --> 00:07:31,840
+Let's keep going. Okay, so now we've hidden Ada, and we're ready to write in the stage,
+
+68
+00:07:31,840 --> 00:07:37,600
+but how do we write in the stage? Well, under Pen, we can go over here, and there's a
+
+69
+00:07:38,320 --> 00:07:43,920
+Write on the Stage. Now, the thing is, if we just click on Write in the Stage, hello, size 12,
+
+70
+00:07:43,920 --> 00:07:48,240
+it'll just put it right in the middle where Ada was standing. We actually want to set the coordinates
+
+71
+00:07:48,240 --> 00:07:54,960
+so that it writes in the right place, and let's do that by moving it. And so we'll start,
+
+72
+00:07:56,400 --> 00:08:01,920
+let's say, we'll start by going to a particular point in the stage,
+
+73
+00:08:04,000 --> 00:08:09,600
+and I think, so the x variable here, we probably want to have it negative 150,
+
+74
+00:08:11,040 --> 00:08:14,480
+and the y at maybe negative 100. Let's see where that moves us.
+
+75
+00:08:18,320 --> 00:08:24,640
+I don't know. Okay, so we need to have the y at 150. There we go.
+
+76
+00:08:27,600 --> 00:08:33,840
+Okay, that looks about the right place to be writing, and so then every time we write,
+
+77
+00:08:33,840 --> 00:08:37,040
+we want to sort of move down a little bit so that we don't just write on top of our
+
+78
+00:08:37,040 --> 00:08:43,360
+results as we go along. So let's see how that works. Stop here, and we're going to put the
+
+79
+00:08:43,360 --> 00:08:47,840
+write in, but now when we're writing this out, we're not writing out the list. We want to write
+
+80
+00:08:47,840 --> 00:08:52,560
+out each of the titles in turn, and this is where we need a for loop. So let's go over here to
+
+81
+00:08:52,560 --> 00:09:01,120
+control, and we'll grab our for loop, and we're going to drop it in here. And how, you know,
+
+82
+00:09:01,120 --> 00:09:05,760
+how many results do we want to iterate through? Well, it depends on how many results came back
+
+83
+00:09:05,760 --> 00:09:14,800
+from our query initially to the movie database. So we'll go over to the variables, and we're going
+
+84
+00:09:14,800 --> 00:09:22,800
+to get the length of whatever came back here. So let's go to length of, and we'll say the movie list.
+
+85
+00:09:24,080 --> 00:09:29,440
+There we go. So we're going to iterate from the first item in that list until the last item in
+
+86
+00:09:29,440 --> 00:09:33,440
+that list, and then we're going to do something. Namely, we're going to write on the stage,
+
+87
+00:09:34,320 --> 00:09:39,840
+but we still haven't called out again to get the actual title. So let's put that in,
+
+88
+00:09:40,800 --> 00:09:47,440
+and we don't need to create a variable necessarily for that. We can just take the call block over,
+
+89
+00:09:48,160 --> 00:09:55,360
+and we can drop it into right here. Drop this down to movie database.
+
+90
+00:09:57,680 --> 00:10:05,360
+It's over to movies, and we're going to get the title, and now we just need to pass in
+
+91
+00:10:06,240 --> 00:10:10,320
+the id from that list. So what id is it? Well, the iterator will tell us.
+
+92
+00:10:11,440 --> 00:10:18,560
+It's number one, number two, number three, and so on in that list. So now we need to go back to
+
+93
+00:10:18,560 --> 00:10:27,120
+variables and just get this item one of right here. And so it's not item one of anymore, it's item i.
+
+94
+00:10:27,120 --> 00:10:33,280
+That's the iterator that we're using. So each time that we iterate, as I said, that will increase by
+
+95
+00:10:33,280 --> 00:10:39,760
+one automatically, and that will help us to move our way through this list. And so we'll just put
+
+96
+00:10:39,760 --> 00:10:47,120
+the list here. It's our list of movies, and then we can write it in size 12. And again, the one
+
+97
+00:10:47,120 --> 00:10:52,720
+thing we need to do is move down a little bit each time so that we're not writing on top of each other.
+
+98
+00:10:53,760 --> 00:11:00,400
+So let's do that with move, and basically we need to kind of do two things. We want to sort of set
+
+99
+00:11:00,400 --> 00:11:09,600
+the margin back on the left-hand side, so we'll set x here because x will always be at negative 150.
+
+100
+00:11:11,200 --> 00:11:20,320
+And then with y, we're going to change y by negative 10. So x will always go back to the
+
+101
+00:11:20,320 --> 00:11:28,480
+same place, but y will continue to move down the screen as we go. All right, and
+
+102
+00:11:29,440 --> 00:11:35,600
+I think that's good. Let's give it a nice hat block to get started, so we can start with a click.
+
+103
+00:11:36,400 --> 00:11:44,000
+There we go. And with any luck, this should work. So what movie should we like to see? Let's say
+
+104
+00:11:44,000 --> 00:11:54,640
+Frankenstein, and there we go. We get a nice list of movies. Now if you want to be even fancier,
+
+105
+00:11:55,520 --> 00:12:00,320
+you could take the iterator, for example, and make that an ordered list. Let's take a look here. I
+
+106
+00:12:00,320 --> 00:12:09,920
+want to go to operators, and I want to join here two things. One is going to be the title. Well,
+
+107
+00:12:09,920 --> 00:12:14,160
+actually, let's expand this a little bit. You can see that you can expand that block, and I'm going
+
+108
+00:12:14,160 --> 00:12:23,600
+to pull in this. This will just be a space, and then I'm going to use the iterator here.
+
+109
+00:12:24,720 --> 00:12:30,240
+And so now, instead of writing hello, I'll have, let's put a period there too. That looks
+
+110
+00:12:31,040 --> 00:12:37,440
+very formal. We'll have one dot the name, two dot the name, and so forth and so forth.
+
+111
+00:12:38,480 --> 00:12:41,200
+And let's change the size a little bit, so it's a little bit bigger.
+
+112
+00:12:44,480 --> 00:12:50,080
+And I've got to make sure I'm spelling it correctly too. Frankenstein.
+
+113
+00:12:53,280 --> 00:13:00,560
+Okay, so let's review what we learned in this session. We saw how to call out to a data source
+
+114
+00:13:00,560 --> 00:13:08,000
+on the web using an RPC, and then to pull back data in the form of a list. And then we used a
+
+115
+00:13:08,000 --> 00:13:13,920
+for loop to iterate through that list one item at a time and print its title on the stage.
+
+116
+00:13:14,720 --> 00:13:18,800
+So why don't you try this for yourself and share in the comments how it went,
+
+117
+00:13:18,800 --> 00:13:21,040
+and I'll see you in my next video.
+

@@ -1,0 +1,920 @@
+1
+00:00:00,000 --> 00:00:00,500
+Hi.
+
+2
+00:00:00,500 --> 00:00:02,860
+Welcome back to Programming for Network World.
+
+3
+00:00:02,860 --> 00:00:05,340
+Today's topic is mapping.
+
+4
+00:00:05,340 --> 00:00:08,580
+So we use maps all the time in our daily life.
+
+5
+00:00:08,580 --> 00:00:11,100
+We have them on our phones, and we use them in our cars
+
+6
+00:00:11,100 --> 00:00:13,100
+to guide us from point to point.
+
+7
+00:00:13,100 --> 00:00:17,060
+And you can also use maps within your NetFlux program.
+
+8
+00:00:17,060 --> 00:00:19,740
+So today, we're going to learn how to bring up a map
+
+9
+00:00:19,740 --> 00:00:23,660
+and to locate various topics or places of interest
+
+10
+00:00:23,660 --> 00:00:25,860
+in the world on those maps.
+
+11
+00:00:25,860 --> 00:00:28,660
+Ready to get mapping?
+
+12
+00:00:28,660 --> 00:00:29,420
+Let's get started.
+
+13
+00:00:36,020 --> 00:00:41,500
+OK, so like any other service in Nest Blocks, mapping is an RPC.
+
+14
+00:00:41,500 --> 00:00:45,540
+So if we go over to our Network tab
+
+15
+00:00:45,540 --> 00:00:51,340
+and we click on the Call block here, we can drop down
+
+16
+00:00:51,340 --> 00:00:56,420
+and we can see that there is a entry for Google Maps.
+
+17
+00:00:56,420 --> 00:00:59,060
+And if we look at what's available here,
+
+18
+00:00:59,060 --> 00:01:00,780
+there's lots of choices.
+
+19
+00:01:00,780 --> 00:01:03,420
+We'll just try GitMap for now.
+
+20
+00:01:03,420 --> 00:01:06,620
+And you can see, we'll move Ada over a little bit.
+
+21
+00:01:06,620 --> 00:01:09,980
+You can see that there are slots for latitude, longitude,
+
+22
+00:01:09,980 --> 00:01:12,660
+width, height, and zoom.
+
+23
+00:01:12,660 --> 00:01:15,100
+So latitude and longitude allow us
+
+24
+00:01:15,100 --> 00:01:20,300
+to find the coordinate location of any place on a map
+
+25
+00:01:20,300 --> 00:01:21,500
+projection.
+
+26
+00:01:21,500 --> 00:01:23,740
+So that is really important information
+
+27
+00:01:23,740 --> 00:01:25,660
+about where to locate items in maps.
+
+28
+00:01:25,660 --> 00:01:27,660
+We'll get to width, height, and zoom in a moment.
+
+29
+00:01:27,660 --> 00:01:30,300
+But how do we know our latitude and longitude?
+
+30
+00:01:30,300 --> 00:01:32,020
+Well, we could look it up online.
+
+31
+00:01:32,020 --> 00:01:34,320
+But fortunately, there's also a block
+
+32
+00:01:34,320 --> 00:01:36,460
+for that within Nest Blocks.
+
+33
+00:01:36,460 --> 00:01:37,580
+We'll go down here.
+
+34
+00:01:37,580 --> 00:01:39,620
+And you'll see here that there is
+
+35
+00:01:39,620 --> 00:01:45,020
+My Latitude and My Longitude.
+
+36
+00:01:45,020 --> 00:01:47,660
+Now, when I click on My Latitude,
+
+37
+00:01:47,660 --> 00:01:50,300
+if you have an enabled geospatial lookup
+
+38
+00:01:50,300 --> 00:01:52,360
+within your browser, you may get this pop-up.
+
+39
+00:01:52,360 --> 00:01:55,640
+And you just want to say Allow.
+
+40
+00:01:55,640 --> 00:01:57,560
+So we're going to allow that.
+
+41
+00:01:57,560 --> 00:02:00,440
+And now, the next time I click on it,
+
+42
+00:02:00,440 --> 00:02:02,160
+it should come back with a number.
+
+43
+00:02:02,160 --> 00:02:04,440
+So that represents My Latitude.
+
+44
+00:02:04,440 --> 00:02:07,360
+And the same thing here for My Longitude.
+
+45
+00:02:07,360 --> 00:02:09,480
+Now, the easy thing to do is just
+
+46
+00:02:09,480 --> 00:02:13,280
+to drop it into the slots that correspond to that.
+
+47
+00:02:13,280 --> 00:02:16,560
+And we're halfway there.
+
+48
+00:02:16,560 --> 00:02:19,000
+And the width and the height of the map
+
+49
+00:02:19,000 --> 00:02:22,960
+actually have to do with the width and height of our stage.
+
+50
+00:02:22,960 --> 00:02:25,160
+So we can also get that information right here,
+
+51
+00:02:25,160 --> 00:02:27,800
+Stage Height and Stage Width.
+
+52
+00:02:27,800 --> 00:02:30,440
+Of course, you can just type these in as numbers as well.
+
+53
+00:02:30,440 --> 00:02:33,160
+But this just makes it easier so that your map will adjust
+
+54
+00:02:33,160 --> 00:02:35,200
+as the size of the stage adjusts.
+
+55
+00:02:35,200 --> 00:02:38,520
+So here, we see that Stage Height is 360.
+
+56
+00:02:38,520 --> 00:02:41,320
+And the Stage Width, oops, I put it in the wrong place.
+
+57
+00:02:41,320 --> 00:02:44,520
+Stage Height, there we go.
+
+58
+00:02:44,520 --> 00:02:49,520
+Stage Width, we didn't check to see what the Stage Width was.
+
+59
+00:02:49,520 --> 00:02:51,200
+It was 480.
+
+60
+00:02:51,200 --> 00:02:55,560
+And let's do a default zoom of, say, 9.
+
+61
+00:02:55,560 --> 00:02:58,880
+Now, if we click that, you'll see that it
+
+62
+00:02:58,880 --> 00:03:01,320
+will go out to get a map.
+
+63
+00:03:01,320 --> 00:03:05,000
+But we have that same issue we've seen in other RPCs.
+
+64
+00:03:05,000 --> 00:03:06,800
+It's a very small map.
+
+65
+00:03:06,800 --> 00:03:08,760
+And that's because, as you know, in order
+
+66
+00:03:08,760 --> 00:03:11,040
+to make this appear on the stage,
+
+67
+00:03:11,040 --> 00:03:14,080
+we need to go to the Looks palette
+
+68
+00:03:14,080 --> 00:03:15,560
+and say Switch to Costume.
+
+69
+00:03:15,560 --> 00:03:17,800
+So now we can say Switch to Costume,
+
+70
+00:03:17,800 --> 00:03:20,960
+bring this down here, and click on this.
+
+71
+00:03:21,480 --> 00:03:26,240
+480 will disappear, and a map will appear in its place.
+
+72
+00:03:26,240 --> 00:03:28,320
+And this shows you where I am right now,
+
+73
+00:03:28,320 --> 00:03:31,600
+recording this in Nashville, Tennessee.
+
+74
+00:03:31,600 --> 00:03:33,040
+But oftentimes, in your programs,
+
+75
+00:03:33,040 --> 00:03:35,240
+you don't want to just show where you are now.
+
+76
+00:03:35,240 --> 00:03:37,720
+You often want to look up where you might like
+
+77
+00:03:37,720 --> 00:03:39,920
+to be or show other places.
+
+78
+00:03:39,920 --> 00:03:43,680
+So let's design a program to do what's called geolocation.
+
+79
+00:03:43,680 --> 00:03:45,600
+We're going to pass in an address.
+
+80
+00:03:45,600 --> 00:03:47,560
+Then we're going to get the coordinate location
+
+81
+00:03:47,560 --> 00:03:48,560
+of that address.
+
+82
+00:03:48,560 --> 00:03:50,600
+And then we're going to pass that information
+
+83
+00:03:50,720 --> 00:03:56,720
+into our mapping RPC and display that place on the map.
+
+84
+00:03:56,720 --> 00:03:58,160
+And just to make this more fun, let's
+
+85
+00:03:58,160 --> 00:04:00,200
+imagine that you're going on a college tour.
+
+86
+00:04:00,200 --> 00:04:01,280
+You're thinking about what college
+
+87
+00:04:01,280 --> 00:04:02,640
+you might like to attend.
+
+88
+00:04:02,640 --> 00:04:04,400
+And you want to see where these places are on a map.
+
+89
+00:04:04,400 --> 00:04:06,480
+So we're going to make this possible for us
+
+90
+00:04:06,480 --> 00:04:09,560
+to type in the name of a college, get its location,
+
+91
+00:04:09,560 --> 00:04:11,960
+and then show where it is on the map.
+
+92
+00:04:11,960 --> 00:04:18,480
+OK, so to do that, let's start off with sensing.
+
+93
+00:04:18,480 --> 00:04:22,480
+And we'll ask a question here.
+
+94
+00:04:22,480 --> 00:04:24,520
+So we'll say, ask.
+
+95
+00:04:24,520 --> 00:04:31,160
+And we'll bring it up here and say, what college
+
+96
+00:04:31,160 --> 00:04:34,480
+are we thinking about?
+
+97
+00:04:34,480 --> 00:04:35,920
+How about that?
+
+98
+00:04:35,920 --> 00:04:36,920
+It's a question.
+
+99
+00:04:36,920 --> 00:04:39,360
+And you know that when you ask a question like that
+
+100
+00:04:39,360 --> 00:04:42,560
+with the ask block, that the answer is captured here
+
+101
+00:04:42,560 --> 00:04:44,200
+in this answer block.
+
+102
+00:04:44,200 --> 00:04:48,640
+Now, we need to use a different RPC to get those coordinates.
+
+103
+00:04:48,640 --> 00:04:50,320
+And that is also built in.
+
+104
+00:04:50,320 --> 00:04:53,080
+But it's not in the same RPC that we've been using.
+
+105
+00:04:53,080 --> 00:04:57,240
+So let's go over here to get our call block again.
+
+106
+00:04:57,240 --> 00:04:58,640
+Let's drop it down.
+
+107
+00:04:58,640 --> 00:05:00,240
+And let's look at what's possible here.
+
+108
+00:05:00,240 --> 00:05:02,600
+And we see, for example, right above Google Maps,
+
+109
+00:05:02,600 --> 00:05:05,660
+very convenient, is geolocation.
+
+110
+00:05:05,660 --> 00:05:07,920
+And when we drop down geolocation,
+
+111
+00:05:07,920 --> 00:05:10,360
+we can get a lot of different types of information
+
+112
+00:05:10,360 --> 00:05:11,040
+we can pass in.
+
+113
+00:05:11,040 --> 00:05:15,160
+Basically, we could pass in a street address, a city name.
+
+114
+00:05:15,160 --> 00:05:16,880
+We can see what's nearby.
+
+115
+00:05:16,880 --> 00:05:19,360
+We can ask about different countries.
+
+116
+00:05:19,360 --> 00:05:21,600
+So there's lots of things you can do here.
+
+117
+00:05:21,600 --> 00:05:23,320
+We're just going to use this geolocate.
+
+118
+00:05:23,320 --> 00:05:24,780
+And it asks for an address.
+
+119
+00:05:24,780 --> 00:05:26,280
+Now, you might think you have to give
+
+120
+00:05:26,280 --> 00:05:27,820
+like the street address of colleges
+
+121
+00:05:27,820 --> 00:05:29,520
+and go to their website and look that up.
+
+122
+00:05:29,520 --> 00:05:31,480
+But actually, it will figure this out for you.
+
+123
+00:05:31,480 --> 00:05:33,200
+This is the nice thing about this block.
+
+124
+00:05:33,200 --> 00:05:34,740
+For the most part, you can just type
+
+125
+00:05:34,740 --> 00:05:36,720
+in the name of what you're interested in.
+
+126
+00:05:36,720 --> 00:05:39,160
+And it will try to geolocate it for you.
+
+127
+00:05:39,160 --> 00:05:43,840
+So I might try, for example, Vanderbilt University
+
+128
+00:05:43,840 --> 00:05:46,120
+and try this out.
+
+129
+00:05:46,120 --> 00:05:47,920
+Let's see.
+
+130
+00:05:47,920 --> 00:05:53,560
+And now I get a list of lists, latitude and longitude.
+
+131
+00:05:53,560 --> 00:05:56,320
+So OK, we know when we get information back
+
+132
+00:05:56,320 --> 00:05:58,920
+in that form of a list of lists, we've done this before,
+
+133
+00:05:58,920 --> 00:06:01,120
+that we need to go over and start
+
+134
+00:06:01,120 --> 00:06:02,460
+extracting that information.
+
+135
+00:06:02,460 --> 00:06:05,320
+Because in order to pass in latitude and longitude,
+
+136
+00:06:05,320 --> 00:06:07,720
+we need to get those separately.
+
+137
+00:06:07,720 --> 00:06:09,560
+So let's do that.
+
+138
+00:06:09,560 --> 00:06:13,600
+And the easiest way to do that, perhaps, is to get a variable.
+
+139
+00:06:13,600 --> 00:06:22,320
+And we'll call this our place or maybe our college or maybe,
+
+140
+00:06:22,320 --> 00:06:24,000
+yeah, our college is fine.
+
+141
+00:06:24,000 --> 00:06:25,820
+So we'll call it our college.
+
+142
+00:06:25,820 --> 00:06:30,480
+And then here, we're going to call.
+
+143
+00:06:30,480 --> 00:06:37,400
+We'll have a block where we set that variable here.
+
+144
+00:06:37,400 --> 00:06:43,000
+And we're going to set our college
+
+145
+00:06:43,000 --> 00:06:46,800
+to the value of this RPC.
+
+146
+00:06:46,800 --> 00:06:50,040
+But we're going to use that answer variable here
+
+147
+00:06:50,040 --> 00:06:51,960
+to say what college we're looking for.
+
+148
+00:06:51,960 --> 00:06:52,760
+OK, so that's good.
+
+149
+00:06:52,760 --> 00:06:55,600
+That'll capture that information for our college.
+
+150
+00:06:55,600 --> 00:06:57,760
+Now, in order to be able to pass it
+
+151
+00:06:57,760 --> 00:06:59,880
+in as my latitude and my longitude,
+
+152
+00:06:59,880 --> 00:07:01,880
+we'll take that out because that always shows me
+
+153
+00:07:01,880 --> 00:07:03,000
+where I am right now.
+
+154
+00:07:03,000 --> 00:07:04,600
+And we want to show where I'd like
+
+155
+00:07:04,600 --> 00:07:06,880
+to be when I'm thinking about this college.
+
+156
+00:07:06,880 --> 00:07:10,760
+So here, we're going to take this item 1 of
+
+157
+00:07:10,760 --> 00:07:16,760
+and take another one here and do this here.
+
+158
+00:07:16,760 --> 00:07:21,840
+Same thing there, but we'll do this one will be item 2.
+
+159
+00:07:21,840 --> 00:07:23,640
+And we might need to look at this again just
+
+160
+00:07:23,640 --> 00:07:24,920
+to kind of get a sense of.
+
+161
+00:07:24,920 --> 00:07:27,880
+I'll copy this here, duplicate it,
+
+162
+00:07:27,880 --> 00:07:29,460
+just so you have a sense of what we're
+
+163
+00:07:29,460 --> 00:07:31,200
+trying to identify in this.
+
+164
+00:07:31,200 --> 00:07:35,200
+So again, type in, just for the sake of exercise here,
+
+165
+00:07:35,200 --> 00:07:38,960
+Vanderbilt University.
+
+166
+00:07:38,960 --> 00:07:42,080
+And when I click on it, OK, latitude and longitude.
+
+167
+00:07:42,080 --> 00:07:45,080
+So I need to get this number and this number.
+
+168
+00:07:45,080 --> 00:07:48,760
+So that's going to be here item 1.
+
+169
+00:07:48,760 --> 00:07:57,400
+It's going to be item 2 of item 1 and item 2 of item 2,
+
+170
+00:07:57,400 --> 00:08:04,640
+because that is item 1, but item 2 of item 1.
+
+171
+00:08:04,640 --> 00:08:08,360
+And this is item 2 and item 2 of item 2.
+
+172
+00:08:08,360 --> 00:08:10,160
+So let's just test it out with one of these
+
+173
+00:08:10,160 --> 00:08:12,320
+and we'll see if we get the right information here.
+
+174
+00:08:12,320 --> 00:08:13,320
+There we go, 36.
+
+175
+00:08:13,320 --> 00:08:14,560
+That's right.
+
+176
+00:08:14,560 --> 00:08:17,040
+And here, we should get negative 86.
+
+177
+00:08:17,040 --> 00:08:18,000
+That's right.
+
+178
+00:08:18,000 --> 00:08:19,540
+So that's the way that we need to be
+
+179
+00:08:19,540 --> 00:08:24,720
+able to capture that information coming out of our college.
+
+180
+00:08:24,720 --> 00:08:28,120
+So we'll put this down here for latitude.
+
+181
+00:08:28,120 --> 00:08:29,080
+This is the tricky one.
+
+182
+00:08:29,080 --> 00:08:30,780
+Which is latitude and which is longitude?
+
+183
+00:08:30,780 --> 00:08:32,360
+Well, we'll find out in a minute.
+
+184
+00:08:32,360 --> 00:08:35,520
+And here we go.
+
+185
+00:08:35,520 --> 00:08:37,080
+And we'll get these off the stage
+
+186
+00:08:37,080 --> 00:08:39,440
+because we don't need them any longer.
+
+187
+00:08:39,440 --> 00:08:41,880
+All right.
+
+188
+00:08:41,880 --> 00:08:44,080
+And we'll duplicate this variable here.
+
+189
+00:08:44,080 --> 00:08:45,800
+We'll just pull it out.
+
+190
+00:08:45,800 --> 00:08:48,720
+Oops.
+
+191
+00:08:48,720 --> 00:08:52,880
+And drop it in here and drop it in here.
+
+192
+00:08:52,880 --> 00:08:54,280
+Now, let's just try Vanderbilt just
+
+193
+00:08:54,280 --> 00:08:56,080
+to see if we've got this right.
+
+194
+00:08:56,080 --> 00:08:57,880
+So it should ask me where I'd like to go,
+
+195
+00:08:57,880 --> 00:08:59,120
+what college am I thinking of.
+
+196
+00:08:59,120 --> 00:09:03,000
+Let's say Vanderbilt University.
+
+197
+00:09:03,000 --> 00:09:03,720
+Click on that.
+
+198
+00:09:07,520 --> 00:09:13,080
+And we don't seem to have gotten there.
+
+199
+00:09:13,080 --> 00:09:15,640
+Oh, of course we did because that's where we are.
+
+200
+00:09:15,640 --> 00:09:16,720
+Let's try a different one.
+
+201
+00:09:16,720 --> 00:09:17,680
+That's not too helpful.
+
+202
+00:09:17,680 --> 00:09:20,800
+So maybe it's working, but let's try it again.
+
+203
+00:09:20,800 --> 00:09:23,280
+Let's try Harvard University.
+
+204
+00:09:26,400 --> 00:09:27,880
+Yeah, it's working.
+
+205
+00:09:27,880 --> 00:09:28,520
+OK.
+
+206
+00:09:28,520 --> 00:09:30,760
+And let's try Michigan State just
+
+207
+00:09:30,760 --> 00:09:32,800
+to make sure everything is working fine here.
+
+208
+00:09:32,800 --> 00:09:41,120
+So Michigan State University.
+
+209
+00:09:41,120 --> 00:09:43,200
+There we go, East Lansing, Michigan.
+
+210
+00:09:43,200 --> 00:09:45,080
+OK, so it's definitely working.
+
+211
+00:09:45,080 --> 00:09:46,880
+We've got our latitude and longitude
+
+212
+00:09:46,880 --> 00:09:49,360
+in the right places.
+
+213
+00:09:49,360 --> 00:09:50,920
+You can adjust the zoom.
+
+214
+00:09:50,920 --> 00:09:52,680
+So if you want to get a little bit closer,
+
+215
+00:09:52,680 --> 00:09:54,560
+you could type in, for example, 11.
+
+216
+00:09:54,560 --> 00:09:56,080
+We can just try this again.
+
+217
+00:09:56,080 --> 00:10:01,840
+So let's try my alma mater, Kenyon College.
+
+218
+00:10:01,840 --> 00:10:03,040
+And there you go.
+
+219
+00:10:03,040 --> 00:10:05,240
+So you can get a little bit closer even still
+
+220
+00:10:05,240 --> 00:10:09,000
+if you type in higher numbers, you'll get greater zoom.
+
+221
+00:10:09,000 --> 00:10:10,680
+Obviously, if you have lower numbers,
+
+222
+00:10:10,680 --> 00:10:14,960
+you'll pull back more and get more of the encompassing area.
+
+223
+00:10:14,960 --> 00:10:18,480
+OK, so that, I think, is where we'll leave it for now.
+
+224
+00:10:18,480 --> 00:10:21,000
+We're going to continue this exercise of learning
+
+225
+00:10:21,000 --> 00:10:24,720
+to display information on maps in our next videos.
+
+226
+00:10:24,720 --> 00:10:27,360
+But that's a short introduction to how to use the map
+
+227
+00:10:27,360 --> 00:10:31,320
+and how to look up information using geolocation
+
+228
+00:10:31,320 --> 00:10:35,040
+and then to bring us to that point on a map.
+
+229
+00:10:35,040 --> 00:10:36,720
+So thanks, everyone, for joining me.
+
+230
+00:10:36,720 --> 00:10:39,080
+And I'll see you in the next video.
+

@@ -1,0 +1,117 @@
+Hi everyone, welcome back to our series on programming for a networked world.
+In this video, we're going to the movies. Well, to the movie database at least. Our project is
+going to query this online database to find films with particular words in the titles.
+We'll then loop through the results, writing the titles on the stage. Do you know how many
+treatments of Frankenstein there are? After this nifty exercise, you will. This exercise combines
+a number of programming concepts that we first met in other videos, including for loops, lists,
+and variables. You'll see how we can combine these elements to create a sophisticated program,
+and you'll also get a sneak peek at Netbox's ability to connect with data sources across
+the internet. All right, ready to channel your inner film critic? Let's get started.
+Okay, so we're going to retrieve movie titles and list them on the stage. We're going to build
+this program block by block, and I want to explain the thought process as we move along,
+but I want to talk a little bit about the call block from the red category before we begin.
+So let's take a look at that block now. Here I'll bring it over, and it's under the network tab.
+Here we go. Call. Okay. This call block with its companion run block allows Netbox to make remote
+procedure calls. That is, these two blocks allow you to connect with other systems and perform
+some prescribed action. For instance, we're going to use the call block to connect with the
+movie database API. The term API is short for Application Programming Interface. An API provides
+the rulebook for interacting with another system. In Netbox, we use this call block to make remote
+procedure calls to application programming interfaces. These calls allow us, among other
+things, to request and retrieve information that we would not have otherwise in our program.
+In this case, for instance, we're going to use the call block to search for movie titles
+matching a given keyword, and then to display those titles in a list. To do this, we need to
+use the drop-down menus to navigate to MovieDB, and then we're going to use the drop-down menu
+to select the precise API that we want to call. So let's see over here. When we do that, we've got a
+long list, and we want to go to MovieDB, and then we're going to select Search Movie, and you'll see
+that now it's asking for a string title. Okay, let's add the term Frankenstein.
+So go over here, put in Frankenstein, and what will happen when we click it?
+We get back a list of numbers. So what do these numbers represent? Well, we can right-click here
+and click Help, and we see that for the MovieDB database and the Search Movie operation,
+that it searches for a given movie and returns movie IDs. So you can search for a title of a movie.
+It will return to the title of that movie in the MovieDB database. The IDs themselves do not have
+intrinsic meaning. To get to the titles of the movies to which they correspond, we need to make
+a call to the MovieDB database again. So let's try that. We're going to take one of these numbers,
+and then we're going to send it back to the MovieDB database to get the actual title of the
+movie with that ID in the database. So let's try it with title 3, let's say 3103. So 3103, we call
+that, and oh, we need to change this now to Movies, and we want to get the title of the movie. So we'll
+move down here, and now it says, okay, ID 3103. Click on that. So that ID corresponds to the title
+House of Frankenstein in the MovieDB database. So if you're counting, you see that we have to make
+two calls to get the title. First, we query for the movie ID, and then we send the movie ID back
+to get the title of the movie that matches that ID. So if we want to search for, say, 20 movies,
+we need to make 21 calls in all. First, we get a list of 20 items, and those are the 20 IDs that
+we're going to use, and then we need to iterate through that list, and we're going to use a
+for loop for that to go find each of the titles of those IDs in turn. Not every API works the same
+way, of course. Some allow you to pass a list of IDs, or the equivalent, and to receive a list back
+so that you can reduce your calls to just two. In general, it's better to minimize your remote
+procedure calls to avoid tying up other systems and to make your own program go faster. But in the
+grand scheme of things, calling out 21 times to the MovieDB database shouldn't pose any problems.
+So we'll be exploring a lot of the remote procedure calls available in NetsBlocks throughout
+this course, and the team is adding new remote procedure calls all the time. But let's stop with
+these preliminaries, and let's get started with the project itself. We've got our MovieDB search
+movie title, and that will be a central block. But we don't want to just ask for Frankenstein,
+we want to leave it open so you can ask for any type of movie you like. So let's have the program
+ask a question. What movies would you like? Or maybe it should be which, to be more proper, right?
+There we go. And then the answer will be contained in this answer. Now, when we make this call out,
+remember we're going to want to keep this list in memory. We're going to want to iterate through it
+20 times. So I think that we'll create a variable, and let's do that as a script variable. So I'll
+put that right here, maybe at the top. And then we're going to set that script variable here
+to the result of calling out to the MovieDB database for movies with that particular title.
+Oh, and we need to change this to MovieList, say. Okay, so MovieList, and we'll change that then.
+Okay, so when this calls out, this should set the variable to MovieList, and then we can
+work with the results. All right, the other thing that we want to do then is have this program
+right on the stage. So how should we do that? Well, we'll start with clearing the stage,
+nothing's written there, and then I think we're going to have under Looks,
+we're going to use Hide. Okay, so Hide allows us to hide the sprite so the stage is visible,
+even though the sprite will still be able to write on the stage. So let's try that out.
+There we go, and there's our question being asked. So, so far, so good. I'll just stop it right there.
+Let's keep going. Okay, so now we've hidden Ada, and we're ready to write in the stage,
+but how do we write in the stage? Well, under Pen, we can go over here, and there's a
+Write on the Stage. Now, the thing is, if we just click on Write in the Stage, hello, size 12,
+it'll just put it right in the middle where Ada was standing. We actually want to set the coordinates
+so that it writes in the right place, and let's do that by moving it. And so we'll start,
+let's say, we'll start by going to a particular point in the stage,
+and I think, so the x variable here, we probably want to have it negative 150,
+and the y at maybe negative 100. Let's see where that moves us.
+I don't know. Okay, so we need to have the y at 150. There we go.
+Okay, that looks about the right place to be writing, and so then every time we write,
+we want to sort of move down a little bit so that we don't just write on top of our
+results as we go along. So let's see how that works. Stop here, and we're going to put the
+write in, but now when we're writing this out, we're not writing out the list. We want to write
+out each of the titles in turn, and this is where we need a for loop. So let's go over here to
+control, and we'll grab our for loop, and we're going to drop it in here. And how, you know,
+how many results do we want to iterate through? Well, it depends on how many results came back
+from our query initially to the movie database. So we'll go over to the variables, and we're going
+to get the length of whatever came back here. So let's go to length of, and we'll say the movie list.
+There we go. So we're going to iterate from the first item in that list until the last item in
+that list, and then we're going to do something. Namely, we're going to write on the stage,
+but we still haven't called out again to get the actual title. So let's put that in,
+and we don't need to create a variable necessarily for that. We can just take the call block over,
+and we can drop it into right here. Drop this down to movie database.
+It's over to movies, and we're going to get the title, and now we just need to pass in
+the id from that list. So what id is it? Well, the iterator will tell us.
+It's number one, number two, number three, and so on in that list. So now we need to go back to
+variables and just get this item one of right here. And so it's not item one of anymore, it's item i.
+That's the iterator that we're using. So each time that we iterate, as I said, that will increase by
+one automatically, and that will help us to move our way through this list. And so we'll just put
+the list here. It's our list of movies, and then we can write it in size 12. And again, the one
+thing we need to do is move down a little bit each time so that we're not writing on top of each other.
+So let's do that with move, and basically we need to kind of do two things. We want to sort of set
+the margin back on the left-hand side, so we'll set x here because x will always be at negative 150.
+And then with y, we're going to change y by negative 10. So x will always go back to the
+same place, but y will continue to move down the screen as we go. All right, and
+I think that's good. Let's give it a nice hat block to get started, so we can start with a click.
+There we go. And with any luck, this should work. So what movie should we like to see? Let's say
+Frankenstein, and there we go. We get a nice list of movies. Now if you want to be even fancier,
+you could take the iterator, for example, and make that an ordered list. Let's take a look here. I
+want to go to operators, and I want to join here two things. One is going to be the title. Well,
+actually, let's expand this a little bit. You can see that you can expand that block, and I'm going
+to pull in this. This will just be a space, and then I'm going to use the iterator here.
+And so now, instead of writing hello, I'll have, let's put a period there too. That looks
+very formal. We'll have one dot the name, two dot the name, and so forth and so forth.
+And let's change the size a little bit, so it's a little bit bigger.
+And I've got to make sure I'm spelling it correctly too. Frankenstein.
+Okay, so let's review what we learned in this session. We saw how to call out to a data source
+on the web using an RPC, and then to pull back data in the form of a list. And then we used a
+for loop to iterate through that list one item at a time and print its title on the stage.
+So why don't you try this for yourself and share in the comments how it went,
+and I'll see you in my next video.

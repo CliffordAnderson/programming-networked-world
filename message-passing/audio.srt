@@ -1,0 +1,712 @@
+1
+00:00:00,000 --> 00:00:04,040
+Welcome back to Programming for a Network World. Today, we're going to be
+
+2
+00:00:04,040 --> 00:00:07,640
+building a texting application. We're going to be learning about something
+
+3
+00:00:07,640 --> 00:00:13,600
+called message passing in Netsblocks, and our goal today is to send a text message
+
+4
+00:00:13,600 --> 00:00:18,720
+to someone who's not actually inside our own project. Curious about how that's
+
+5
+00:00:18,720 --> 00:00:22,880
+going to happen? Let's get started.
+
+6
+00:00:22,880 --> 00:00:32,440
+So, to get started with this kind of project, you actually need two people or
+
+7
+00:00:32,440 --> 00:00:36,880
+you need to open up a separate web browser and run them side-by-side.
+
+8
+00:00:36,880 --> 00:00:42,480
+Fortunately today, I've got my colleague Brian Bruhl, who you know from all the
+
+9
+00:00:42,480 --> 00:00:45,880
+tests that you've had to do along the way, and he's going to be helping me out
+
+10
+00:00:45,880 --> 00:00:50,920
+in being my partner in this exercise. But don't worry, we'll also include
+
+11
+00:00:50,920 --> 00:00:55,800
+instructions on the site about how you can do this yourself if you want to try
+
+12
+00:00:55,800 --> 00:01:03,320
+it out alone. Alright, so messages. When you send messages in Netsblocks, you can
+
+13
+00:01:03,320 --> 00:01:07,860
+send them not only to sprites, but you can also send them across computer
+
+14
+00:01:07,860 --> 00:01:12,700
+boundaries. So the idea is very similar to what you might experience with email.
+
+15
+00:01:12,700 --> 00:01:16,240
+When you're writing email, it would be pretty limited if you could only email
+
+16
+00:01:16,240 --> 00:01:20,640
+other people on your own computer. You want to be able to email anyone around
+
+17
+00:01:20,640 --> 00:01:24,920
+the world. And so, to do that, you need to send a message to them with a
+
+18
+00:01:24,920 --> 00:01:29,360
+particular address. Now, the question I remember was when I started with email,
+
+19
+00:01:29,360 --> 00:01:35,120
+how do I know that person's address? Well, first of all, we need to think about, okay,
+
+20
+00:01:35,120 --> 00:01:41,600
+where do we find that in Netsblocks? So, in order to find where to pass the
+
+21
+00:01:41,600 --> 00:01:46,680
+message to, we need to go to this Room tab that you've seen before, but that we
+
+22
+00:01:46,680 --> 00:01:52,000
+haven't used up till now. And you'll see in there that I have a role. I'm in a
+
+23
+00:01:52,000 --> 00:01:57,000
+role called My Role, and below it is my username. Now, in order to set up the
+
+24
+00:01:57,000 --> 00:02:00,360
+environment in which we're going to communicate with these messages, we're
+
+25
+00:02:00,360 --> 00:02:04,880
+going to need to create additional roles. And I'll create a role, and then I'm
+
+26
+00:02:04,880 --> 00:02:09,160
+going to invite Brian to go into that role to write his piece of the program.
+
+27
+00:02:09,160 --> 00:02:13,040
+So this is really a distributed program. I'll be writing part of it, and then
+
+28
+00:02:13,040 --> 00:02:16,720
+you'll see Brian writing the other part of it, and we'll take it from there. So
+
+29
+00:02:16,720 --> 00:02:22,000
+to add a role, I can click here, Add a Role, and I'm going to call this Receiver.
+
+30
+00:02:22,000 --> 00:02:28,880
+And you'll see that it pops up, and there's a new role now in my room, but it
+
+31
+00:02:28,880 --> 00:02:33,840
+doesn't have anyone in it. It's empty. And My Role, just to make it clear, I can
+
+32
+00:02:33,840 --> 00:02:37,800
+click on the center here, and I can rename it. So let's give it a name called
+
+33
+00:02:37,800 --> 00:02:42,640
+Sender. So that's pretty clear. So we have Sender and Receiver. So this is just
+
+34
+00:02:42,640 --> 00:02:47,520
+going to be one-way texting. We won't try to make the scenario that we might
+
+35
+00:02:47,520 --> 00:02:50,920
+want to lead up to later, where Brian can actually text me back. I'm just going to
+
+36
+00:02:50,920 --> 00:02:56,840
+text him, and hopefully he'll get my messages. Okay, so now what I can do is I
+
+37
+00:02:56,840 --> 00:03:06,360
+can click on this. There we go. And I can say Invite User. And when I do that, I'll
+
+38
+00:03:06,360 --> 00:03:11,960
+see all the people that are on Netsbox at the moment. So I can see that I'm
+
+39
+00:03:11,960 --> 00:03:16,960
+there, but I need to look for Brian, and I need to find his username here
+
+40
+00:03:16,960 --> 00:03:21,520
+somewhere. And it looks like there it is, Brian. And so I'm going to invite him
+
+41
+00:03:21,520 --> 00:03:28,360
+into the role. And you'll see there that Brian now will be able to accept that
+
+42
+00:03:28,360 --> 00:03:35,060
+invitation, and in a moment his name will appear. And there it is, Brian. Okay,
+
+43
+00:03:35,060 --> 00:03:42,620
+fantastic. Now, the thing is, with these roles, they're like whole Netsbox
+
+44
+00:03:42,620 --> 00:03:45,740
+environments to themselves. So I want to make sure that when I'm programming, I'm
+
+45
+00:03:45,740 --> 00:03:50,100
+in the right role for what I'm trying to accomplish. So you need to make sure that
+
+46
+00:03:50,100 --> 00:03:56,100
+your name is under the role that you're using. So in this case, then, I can proceed
+
+47
+00:03:56,100 --> 00:04:01,500
+to make the script. Now, what kind of block do we need to be able to send
+
+48
+00:04:01,540 --> 00:04:06,460
+messages back and forth? Well, the main thing is, we need to use, under the
+
+49
+00:04:06,460 --> 00:04:11,760
+Network tab, this new block called Send Message. And let's just take this Send
+
+50
+00:04:11,760 --> 00:04:16,540
+Message out here. And you can see that it has a drop-down, and so it just is going
+
+51
+00:04:16,540 --> 00:04:22,460
+to send a message. And the difference is, between this type of
+
+52
+00:04:22,460 --> 00:04:26,780
+message block and the broadcast block that you've seen before, is that this
+
+53
+00:04:26,780 --> 00:04:31,460
+message block has space for you to put some kind of message payload. That is to
+
+54
+00:04:31,460 --> 00:04:35,620
+say, you can type something in, just like,
+
+55
+00:04:35,620 --> 00:04:41,940
+hello world, something like that. Or you can put a list, or you can put any
+
+56
+00:04:41,940 --> 00:04:46,780
+other type of Netsbox blocks inside there, and that will be the payload.
+
+57
+00:04:46,780 --> 00:04:51,580
+That's what's going to be sent with that message. The other thing is, we can target
+
+58
+00:04:51,580 --> 00:04:58,500
+this now to the particular role that we want it to be sent to. So I can
+
+59
+00:04:58,500 --> 00:05:03,020
+send it to Receiver, I can send it to others in the room, or I can send it to
+
+60
+00:05:03,020 --> 00:05:06,740
+everyone in the room. In this case, I know that I want to send it to the Receiver,
+
+61
+00:05:06,740 --> 00:05:10,540
+because that's where Brian will be waiting for this message. So I can just
+
+62
+00:05:10,540 --> 00:05:19,100
+say, okay, send to Receiver. Now, as far as it goes, that's actually all we need. So
+
+63
+00:05:19,100 --> 00:05:26,100
+once I click on this, there, the message was sent. It's very anticlimactic from
+
+64
+00:05:26,100 --> 00:05:30,420
+our end, because I sent a text message, essentially, and we're going to have to
+
+65
+00:05:30,420 --> 00:05:34,740
+switch to Brian for you to see what that message looks like. Hey guys, it's Brian
+
+66
+00:05:34,740 --> 00:05:38,020
+here. Now that Cliff has shown us how we can send messages, we're going to check
+
+67
+00:05:38,020 --> 00:05:44,900
+out how we can receive messages. So first, we can, while we're in the Receiver role,
+
+68
+00:05:44,900 --> 00:05:49,140
+we can see that there are, of course, none of the scripts that Cliff has
+
+69
+00:05:49,140 --> 00:05:52,860
+written. Now, this is because, as he mentioned earlier, we can think of these
+
+70
+00:05:52,860 --> 00:05:58,420
+as independent projects. They don't share any code, or the stage, or sprites, or
+
+71
+00:05:58,420 --> 00:06:02,580
+anything like that. Now let's get started writing the script to handle the
+
+72
+00:06:02,580 --> 00:06:07,180
+message Cliff is about to send. If we check under the Network category, we can
+
+73
+00:06:07,180 --> 00:06:12,180
+see right above the Send Message block, we have this When I Receive message
+
+74
+00:06:12,180 --> 00:06:19,220
+block. And if we select the drop-down, we can see a familiar message type called
+
+75
+00:06:19,220 --> 00:06:26,700
+Message, which should look a lot like the message type that Cliff showed
+
+76
+00:06:26,700 --> 00:06:31,420
+you just a minute ago. And now the question, I guess, is what would we like
+
+77
+00:06:31,420 --> 00:06:36,220
+to do when we actually receive a message? Well, for now, let's just have our sprite
+
+78
+00:06:36,220 --> 00:06:44,260
+say the message, so we can see what has been sent. Alright, and now we can
+
+79
+00:06:44,260 --> 00:06:49,620
+see that the message has, in fact, been received, and we see our Hello World
+
+80
+00:06:49,620 --> 00:06:53,380
+message as soon as Cliff sends it. So now that you've seen what it looks like on
+
+81
+00:06:53,380 --> 00:06:59,580
+Brian's end, let's make this a little bit more complicated. We want to build, like,
+
+82
+00:06:59,580 --> 00:07:06,060
+an actual texting app. So how would we do that? Well, let's start building out
+
+83
+00:07:06,060 --> 00:07:10,580
+the app part of it. So I guess we can go to Control, and we'll bring over
+
+84
+00:07:10,580 --> 00:07:15,220
+green flag clicked, and let's ask a question that, you know, because you
+
+85
+00:07:15,220 --> 00:07:20,980
+typically text people some message, something of importance. There was that
+
+86
+00:07:20,980 --> 00:07:26,020
+app called Yo, and the only thing you could text was the word Yo, but I don't
+
+87
+00:07:26,020 --> 00:07:29,140
+think a lot of people text that way. People tend to, like, actually text
+
+88
+00:07:29,140 --> 00:07:34,220
+something of significance. So let's make it possible for people to do that. And so
+
+89
+00:07:34,220 --> 00:07:42,140
+we're going to go under Sensing and ask, What's your name? And that will allow
+
+90
+00:07:42,140 --> 00:07:46,660
+Brian to know who's texting him. So I'm going to then take a variable, and I'm
+
+91
+00:07:46,660 --> 00:07:54,620
+going to set it to, let's see, under Variables here, let's make a variable
+
+92
+00:07:54,620 --> 00:08:00,820
+called Name, and I'm going to set that variable, we don't need to show it though,
+
+93
+00:08:00,860 --> 00:08:06,540
+to whatever the answer of this is, and get that under Sensing. So if we go over
+
+94
+00:08:06,540 --> 00:08:13,540
+here, get the answer, pull it over there, there we go. Now, what else do we need
+
+95
+00:08:13,540 --> 00:08:18,620
+here? We need to just now fall into a loop that's our texting loop. So let's do
+
+96
+00:08:18,620 --> 00:08:25,660
+that, and let's go over and get a forever block, bring that over here, okay? And
+
+97
+00:08:25,660 --> 00:08:29,700
+we'll just continue to ask questions and then send text. So I'm going to drop this
+
+98
+00:08:29,740 --> 00:08:33,020
+in here, because we'll edit that in a minute, but we need that send message
+
+99
+00:08:33,020 --> 00:08:44,300
+block. The other thing we need is another block that says, Ask, and this is, What is
+
+100
+00:08:44,300 --> 00:08:52,820
+your message? And wait. And then the answer to that, we're going to drop in
+
+101
+00:08:52,820 --> 00:08:58,740
+here, so that's actually what's being communicated. Now, if we want to make
+
+102
+00:08:58,740 --> 00:09:05,060
+this a little bit more of a kind of distinctive message, because you see
+
+103
+00:09:05,060 --> 00:09:09,100
+here that we're sending only the answer, but we've forgotten to include my name,
+
+104
+00:09:09,100 --> 00:09:14,620
+we need to actually change this message type. So the other thing that you can do,
+
+105
+00:09:14,620 --> 00:09:18,420
+and that you'll find yourself doing a lot, is not just sending this generic
+
+106
+00:09:18,420 --> 00:09:22,860
+message, but sending very particular types of messages. And you might ask, okay,
+
+107
+00:09:22,860 --> 00:09:26,940
+well, how do I define the type of my message? And conveniently, there is a
+
+108
+00:09:26,940 --> 00:09:31,780
+button here that says, Make a message type. When you click on that, you get this
+
+109
+00:09:31,780 --> 00:09:36,540
+sort of starter message that you can customize. And so I'm going to call this
+
+110
+00:09:36,540 --> 00:09:41,220
+Chat, and then it asks you for fields. And just like any other block, you can expand
+
+111
+00:09:41,220 --> 00:09:46,700
+or contract that by hitting those arrows at the end. And so I'm going to
+
+112
+00:09:46,700 --> 00:09:52,220
+send two pieces of information here. So my message payload now will include two
+
+113
+00:09:52,220 --> 00:09:57,620
+different types of information. The first is going to be my name, and the
+
+114
+00:09:57,620 --> 00:10:04,900
+second is going to be, let's call it the message. Now the important thing about
+
+115
+00:10:04,900 --> 00:10:10,380
+this is, when you create that message type, and I'm going to drop down, you'll
+
+116
+00:10:10,380 --> 00:10:18,060
+see it appears as Chat, and my answer pops out. The important thing is that the
+
+117
+00:10:18,060 --> 00:10:21,980
+person that you're communicating with in that other role knows what that type of
+
+118
+00:10:22,100 --> 00:10:25,860
+message is, because it needs to correspond exactly. If you don't actually
+
+119
+00:10:25,860 --> 00:10:30,740
+have the same name for your message type, or the same number of slots, for example,
+
+120
+00:10:30,740 --> 00:10:34,740
+you're not going to be able to send messages that the other person can
+
+121
+00:10:34,740 --> 00:10:38,980
+receive. So this is something that you need to agree on in advance. And once you
+
+122
+00:10:38,980 --> 00:10:42,260
+have that agreement, then you can continue to reuse that type over and
+
+123
+00:10:42,260 --> 00:10:48,220
+over again. So here, I'm going to take the answer, and this, let's just be clear
+
+124
+00:10:48,220 --> 00:10:53,060
+about what answer I'm using. So I'm going to take over my name, which is available
+
+125
+00:10:53,060 --> 00:10:59,100
+here, and drop it in the name slot. And then for what is your message, let's get
+
+126
+00:10:59,100 --> 00:11:05,180
+that one from Sensing, and bring over the answer here. So I'm going to put that in
+
+127
+00:11:05,180 --> 00:11:09,380
+there. And again, I'm going to be sending it to the receiver. We have the other
+
+128
+00:11:09,380 --> 00:11:13,580
+options that we saw before, but we'll stay with the receiver. So that should be
+
+129
+00:11:13,580 --> 00:11:19,620
+the complete program. So let's try it now. It'll say, what is your name? Oh, you
+
+130
+00:11:19,620 --> 00:11:25,340
+know, we should be inviting Ada to ask us what's our name. So that's a missed
+
+131
+00:11:25,340 --> 00:11:29,980
+opportunity, but we'll add that in the future version of this. So in any case,
+
+132
+00:11:29,980 --> 00:11:36,020
+the turtle is asking us, what is our name? And I'm going to say, Cliff. And now it's
+
+133
+00:11:36,020 --> 00:11:41,020
+going to move into that loop. And it'll say, what is your message? And here I can
+
+134
+00:11:41,060 --> 00:11:54,420
+say, hello, Brian. And I'll say, how are you today? Again, a little anticlimactic
+
+135
+00:11:54,420 --> 00:11:59,260
+on our end, because we're not seeing the messages coming through. But we'll switch
+
+136
+00:11:59,260 --> 00:12:04,060
+over to Brian now, and see what it looks like on his end again. Now that we've
+
+137
+00:12:04,060 --> 00:12:07,940
+seen how Cliff has extended his sender role to be able to be more feature-rich,
+
+138
+00:12:08,060 --> 00:12:13,100
+including asking for a bunch of messages in a loop, as well as including the
+
+139
+00:12:13,100 --> 00:12:18,700
+sender's name, we need to update our receiver role accordingly. And so most
+
+140
+00:12:18,700 --> 00:12:25,740
+importantly, we need to update the message type to this new chat message
+
+141
+00:12:25,740 --> 00:12:30,300
+type that Cliff created, just so that both the sender and receiver are speaking
+
+142
+00:12:30,300 --> 00:12:36,220
+the same language, so to say. So just like, again, we saw a minute ago, we will
+
+143
+00:12:36,260 --> 00:12:41,980
+click on this make a message type button in the network category, and create the
+
+144
+00:12:41,980 --> 00:12:47,300
+same message type that we saw Cliff make. So we're going to be creating a message
+
+145
+00:12:47,300 --> 00:12:56,180
+type called chat, where the first field is name, and the second field is message.
+
+146
+00:12:56,180 --> 00:13:00,580
+Once we've created this message type, we can see that it has now become available
+
+147
+00:13:01,020 --> 00:13:06,860
+under the drop-down for the when I receive block. So we can select this chat
+
+148
+00:13:06,860 --> 00:13:12,540
+message type, and now we can see that the two fields that this chat message
+
+149
+00:13:12,540 --> 00:13:17,340
+contains are actually available. So in other words, anytime we receive a chat
+
+150
+00:13:17,340 --> 00:13:23,060
+message, if we want to know the name that was sent, it is available with this kind
+
+151
+00:13:23,060 --> 00:13:30,380
+of name variable block, and the message field is available using this
+
+152
+00:13:30,380 --> 00:13:36,660
+message variable block. So now that we have two kind of bits of information
+
+153
+00:13:36,660 --> 00:13:41,980
+that we would like to say, or like to kind of preserve, we can't just, of
+
+154
+00:13:41,980 --> 00:13:46,140
+course, fit both of them in the say block anymore. So we're going to need to go
+
+155
+00:13:46,140 --> 00:13:51,060
+into the operators category, and find some way to kind of join both chunks of
+
+156
+00:13:51,060 --> 00:13:56,860
+text. Thankfully, there's a block for that. So we can use this join block that we
+
+157
+00:13:56,900 --> 00:14:03,100
+see here. And just to keep it simple, let's maybe just say the name, put a
+
+158
+00:14:03,100 --> 00:14:14,460
+colon and a space, and then the message block in next. Now you'll notice that I
+
+159
+00:14:14,460 --> 00:14:19,140
+accidentally clicked on it and got this little error message. This is just
+
+160
+00:14:19,140 --> 00:14:24,060
+because the name and message variable blocks are really only available when we
+
+161
+00:14:24,100 --> 00:14:27,740
+have this, when we received a chat message, because we don't have, of course,
+
+162
+00:14:27,740 --> 00:14:30,900
+variables for these defined in this project. So if it happens to you, just
+
+163
+00:14:30,900 --> 00:14:37,740
+don't worry about it for now. Once we drag this within the say block, now when
+
+164
+00:14:37,740 --> 00:14:43,260
+we receive a chat message, we can see that we'll have access to the name field
+
+165
+00:14:43,260 --> 00:14:48,780
+and the message field, and it will say the contents of the name field with a
+
+166
+00:14:48,780 --> 00:14:53,980
+colon and a space, and then the contents of the message field. And as we'd
+
+167
+00:14:53,980 --> 00:14:57,340
+expect, we can see the message that Cliff sent a minute ago, and we can see
+
+168
+00:14:57,340 --> 00:15:04,220
+that Cliff is saying, hello, comma, Brian, exclamation point. And now we see the
+
+169
+00:15:04,220 --> 00:15:09,020
+second message as well, Cliff asking how I am today. And unfortunately, right now
+
+170
+00:15:09,020 --> 00:15:13,420
+we can't send messages back, so we'll just have to maybe let them know next
+
+171
+00:15:13,420 --> 00:15:17,900
+time we see them. Okay, today, just to review, you learned about message passing in
+
+172
+00:15:17,900 --> 00:15:23,260
+Nest Blocks. We learned how to use a room and to set up roles, and then we learned
+
+173
+00:15:23,260 --> 00:15:28,460
+how to use messages to communicate between those roles. We also learned how
+
+174
+00:15:28,460 --> 00:15:34,780
+to use message types to set up complex messages that we can then use to send
+
+175
+00:15:34,780 --> 00:15:39,740
+lots of interesting bits of information that we couldn't fit into single fields.
+
+176
+00:15:39,740 --> 00:15:45,020
+So with all that now, we can build larger distributed projects that we'll be
+
+177
+00:15:45,020 --> 00:15:49,900
+working toward in later parts of this class. Thank you for joining me, and I
+
+178
+00:15:49,900 --> 00:15:51,260
+look forward to seeing you next time.
+

@@ -1,0 +1,178 @@
+Welcome back to Programming for a Network World. Today, we're going to be
+building a texting application. We're going to be learning about something
+called message passing in Netsblocks, and our goal today is to send a text message
+to someone who's not actually inside our own project. Curious about how that's
+going to happen? Let's get started.
+So, to get started with this kind of project, you actually need two people or
+you need to open up a separate web browser and run them side-by-side.
+Fortunately today, I've got my colleague Brian Bruhl, who you know from all the
+tests that you've had to do along the way, and he's going to be helping me out
+in being my partner in this exercise. But don't worry, we'll also include
+instructions on the site about how you can do this yourself if you want to try
+it out alone. Alright, so messages. When you send messages in Netsblocks, you can
+send them not only to sprites, but you can also send them across computer
+boundaries. So the idea is very similar to what you might experience with email.
+When you're writing email, it would be pretty limited if you could only email
+other people on your own computer. You want to be able to email anyone around
+the world. And so, to do that, you need to send a message to them with a
+particular address. Now, the question I remember was when I started with email,
+how do I know that person's address? Well, first of all, we need to think about, okay,
+where do we find that in Netsblocks? So, in order to find where to pass the
+message to, we need to go to this Room tab that you've seen before, but that we
+haven't used up till now. And you'll see in there that I have a role. I'm in a
+role called My Role, and below it is my username. Now, in order to set up the
+environment in which we're going to communicate with these messages, we're
+going to need to create additional roles. And I'll create a role, and then I'm
+going to invite Brian to go into that role to write his piece of the program.
+So this is really a distributed program. I'll be writing part of it, and then
+you'll see Brian writing the other part of it, and we'll take it from there. So
+to add a role, I can click here, Add a Role, and I'm going to call this Receiver.
+And you'll see that it pops up, and there's a new role now in my room, but it
+doesn't have anyone in it. It's empty. And My Role, just to make it clear, I can
+click on the center here, and I can rename it. So let's give it a name called
+Sender. So that's pretty clear. So we have Sender and Receiver. So this is just
+going to be one-way texting. We won't try to make the scenario that we might
+want to lead up to later, where Brian can actually text me back. I'm just going to
+text him, and hopefully he'll get my messages. Okay, so now what I can do is I
+can click on this. There we go. And I can say Invite User. And when I do that, I'll
+see all the people that are on Netsbox at the moment. So I can see that I'm
+there, but I need to look for Brian, and I need to find his username here
+somewhere. And it looks like there it is, Brian. And so I'm going to invite him
+into the role. And you'll see there that Brian now will be able to accept that
+invitation, and in a moment his name will appear. And there it is, Brian. Okay,
+fantastic. Now, the thing is, with these roles, they're like whole Netsbox
+environments to themselves. So I want to make sure that when I'm programming, I'm
+in the right role for what I'm trying to accomplish. So you need to make sure that
+your name is under the role that you're using. So in this case, then, I can proceed
+to make the script. Now, what kind of block do we need to be able to send
+messages back and forth? Well, the main thing is, we need to use, under the
+Network tab, this new block called Send Message. And let's just take this Send
+Message out here. And you can see that it has a drop-down, and so it just is going
+to send a message. And the difference is, between this type of
+message block and the broadcast block that you've seen before, is that this
+message block has space for you to put some kind of message payload. That is to
+say, you can type something in, just like,
+hello world, something like that. Or you can put a list, or you can put any
+other type of Netsbox blocks inside there, and that will be the payload.
+That's what's going to be sent with that message. The other thing is, we can target
+this now to the particular role that we want it to be sent to. So I can
+send it to Receiver, I can send it to others in the room, or I can send it to
+everyone in the room. In this case, I know that I want to send it to the Receiver,
+because that's where Brian will be waiting for this message. So I can just
+say, okay, send to Receiver. Now, as far as it goes, that's actually all we need. So
+once I click on this, there, the message was sent. It's very anticlimactic from
+our end, because I sent a text message, essentially, and we're going to have to
+switch to Brian for you to see what that message looks like. Hey guys, it's Brian
+here. Now that Cliff has shown us how we can send messages, we're going to check
+out how we can receive messages. So first, we can, while we're in the Receiver role,
+we can see that there are, of course, none of the scripts that Cliff has
+written. Now, this is because, as he mentioned earlier, we can think of these
+as independent projects. They don't share any code, or the stage, or sprites, or
+anything like that. Now let's get started writing the script to handle the
+message Cliff is about to send. If we check under the Network category, we can
+see right above the Send Message block, we have this When I Receive message
+block. And if we select the drop-down, we can see a familiar message type called
+Message, which should look a lot like the message type that Cliff showed
+you just a minute ago. And now the question, I guess, is what would we like
+to do when we actually receive a message? Well, for now, let's just have our sprite
+say the message, so we can see what has been sent. Alright, and now we can
+see that the message has, in fact, been received, and we see our Hello World
+message as soon as Cliff sends it. So now that you've seen what it looks like on
+Brian's end, let's make this a little bit more complicated. We want to build, like,
+an actual texting app. So how would we do that? Well, let's start building out
+the app part of it. So I guess we can go to Control, and we'll bring over
+green flag clicked, and let's ask a question that, you know, because you
+typically text people some message, something of importance. There was that
+app called Yo, and the only thing you could text was the word Yo, but I don't
+think a lot of people text that way. People tend to, like, actually text
+something of significance. So let's make it possible for people to do that. And so
+we're going to go under Sensing and ask, What's your name? And that will allow
+Brian to know who's texting him. So I'm going to then take a variable, and I'm
+going to set it to, let's see, under Variables here, let's make a variable
+called Name, and I'm going to set that variable, we don't need to show it though,
+to whatever the answer of this is, and get that under Sensing. So if we go over
+here, get the answer, pull it over there, there we go. Now, what else do we need
+here? We need to just now fall into a loop that's our texting loop. So let's do
+that, and let's go over and get a forever block, bring that over here, okay? And
+we'll just continue to ask questions and then send text. So I'm going to drop this
+in here, because we'll edit that in a minute, but we need that send message
+block. The other thing we need is another block that says, Ask, and this is, What is
+your message? And wait. And then the answer to that, we're going to drop in
+here, so that's actually what's being communicated. Now, if we want to make
+this a little bit more of a kind of distinctive message, because you see
+here that we're sending only the answer, but we've forgotten to include my name,
+we need to actually change this message type. So the other thing that you can do,
+and that you'll find yourself doing a lot, is not just sending this generic
+message, but sending very particular types of messages. And you might ask, okay,
+well, how do I define the type of my message? And conveniently, there is a
+button here that says, Make a message type. When you click on that, you get this
+sort of starter message that you can customize. And so I'm going to call this
+Chat, and then it asks you for fields. And just like any other block, you can expand
+or contract that by hitting those arrows at the end. And so I'm going to
+send two pieces of information here. So my message payload now will include two
+different types of information. The first is going to be my name, and the
+second is going to be, let's call it the message. Now the important thing about
+this is, when you create that message type, and I'm going to drop down, you'll
+see it appears as Chat, and my answer pops out. The important thing is that the
+person that you're communicating with in that other role knows what that type of
+message is, because it needs to correspond exactly. If you don't actually
+have the same name for your message type, or the same number of slots, for example,
+you're not going to be able to send messages that the other person can
+receive. So this is something that you need to agree on in advance. And once you
+have that agreement, then you can continue to reuse that type over and
+over again. So here, I'm going to take the answer, and this, let's just be clear
+about what answer I'm using. So I'm going to take over my name, which is available
+here, and drop it in the name slot. And then for what is your message, let's get
+that one from Sensing, and bring over the answer here. So I'm going to put that in
+there. And again, I'm going to be sending it to the receiver. We have the other
+options that we saw before, but we'll stay with the receiver. So that should be
+the complete program. So let's try it now. It'll say, what is your name? Oh, you
+know, we should be inviting Ada to ask us what's our name. So that's a missed
+opportunity, but we'll add that in the future version of this. So in any case,
+the turtle is asking us, what is our name? And I'm going to say, Cliff. And now it's
+going to move into that loop. And it'll say, what is your message? And here I can
+say, hello, Brian. And I'll say, how are you today? Again, a little anticlimactic
+on our end, because we're not seeing the messages coming through. But we'll switch
+over to Brian now, and see what it looks like on his end again. Now that we've
+seen how Cliff has extended his sender role to be able to be more feature-rich,
+including asking for a bunch of messages in a loop, as well as including the
+sender's name, we need to update our receiver role accordingly. And so most
+importantly, we need to update the message type to this new chat message
+type that Cliff created, just so that both the sender and receiver are speaking
+the same language, so to say. So just like, again, we saw a minute ago, we will
+click on this make a message type button in the network category, and create the
+same message type that we saw Cliff make. So we're going to be creating a message
+type called chat, where the first field is name, and the second field is message.
+Once we've created this message type, we can see that it has now become available
+under the drop-down for the when I receive block. So we can select this chat
+message type, and now we can see that the two fields that this chat message
+contains are actually available. So in other words, anytime we receive a chat
+message, if we want to know the name that was sent, it is available with this kind
+of name variable block, and the message field is available using this
+message variable block. So now that we have two kind of bits of information
+that we would like to say, or like to kind of preserve, we can't just, of
+course, fit both of them in the say block anymore. So we're going to need to go
+into the operators category, and find some way to kind of join both chunks of
+text. Thankfully, there's a block for that. So we can use this join block that we
+see here. And just to keep it simple, let's maybe just say the name, put a
+colon and a space, and then the message block in next. Now you'll notice that I
+accidentally clicked on it and got this little error message. This is just
+because the name and message variable blocks are really only available when we
+have this, when we received a chat message, because we don't have, of course,
+variables for these defined in this project. So if it happens to you, just
+don't worry about it for now. Once we drag this within the say block, now when
+we receive a chat message, we can see that we'll have access to the name field
+and the message field, and it will say the contents of the name field with a
+colon and a space, and then the contents of the message field. And as we'd
+expect, we can see the message that Cliff sent a minute ago, and we can see
+that Cliff is saying, hello, comma, Brian, exclamation point. And now we see the
+second message as well, Cliff asking how I am today. And unfortunately, right now
+we can't send messages back, so we'll just have to maybe let them know next
+time we see them. Okay, today, just to review, you learned about message passing in
+Nest Blocks. We learned how to use a room and to set up roles, and then we learned
+how to use messages to communicate between those roles. We also learned how
+to use message types to set up complex messages that we can then use to send
+lots of interesting bits of information that we couldn't fit into single fields.
+So with all that now, we can build larger distributed projects that we'll be
+working toward in later parts of this class. Thank you for joining me, and I
+look forward to seeing you next time.

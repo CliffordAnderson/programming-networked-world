@@ -1,0 +1,230 @@
+Hi.
+Welcome back to Programming for Network World.
+Today's topic is mapping.
+So we use maps all the time in our daily life.
+We have them on our phones, and we use them in our cars
+to guide us from point to point.
+And you can also use maps within your NetFlux program.
+So today, we're going to learn how to bring up a map
+and to locate various topics or places of interest
+in the world on those maps.
+Ready to get mapping?
+Let's get started.
+OK, so like any other service in Nest Blocks, mapping is an RPC.
+So if we go over to our Network tab
+and we click on the Call block here, we can drop down
+and we can see that there is a entry for Google Maps.
+And if we look at what's available here,
+there's lots of choices.
+We'll just try GitMap for now.
+And you can see, we'll move Ada over a little bit.
+You can see that there are slots for latitude, longitude,
+width, height, and zoom.
+So latitude and longitude allow us
+to find the coordinate location of any place on a map
+projection.
+So that is really important information
+about where to locate items in maps.
+We'll get to width, height, and zoom in a moment.
+But how do we know our latitude and longitude?
+Well, we could look it up online.
+But fortunately, there's also a block
+for that within Nest Blocks.
+We'll go down here.
+And you'll see here that there is
+My Latitude and My Longitude.
+Now, when I click on My Latitude,
+if you have an enabled geospatial lookup
+within your browser, you may get this pop-up.
+And you just want to say Allow.
+So we're going to allow that.
+And now, the next time I click on it,
+it should come back with a number.
+So that represents My Latitude.
+And the same thing here for My Longitude.
+Now, the easy thing to do is just
+to drop it into the slots that correspond to that.
+And we're halfway there.
+And the width and the height of the map
+actually have to do with the width and height of our stage.
+So we can also get that information right here,
+Stage Height and Stage Width.
+Of course, you can just type these in as numbers as well.
+But this just makes it easier so that your map will adjust
+as the size of the stage adjusts.
+So here, we see that Stage Height is 360.
+And the Stage Width, oops, I put it in the wrong place.
+Stage Height, there we go.
+Stage Width, we didn't check to see what the Stage Width was.
+It was 480.
+And let's do a default zoom of, say, 9.
+Now, if we click that, you'll see that it
+will go out to get a map.
+But we have that same issue we've seen in other RPCs.
+It's a very small map.
+And that's because, as you know, in order
+to make this appear on the stage,
+we need to go to the Looks palette
+and say Switch to Costume.
+So now we can say Switch to Costume,
+bring this down here, and click on this.
+480 will disappear, and a map will appear in its place.
+And this shows you where I am right now,
+recording this in Nashville, Tennessee.
+But oftentimes, in your programs,
+you don't want to just show where you are now.
+You often want to look up where you might like
+to be or show other places.
+So let's design a program to do what's called geolocation.
+We're going to pass in an address.
+Then we're going to get the coordinate location
+of that address.
+And then we're going to pass that information
+into our mapping RPC and display that place on the map.
+And just to make this more fun, let's
+imagine that you're going on a college tour.
+You're thinking about what college
+you might like to attend.
+And you want to see where these places are on a map.
+So we're going to make this possible for us
+to type in the name of a college, get its location,
+and then show where it is on the map.
+OK, so to do that, let's start off with sensing.
+And we'll ask a question here.
+So we'll say, ask.
+And we'll bring it up here and say, what college
+are we thinking about?
+How about that?
+It's a question.
+And you know that when you ask a question like that
+with the ask block, that the answer is captured here
+in this answer block.
+Now, we need to use a different RPC to get those coordinates.
+And that is also built in.
+But it's not in the same RPC that we've been using.
+So let's go over here to get our call block again.
+Let's drop it down.
+And let's look at what's possible here.
+And we see, for example, right above Google Maps,
+very convenient, is geolocation.
+And when we drop down geolocation,
+we can get a lot of different types of information
+we can pass in.
+Basically, we could pass in a street address, a city name.
+We can see what's nearby.
+We can ask about different countries.
+So there's lots of things you can do here.
+We're just going to use this geolocate.
+And it asks for an address.
+Now, you might think you have to give
+like the street address of colleges
+and go to their website and look that up.
+But actually, it will figure this out for you.
+This is the nice thing about this block.
+For the most part, you can just type
+in the name of what you're interested in.
+And it will try to geolocate it for you.
+So I might try, for example, Vanderbilt University
+and try this out.
+Let's see.
+And now I get a list of lists, latitude and longitude.
+So OK, we know when we get information back
+in that form of a list of lists, we've done this before,
+that we need to go over and start
+extracting that information.
+Because in order to pass in latitude and longitude,
+we need to get those separately.
+So let's do that.
+And the easiest way to do that, perhaps, is to get a variable.
+And we'll call this our place or maybe our college or maybe,
+yeah, our college is fine.
+So we'll call it our college.
+And then here, we're going to call.
+We'll have a block where we set that variable here.
+And we're going to set our college
+to the value of this RPC.
+But we're going to use that answer variable here
+to say what college we're looking for.
+OK, so that's good.
+That'll capture that information for our college.
+Now, in order to be able to pass it
+in as my latitude and my longitude,
+we'll take that out because that always shows me
+where I am right now.
+And we want to show where I'd like
+to be when I'm thinking about this college.
+So here, we're going to take this item 1 of
+and take another one here and do this here.
+Same thing there, but we'll do this one will be item 2.
+And we might need to look at this again just
+to kind of get a sense of.
+I'll copy this here, duplicate it,
+just so you have a sense of what we're
+trying to identify in this.
+So again, type in, just for the sake of exercise here,
+Vanderbilt University.
+And when I click on it, OK, latitude and longitude.
+So I need to get this number and this number.
+So that's going to be here item 1.
+It's going to be item 2 of item 1 and item 2 of item 2,
+because that is item 1, but item 2 of item 1.
+And this is item 2 and item 2 of item 2.
+So let's just test it out with one of these
+and we'll see if we get the right information here.
+There we go, 36.
+That's right.
+And here, we should get negative 86.
+That's right.
+So that's the way that we need to be
+able to capture that information coming out of our college.
+So we'll put this down here for latitude.
+This is the tricky one.
+Which is latitude and which is longitude?
+Well, we'll find out in a minute.
+And here we go.
+And we'll get these off the stage
+because we don't need them any longer.
+All right.
+And we'll duplicate this variable here.
+We'll just pull it out.
+Oops.
+And drop it in here and drop it in here.
+Now, let's just try Vanderbilt just
+to see if we've got this right.
+So it should ask me where I'd like to go,
+what college am I thinking of.
+Let's say Vanderbilt University.
+Click on that.
+And we don't seem to have gotten there.
+Oh, of course we did because that's where we are.
+Let's try a different one.
+That's not too helpful.
+So maybe it's working, but let's try it again.
+Let's try Harvard University.
+Yeah, it's working.
+OK.
+And let's try Michigan State just
+to make sure everything is working fine here.
+So Michigan State University.
+There we go, East Lansing, Michigan.
+OK, so it's definitely working.
+We've got our latitude and longitude
+in the right places.
+You can adjust the zoom.
+So if you want to get a little bit closer,
+you could type in, for example, 11.
+We can just try this again.
+So let's try my alma mater, Kenyon College.
+And there you go.
+So you can get a little bit closer even still
+if you type in higher numbers, you'll get greater zoom.
+Obviously, if you have lower numbers,
+you'll pull back more and get more of the encompassing area.
+OK, so that, I think, is where we'll leave it for now.
+We're going to continue this exercise of learning
+to display information on maps in our next videos.
+But that's a short introduction to how to use the map
+and how to look up information using geolocation
+and then to bring us to that point on a map.
+So thanks, everyone, for joining me.
+And I'll see you in the next video.
