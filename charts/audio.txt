@@ -1,0 +1,171 @@
+Hello, everyone.
+Welcome back to Programming for a Network World.
+Today, we're going to continue our exploration
+of remote procedure calls, or RPCs.
+In this episode, we're going to be looking at data and ways
+to visualize data.
+It's very common, for example, when you access a data set
+that you want to get a visual representation of it.
+And fortunately, there's an RPC for that in Nest Blocks.
+So ready to visualize some data?
+Let's get going.
+All right.
+So to begin, let's get the data itself.
+So the data set that we're going to be using
+is a data set collected at the Manaloa Observatory in Hawaii.
+This data set tracks the level of carbon dioxide
+in the atmosphere.
+And the reason that Manaloa is so useful
+is that it's on an extinct mountaintop,
+and the levels of carbon monoxide
+are really unaffected by the environment around it,
+which allows you to get kind of an average for the atmosphere
+as a whole.
+So we have an RPC that reaches out and gets
+that historical data, and then brings it back to us
+in list form in Nest Blocks.
+So let's start there.
+We're going to go over to the Network tab here,
+and we're going to go to our call block.
+And we're going to drop down this call block,
+and we're going to go here to Climate.
+And then under Climate, you'll see Manaloa carbon dioxide
+data.
+And as you see here, we can get either the trend
+or the raw CO2.
+We're going to go with the trend.
+And I believe the start year is 1958,
+so we'll put that in as the beginning year.
+And then the last year that's available to us in Nest Blocks
+is 2019.
+So we'll use that as our delimiters,
+and then we can call this.
+And you see that it provides a nice table form of the data
+with the year, and the month, and then the recorded level.
+OK, so that's great, but it's not easy necessarily
+by just looking at this to see what the trend actually
+looks like.
+So in order to do that, we're going
+to use the GNU plot charting service.
+This is a free and open source library for plotting data,
+and it's available to us again in Nest Blocks.
+So if I bring this over here and I drop down to Chart,
+you'll see that it brings me a block that has two options.
+One is to draw, and the other is default options.
+So we can just use it with the default options
+and then call with our own data set
+and just see how it looks at first.
+So I'll bring this in here to Lines.
+And then for the options, you still
+need to pass something in or do.
+Maybe it works without it.
+I think it actually worked without it.
+So there you go.
+If you don't need to change the options,
+you can just let it go.
+So let's look at this.
+In this particular chart, you see
+that it's actually too small to look at.
+How do we visualize this better?
+Well, we do that trick of going up to Looks
+and using Switch to Costume.
+So Switch to Costume will change the costume
+of the sprite on the stage, in this case,
+from Ada to the chart itself.
+So we can drop that in.
+Here we go.
+And we can make that call.
+And there you can see that already we
+got a nice plot of the data.
+And unfortunately, as it shows, from 1958 until 2020,
+we've increased our carbon dioxide level
+in the atmosphere substantially.
+Can't do much about that in this particular video.
+But we can at least, I think, maybe
+label what we're seeing a little bit better.
+So to do that, we need to dive back into those options.
+So I'm going to bring over another block here.
+And we're going to call out to chart.
+Oops.
+See if I can actually bring it over this time.
+There we go.
+I'm going to go to chart.
+But this time, I'm going to look at the default options.
+And if I click on that, you see that it brings me back
+another list here in table form.
+And it has some possibilities for us
+to fill in information, like we can give a title.
+And we could perhaps add something
+to the y label or the y-axis.
+But how do we do that?
+We can't just type it in here and have it stick.
+We need to first assign this default information
+to a variable.
+And then we'll change that information.
+And then we'll send it back in.
+So let's do that by first setting a variable.
+Going to go here.
+And we're going to set a variable.
+Let's actually create one called chart options.
+There we go.
+And we'll drop down chart options in here.
+We'll put that in.
+And now we have that captured in a variable, which
+allows us, of course, to change those options.
+Now, since this particular list is in that key value format
+that we talked about in an earlier video,
+the easiest way to change it would be to go up here
+and to open our library and look for the structured data
+library.
+Here we go.
+And as you remember, structured data
+allows us to make changes based on a key.
+Then we can change the value.
+So that should appear down here.
+And that allows us to bring over this block set value.
+And we'll bring it over a couple of times here.
+And so we'll go over and we'll get our chart option,
+because that's what we want to be setting.
+And that's the list that we're working with.
+Let's bring over another chart option here.
+OK, whoops, in the wrong slot.
+There we go.
+And the first thing that we want to change is title.
+Or title doesn't have any information right now.
+So we want to change our title to something.
+And we'll say CO2 in the atmosphere.
+OK, we'll get that as the title.
+Then the other thing that we want to change
+is the y-axis here.
+So there's the x-label and there's the y-label.
+So we'll change this one down here to y-label.
+And the y-label, we're going to label as parts per million,
+PPM.
+Oops, there we go, parts per million.
+OK, now if I run this, you see that our chart option now
+has CO2 in the atmosphere.
+And it should have a label, PPM, under the y-label.
+And now we can simply apply those as our new options
+and call the chart again.
+So those options are captured in this variable here.
+And if we run this, and we turn off this
+so we can see it a little bit better, if we run this,
+now the chart has a title and it has a y-axis label.
+All right, and if we want to just put everything together,
+so it's one nice unit, we can do that.
+Bring this down here.
+There we go, connect it.
+All right, and let's put a block on top of it
+when Greenfly clicked.
+And we'll click it.
+And it ran.
+So again, it went out with an RPC to fetch the data set.
+And then it went out to find the default options.
+We changed some of those options.
+And then we called the GNU plot with our new options
+and the data.
+And we got this visualization.
+All right, and we did that in just a handful of blocks.
+So that wraps it up.
+Thank you very much again for joining me.
+And I look forward to seeing you in my next video.

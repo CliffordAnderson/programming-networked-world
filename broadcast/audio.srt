@@ -1,0 +1,1220 @@
+1
+00:00:00,000 --> 00:00:00,520
+Hi.
+
+2
+00:00:00,520 --> 00:00:03,000
+Welcome back to Programming for a Network World.
+
+3
+00:00:03,000 --> 00:00:07,560
+Today, we're going to be talking about the broadcast block.
+
+4
+00:00:07,560 --> 00:00:11,460
+The broadcast block allows you to send messages
+
+5
+00:00:11,460 --> 00:00:15,600
+across projects and let those messages be picked up
+
+6
+00:00:15,600 --> 00:00:17,680
+by other sprites or blocks.
+
+7
+00:00:17,680 --> 00:00:20,840
+So when you think about broadcasting in daily life,
+
+8
+00:00:20,840 --> 00:00:23,680
+if I want to broadcast something to the people around me,
+
+9
+00:00:23,680 --> 00:00:26,280
+I might shout, here, here.
+
+10
+00:00:26,280 --> 00:00:29,800
+And then they would look to me to see what I was talking about.
+
+11
+00:00:29,800 --> 00:00:33,680
+So in Nets blocks, broadcasts work in much the same way.
+
+12
+00:00:33,680 --> 00:00:36,600
+You can broadcast a message, and then other blocks
+
+13
+00:00:36,600 --> 00:00:39,800
+will pick up that message and be able to respond to it.
+
+14
+00:00:39,800 --> 00:00:41,920
+Ready to try out the broadcast block?
+
+15
+00:00:41,920 --> 00:00:42,720
+Let's get started.
+
+16
+00:00:50,240 --> 00:00:54,080
+OK, so to get going, we're going to set up
+
+17
+00:00:54,080 --> 00:00:58,160
+a very simple exercise of just sending a broadcast message
+
+18
+00:00:58,160 --> 00:01:00,120
+and then receiving that broadcast.
+
+19
+00:01:00,120 --> 00:01:02,320
+But we're going to do it across two sprites.
+
+20
+00:01:02,320 --> 00:01:05,680
+So the way we'll begin is we'll set up a message
+
+21
+00:01:05,680 --> 00:01:07,400
+that Ada will send out.
+
+22
+00:01:07,400 --> 00:01:10,320
+And if I go over here to the Control palette
+
+23
+00:01:10,320 --> 00:01:14,560
+and I bring over Broadcast, you see, oh, there we go.
+
+24
+00:01:14,560 --> 00:01:16,760
+Let's bring over Broadcast.
+
+25
+00:01:16,760 --> 00:01:18,360
+It has a dropdown.
+
+26
+00:01:18,360 --> 00:01:21,080
+And I can drop it down, and I can say New.
+
+27
+00:01:21,080 --> 00:01:24,020
+And it's going to ask me for a message name.
+
+28
+00:01:24,020 --> 00:01:26,780
+The message name is basically a bare symbol.
+
+29
+00:01:26,780 --> 00:01:28,420
+It's anything that you want to give it.
+
+30
+00:01:28,420 --> 00:01:30,820
+And that's what the receiver of the broadcast
+
+31
+00:01:30,820 --> 00:01:33,300
+will get when the message is sent out.
+
+32
+00:01:33,300 --> 00:01:35,900
+So it doesn't have any content beyond its name.
+
+33
+00:01:35,900 --> 00:01:38,340
+That's why I call it a symbol.
+
+34
+00:01:38,340 --> 00:01:40,900
+So I will just say Broadcast Hello.
+
+35
+00:01:40,900 --> 00:01:42,620
+And let's put that.
+
+36
+00:01:42,620 --> 00:01:46,220
+And you'll see that I've got now my Hello message.
+
+37
+00:01:46,220 --> 00:01:49,780
+And so let's just put When Space is Clicked to get it
+
+38
+00:01:49,780 --> 00:01:51,580
+a little bit more interesting.
+
+39
+00:01:51,580 --> 00:01:53,260
+Now, if I just click this right now,
+
+40
+00:01:53,260 --> 00:01:56,940
+you'll see that it activates, but nothing happens.
+
+41
+00:01:56,940 --> 00:01:59,820
+And that's simply because we've broadcast this message,
+
+42
+00:01:59,820 --> 00:02:03,420
+but there's no corresponding receiver
+
+43
+00:02:03,420 --> 00:02:05,260
+to pick up that message.
+
+44
+00:02:05,260 --> 00:02:09,700
+So let's bring in another sprite to pick up our message.
+
+45
+00:02:09,700 --> 00:02:13,740
+I'm going to go over here, and I'm going to create.
+
+46
+00:02:13,740 --> 00:02:14,260
+Let's see.
+
+47
+00:02:14,260 --> 00:02:16,500
+We've got to go over here to create a sprite first.
+
+48
+00:02:16,500 --> 00:02:17,380
+And there it is.
+
+49
+00:02:17,380 --> 00:02:18,660
+Let's give it a costume.
+
+50
+00:02:18,660 --> 00:02:24,060
+So I'm going to go over to Costumes.
+
+51
+00:02:24,060 --> 00:02:26,180
+Always takes a while to open up Costumes.
+
+52
+00:02:26,180 --> 00:02:27,220
+And there's Alonzo.
+
+53
+00:02:30,260 --> 00:02:33,940
+And we'll bring up Alonzo on the stage a little bit.
+
+54
+00:02:33,940 --> 00:02:38,120
+Now, we want Alonzo to receive that message
+
+55
+00:02:38,120 --> 00:02:40,580
+and then do something in response.
+
+56
+00:02:40,580 --> 00:02:44,740
+So now we're working inside of Alonzo's script area.
+
+57
+00:02:44,740 --> 00:02:47,380
+And there is a corresponding block
+
+58
+00:02:47,380 --> 00:02:49,980
+called When I Receive.
+
+59
+00:02:49,980 --> 00:02:54,380
+So this hat block can have a dropdown here
+
+60
+00:02:54,380 --> 00:02:56,780
+that shows it can respond to any message.
+
+61
+00:02:56,780 --> 00:02:59,060
+So anytime anything happens that's broadcast,
+
+62
+00:02:59,060 --> 00:03:00,140
+it can respond to it.
+
+63
+00:03:00,140 --> 00:03:03,740
+Or it can respond to particular types of broadcast messages.
+
+64
+00:03:03,740 --> 00:03:06,060
+In this case, we're going to use the Hello message.
+
+65
+00:03:06,060 --> 00:03:10,740
+And so when Alonzo receives the broadcast from Ada,
+
+66
+00:03:10,740 --> 00:03:13,460
+then Alonzo will respond with whatever
+
+67
+00:03:13,460 --> 00:03:15,420
+we put under this hat block.
+
+68
+00:03:15,420 --> 00:03:20,380
+And in this case, why don't we go to a Say block.
+
+69
+00:03:20,380 --> 00:03:26,300
+And we'll say, hello to you too.
+
+70
+00:03:26,300 --> 00:03:27,780
+OK.
+
+71
+00:03:27,780 --> 00:03:30,300
+So now we have a very simple program.
+
+72
+00:03:30,300 --> 00:03:32,500
+We'll start it off with Ada.
+
+73
+00:03:32,500 --> 00:03:34,940
+And we'll press the Space key.
+
+74
+00:03:34,940 --> 00:03:37,260
+And voila, you see.
+
+75
+00:03:37,260 --> 00:03:38,620
+We'll try it again.
+
+76
+00:03:38,620 --> 00:03:39,340
+There it is.
+
+77
+00:03:39,340 --> 00:03:40,500
+Hello to you too.
+
+78
+00:03:40,500 --> 00:03:43,540
+So Ada broadcast this message hello.
+
+79
+00:03:43,540 --> 00:03:49,860
+And then inside of our Alonzo script,
+
+80
+00:03:49,860 --> 00:03:55,820
+we see when I receive hello, say hello to you too.
+
+81
+00:03:55,820 --> 00:03:59,220
+Now, the way that you use broadcast very often in programs
+
+82
+00:03:59,220 --> 00:04:02,540
+is to coordinate events that are taking place.
+
+83
+00:04:02,540 --> 00:04:05,540
+It's very often used, for example, in games.
+
+84
+00:04:05,540 --> 00:04:07,860
+So when you're working with a game, for example,
+
+85
+00:04:07,860 --> 00:04:10,980
+you might want to set a condition in which
+
+86
+00:04:10,980 --> 00:04:13,260
+if two sprites collide with each other,
+
+87
+00:04:13,460 --> 00:04:15,180
+then the game is over.
+
+88
+00:04:15,180 --> 00:04:17,500
+And you broadcast to everything else in the game
+
+89
+00:04:17,500 --> 00:04:19,140
+this game over event.
+
+90
+00:04:19,140 --> 00:04:21,780
+So that's a very common way of setting this up.
+
+91
+00:04:21,780 --> 00:04:24,740
+And we can try that ourselves here.
+
+92
+00:04:24,740 --> 00:04:28,140
+So let's move our scripts off.
+
+93
+00:04:28,140 --> 00:04:31,340
+And we're going to start again afresh.
+
+94
+00:04:31,340 --> 00:04:33,820
+Here we go.
+
+95
+00:04:33,820 --> 00:04:35,460
+And we will set up.
+
+96
+00:04:35,460 --> 00:04:38,500
+Let's do a little change of our characters.
+
+97
+00:04:38,500 --> 00:04:41,740
+We'll say goodbye to Ada.
+
+98
+00:04:41,740 --> 00:04:45,580
+And we'll change Alonzo's costume
+
+99
+00:04:45,580 --> 00:04:47,860
+into a rocket ship, how about?
+
+100
+00:04:47,860 --> 00:04:52,900
+So let's go down to costumes again.
+
+101
+00:04:52,900 --> 00:04:54,580
+And let's take a look.
+
+102
+00:04:54,580 --> 00:04:56,860
+There's a rocket ship here somewhere.
+
+103
+00:05:06,380 --> 00:05:07,820
+There's a robot.
+
+104
+00:05:07,820 --> 00:05:09,540
+That's not too bad.
+
+105
+00:05:09,540 --> 00:05:12,060
+We could go for that if we can't find the rocket.
+
+106
+00:05:12,060 --> 00:05:13,980
+Ah, spaceship.
+
+107
+00:05:13,980 --> 00:05:15,660
+We did get it.
+
+108
+00:05:15,660 --> 00:05:16,780
+So let's bring that in.
+
+109
+00:05:16,780 --> 00:05:18,860
+There's a spaceship.
+
+110
+00:05:18,860 --> 00:05:25,540
+Now, and we want to remove this costume.
+
+111
+00:05:25,540 --> 00:05:27,020
+So we've got a spaceship.
+
+112
+00:05:27,020 --> 00:05:31,060
+And let's set up some more sprites, or at least one more.
+
+113
+00:05:31,060 --> 00:05:32,720
+So we'll create a new one.
+
+114
+00:05:32,720 --> 00:05:34,820
+And let's give this one a costume
+
+115
+00:05:34,820 --> 00:05:35,860
+that we create ourselves.
+
+116
+00:05:35,860 --> 00:05:38,100
+So we'll go over here to paint.
+
+117
+00:05:38,100 --> 00:05:43,980
+And I'm going to just take this circle like this.
+
+118
+00:05:43,980 --> 00:05:49,020
+And then maybe we'll color it a little bit differently.
+
+119
+00:05:52,020 --> 00:05:53,300
+Here we go.
+
+120
+00:05:53,300 --> 00:05:54,260
+OK.
+
+121
+00:05:54,260 --> 00:05:56,820
+Now, this is going to be a very simple game.
+
+122
+00:05:56,820 --> 00:05:58,580
+And you're going to have to expand on this
+
+123
+00:05:58,580 --> 00:05:59,740
+to make it interesting.
+
+124
+00:05:59,740 --> 00:06:01,980
+But what we'll do for this sprite, which
+
+125
+00:06:01,980 --> 00:06:10,340
+we'll call rock or asteroid or something like that,
+
+126
+00:06:10,340 --> 00:06:13,020
+we'll have this come down from the top of the screen.
+
+127
+00:06:13,020 --> 00:06:15,300
+And then the rocket will need to avoid it.
+
+128
+00:06:15,300 --> 00:06:17,420
+And if the rocket collides with it,
+
+129
+00:06:17,420 --> 00:06:20,260
+then we're going to broadcast the game over event.
+
+130
+00:06:20,260 --> 00:06:21,020
+OK.
+
+131
+00:06:21,020 --> 00:06:24,180
+So we're going to take this asteroid.
+
+132
+00:06:24,180 --> 00:06:26,440
+And we're going to go to a scripting area.
+
+133
+00:06:26,440 --> 00:06:31,960
+And when we start the game, when the green flag is clicked,
+
+134
+00:06:31,960 --> 00:06:35,560
+we want to move it to the very top of the screen
+
+135
+00:06:35,560 --> 00:06:36,760
+and hide it off screen.
+
+136
+00:06:36,760 --> 00:06:37,280
+All right.
+
+137
+00:06:37,280 --> 00:06:38,280
+So let's do that.
+
+138
+00:06:38,280 --> 00:06:39,520
+Hide here.
+
+139
+00:06:39,520 --> 00:06:43,200
+We're going to find under Looks.
+
+140
+00:06:43,200 --> 00:06:44,640
+There we go.
+
+141
+00:06:44,640 --> 00:06:46,840
+We're going to hide it.
+
+142
+00:06:46,840 --> 00:06:51,800
+We're going to go to, let's say, coordinate x is 0.
+
+143
+00:06:51,800 --> 00:06:55,680
+And this will be negative 200.
+
+144
+00:06:55,680 --> 00:06:58,760
+Let's just try that out.
+
+145
+00:06:58,760 --> 00:07:01,840
+And there we go.
+
+146
+00:07:01,920 --> 00:07:03,920
+OK, so it's off the screen.
+
+147
+00:07:03,920 --> 00:07:08,080
+Let's have it go down and see if it can collide with our rocket.
+
+148
+00:07:08,080 --> 00:07:08,820
+OK.
+
+149
+00:07:08,820 --> 00:07:15,360
+So we'll take the next thing we want to do is, OK,
+
+150
+00:07:15,360 --> 00:07:17,760
+we're going to have it glide to a particular direction.
+
+151
+00:07:17,760 --> 00:07:21,800
+And we're going to have that direction be chosen at random.
+
+152
+00:07:21,800 --> 00:07:26,480
+So we need to go to Operators and look at Random.
+
+153
+00:07:26,480 --> 00:07:29,680
+Pick Random here.
+
+154
+00:07:29,680 --> 00:07:30,520
+OK.
+
+155
+00:07:30,520 --> 00:07:31,960
+So we'll have it glide.
+
+156
+00:07:31,960 --> 00:07:34,560
+And let's set our initial time of five seconds.
+
+157
+00:07:34,560 --> 00:07:41,760
+And then let's have it glide to someplace
+
+158
+00:07:41,760 --> 00:07:46,600
+on the bottom of the screen, 150, let's say, 200.
+
+159
+00:07:46,600 --> 00:07:47,480
+OK.
+
+160
+00:07:47,480 --> 00:07:49,480
+And between this and this, let's just try it out
+
+161
+00:07:49,480 --> 00:07:52,120
+and see how it works.
+
+162
+00:07:52,120 --> 00:07:53,360
+And we need to show it, too.
+
+163
+00:07:57,880 --> 00:07:59,520
+OK, so let's try this.
+
+164
+00:07:59,520 --> 00:08:01,440
+Let's see how that works.
+
+165
+00:08:01,440 --> 00:08:04,720
+Oh, we've got it coming from the wrong direction, which
+
+166
+00:08:04,720 --> 00:08:05,640
+could be a challenge.
+
+167
+00:08:05,640 --> 00:08:07,160
+So let's switch these.
+
+168
+00:08:07,160 --> 00:08:08,440
+So this will be 200.
+
+169
+00:08:08,440 --> 00:08:11,480
+And then we'll try negative 200.
+
+170
+00:08:11,480 --> 00:08:13,240
+Let's try that.
+
+171
+00:08:13,240 --> 00:08:14,320
+OK.
+
+172
+00:08:14,320 --> 00:08:17,800
+So we've got our asteroid coming down.
+
+173
+00:08:17,800 --> 00:08:19,800
+And it's not going down quite far enough.
+
+174
+00:08:19,800 --> 00:08:20,960
+We want it to be off screen.
+
+175
+00:08:20,960 --> 00:08:26,280
+So let's go to negative 250.
+
+176
+00:08:26,280 --> 00:08:29,680
+And now we just want to put this into some kind of loop,
+
+177
+00:08:29,680 --> 00:08:32,960
+right, so that we have new asteroids coming down
+
+178
+00:08:32,960 --> 00:08:34,320
+every time.
+
+179
+00:08:34,320 --> 00:08:36,760
+And we need to make sure that they change a little bit more
+
+180
+00:08:36,760 --> 00:08:37,520
+in their direction.
+
+181
+00:08:37,520 --> 00:08:44,640
+So let's do 150, negative 150 to 150.
+
+182
+00:08:44,640 --> 00:08:47,920
+Let's see if that works better.
+
+183
+00:08:47,920 --> 00:08:51,120
+This should make our asteroid do a little bit more
+
+184
+00:08:51,120 --> 00:08:57,200
+interesting paths at random, going in different directions.
+
+185
+00:08:57,200 --> 00:08:59,200
+It makes the game a little bit more interesting.
+
+186
+00:08:59,200 --> 00:09:00,640
+There we go.
+
+187
+00:09:00,640 --> 00:09:02,480
+And we'll make it a little bit faster.
+
+188
+00:09:02,480 --> 00:09:03,280
+OK.
+
+189
+00:09:03,280 --> 00:09:05,880
+So let's put this into a loop.
+
+190
+00:09:05,880 --> 00:09:09,240
+And we're going to do, let's do a forever block.
+
+191
+00:09:09,240 --> 00:09:10,960
+So that's down here.
+
+192
+00:09:13,600 --> 00:09:16,000
+And there we go.
+
+193
+00:09:17,000 --> 00:09:18,320
+OK, let's just test this out.
+
+194
+00:09:18,320 --> 00:09:21,920
+It should just keep going.
+
+195
+00:09:21,920 --> 00:09:24,360
+So we get down to the bottom.
+
+196
+00:09:24,360 --> 00:09:26,720
+And it goes up to the top again.
+
+197
+00:09:26,720 --> 00:09:29,280
+And it's going to be picking different directions.
+
+198
+00:09:29,280 --> 00:09:29,800
+OK.
+
+199
+00:09:29,800 --> 00:09:31,680
+So we got that piece going.
+
+200
+00:09:31,680 --> 00:09:33,800
+And now we need to give some controls to the rocket.
+
+201
+00:09:33,800 --> 00:09:35,480
+So let's get over to the rocket.
+
+202
+00:09:35,480 --> 00:09:39,040
+And here, with the rocket, we basically
+
+203
+00:09:39,040 --> 00:09:41,640
+want to respond to the event of moving left and right.
+
+204
+00:09:42,240 --> 00:09:44,640
+We basically want to respond to the event of moving
+
+205
+00:09:44,640 --> 00:09:45,240
+left and right.
+
+206
+00:09:45,240 --> 00:09:50,400
+So when the key is pressed, in this case,
+
+207
+00:09:50,400 --> 00:09:53,480
+let's just assign this to the left arrow.
+
+208
+00:09:53,480 --> 00:10:06,480
+Then we want to move, let's see, we'll say, change x here.
+
+209
+00:10:06,480 --> 00:10:08,400
+That's probably the easiest block to use.
+
+210
+00:10:08,400 --> 00:10:10,800
+So that's our x-coordinate.
+
+211
+00:10:10,800 --> 00:10:13,440
+And we're going to change it by negative 5.
+
+212
+00:10:13,440 --> 00:10:14,520
+Let's just test that out.
+
+213
+00:10:17,560 --> 00:10:20,320
+So it's moving to the left.
+
+214
+00:10:20,320 --> 00:10:23,200
+And now if we want to move it to the right,
+
+215
+00:10:23,200 --> 00:10:26,800
+we can duplicate this, drop this down here,
+
+216
+00:10:26,800 --> 00:10:30,000
+and put it to the right.
+
+217
+00:10:30,000 --> 00:10:31,320
+There we go.
+
+218
+00:10:31,320 --> 00:10:33,640
+OK, so now we've got controls here.
+
+219
+00:10:36,200 --> 00:10:38,160
+I've got to change this to 5, because otherwise we're
+
+220
+00:10:38,160 --> 00:10:39,200
+just moving the same direction.
+
+221
+00:10:39,200 --> 00:10:40,280
+So now we've got controls.
+
+222
+00:10:40,280 --> 00:10:42,640
+We can move our rocket back and forth.
+
+223
+00:10:42,640 --> 00:10:44,640
+So in a way, we're ready to play our game, right?
+
+224
+00:10:44,640 --> 00:10:46,440
+So if we start this with the green flag,
+
+225
+00:10:46,440 --> 00:10:47,800
+I can move and try to avoid this.
+
+226
+00:10:47,800 --> 00:10:49,400
+Oh, not so good.
+
+227
+00:10:49,400 --> 00:10:50,600
+Let me try that again.
+
+228
+00:10:50,600 --> 00:10:51,880
+Got to move faster.
+
+229
+00:10:51,880 --> 00:10:53,160
+There we go.
+
+230
+00:10:53,160 --> 00:10:54,280
+Get back to the center.
+
+231
+00:10:54,280 --> 00:10:55,640
+Whoa.
+
+232
+00:10:55,640 --> 00:10:57,960
+OK, so we can play our game.
+
+233
+00:10:57,960 --> 00:10:59,680
+But you notice there's one problem here.
+
+234
+00:10:59,680 --> 00:11:01,520
+I mean, to make this a full-fledged game,
+
+235
+00:11:01,520 --> 00:11:03,680
+there's probably lots of things that we want to add.
+
+236
+00:11:03,680 --> 00:11:05,600
+But there's one very significant problem,
+
+237
+00:11:05,600 --> 00:11:10,600
+namely, when this asteroid comes into proximity
+
+238
+00:11:10,600 --> 00:11:13,120
+with the rocket, nothing happens.
+
+239
+00:11:13,120 --> 00:11:15,360
+So we need to detect that event.
+
+240
+00:11:15,360 --> 00:11:17,960
+And then we need to broadcast this game over event
+
+241
+00:11:17,960 --> 00:11:19,520
+to show that the game has, in fact,
+
+242
+00:11:19,520 --> 00:11:23,480
+ended when the two objects collide.
+
+243
+00:11:23,480 --> 00:11:27,320
+So to do that, let's go over to here.
+
+244
+00:11:27,320 --> 00:11:31,160
+We're back again inside of our rocket sprite.
+
+245
+00:11:31,160 --> 00:11:33,640
+And we're going to do a sensing block.
+
+246
+00:11:33,640 --> 00:11:37,640
+And we've got this touching.
+
+247
+00:11:37,640 --> 00:11:41,280
+So we can drop down, and we can say when.
+
+248
+00:11:41,280 --> 00:11:43,280
+So this is just detecting that it's touching.
+
+249
+00:11:43,280 --> 00:11:44,640
+So it's not touching right now.
+
+250
+00:11:44,640 --> 00:11:46,320
+That's false.
+
+251
+00:11:46,320 --> 00:11:51,920
+But if we click on it again when they are touching, it's true.
+
+252
+00:11:51,920 --> 00:11:57,760
+OK, so we'll do another event here under Control.
+
+253
+00:11:57,760 --> 00:12:05,280
+And this will be when touching.
+
+254
+00:12:05,280 --> 00:12:11,240
+So when that occurs, we're going to broadcast game over.
+
+255
+00:12:11,240 --> 00:12:14,400
+So now, let's go back and get a broadcast block.
+
+256
+00:12:14,400 --> 00:12:17,320
+So we're going to broadcast here.
+
+257
+00:12:17,320 --> 00:12:19,800
+And we're going to make a new message.
+
+258
+00:12:19,800 --> 00:12:23,200
+We're going to call it game over.
+
+259
+00:12:23,200 --> 00:12:23,680
+Here we go.
+
+260
+00:12:23,680 --> 00:12:29,760
+So now, you'll see, when they're touching,
+
+261
+00:12:29,760 --> 00:12:31,240
+it will broadcast game over.
+
+262
+00:12:31,240 --> 00:12:34,920
+But we haven't set anything up on the receiver side yet.
+
+263
+00:12:34,920 --> 00:12:38,000
+So in this case, if we're running this,
+
+264
+00:12:38,000 --> 00:12:40,120
+the message is broadcast as soon as the asteroid
+
+265
+00:12:40,120 --> 00:12:41,360
+touches the rocket.
+
+266
+00:12:41,360 --> 00:12:45,360
+But nothing stops because we haven't set up
+
+267
+00:12:45,360 --> 00:12:47,240
+the receiver on the side.
+
+268
+00:12:47,240 --> 00:12:51,280
+So we need to set up the receiver here.
+
+269
+00:12:51,280 --> 00:12:53,160
+And let's just do that.
+
+270
+00:12:53,160 --> 00:12:58,480
+When I receive over here, game over.
+
+271
+00:12:58,480 --> 00:12:59,880
+Now, we just want to do something
+
+272
+00:12:59,880 --> 00:13:01,360
+that's going to stop that.
+
+273
+00:13:01,360 --> 00:13:08,120
+So you'll see that down here, there is a stop all.
+
+274
+00:13:08,120 --> 00:13:13,120
+And so that will stop the sprite from doing its forever loop.
+
+275
+00:13:13,120 --> 00:13:16,800
+And so in this case, when the two objects collide,
+
+276
+00:13:16,800 --> 00:13:19,480
+then it should broadcast game over.
+
+277
+00:13:19,480 --> 00:13:23,040
+And the other sprite should receive that message.
+
+278
+00:13:23,040 --> 00:13:24,720
+And stop all.
+
+279
+00:13:24,720 --> 00:13:27,160
+OK, let's try it.
+
+280
+00:13:27,160 --> 00:13:27,800
+So here we go.
+
+281
+00:13:27,800 --> 00:13:28,320
+I'm avoiding.
+
+282
+00:13:28,320 --> 00:13:28,880
+I'm avoiding.
+
+283
+00:13:28,880 --> 00:13:30,480
+Oh, I didn't avoid it well enough.
+
+284
+00:13:30,480 --> 00:13:31,760
+The game is over.
+
+285
+00:13:31,760 --> 00:13:33,600
+Let's try it again.
+
+286
+00:13:33,600 --> 00:13:34,400
+Oh, oh.
+
+287
+00:13:36,800 --> 00:13:38,360
+All right, let's try it one more time.
+
+288
+00:13:38,360 --> 00:13:39,680
+Here we go.
+
+289
+00:13:39,680 --> 00:13:41,560
+I just cannot avoid it.
+
+290
+00:13:41,560 --> 00:13:43,640
+I really want to try to avoid this.
+
+291
+00:13:43,640 --> 00:13:45,560
+OK, I avoided one successfully.
+
+292
+00:13:45,560 --> 00:13:47,120
+That's good.
+
+293
+00:13:47,120 --> 00:13:50,240
+Avoiding another, just barely.
+
+294
+00:13:50,240 --> 00:13:52,320
+And oh, oh.
+
+295
+00:13:52,320 --> 00:13:53,160
+It collided.
+
+296
+00:13:53,160 --> 00:13:55,880
+So you see now that these two sprites
+
+297
+00:13:55,880 --> 00:13:59,400
+are communicating to each other by broadcasting
+
+298
+00:13:59,400 --> 00:14:01,800
+these symbols that are picked up.
+
+299
+00:14:01,800 --> 00:14:03,900
+And then you can respond to those messages that
+
+300
+00:14:03,900 --> 00:14:06,120
+are broadcast appropriately.
+
+301
+00:14:06,120 --> 00:14:08,280
+All right, that's it for this time.
+
+302
+00:14:08,280 --> 00:14:11,360
+We're going to be diving into more complex messages
+
+303
+00:14:11,360 --> 00:14:13,840
+next time that Nets Blocks enables.
+
+304
+00:14:13,840 --> 00:14:16,040
+And we'll see you in our next video.
+
+305
+00:14:16,040 --> 00:14:17,760
+Thank you.
+

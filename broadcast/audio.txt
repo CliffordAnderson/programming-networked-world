@@ -1,0 +1,305 @@
+Hi.
+Welcome back to Programming for a Network World.
+Today, we're going to be talking about the broadcast block.
+The broadcast block allows you to send messages
+across projects and let those messages be picked up
+by other sprites or blocks.
+So when you think about broadcasting in daily life,
+if I want to broadcast something to the people around me,
+I might shout, here, here.
+And then they would look to me to see what I was talking about.
+So in Nets blocks, broadcasts work in much the same way.
+You can broadcast a message, and then other blocks
+will pick up that message and be able to respond to it.
+Ready to try out the broadcast block?
+Let's get started.
+OK, so to get going, we're going to set up
+a very simple exercise of just sending a broadcast message
+and then receiving that broadcast.
+But we're going to do it across two sprites.
+So the way we'll begin is we'll set up a message
+that Ada will send out.
+And if I go over here to the Control palette
+and I bring over Broadcast, you see, oh, there we go.
+Let's bring over Broadcast.
+It has a dropdown.
+And I can drop it down, and I can say New.
+And it's going to ask me for a message name.
+The message name is basically a bare symbol.
+It's anything that you want to give it.
+And that's what the receiver of the broadcast
+will get when the message is sent out.
+So it doesn't have any content beyond its name.
+That's why I call it a symbol.
+So I will just say Broadcast Hello.
+And let's put that.
+And you'll see that I've got now my Hello message.
+And so let's just put When Space is Clicked to get it
+a little bit more interesting.
+Now, if I just click this right now,
+you'll see that it activates, but nothing happens.
+And that's simply because we've broadcast this message,
+but there's no corresponding receiver
+to pick up that message.
+So let's bring in another sprite to pick up our message.
+I'm going to go over here, and I'm going to create.
+Let's see.
+We've got to go over here to create a sprite first.
+And there it is.
+Let's give it a costume.
+So I'm going to go over to Costumes.
+Always takes a while to open up Costumes.
+And there's Alonzo.
+And we'll bring up Alonzo on the stage a little bit.
+Now, we want Alonzo to receive that message
+and then do something in response.
+So now we're working inside of Alonzo's script area.
+And there is a corresponding block
+called When I Receive.
+So this hat block can have a dropdown here
+that shows it can respond to any message.
+So anytime anything happens that's broadcast,
+it can respond to it.
+Or it can respond to particular types of broadcast messages.
+In this case, we're going to use the Hello message.
+And so when Alonzo receives the broadcast from Ada,
+then Alonzo will respond with whatever
+we put under this hat block.
+And in this case, why don't we go to a Say block.
+And we'll say, hello to you too.
+OK.
+So now we have a very simple program.
+We'll start it off with Ada.
+And we'll press the Space key.
+And voila, you see.
+We'll try it again.
+There it is.
+Hello to you too.
+So Ada broadcast this message hello.
+And then inside of our Alonzo script,
+we see when I receive hello, say hello to you too.
+Now, the way that you use broadcast very often in programs
+is to coordinate events that are taking place.
+It's very often used, for example, in games.
+So when you're working with a game, for example,
+you might want to set a condition in which
+if two sprites collide with each other,
+then the game is over.
+And you broadcast to everything else in the game
+this game over event.
+So that's a very common way of setting this up.
+And we can try that ourselves here.
+So let's move our scripts off.
+And we're going to start again afresh.
+Here we go.
+And we will set up.
+Let's do a little change of our characters.
+We'll say goodbye to Ada.
+And we'll change Alonzo's costume
+into a rocket ship, how about?
+So let's go down to costumes again.
+And let's take a look.
+There's a rocket ship here somewhere.
+There's a robot.
+That's not too bad.
+We could go for that if we can't find the rocket.
+Ah, spaceship.
+We did get it.
+So let's bring that in.
+There's a spaceship.
+Now, and we want to remove this costume.
+So we've got a spaceship.
+And let's set up some more sprites, or at least one more.
+So we'll create a new one.
+And let's give this one a costume
+that we create ourselves.
+So we'll go over here to paint.
+And I'm going to just take this circle like this.
+And then maybe we'll color it a little bit differently.
+Here we go.
+OK.
+Now, this is going to be a very simple game.
+And you're going to have to expand on this
+to make it interesting.
+But what we'll do for this sprite, which
+we'll call rock or asteroid or something like that,
+we'll have this come down from the top of the screen.
+And then the rocket will need to avoid it.
+And if the rocket collides with it,
+then we're going to broadcast the game over event.
+OK.
+So we're going to take this asteroid.
+And we're going to go to a scripting area.
+And when we start the game, when the green flag is clicked,
+we want to move it to the very top of the screen
+and hide it off screen.
+All right.
+So let's do that.
+Hide here.
+We're going to find under Looks.
+There we go.
+We're going to hide it.
+We're going to go to, let's say, coordinate x is 0.
+And this will be negative 200.
+Let's just try that out.
+And there we go.
+OK, so it's off the screen.
+Let's have it go down and see if it can collide with our rocket.
+OK.
+So we'll take the next thing we want to do is, OK,
+we're going to have it glide to a particular direction.
+And we're going to have that direction be chosen at random.
+So we need to go to Operators and look at Random.
+Pick Random here.
+OK.
+So we'll have it glide.
+And let's set our initial time of five seconds.
+And then let's have it glide to someplace
+on the bottom of the screen, 150, let's say, 200.
+OK.
+And between this and this, let's just try it out
+and see how it works.
+And we need to show it, too.
+OK, so let's try this.
+Let's see how that works.
+Oh, we've got it coming from the wrong direction, which
+could be a challenge.
+So let's switch these.
+So this will be 200.
+And then we'll try negative 200.
+Let's try that.
+OK.
+So we've got our asteroid coming down.
+And it's not going down quite far enough.
+We want it to be off screen.
+So let's go to negative 250.
+And now we just want to put this into some kind of loop,
+right, so that we have new asteroids coming down
+every time.
+And we need to make sure that they change a little bit more
+in their direction.
+So let's do 150, negative 150 to 150.
+Let's see if that works better.
+This should make our asteroid do a little bit more
+interesting paths at random, going in different directions.
+It makes the game a little bit more interesting.
+There we go.
+And we'll make it a little bit faster.
+OK.
+So let's put this into a loop.
+And we're going to do, let's do a forever block.
+So that's down here.
+And there we go.
+OK, let's just test this out.
+It should just keep going.
+So we get down to the bottom.
+And it goes up to the top again.
+And it's going to be picking different directions.
+OK.
+So we got that piece going.
+And now we need to give some controls to the rocket.
+So let's get over to the rocket.
+And here, with the rocket, we basically
+want to respond to the event of moving left and right.
+We basically want to respond to the event of moving
+left and right.
+So when the key is pressed, in this case,
+let's just assign this to the left arrow.
+Then we want to move, let's see, we'll say, change x here.
+That's probably the easiest block to use.
+So that's our x-coordinate.
+And we're going to change it by negative 5.
+Let's just test that out.
+So it's moving to the left.
+And now if we want to move it to the right,
+we can duplicate this, drop this down here,
+and put it to the right.
+There we go.
+OK, so now we've got controls here.
+I've got to change this to 5, because otherwise we're
+just moving the same direction.
+So now we've got controls.
+We can move our rocket back and forth.
+So in a way, we're ready to play our game, right?
+So if we start this with the green flag,
+I can move and try to avoid this.
+Oh, not so good.
+Let me try that again.
+Got to move faster.
+There we go.
+Get back to the center.
+Whoa.
+OK, so we can play our game.
+But you notice there's one problem here.
+I mean, to make this a full-fledged game,
+there's probably lots of things that we want to add.
+But there's one very significant problem,
+namely, when this asteroid comes into proximity
+with the rocket, nothing happens.
+So we need to detect that event.
+And then we need to broadcast this game over event
+to show that the game has, in fact,
+ended when the two objects collide.
+So to do that, let's go over to here.
+We're back again inside of our rocket sprite.
+And we're going to do a sensing block.
+And we've got this touching.
+So we can drop down, and we can say when.
+So this is just detecting that it's touching.
+So it's not touching right now.
+That's false.
+But if we click on it again when they are touching, it's true.
+OK, so we'll do another event here under Control.
+And this will be when touching.
+So when that occurs, we're going to broadcast game over.
+So now, let's go back and get a broadcast block.
+So we're going to broadcast here.
+And we're going to make a new message.
+We're going to call it game over.
+Here we go.
+So now, you'll see, when they're touching,
+it will broadcast game over.
+But we haven't set anything up on the receiver side yet.
+So in this case, if we're running this,
+the message is broadcast as soon as the asteroid
+touches the rocket.
+But nothing stops because we haven't set up
+the receiver on the side.
+So we need to set up the receiver here.
+And let's just do that.
+When I receive over here, game over.
+Now, we just want to do something
+that's going to stop that.
+So you'll see that down here, there is a stop all.
+And so that will stop the sprite from doing its forever loop.
+And so in this case, when the two objects collide,
+then it should broadcast game over.
+And the other sprite should receive that message.
+And stop all.
+OK, let's try it.
+So here we go.
+I'm avoiding.
+I'm avoiding.
+Oh, I didn't avoid it well enough.
+The game is over.
+Let's try it again.
+Oh, oh.
+All right, let's try it one more time.
+Here we go.
+I just cannot avoid it.
+I really want to try to avoid this.
+OK, I avoided one successfully.
+That's good.
+Avoiding another, just barely.
+And oh, oh.
+It collided.
+So you see now that these two sprites
+are communicating to each other by broadcasting
+these symbols that are picked up.
+And then you can respond to those messages that
+are broadcast appropriately.
+All right, that's it for this time.
+We're going to be diving into more complex messages
+next time that Nets Blocks enables.
+And we'll see you in our next video.
+Thank you.

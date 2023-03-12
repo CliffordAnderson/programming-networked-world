@@ -1,0 +1,2172 @@
+1
+00:00:00,000 --> 00:00:00,800
+Hi, everyone.
+
+2
+00:00:00,800 --> 00:00:03,800
+Welcome back to Programming for a Networked World.
+
+3
+00:00:03,800 --> 00:00:07,040
+Today, we're going to continue our exploration of networking
+
+4
+00:00:07,040 --> 00:00:08,960
+within Netsblocks.
+
+5
+00:00:08,960 --> 00:00:11,080
+But in our previous examples, we've
+
+6
+00:00:11,080 --> 00:00:15,280
+used the room with various roles.
+
+7
+00:00:15,280 --> 00:00:17,440
+This time, we're not going to do that,
+
+8
+00:00:17,440 --> 00:00:20,560
+because when you're building certain types of applications,
+
+9
+00:00:20,560 --> 00:00:23,840
+and we'll be building a client server application,
+
+10
+00:00:23,840 --> 00:00:27,280
+you don't always know the number of users you're going to have.
+
+11
+00:00:27,280 --> 00:00:30,480
+And you don't want to, as you expand or contract,
+
+12
+00:00:30,480 --> 00:00:32,920
+have to create new roles or delete roles
+
+13
+00:00:32,920 --> 00:00:35,160
+as users come and go.
+
+14
+00:00:35,160 --> 00:00:37,480
+So in this particular application,
+
+15
+00:00:37,480 --> 00:00:40,400
+we're going to be messaging each other back and forth
+
+16
+00:00:40,400 --> 00:00:44,480
+with another way of passing information between Netsblocks
+
+17
+00:00:44,480 --> 00:00:47,040
+programs called a public role ID.
+
+18
+00:00:53,080 --> 00:00:54,640
+So to begin with, we're just going
+
+19
+00:00:54,640 --> 00:00:57,800
+to start with that simple exchange of messages
+
+20
+00:00:57,800 --> 00:00:59,160
+between computers.
+
+21
+00:00:59,160 --> 00:01:02,600
+And so we'll go over to Brian's side.
+
+22
+00:01:02,600 --> 00:01:06,920
+And he's going to set up the environment in which we
+
+23
+00:01:06,920 --> 00:01:08,120
+can receive the message.
+
+24
+00:01:08,120 --> 00:01:10,760
+And then I'll pass the message to him.
+
+25
+00:01:10,760 --> 00:01:14,120
+All right, so if we remember back to earlier projects,
+
+26
+00:01:14,120 --> 00:01:16,200
+like our distributed Hello World,
+
+27
+00:01:16,200 --> 00:01:18,720
+we have this network category where we have all our message
+
+28
+00:01:18,720 --> 00:01:20,280
+passing blocks.
+
+29
+00:01:20,320 --> 00:01:24,880
+So we can use this when I receive message handler
+
+30
+00:01:24,880 --> 00:01:30,000
+to handle messages that we received over the network.
+
+31
+00:01:30,000 --> 00:01:31,520
+So if we click on this dropdown, we
+
+32
+00:01:31,520 --> 00:01:33,840
+can select the built-in message type for now.
+
+33
+00:01:33,840 --> 00:01:35,400
+You might want to change this later,
+
+34
+00:01:35,400 --> 00:01:37,680
+but it's a decent starting spot.
+
+35
+00:01:37,680 --> 00:01:42,120
+And then when we receive the message, let's keep it simple
+
+36
+00:01:42,120 --> 00:01:45,080
+and just save the message for two seconds.
+
+37
+00:01:45,080 --> 00:01:46,800
+So we can use this save block and then
+
+38
+00:01:46,800 --> 00:01:51,560
+drag the contents of the message, which this message
+
+39
+00:01:51,560 --> 00:01:54,160
+type only has a single field, MSG.
+
+40
+00:01:54,160 --> 00:01:57,120
+And we can just save this for two seconds.
+
+41
+00:01:57,120 --> 00:01:58,720
+And then now we just need somebody
+
+42
+00:01:58,720 --> 00:02:02,560
+to send us a message that we can then display.
+
+43
+00:02:02,560 --> 00:02:05,440
+So with that, I'll hand it over to Cliff.
+
+44
+00:02:05,440 --> 00:02:08,440
+OK, so when I want to send a message to Brian,
+
+45
+00:02:08,440 --> 00:02:11,200
+let me bring this over here.
+
+46
+00:02:11,200 --> 00:02:13,040
+Now, the problem is I can send a message.
+
+47
+00:02:13,040 --> 00:02:18,480
+That's fine, and I can say, hello, Brian.
+
+48
+00:02:18,480 --> 00:02:21,080
+But the problem is we're not sharing a project.
+
+49
+00:02:21,080 --> 00:02:24,000
+So it's not going to be helpful to say to others in the room
+
+50
+00:02:24,000 --> 00:02:26,480
+or everyone in a room, because we're actually not in a room
+
+51
+00:02:26,480 --> 00:02:27,400
+together at this point.
+
+52
+00:02:27,400 --> 00:02:30,320
+We're just in completely separate Nets Blocks projects.
+
+53
+00:02:30,320 --> 00:02:33,200
+So how do I actually get the message to you, Brian?
+
+54
+00:02:33,200 --> 00:02:34,800
+That is a good question.
+
+55
+00:02:34,800 --> 00:02:38,720
+So in Nets Blocks and under this network category,
+
+56
+00:02:38,720 --> 00:02:43,000
+we have services and RPCs that we've seen before.
+
+57
+00:02:43,000 --> 00:02:44,600
+And there's one service in particular
+
+58
+00:02:44,600 --> 00:02:46,840
+that can be useful here.
+
+59
+00:02:46,840 --> 00:02:48,960
+It's this public roles service.
+
+60
+00:02:48,960 --> 00:02:51,920
+This lets us get a public role ID.
+
+61
+00:02:51,920 --> 00:02:55,600
+So in the past, when we were communicating within a room,
+
+62
+00:02:55,600 --> 00:02:57,720
+we had multiple roles, and we were just
+
+63
+00:02:57,720 --> 00:03:00,440
+using the role ID or role name to communicate
+
+64
+00:03:00,440 --> 00:03:02,120
+with one another.
+
+65
+00:03:02,120 --> 00:03:06,800
+Now, even if different projects had roles with the same name,
+
+66
+00:03:06,800 --> 00:03:09,320
+it was no problem to resolve this role name,
+
+67
+00:03:09,320 --> 00:03:11,880
+because we knew that it was within the room.
+
+68
+00:03:11,880 --> 00:03:15,040
+But as Cliff mentioned earlier, we're not using a room here.
+
+69
+00:03:15,040 --> 00:03:19,040
+So we need some sort of absolute or unique address
+
+70
+00:03:19,040 --> 00:03:22,680
+for the specific project or role that we are
+
+71
+00:03:22,680 --> 00:03:25,400
+wanting to send a message to.
+
+72
+00:03:25,400 --> 00:03:29,080
+So if we call this get public role ID,
+
+73
+00:03:29,080 --> 00:03:33,600
+this will return a public role ID or this kind of unique role
+
+74
+00:03:33,600 --> 00:03:37,800
+or this unique address for your specific role and project
+
+75
+00:03:37,800 --> 00:03:39,320
+that we can see here.
+
+76
+00:03:39,320 --> 00:03:42,320
+So when we click on it, we see this little dialog bubble
+
+77
+00:03:42,320 --> 00:03:46,520
+pop up that says my role at chat server at Brian.
+
+78
+00:03:46,520 --> 00:03:49,320
+So it looks a little bit like an email address.
+
+79
+00:03:49,320 --> 00:03:51,880
+But essentially, if we break it down,
+
+80
+00:03:51,880 --> 00:03:54,680
+it is your role name at your project name
+
+81
+00:03:54,680 --> 00:03:59,640
+at your username, which, of course, then is unique.
+
+82
+00:03:59,640 --> 00:04:03,480
+So to make this a little bit easier for anyone
+
+83
+00:04:03,480 --> 00:04:05,600
+who might want to connect to this server,
+
+84
+00:04:05,600 --> 00:04:09,960
+I'll just make a little server address variable, which
+
+85
+00:04:09,960 --> 00:04:12,160
+I can set when the project starts.
+
+86
+00:04:16,360 --> 00:04:20,200
+And let's say when the green flag is clicked,
+
+87
+00:04:20,200 --> 00:04:21,400
+this value will be set.
+
+88
+00:04:21,400 --> 00:04:25,120
+And now we can see I have this server address little watcher
+
+89
+00:04:25,120 --> 00:04:29,960
+showing up on the stage, which has the public role
+
+90
+00:04:29,960 --> 00:04:33,120
+ID or fully qualified kind of unique address
+
+91
+00:04:33,120 --> 00:04:37,160
+for this specific program.
+
+92
+00:04:37,160 --> 00:04:40,160
+So the thing is that public role ID is just like an email.
+
+93
+00:04:40,160 --> 00:04:43,040
+And I remember in the beginning of email back in the 90s
+
+94
+00:04:43,040 --> 00:04:45,440
+when people were first starting to use email,
+
+95
+00:04:45,440 --> 00:04:47,280
+the trick was how do you discover someone's email
+
+96
+00:04:47,280 --> 00:04:47,720
+address?
+
+97
+00:04:47,720 --> 00:04:49,640
+Because if you don't have their email address,
+
+98
+00:04:49,640 --> 00:04:50,760
+you can't email them.
+
+99
+00:04:50,760 --> 00:04:52,320
+And so this is the same problem here.
+
+100
+00:04:52,320 --> 00:04:54,680
+I actually have to learn that address from Brian.
+
+101
+00:04:54,680 --> 00:04:56,760
+He has to be able to give it to me in some way.
+
+102
+00:04:56,760 --> 00:04:58,480
+Otherwise, I can't communicate with him.
+
+103
+00:04:58,480 --> 00:05:00,840
+So in this case, since he's right next to me,
+
+104
+00:05:00,840 --> 00:05:01,920
+I'll ask him.
+
+105
+00:05:01,920 --> 00:05:03,560
+You could have him email your address.
+
+106
+00:05:03,560 --> 00:05:04,940
+There are other ways to share it.
+
+107
+00:05:04,940 --> 00:05:07,000
+But you do need to know what his public role
+
+108
+00:05:07,000 --> 00:05:09,280
+ID is going to be in order to start
+
+109
+00:05:09,280 --> 00:05:10,480
+the chain of communication.
+
+110
+00:05:10,480 --> 00:05:11,880
+So I'm going to do the same thing.
+
+111
+00:05:11,880 --> 00:05:12,960
+I'm going to go over here.
+
+112
+00:05:12,960 --> 00:05:15,800
+And I'm going to create a variable.
+
+113
+00:05:15,800 --> 00:05:18,360
+Let's just, I always like to use the script variables.
+
+114
+00:05:18,360 --> 00:05:19,560
+Let's just do that.
+
+115
+00:05:19,560 --> 00:05:27,280
+And I'm going to call this one, let's say, well, you know what?
+
+116
+00:05:27,280 --> 00:05:28,920
+I think Brian is probably thinking,
+
+117
+00:05:28,920 --> 00:05:30,040
+don't do it this time.
+
+118
+00:05:30,040 --> 00:05:31,760
+Let's just make a public variable.
+
+119
+00:05:31,760 --> 00:05:33,920
+Because I may need to use it in various places.
+
+120
+00:05:33,920 --> 00:05:39,280
+So we're going to call this, let's call it the chat server
+
+121
+00:05:39,280 --> 00:05:40,600
+ID.
+
+122
+00:05:40,600 --> 00:05:42,920
+So that's where the chat server is going to be.
+
+123
+00:05:42,920 --> 00:05:46,240
+And we're going to set that chat server here
+
+124
+00:05:46,240 --> 00:05:49,400
+to what Brian's public role is.
+
+125
+00:05:49,400 --> 00:05:51,040
+Now, just tell me, and I'll type it in.
+
+126
+00:05:51,040 --> 00:05:51,540
+Sure.
+
+127
+00:05:51,540 --> 00:05:54,560
+So it's my role at chat server.
+
+128
+00:05:54,560 --> 00:05:57,240
+And there's a space between chat and server.
+
+129
+00:05:57,240 --> 00:06:00,800
+And I capitalized the C and the S.
+
+130
+00:06:00,800 --> 00:06:01,720
+It's all very important.
+
+131
+00:06:01,720 --> 00:06:02,800
+I get it exactly right.
+
+132
+00:06:02,800 --> 00:06:04,080
+Chat server.
+
+133
+00:06:04,080 --> 00:06:05,880
+And then at Brian.
+
+134
+00:06:05,880 --> 00:06:06,880
+Brian, lowercase.
+
+135
+00:06:06,880 --> 00:06:07,480
+Yep.
+
+136
+00:06:07,480 --> 00:06:08,200
+OK.
+
+137
+00:06:08,200 --> 00:06:12,120
+So if I click on that, let's actually just send a message
+
+138
+00:06:12,120 --> 00:06:12,600
+here.
+
+139
+00:06:12,600 --> 00:06:14,640
+So I'm going to send that.
+
+140
+00:06:14,640 --> 00:06:16,920
+And instead of sending it to a room,
+
+141
+00:06:16,920 --> 00:06:18,560
+I'm going to drop this in here.
+
+142
+00:06:18,560 --> 00:06:24,680
+And now let's send the message, hello, Brian.
+
+143
+00:06:24,680 --> 00:06:27,400
+All right, so we didn't see a pop-up on my screen.
+
+144
+00:06:27,400 --> 00:06:29,280
+And this likely means that there's a typo.
+
+145
+00:06:29,280 --> 00:06:31,840
+Because, of course, these are sensitive,
+
+146
+00:06:31,840 --> 00:06:33,360
+just like email addresses, if there's
+
+147
+00:06:33,360 --> 00:06:34,560
+a typo or things like that.
+
+148
+00:06:34,560 --> 00:06:36,400
+OK, so let's go over it one more time, then.
+
+149
+00:06:36,400 --> 00:06:40,000
+So I think we need to change the M to be lowercase.
+
+150
+00:06:40,000 --> 00:06:40,520
+OK.
+
+151
+00:06:40,520 --> 00:06:41,880
+Because it is case-sensitive.
+
+152
+00:06:41,880 --> 00:06:47,720
+Yeah, so it's a lowercase M-Y, capital R-O-L-E.
+
+153
+00:06:47,720 --> 00:06:50,240
+OK, let's try it again.
+
+154
+00:06:50,240 --> 00:06:50,760
+All right.
+
+155
+00:06:50,760 --> 00:06:51,600
+Ah, there it goes.
+
+156
+00:06:51,600 --> 00:06:52,480
+OK.
+
+157
+00:06:52,480 --> 00:06:54,880
+There we are.
+
+158
+00:06:54,880 --> 00:06:55,360
+Awesome.
+
+159
+00:06:55,360 --> 00:06:58,800
+So now at this point, we've been able to basically recreate
+
+160
+00:06:58,800 --> 00:07:00,680
+the distributed Hello World project,
+
+161
+00:07:00,680 --> 00:07:02,720
+but not using the room concept.
+
+162
+00:07:02,720 --> 00:07:05,320
+Now, again, the room concept, although it's normally
+
+163
+00:07:05,320 --> 00:07:07,520
+a nice fit, because it makes it a lot easier
+
+164
+00:07:07,520 --> 00:07:08,840
+to discover addresses.
+
+165
+00:07:08,840 --> 00:07:13,400
+You don't have to enter or type these addresses in by hand.
+
+166
+00:07:13,400 --> 00:07:18,120
+You can see who's occupying the role, et cetera.
+
+167
+00:07:18,120 --> 00:07:19,840
+They're not the best fit for this project,
+
+168
+00:07:19,840 --> 00:07:22,320
+because we want to have chat clients come and go
+
+169
+00:07:22,320 --> 00:07:23,000
+as they please.
+
+170
+00:07:23,000 --> 00:07:27,280
+So we want the size of the chat room to be dynamic.
+
+171
+00:07:27,280 --> 00:07:30,880
+So at this point, we've been able to, again, recreate this.
+
+172
+00:07:30,880 --> 00:07:32,680
+But there's one big shortcoming.
+
+173
+00:07:32,680 --> 00:07:37,640
+So right now, when Cliff sends a message to, unfortunately,
+
+174
+00:07:37,640 --> 00:07:39,160
+he's the only person in the room.
+
+175
+00:07:39,160 --> 00:07:41,400
+But he can just lean over and look at my screen,
+
+176
+00:07:41,400 --> 00:07:44,560
+I guess, to see what everyone's been saying.
+
+177
+00:07:44,560 --> 00:07:46,280
+But of course, this isn't really ideal,
+
+178
+00:07:46,280 --> 00:07:47,820
+because you don't want to always have
+
+179
+00:07:47,820 --> 00:07:49,960
+to be in the same room as the server program.
+
+180
+00:07:50,680 --> 00:07:58,280
+So we really need the server to not just display the message,
+
+181
+00:07:58,280 --> 00:08:03,200
+but actually to send it to the people in the conversation
+
+182
+00:08:03,200 --> 00:08:05,200
+or in the chat room.
+
+183
+00:08:05,200 --> 00:08:08,520
+So if we're going to do something like that,
+
+184
+00:08:08,520 --> 00:08:11,280
+when we receive this message, instead
+
+185
+00:08:11,280 --> 00:08:13,880
+of saying it for two seconds, we would just
+
+186
+00:08:13,880 --> 00:08:18,800
+want to send it to, in this case, just Cliff.
+
+187
+00:08:18,800 --> 00:08:21,960
+But we really want to send it to all the people in the room.
+
+188
+00:08:21,960 --> 00:08:24,800
+So basically, we're forwarding the same message back.
+
+189
+00:08:24,800 --> 00:08:28,320
+But then the problem is, how does the server
+
+190
+00:08:28,320 --> 00:08:31,520
+know who's all involved in the room?
+
+191
+00:08:31,520 --> 00:08:36,600
+So we might want to add a login or register
+
+192
+00:08:36,600 --> 00:08:39,280
+or some sort of step like that.
+
+193
+00:08:39,280 --> 00:08:43,400
+I'm going to call it a registration step.
+
+194
+00:08:43,400 --> 00:08:46,400
+And I'm going to make a new message type for this.
+
+195
+00:08:46,400 --> 00:08:50,440
+So this would be a step where the person who
+
+196
+00:08:50,440 --> 00:08:53,720
+wants to join the server sends them a register
+
+197
+00:08:53,720 --> 00:08:57,640
+message to the server that just has one field,
+
+198
+00:08:57,640 --> 00:08:59,840
+and that's their address.
+
+199
+00:08:59,840 --> 00:09:01,680
+And then we will record this as someone
+
+200
+00:09:01,680 --> 00:09:04,960
+who cares about the conversation or someone who's in the chat room
+
+201
+00:09:04,960 --> 00:09:09,840
+and to whom we'll send any messages that we receive
+
+202
+00:09:09,840 --> 00:09:13,520
+from some of the current occupants.
+
+203
+00:09:13,520 --> 00:09:15,600
+So we can add a new message handler now
+
+204
+00:09:15,600 --> 00:09:18,160
+for the register message type, which, again,
+
+205
+00:09:18,160 --> 00:09:21,920
+has a single field called address.
+
+206
+00:09:21,920 --> 00:09:26,000
+And then we can make a new variable
+
+207
+00:09:26,000 --> 00:09:31,280
+to say that we have a number of connected clients.
+
+208
+00:09:31,280 --> 00:09:36,120
+And we just add the current address to the clients.
+
+209
+00:09:38,840 --> 00:09:41,040
+Now, there are a couple of little things
+
+210
+00:09:41,040 --> 00:09:42,960
+we might want to keep in mind.
+
+211
+00:09:42,960 --> 00:09:46,960
+One is that right now, if we look at our stage,
+
+212
+00:09:46,960 --> 00:09:49,880
+we can see clients is number 0 when we really probably
+
+213
+00:09:49,880 --> 00:09:51,600
+want it to be a list.
+
+214
+00:09:51,600 --> 00:09:55,560
+So we should initialize this variable to an empty list
+
+215
+00:09:55,560 --> 00:09:57,680
+when the program starts.
+
+216
+00:09:57,680 --> 00:10:02,200
+And we probably don't want to have duplicate entries
+
+217
+00:10:02,200 --> 00:10:04,000
+in our list of clients.
+
+218
+00:10:04,000 --> 00:10:07,360
+So we really only want to add them to the list
+
+219
+00:10:07,360 --> 00:10:11,440
+or add the client to the list if they're not already
+
+220
+00:10:11,440 --> 00:10:12,240
+in the list.
+
+221
+00:10:12,240 --> 00:10:22,520
+So just a couple of little edge cases, I guess, to consider.
+
+222
+00:10:22,520 --> 00:10:33,280
+So if it's not the case that clients already
+
+223
+00:10:33,280 --> 00:10:37,560
+contains the list or the address name in its list,
+
+224
+00:10:37,560 --> 00:10:39,160
+then we'll add it.
+
+225
+00:10:39,160 --> 00:10:43,200
+All right, so now we're able to actually build up
+
+226
+00:10:43,200 --> 00:10:44,160
+this list of clients.
+
+227
+00:10:44,160 --> 00:10:46,560
+And then when we receive this message,
+
+228
+00:10:46,560 --> 00:10:50,680
+we can just send it to our list of clients.
+
+229
+00:10:50,680 --> 00:10:54,160
+OK, so on my end, then I need to register with the chat server
+
+230
+00:10:54,160 --> 00:10:54,640
+now.
+
+231
+00:10:54,640 --> 00:10:56,800
+We've got an additional level of formality
+
+232
+00:10:56,800 --> 00:10:59,480
+that we didn't have before.
+
+233
+00:10:59,480 --> 00:11:02,440
+And so what I need to do first is
+
+234
+00:11:02,440 --> 00:11:05,680
+to recreate that same message type down here.
+
+235
+00:11:05,680 --> 00:11:08,200
+So let's go to make a message type.
+
+236
+00:11:08,240 --> 00:11:10,400
+And again, I need to know what that message type is.
+
+237
+00:11:10,400 --> 00:11:11,960
+And I believe it's register.
+
+238
+00:11:11,960 --> 00:11:13,040
+So we're going to do that.
+
+239
+00:11:13,040 --> 00:11:18,400
+And then the field here is going to be, I think it's,
+
+240
+00:11:18,400 --> 00:11:19,760
+did you call it?
+
+241
+00:11:19,760 --> 00:11:21,400
+ADDRESS, all lowercase.
+
+242
+00:11:21,400 --> 00:11:25,600
+OK, address, because that's going to be my public role ID.
+
+243
+00:11:25,600 --> 00:11:27,320
+OK, and so when we bring that over,
+
+244
+00:11:27,320 --> 00:11:31,080
+let's just kind of look at sending that message.
+
+245
+00:11:31,080 --> 00:11:33,080
+So we can drop this down here.
+
+246
+00:11:33,080 --> 00:11:34,280
+And we'll do a register.
+
+247
+00:11:34,280 --> 00:11:35,760
+And it should say address.
+
+248
+00:11:35,760 --> 00:11:38,280
+And then two, we know where it needs to go to.
+
+249
+00:11:38,280 --> 00:11:39,680
+It needs to go to the chat server.
+
+250
+00:11:39,680 --> 00:11:44,000
+So let's go over there to get that variable.
+
+251
+00:11:44,000 --> 00:11:46,280
+Here we go, chat server ID.
+
+252
+00:11:46,280 --> 00:11:48,840
+And again, to get my address, then I'm
+
+253
+00:11:48,840 --> 00:11:50,720
+going to go back out to network here.
+
+254
+00:11:50,720 --> 00:11:53,560
+And I'm going to go to the call block,
+
+255
+00:11:53,560 --> 00:11:55,680
+as Brian did the same way before.
+
+256
+00:11:55,680 --> 00:11:59,560
+And I can get my own by looking for public role ID.
+
+257
+00:11:59,560 --> 00:12:00,680
+There we go.
+
+258
+00:12:00,680 --> 00:12:03,760
+And dropping it down to get.
+
+259
+00:12:03,760 --> 00:12:08,920
+And then you can see that that is my particular role ID.
+
+260
+00:12:08,920 --> 00:12:12,240
+And so I want to send that address to register.
+
+261
+00:12:12,240 --> 00:12:16,640
+So you probably want to put this into your initial starting
+
+262
+00:12:16,640 --> 00:12:19,640
+block, so when clicked.
+
+263
+00:12:19,640 --> 00:12:23,680
+And I guess I probably should have used a different block
+
+264
+00:12:23,680 --> 00:12:25,400
+to do this.
+
+265
+00:12:25,400 --> 00:12:26,880
+Could have used this one here.
+
+266
+00:12:26,880 --> 00:12:29,800
+But let's just have it for now.
+
+267
+00:12:29,800 --> 00:12:33,760
+Maybe we can just report this.
+
+268
+00:12:33,760 --> 00:12:35,560
+There we go.
+
+269
+00:12:35,560 --> 00:12:38,000
+Oh, and I've got, and wait, I really
+
+270
+00:12:38,000 --> 00:12:39,280
+picked the wrong block here.
+
+271
+00:12:39,280 --> 00:12:42,400
+So we'll just pull these pieces out, actually.
+
+272
+00:12:42,400 --> 00:12:44,120
+I think that'll be easier.
+
+273
+00:12:44,120 --> 00:12:47,880
+So we're going to send a message using this one.
+
+274
+00:12:47,880 --> 00:12:50,840
+And there we go.
+
+275
+00:12:50,840 --> 00:12:54,000
+Let's drop this down to register.
+
+276
+00:12:54,000 --> 00:12:56,000
+There's the address.
+
+277
+00:12:56,000 --> 00:12:59,360
+And make some space here so we can see it.
+
+278
+00:12:59,360 --> 00:13:00,960
+Sorry, Ada.
+
+279
+00:13:00,960 --> 00:13:02,200
+There we go.
+
+280
+00:13:02,200 --> 00:13:04,040
+And to the chat server.
+
+281
+00:13:04,040 --> 00:13:05,480
+So that should be good.
+
+282
+00:13:05,480 --> 00:13:06,920
+Don't need this.
+
+283
+00:13:06,920 --> 00:13:08,720
+And so now when I first start off,
+
+284
+00:13:08,720 --> 00:13:11,040
+this will register me with the chat server.
+
+285
+00:13:11,040 --> 00:13:13,280
+So let's see if that works.
+
+286
+00:13:13,280 --> 00:13:15,280
+Click.
+
+287
+00:13:15,280 --> 00:13:18,360
+All right, so on my side, we see an error, expecting a list
+
+288
+00:13:18,360 --> 00:13:19,480
+but getting a number.
+
+289
+00:13:19,480 --> 00:13:20,360
+So.
+
+290
+00:13:20,360 --> 00:13:21,920
+We've run into that one before.
+
+291
+00:13:21,920 --> 00:13:25,040
+Yeah, so that usually means that somewhere where it, well,
+
+292
+00:13:25,040 --> 00:13:28,000
+as it says it was expecting a list,
+
+293
+00:13:28,000 --> 00:13:29,640
+it was not getting a list.
+
+294
+00:13:29,640 --> 00:13:31,000
+It was getting a number instead.
+
+295
+00:13:31,000 --> 00:13:32,800
+So if we look at these blocks, because there
+
+296
+00:13:32,800 --> 00:13:34,960
+aren't too many here, we see that we're
+
+297
+00:13:34,960 --> 00:13:37,160
+checking to see if clients contains the address.
+
+298
+00:13:37,160 --> 00:13:39,640
+Well, the address should be the public role ID
+
+299
+00:13:39,640 --> 00:13:40,960
+that Cliff sent.
+
+300
+00:13:40,960 --> 00:13:43,760
+And clients, if we look at the value, is zero.
+
+301
+00:13:43,760 --> 00:13:46,400
+So it looks like, although we wrote the code
+
+302
+00:13:46,400 --> 00:13:49,240
+to initialize this client's variable to an empty list,
+
+303
+00:13:49,240 --> 00:13:50,640
+we never ran it.
+
+304
+00:13:50,640 --> 00:13:52,080
+So let's click the green flag.
+
+305
+00:13:52,080 --> 00:13:54,240
+And then I'm going to click on this message handler.
+
+306
+00:13:54,240 --> 00:13:57,880
+So it's, actually, I think it should be fine.
+
+307
+00:13:58,280 --> 00:13:59,600
+Now, if Cliff runs it again.
+
+308
+00:14:08,800 --> 00:14:11,520
+One second.
+
+309
+00:14:11,520 --> 00:14:13,160
+So, one moment.
+
+310
+00:14:13,160 --> 00:14:18,680
+I seem to see, usually just clicking on those queers,
+
+311
+00:14:18,680 --> 00:14:21,480
+it's a little bit surprised to see that it's not.
+
+312
+00:14:21,480 --> 00:14:25,680
+So I'm going to just use a different message handler
+
+313
+00:14:25,680 --> 00:14:26,200
+quick.
+
+314
+00:14:26,240 --> 00:14:29,120
+All right, so now Cliff sends this again,
+
+315
+00:14:29,120 --> 00:14:30,720
+this register message.
+
+316
+00:14:30,720 --> 00:14:33,840
+Now we can see that clients actually
+
+317
+00:14:33,840 --> 00:14:35,120
+has his public role ID.
+
+318
+00:14:35,120 --> 00:14:39,480
+So we see the role name at his project name at his username.
+
+319
+00:14:39,480 --> 00:14:41,400
+All right, so now let's see what happens
+
+320
+00:14:41,400 --> 00:14:43,720
+if Cliff sends a message.
+
+321
+00:14:47,120 --> 00:14:51,120
+All right, so we removed the save block from ours
+
+322
+00:14:51,120 --> 00:14:53,120
+since we were just relaying the message back.
+
+323
+00:14:53,120 --> 00:14:56,040
+So now it's not showing up here.
+
+324
+00:14:56,040 --> 00:14:58,840
+We could add that if we want to maybe debug.
+
+325
+00:14:58,840 --> 00:15:02,760
+We probably want to get rid of the two seconds portion
+
+326
+00:15:02,760 --> 00:15:06,120
+here so that we don't slow down the messages
+
+327
+00:15:06,120 --> 00:15:07,400
+that we can receive.
+
+328
+00:15:07,400 --> 00:15:08,800
+And now if Cliff sends it again, we
+
+329
+00:15:08,800 --> 00:15:11,560
+can double check that we are getting the message, in fact.
+
+330
+00:15:11,560 --> 00:15:14,560
+But we don't yet see it on Cliff's screen
+
+331
+00:15:14,560 --> 00:15:16,080
+because he doesn't have any message
+
+332
+00:15:16,080 --> 00:15:19,680
+handler for these messages that have been, again,
+
+333
+00:15:19,680 --> 00:15:21,840
+kind of passed on back to the clients.
+
+334
+00:15:21,840 --> 00:15:23,920
+Right, so the message that I'm sending
+
+335
+00:15:23,920 --> 00:15:25,760
+is still a very simple message type.
+
+336
+00:15:25,960 --> 00:15:27,960
+Just message and then, hello, Brian.
+
+337
+00:15:27,960 --> 00:15:30,160
+So we want to make this a little bit more complex.
+
+338
+00:15:30,160 --> 00:15:34,000
+We want to be able to not only register with the chat server,
+
+339
+00:15:34,000 --> 00:15:35,840
+but we also want, when we send a message,
+
+340
+00:15:35,840 --> 00:15:38,880
+to indicate that we were the ones that sent the message.
+
+341
+00:15:38,880 --> 00:15:40,720
+And you could do this for different reasons.
+
+342
+00:15:40,720 --> 00:15:45,240
+One is you might not want to always echo back your messages
+
+343
+00:15:45,240 --> 00:15:47,000
+but just see other people's messages.
+
+344
+00:15:47,000 --> 00:15:48,440
+In this particular case, we're going
+
+345
+00:15:48,440 --> 00:15:51,080
+to echo back my message because it's just Brian and me.
+
+346
+00:15:51,080 --> 00:15:53,480
+But the point is, when you send a message
+
+347
+00:15:53,480 --> 00:15:54,840
+and you've got a big chat server,
+
+348
+00:15:54,920 --> 00:15:56,680
+you need to know who sent that message
+
+349
+00:15:56,680 --> 00:15:58,600
+and then the content of the message.
+
+350
+00:15:58,600 --> 00:16:02,160
+So for that reason, let's change our message type
+
+351
+00:16:02,160 --> 00:16:03,520
+from this simple message type.
+
+352
+00:16:03,520 --> 00:16:05,880
+We're going to create a new message type.
+
+353
+00:16:05,880 --> 00:16:10,120
+And then you can see here that I can expand the fields.
+
+354
+00:16:10,120 --> 00:16:11,800
+So we're going to make two fields.
+
+355
+00:16:11,800 --> 00:16:17,240
+And I'm going to call this, we can call this chat.
+
+356
+00:16:17,240 --> 00:16:18,840
+I guess we can call it chat.
+
+357
+00:16:18,840 --> 00:16:24,240
+And then the first field will be ID.
+
+358
+00:16:24,240 --> 00:16:27,520
+And the second field will be message.
+
+359
+00:16:27,520 --> 00:16:28,400
+How about that?
+
+360
+00:16:28,400 --> 00:16:31,000
+Now, the key is, as long as Brian
+
+361
+00:16:31,000 --> 00:16:33,840
+enters the same message type on his end,
+
+362
+00:16:33,840 --> 00:16:36,080
+we'll be able to communicate very smoothly.
+
+363
+00:16:36,080 --> 00:16:36,560
+OK.
+
+364
+00:16:36,560 --> 00:16:40,760
+So let's bring this new message type over.
+
+365
+00:16:40,760 --> 00:16:43,000
+Here we go.
+
+366
+00:16:43,000 --> 00:16:44,520
+And you know what?
+
+367
+00:16:44,520 --> 00:16:46,600
+This code, by the way, for setting the ID
+
+368
+00:16:46,600 --> 00:16:49,360
+should go up here when green flag is clicked.
+
+369
+00:16:49,360 --> 00:16:52,320
+And just to make this a little bit nicer,
+
+370
+00:16:52,320 --> 00:16:55,480
+let's add some code around this.
+
+371
+00:16:55,480 --> 00:17:02,000
+So when we start, let's have a sensing here and say,
+
+372
+00:17:02,000 --> 00:17:08,840
+ask your name, and say, what is your message, and wait.
+
+373
+00:17:08,840 --> 00:17:14,000
+And then we're going to put the answer here
+
+374
+00:17:14,000 --> 00:17:17,360
+in our new message type, which is chat.
+
+375
+00:17:17,360 --> 00:17:19,680
+And the answer will go into the message.
+
+376
+00:17:19,680 --> 00:17:20,920
+So that's good.
+
+377
+00:17:20,920 --> 00:17:24,280
+And then we can also capture our public role ID somewhere else.
+
+378
+00:17:24,280 --> 00:17:27,480
+So we've got that right here.
+
+379
+00:17:27,480 --> 00:17:29,600
+We probably should create a variable for that.
+
+380
+00:17:29,600 --> 00:17:31,200
+So let's just do that, too.
+
+381
+00:17:31,200 --> 00:17:32,920
+So we're going to make a variable
+
+382
+00:17:32,920 --> 00:17:39,040
+and call it client ID.
+
+383
+00:17:39,040 --> 00:17:42,520
+And then we're going to drop client ID over here.
+
+384
+00:17:42,520 --> 00:17:48,240
+And then I'm going to put my ID for the role right there.
+
+385
+00:17:48,240 --> 00:17:48,720
+OK.
+
+386
+00:17:48,720 --> 00:17:50,400
+So that sets up stuff in the beginning.
+
+387
+00:17:50,400 --> 00:17:52,240
+And then we'll register this.
+
+388
+00:17:52,240 --> 00:17:57,440
+We still need the address, which is we
+
+389
+00:17:57,440 --> 00:18:02,160
+need my address, which is going to be client ID to register
+
+390
+00:18:02,160 --> 00:18:03,760
+at the server ID.
+
+391
+00:18:03,760 --> 00:18:05,280
+OK.
+
+392
+00:18:05,280 --> 00:18:10,920
+Then here, probably we want something to start this off.
+
+393
+00:18:10,920 --> 00:18:14,920
+So we say, maybe under control, I guess.
+
+394
+00:18:14,920 --> 00:18:17,640
+When space key is pressed, that will kick off
+
+395
+00:18:17,640 --> 00:18:20,520
+sending a message.
+
+396
+00:18:20,520 --> 00:18:22,080
+Just to clean the screen up.
+
+397
+00:18:22,080 --> 00:18:25,080
+Well, for now, we leave it like that.
+
+398
+00:18:25,080 --> 00:18:26,560
+OK.
+
+399
+00:18:26,560 --> 00:18:29,200
+So when we press the space key, then we'll say,
+
+400
+00:18:29,200 --> 00:18:30,080
+what is your message?
+
+401
+00:18:30,080 --> 00:18:31,600
+Then we'll enter the message.
+
+402
+00:18:31,600 --> 00:18:40,320
+And we're going to send over the client ID here
+
+403
+00:18:40,320 --> 00:18:41,740
+with the answer to our message.
+
+404
+00:18:41,740 --> 00:18:46,280
+And we're going to be sending that to the chat server.
+
+405
+00:18:46,280 --> 00:18:47,000
+So there we go.
+
+406
+00:18:47,000 --> 00:18:51,080
+That should be enough to send this now,
+
+407
+00:18:51,080 --> 00:18:53,280
+saying who we are, what our message is,
+
+408
+00:18:53,280 --> 00:18:54,080
+to the right place.
+
+409
+00:18:54,080 --> 00:18:54,620
+So let's just try it.
+
+410
+00:18:54,620 --> 00:18:56,200
+We're going to instantiate everything
+
+411
+00:18:56,200 --> 00:18:57,960
+so we get the IDs correctly.
+
+412
+00:18:57,960 --> 00:19:00,040
+And I'm going to stop showing them because they're
+
+413
+00:19:00,040 --> 00:19:00,840
+a little annoying.
+
+414
+00:19:00,840 --> 00:19:03,680
+And then let's just press space.
+
+415
+00:19:03,680 --> 00:19:05,720
+And Ada says, what is your message?
+
+416
+00:19:05,720 --> 00:19:08,960
+And I'll say, hello, Brian.
+
+417
+00:19:08,960 --> 00:19:13,200
+Did you get this message?
+
+418
+00:19:13,200 --> 00:19:14,880
+And let me try to send it.
+
+419
+00:19:17,360 --> 00:19:19,280
+All right, so now we received the message.
+
+420
+00:19:19,280 --> 00:19:22,400
+Now, I did make a couple little updates,
+
+421
+00:19:22,400 --> 00:19:25,480
+updating this chat message handler
+
+422
+00:19:25,480 --> 00:19:29,360
+to have the ID and message fields,
+
+423
+00:19:29,360 --> 00:19:32,960
+just like Cliff had created, and to relay that chat message
+
+424
+00:19:32,960 --> 00:19:33,880
+back.
+
+425
+00:19:33,880 --> 00:19:36,240
+Right now, we're just saying the contents of the message.
+
+426
+00:19:36,240 --> 00:19:38,600
+And we might want to include the ID.
+
+427
+00:19:38,600 --> 00:19:41,080
+So let's try sending that message one more time, Cliff.
+
+428
+00:19:41,080 --> 00:19:43,560
+Sure.
+
+429
+00:19:43,560 --> 00:19:45,040
+So I have to actually type it again.
+
+430
+00:19:45,040 --> 00:19:49,280
+I'll say, hello times 2.
+
+431
+00:19:49,280 --> 00:19:49,840
+Perfect.
+
+432
+00:19:49,840 --> 00:19:51,560
+All right, so now we see this message
+
+433
+00:19:51,560 --> 00:19:55,840
+is displayed, again, in this debug display view,
+
+434
+00:19:55,840 --> 00:19:58,360
+not really intended to be where all of the chat
+
+435
+00:19:58,360 --> 00:19:59,760
+clients read the message.
+
+436
+00:19:59,760 --> 00:20:05,040
+But we do see the ID of the sender and the message.
+
+437
+00:20:05,040 --> 00:20:07,200
+Now, we might want to use the ID here.
+
+438
+00:20:07,200 --> 00:20:10,320
+We might want to change that to the username,
+
+439
+00:20:10,320 --> 00:20:12,880
+using the username block under the sensing category.
+
+440
+00:20:12,880 --> 00:20:14,520
+It's a little bit up to the user.
+
+441
+00:20:15,520 --> 00:20:19,760
+But it might be nice to have a more human-readable format
+
+442
+00:20:19,760 --> 00:20:21,040
+for the address.
+
+443
+00:20:21,040 --> 00:20:23,960
+So we could actually change this chat message type, right?
+
+444
+00:20:23,960 --> 00:20:28,560
+Let's go down and let's go to Network.
+
+445
+00:20:28,560 --> 00:20:32,640
+And we could click on the type.
+
+446
+00:20:32,640 --> 00:20:35,640
+Let's see, did I get the?
+
+447
+00:20:35,640 --> 00:20:38,360
+I guess I'd have to just make a new type.
+
+448
+00:20:38,360 --> 00:20:39,160
+You could do that.
+
+449
+00:20:39,160 --> 00:20:41,840
+Or you could just actually use the, under the Sensing tab,
+
+450
+00:20:41,880 --> 00:20:45,040
+pass the username block as your ID.
+
+451
+00:20:45,040 --> 00:20:48,000
+Think of it like your user ID, as opposed to your address.
+
+452
+00:20:48,000 --> 00:20:48,800
+Let's do that.
+
+453
+00:20:48,800 --> 00:20:51,340
+I was thinking we could send all three pieces of information.
+
+454
+00:20:51,340 --> 00:20:54,080
+But yeah, that would work, too.
+
+455
+00:20:54,080 --> 00:20:55,880
+So pick your poison.
+
+456
+00:20:55,880 --> 00:21:04,120
+But for now, let's just do the username, which is my?
+
+457
+00:21:04,120 --> 00:21:05,280
+All the way at the bottom.
+
+458
+00:21:05,280 --> 00:21:06,520
+All the way at the bottom, OK.
+
+459
+00:21:06,520 --> 00:21:07,800
+I've not used this much before.
+
+460
+00:21:07,800 --> 00:21:08,920
+There we go, username.
+
+461
+00:21:08,920 --> 00:21:11,640
+OK, and so we would take that client ID out,
+
+462
+00:21:11,640 --> 00:21:13,280
+put the username in.
+
+463
+00:21:13,280 --> 00:21:19,960
+And let's see if we can send it below once more.
+
+464
+00:21:19,960 --> 00:21:20,760
+There we go.
+
+465
+00:21:20,760 --> 00:21:24,000
+Cool, now we can see that Cliff's username is sent
+
+466
+00:21:24,000 --> 00:21:25,680
+as the ID with the message.
+
+467
+00:21:25,680 --> 00:21:28,080
+Now, as Cliff mentioned, there are a lot of different ways
+
+468
+00:21:28,080 --> 00:21:29,800
+you can design these systems, usually
+
+469
+00:21:29,800 --> 00:21:32,600
+with a lot of their own affordances and stuff as well.
+
+470
+00:21:32,600 --> 00:21:35,440
+For example, you could have the register message register
+
+471
+00:21:35,440 --> 00:21:38,360
+the username, and then just use the client's address
+
+472
+00:21:38,360 --> 00:21:39,680
+to resolve to the username.
+
+473
+00:21:39,720 --> 00:21:43,640
+So it can't be spoofed quite as easily and things like that.
+
+474
+00:21:43,640 --> 00:21:45,520
+But for now, I think we'll keep it simple
+
+475
+00:21:45,520 --> 00:21:49,440
+and just stick with the design that we have currently.
+
+476
+00:21:49,440 --> 00:21:53,440
+So now at this point, we've been able to register
+
+477
+00:21:53,440 --> 00:21:57,120
+different clients, build up this list of these clients,
+
+478
+00:21:57,120 --> 00:21:59,840
+and send messages to the server.
+
+479
+00:21:59,840 --> 00:22:01,880
+And the server then relays them back.
+
+480
+00:22:01,880 --> 00:22:07,000
+But we aren't yet showing these messages on our chat client.
+
+481
+00:22:07,000 --> 00:22:09,720
+So I think next, Cliff, if you want
+
+482
+00:22:09,720 --> 00:22:12,560
+to take us through how we can display some of these messages
+
+483
+00:22:12,560 --> 00:22:15,040
+or at least show them to the actual clients
+
+484
+00:22:15,040 --> 00:22:16,320
+or on the clients.
+
+485
+00:22:16,320 --> 00:22:19,840
+So now when I send a message to Brian,
+
+486
+00:22:19,840 --> 00:22:23,200
+then the chat server is going to record that.
+
+487
+00:22:23,200 --> 00:22:25,160
+And then it's going to take that list
+
+488
+00:22:25,160 --> 00:22:28,040
+and send it back to everybody who's registered in the list.
+
+489
+00:22:28,040 --> 00:22:30,800
+So what I need to do is be able to pick up that message type
+
+490
+00:22:30,800 --> 00:22:32,880
+coming back from the server.
+
+491
+00:22:32,880 --> 00:22:35,080
+Now, one thing we can assume is that the server will
+
+492
+00:22:35,160 --> 00:22:39,000
+be sending messages that are of the chat type.
+
+493
+00:22:39,000 --> 00:22:41,680
+And if that's the case, then I just need to receive them.
+
+494
+00:22:41,680 --> 00:22:46,560
+So here, let's go to when I receive.
+
+495
+00:22:46,560 --> 00:22:48,400
+And I'm going to say chat.
+
+496
+00:22:48,400 --> 00:22:51,560
+I'll get the ID and the message.
+
+497
+00:22:51,560 --> 00:22:53,960
+So that we can assume is going to be someone's username as
+
+498
+00:22:53,960 --> 00:22:56,560
+well as what they are saying.
+
+499
+00:22:56,560 --> 00:22:58,680
+And now the easiest possible way to do
+
+500
+00:22:58,680 --> 00:23:02,080
+this is just to kind of duplicate that on our side
+
+501
+00:23:03,080 --> 00:23:09,560
+and want to be in looks and have Ada say the message.
+
+502
+00:23:09,560 --> 00:23:12,720
+And so here, we would just say the message.
+
+503
+00:23:12,720 --> 00:23:16,080
+Well, probably what we want to do is something like this.
+
+504
+00:23:16,080 --> 00:23:18,720
+We want to do a join block here.
+
+505
+00:23:18,720 --> 00:23:27,120
+And we want to say that the ID, which is the username,
+
+506
+00:23:27,120 --> 00:23:30,240
+and then we put something like a colon and a space.
+
+507
+00:23:30,240 --> 00:23:32,760
+And then we open this up to add another block.
+
+508
+00:23:32,760 --> 00:23:34,120
+And then we display the message.
+
+509
+00:23:34,120 --> 00:23:36,440
+And let me just put it up there for five seconds.
+
+510
+00:23:36,440 --> 00:23:42,120
+And then I should be able to echo those messages back.
+
+511
+00:23:42,120 --> 00:23:44,680
+So now, when I send a message, it's
+
+512
+00:23:44,680 --> 00:23:46,400
+still going to go through the chat server.
+
+513
+00:23:46,400 --> 00:23:48,640
+It's still going to register on Brian's screen.
+
+514
+00:23:48,640 --> 00:23:50,240
+But then Brian's going to relay it
+
+515
+00:23:50,240 --> 00:23:52,920
+to everyone who's registered and then send it back.
+
+516
+00:23:52,920 --> 00:23:57,160
+And then I will pick up that return message and display it.
+
+517
+00:23:57,160 --> 00:23:58,480
+Let's try that.
+
+518
+00:23:58,520 --> 00:24:02,080
+So I will press space.
+
+519
+00:24:02,080 --> 00:24:03,760
+See, here we go, space.
+
+520
+00:24:03,760 --> 00:24:05,000
+What is your message?
+
+521
+00:24:05,000 --> 00:24:08,840
+Hello, can you hear me?
+
+522
+00:24:12,520 --> 00:24:17,240
+And voila, you see that the message came back to me.
+
+523
+00:24:17,240 --> 00:24:21,760
+So there's a lot more that you could do to build this out
+
+524
+00:24:21,760 --> 00:24:24,120
+and to display messages on your screen.
+
+525
+00:24:24,120 --> 00:24:25,800
+Probably you don't want to be picking up
+
+526
+00:24:25,800 --> 00:24:27,440
+your messages in a say block every time
+
+527
+00:24:27,440 --> 00:24:30,360
+because in a typical chat log, it's
+
+528
+00:24:30,360 --> 00:24:32,800
+going to be message after message underneath each other.
+
+529
+00:24:32,800 --> 00:24:34,800
+Maybe you put them in different colors.
+
+530
+00:24:34,800 --> 00:24:36,120
+You're in one color.
+
+531
+00:24:36,120 --> 00:24:37,960
+Everybody else is a different color.
+
+532
+00:24:37,960 --> 00:24:40,920
+There's lots of things you can do to build this out.
+
+533
+00:24:40,920 --> 00:24:43,840
+But Brian, I think it's been more than 20 minutes.
+
+534
+00:24:43,840 --> 00:24:47,600
+I think this is a good introduction to the client
+
+535
+00:24:47,600 --> 00:24:51,200
+server type of application that you can build with NetBlocks
+
+536
+00:24:51,200 --> 00:24:54,680
+and also to using those public role IDs as a way
+
+537
+00:24:54,720 --> 00:24:57,680
+to communicate across NetBlocks instances
+
+538
+00:24:57,680 --> 00:25:00,800
+without having to use a room or a role.
+
+539
+00:25:00,800 --> 00:25:02,080
+Yeah, I totally agree.
+
+540
+00:25:02,080 --> 00:25:05,040
+So thank you, everyone, and look forward
+
+541
+00:25:05,040 --> 00:25:06,400
+to seeing you in the next video.
+
+542
+00:25:06,400 --> 00:25:07,440
+All right, bye, everyone.
+
+543
+00:25:07,440 --> 00:25:09,000
+Bye.
+

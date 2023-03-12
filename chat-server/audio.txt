@@ -1,0 +1,543 @@
+Hi, everyone.
+Welcome back to Programming for a Networked World.
+Today, we're going to continue our exploration of networking
+within Netsblocks.
+But in our previous examples, we've
+used the room with various roles.
+This time, we're not going to do that,
+because when you're building certain types of applications,
+and we'll be building a client server application,
+you don't always know the number of users you're going to have.
+And you don't want to, as you expand or contract,
+have to create new roles or delete roles
+as users come and go.
+So in this particular application,
+we're going to be messaging each other back and forth
+with another way of passing information between Netsblocks
+programs called a public role ID.
+So to begin with, we're just going
+to start with that simple exchange of messages
+between computers.
+And so we'll go over to Brian's side.
+And he's going to set up the environment in which we
+can receive the message.
+And then I'll pass the message to him.
+All right, so if we remember back to earlier projects,
+like our distributed Hello World,
+we have this network category where we have all our message
+passing blocks.
+So we can use this when I receive message handler
+to handle messages that we received over the network.
+So if we click on this dropdown, we
+can select the built-in message type for now.
+You might want to change this later,
+but it's a decent starting spot.
+And then when we receive the message, let's keep it simple
+and just save the message for two seconds.
+So we can use this save block and then
+drag the contents of the message, which this message
+type only has a single field, MSG.
+And we can just save this for two seconds.
+And then now we just need somebody
+to send us a message that we can then display.
+So with that, I'll hand it over to Cliff.
+OK, so when I want to send a message to Brian,
+let me bring this over here.
+Now, the problem is I can send a message.
+That's fine, and I can say, hello, Brian.
+But the problem is we're not sharing a project.
+So it's not going to be helpful to say to others in the room
+or everyone in a room, because we're actually not in a room
+together at this point.
+We're just in completely separate Nets Blocks projects.
+So how do I actually get the message to you, Brian?
+That is a good question.
+So in Nets Blocks and under this network category,
+we have services and RPCs that we've seen before.
+And there's one service in particular
+that can be useful here.
+It's this public roles service.
+This lets us get a public role ID.
+So in the past, when we were communicating within a room,
+we had multiple roles, and we were just
+using the role ID or role name to communicate
+with one another.
+Now, even if different projects had roles with the same name,
+it was no problem to resolve this role name,
+because we knew that it was within the room.
+But as Cliff mentioned earlier, we're not using a room here.
+So we need some sort of absolute or unique address
+for the specific project or role that we are
+wanting to send a message to.
+So if we call this get public role ID,
+this will return a public role ID or this kind of unique role
+or this unique address for your specific role and project
+that we can see here.
+So when we click on it, we see this little dialog bubble
+pop up that says my role at chat server at Brian.
+So it looks a little bit like an email address.
+But essentially, if we break it down,
+it is your role name at your project name
+at your username, which, of course, then is unique.
+So to make this a little bit easier for anyone
+who might want to connect to this server,
+I'll just make a little server address variable, which
+I can set when the project starts.
+And let's say when the green flag is clicked,
+this value will be set.
+And now we can see I have this server address little watcher
+showing up on the stage, which has the public role
+ID or fully qualified kind of unique address
+for this specific program.
+So the thing is that public role ID is just like an email.
+And I remember in the beginning of email back in the 90s
+when people were first starting to use email,
+the trick was how do you discover someone's email
+address?
+Because if you don't have their email address,
+you can't email them.
+And so this is the same problem here.
+I actually have to learn that address from Brian.
+He has to be able to give it to me in some way.
+Otherwise, I can't communicate with him.
+So in this case, since he's right next to me,
+I'll ask him.
+You could have him email your address.
+There are other ways to share it.
+But you do need to know what his public role
+ID is going to be in order to start
+the chain of communication.
+So I'm going to do the same thing.
+I'm going to go over here.
+And I'm going to create a variable.
+Let's just, I always like to use the script variables.
+Let's just do that.
+And I'm going to call this one, let's say, well, you know what?
+I think Brian is probably thinking,
+don't do it this time.
+Let's just make a public variable.
+Because I may need to use it in various places.
+So we're going to call this, let's call it the chat server
+ID.
+So that's where the chat server is going to be.
+And we're going to set that chat server here
+to what Brian's public role is.
+Now, just tell me, and I'll type it in.
+Sure.
+So it's my role at chat server.
+And there's a space between chat and server.
+And I capitalized the C and the S.
+It's all very important.
+I get it exactly right.
+Chat server.
+And then at Brian.
+Brian, lowercase.
+Yep.
+OK.
+So if I click on that, let's actually just send a message
+here.
+So I'm going to send that.
+And instead of sending it to a room,
+I'm going to drop this in here.
+And now let's send the message, hello, Brian.
+All right, so we didn't see a pop-up on my screen.
+And this likely means that there's a typo.
+Because, of course, these are sensitive,
+just like email addresses, if there's
+a typo or things like that.
+OK, so let's go over it one more time, then.
+So I think we need to change the M to be lowercase.
+OK.
+Because it is case-sensitive.
+Yeah, so it's a lowercase M-Y, capital R-O-L-E.
+OK, let's try it again.
+All right.
+Ah, there it goes.
+OK.
+There we are.
+Awesome.
+So now at this point, we've been able to basically recreate
+the distributed Hello World project,
+but not using the room concept.
+Now, again, the room concept, although it's normally
+a nice fit, because it makes it a lot easier
+to discover addresses.
+You don't have to enter or type these addresses in by hand.
+You can see who's occupying the role, et cetera.
+They're not the best fit for this project,
+because we want to have chat clients come and go
+as they please.
+So we want the size of the chat room to be dynamic.
+So at this point, we've been able to, again, recreate this.
+But there's one big shortcoming.
+So right now, when Cliff sends a message to, unfortunately,
+he's the only person in the room.
+But he can just lean over and look at my screen,
+I guess, to see what everyone's been saying.
+But of course, this isn't really ideal,
+because you don't want to always have
+to be in the same room as the server program.
+So we really need the server to not just display the message,
+but actually to send it to the people in the conversation
+or in the chat room.
+So if we're going to do something like that,
+when we receive this message, instead
+of saying it for two seconds, we would just
+want to send it to, in this case, just Cliff.
+But we really want to send it to all the people in the room.
+So basically, we're forwarding the same message back.
+But then the problem is, how does the server
+know who's all involved in the room?
+So we might want to add a login or register
+or some sort of step like that.
+I'm going to call it a registration step.
+And I'm going to make a new message type for this.
+So this would be a step where the person who
+wants to join the server sends them a register
+message to the server that just has one field,
+and that's their address.
+And then we will record this as someone
+who cares about the conversation or someone who's in the chat room
+and to whom we'll send any messages that we receive
+from some of the current occupants.
+So we can add a new message handler now
+for the register message type, which, again,
+has a single field called address.
+And then we can make a new variable
+to say that we have a number of connected clients.
+And we just add the current address to the clients.
+Now, there are a couple of little things
+we might want to keep in mind.
+One is that right now, if we look at our stage,
+we can see clients is number 0 when we really probably
+want it to be a list.
+So we should initialize this variable to an empty list
+when the program starts.
+And we probably don't want to have duplicate entries
+in our list of clients.
+So we really only want to add them to the list
+or add the client to the list if they're not already
+in the list.
+So just a couple of little edge cases, I guess, to consider.
+So if it's not the case that clients already
+contains the list or the address name in its list,
+then we'll add it.
+All right, so now we're able to actually build up
+this list of clients.
+And then when we receive this message,
+we can just send it to our list of clients.
+OK, so on my end, then I need to register with the chat server
+now.
+We've got an additional level of formality
+that we didn't have before.
+And so what I need to do first is
+to recreate that same message type down here.
+So let's go to make a message type.
+And again, I need to know what that message type is.
+And I believe it's register.
+So we're going to do that.
+And then the field here is going to be, I think it's,
+did you call it?
+ADDRESS, all lowercase.
+OK, address, because that's going to be my public role ID.
+OK, and so when we bring that over,
+let's just kind of look at sending that message.
+So we can drop this down here.
+And we'll do a register.
+And it should say address.
+And then two, we know where it needs to go to.
+It needs to go to the chat server.
+So let's go over there to get that variable.
+Here we go, chat server ID.
+And again, to get my address, then I'm
+going to go back out to network here.
+And I'm going to go to the call block,
+as Brian did the same way before.
+And I can get my own by looking for public role ID.
+There we go.
+And dropping it down to get.
+And then you can see that that is my particular role ID.
+And so I want to send that address to register.
+So you probably want to put this into your initial starting
+block, so when clicked.
+And I guess I probably should have used a different block
+to do this.
+Could have used this one here.
+But let's just have it for now.
+Maybe we can just report this.
+There we go.
+Oh, and I've got, and wait, I really
+picked the wrong block here.
+So we'll just pull these pieces out, actually.
+I think that'll be easier.
+So we're going to send a message using this one.
+And there we go.
+Let's drop this down to register.
+There's the address.
+And make some space here so we can see it.
+Sorry, Ada.
+There we go.
+And to the chat server.
+So that should be good.
+Don't need this.
+And so now when I first start off,
+this will register me with the chat server.
+So let's see if that works.
+Click.
+All right, so on my side, we see an error, expecting a list
+but getting a number.
+So.
+We've run into that one before.
+Yeah, so that usually means that somewhere where it, well,
+as it says it was expecting a list,
+it was not getting a list.
+It was getting a number instead.
+So if we look at these blocks, because there
+aren't too many here, we see that we're
+checking to see if clients contains the address.
+Well, the address should be the public role ID
+that Cliff sent.
+And clients, if we look at the value, is zero.
+So it looks like, although we wrote the code
+to initialize this client's variable to an empty list,
+we never ran it.
+So let's click the green flag.
+And then I'm going to click on this message handler.
+So it's, actually, I think it should be fine.
+Now, if Cliff runs it again.
+One second.
+So, one moment.
+I seem to see, usually just clicking on those queers,
+it's a little bit surprised to see that it's not.
+So I'm going to just use a different message handler
+quick.
+All right, so now Cliff sends this again,
+this register message.
+Now we can see that clients actually
+has his public role ID.
+So we see the role name at his project name at his username.
+All right, so now let's see what happens
+if Cliff sends a message.
+All right, so we removed the save block from ours
+since we were just relaying the message back.
+So now it's not showing up here.
+We could add that if we want to maybe debug.
+We probably want to get rid of the two seconds portion
+here so that we don't slow down the messages
+that we can receive.
+And now if Cliff sends it again, we
+can double check that we are getting the message, in fact.
+But we don't yet see it on Cliff's screen
+because he doesn't have any message
+handler for these messages that have been, again,
+kind of passed on back to the clients.
+Right, so the message that I'm sending
+is still a very simple message type.
+Just message and then, hello, Brian.
+So we want to make this a little bit more complex.
+We want to be able to not only register with the chat server,
+but we also want, when we send a message,
+to indicate that we were the ones that sent the message.
+And you could do this for different reasons.
+One is you might not want to always echo back your messages
+but just see other people's messages.
+In this particular case, we're going
+to echo back my message because it's just Brian and me.
+But the point is, when you send a message
+and you've got a big chat server,
+you need to know who sent that message
+and then the content of the message.
+So for that reason, let's change our message type
+from this simple message type.
+We're going to create a new message type.
+And then you can see here that I can expand the fields.
+So we're going to make two fields.
+And I'm going to call this, we can call this chat.
+I guess we can call it chat.
+And then the first field will be ID.
+And the second field will be message.
+How about that?
+Now, the key is, as long as Brian
+enters the same message type on his end,
+we'll be able to communicate very smoothly.
+OK.
+So let's bring this new message type over.
+Here we go.
+And you know what?
+This code, by the way, for setting the ID
+should go up here when green flag is clicked.
+And just to make this a little bit nicer,
+let's add some code around this.
+So when we start, let's have a sensing here and say,
+ask your name, and say, what is your message, and wait.
+And then we're going to put the answer here
+in our new message type, which is chat.
+And the answer will go into the message.
+So that's good.
+And then we can also capture our public role ID somewhere else.
+So we've got that right here.
+We probably should create a variable for that.
+So let's just do that, too.
+So we're going to make a variable
+and call it client ID.
+And then we're going to drop client ID over here.
+And then I'm going to put my ID for the role right there.
+OK.
+So that sets up stuff in the beginning.
+And then we'll register this.
+We still need the address, which is we
+need my address, which is going to be client ID to register
+at the server ID.
+OK.
+Then here, probably we want something to start this off.
+So we say, maybe under control, I guess.
+When space key is pressed, that will kick off
+sending a message.
+Just to clean the screen up.
+Well, for now, we leave it like that.
+OK.
+So when we press the space key, then we'll say,
+what is your message?
+Then we'll enter the message.
+And we're going to send over the client ID here
+with the answer to our message.
+And we're going to be sending that to the chat server.
+So there we go.
+That should be enough to send this now,
+saying who we are, what our message is,
+to the right place.
+So let's just try it.
+We're going to instantiate everything
+so we get the IDs correctly.
+And I'm going to stop showing them because they're
+a little annoying.
+And then let's just press space.
+And Ada says, what is your message?
+And I'll say, hello, Brian.
+Did you get this message?
+And let me try to send it.
+All right, so now we received the message.
+Now, I did make a couple little updates,
+updating this chat message handler
+to have the ID and message fields,
+just like Cliff had created, and to relay that chat message
+back.
+Right now, we're just saying the contents of the message.
+And we might want to include the ID.
+So let's try sending that message one more time, Cliff.
+Sure.
+So I have to actually type it again.
+I'll say, hello times 2.
+Perfect.
+All right, so now we see this message
+is displayed, again, in this debug display view,
+not really intended to be where all of the chat
+clients read the message.
+But we do see the ID of the sender and the message.
+Now, we might want to use the ID here.
+We might want to change that to the username,
+using the username block under the sensing category.
+It's a little bit up to the user.
+But it might be nice to have a more human-readable format
+for the address.
+So we could actually change this chat message type, right?
+Let's go down and let's go to Network.
+And we could click on the type.
+Let's see, did I get the?
+I guess I'd have to just make a new type.
+You could do that.
+Or you could just actually use the, under the Sensing tab,
+pass the username block as your ID.
+Think of it like your user ID, as opposed to your address.
+Let's do that.
+I was thinking we could send all three pieces of information.
+But yeah, that would work, too.
+So pick your poison.
+But for now, let's just do the username, which is my?
+All the way at the bottom.
+All the way at the bottom, OK.
+I've not used this much before.
+There we go, username.
+OK, and so we would take that client ID out,
+put the username in.
+And let's see if we can send it below once more.
+There we go.
+Cool, now we can see that Cliff's username is sent
+as the ID with the message.
+Now, as Cliff mentioned, there are a lot of different ways
+you can design these systems, usually
+with a lot of their own affordances and stuff as well.
+For example, you could have the register message register
+the username, and then just use the client's address
+to resolve to the username.
+So it can't be spoofed quite as easily and things like that.
+But for now, I think we'll keep it simple
+and just stick with the design that we have currently.
+So now at this point, we've been able to register
+different clients, build up this list of these clients,
+and send messages to the server.
+And the server then relays them back.
+But we aren't yet showing these messages on our chat client.
+So I think next, Cliff, if you want
+to take us through how we can display some of these messages
+or at least show them to the actual clients
+or on the clients.
+So now when I send a message to Brian,
+then the chat server is going to record that.
+And then it's going to take that list
+and send it back to everybody who's registered in the list.
+So what I need to do is be able to pick up that message type
+coming back from the server.
+Now, one thing we can assume is that the server will
+be sending messages that are of the chat type.
+And if that's the case, then I just need to receive them.
+So here, let's go to when I receive.
+And I'm going to say chat.
+I'll get the ID and the message.
+So that we can assume is going to be someone's username as
+well as what they are saying.
+And now the easiest possible way to do
+this is just to kind of duplicate that on our side
+and want to be in looks and have Ada say the message.
+And so here, we would just say the message.
+Well, probably what we want to do is something like this.
+We want to do a join block here.
+And we want to say that the ID, which is the username,
+and then we put something like a colon and a space.
+And then we open this up to add another block.
+And then we display the message.
+And let me just put it up there for five seconds.
+And then I should be able to echo those messages back.
+So now, when I send a message, it's
+still going to go through the chat server.
+It's still going to register on Brian's screen.
+But then Brian's going to relay it
+to everyone who's registered and then send it back.
+And then I will pick up that return message and display it.
+Let's try that.
+So I will press space.
+See, here we go, space.
+What is your message?
+Hello, can you hear me?
+And voila, you see that the message came back to me.
+So there's a lot more that you could do to build this out
+and to display messages on your screen.
+Probably you don't want to be picking up
+your messages in a say block every time
+because in a typical chat log, it's
+going to be message after message underneath each other.
+Maybe you put them in different colors.
+You're in one color.
+Everybody else is a different color.
+There's lots of things you can do to build this out.
+But Brian, I think it's been more than 20 minutes.
+I think this is a good introduction to the client
+server type of application that you can build with NetBlocks
+and also to using those public role IDs as a way
+to communicate across NetBlocks instances
+without having to use a room or a role.
+Yeah, I totally agree.
+So thank you, everyone, and look forward
+to seeing you in the next video.
+All right, bye, everyone.
+Bye.

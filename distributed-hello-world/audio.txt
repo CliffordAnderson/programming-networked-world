@@ -1,0 +1,136 @@
+Hi, everyone.
+Welcome back to Programming for a Network World.
+Today, we're going to begin our exploration of peer-to-peer
+networking in Nest Blocks.
+In particular, we're going to learn to pass a message
+from one Nest Blocks program to another.
+So what we're going to be building today
+is something called Distributed Hello World.
+It's very traditional when you're
+starting off in programming for the first time
+to write a Hello World program, but we're
+going to do it in a fun way.
+I'm going to turn it over to Brian
+to help us get started with some of the core concepts
+we need to write this program in Nest Blocks.
+All right, Brian, take it away.
+All right, thank you, Cliff.
+So as Cliff mentioned, we're going
+to be writing a simple program where we have one application
+running on a single computer that sends a message,
+like Hello World, to another computer, which
+then can display this message.
+So I'm going to get started with this sender.
+If we look under this Network tab or category
+here in the palette, we can see that there's
+this Send Message block.
+So this will actually allow us to send a message
+over the internet to another computer or a program running
+on a different device.
+So if we select this first dropdown,
+there's this Message option, and this is the type of message
+that we're sending.
+So we're just using the built-in message type
+provided by Nest Blocks, which has a single field, MSG.
+Now, we can enter Hello World into this field.
+Now, we just need to figure out who we
+want to send this message to.
+So Nest Blocks introduces this concept
+of a room, which is composed of multiple roles, which
+are basically individual subprojects
+within this larger distributed application.
+So in this case, we mentioned we wanted
+to have one computer sending this message
+to another computer.
+So say this first computer is running this sender
+application, which then sends the message
+to this receiver application in this bigger distributed
+program.
+So we can rename our current role Sender,
+and then this will correspond to that first application, which
+just sends this Hello World message.
+And then we can add another role, the Receiver role,
+which corresponds to the application running
+on a different computer that receives this message, namely
+on Cliff's computer.
+So I'll invite Cliff to this role.
+OK, and so you see that Brian's message pops up on my screen,
+and it invites me to join his program.
+Now, one thing to note is when you say yes to this,
+you're actually going to be leaving the program that you're
+in and joining Brian's.
+So what's on my screen now when I accept will disappear.
+There we go, and you can see that Ada is gone.
+And now I see that my program is called Receiver
+at Distributed Hello World.
+And that's because if you look in the room,
+you see me down here.
+I'm inside of the Receiver role at Brian's invitation.
+Now, Brian has already created the block that
+is going to send the message.
+So I need to create a receiver on my side
+under this Receiver role to be able to display
+the message that he sends.
+There is one trick that you have to keep in mind.
+So let's just go ahead and start.
+We'll go to Network, and I'm going to pull out this When I
+Receive block here.
+But then I get another pop-up saying,
+edits cannot be made on projects by guests.
+So this is just a little bit of insurance.
+You can invite someone to join one of your projects
+and take a role, but not be allowed
+to actually edit the code.
+So if we want to edit the code together,
+then Brian has to give me permission.
+So I'm going to request permission from Brian,
+see if he accepts.
+QUINN CLIFFE requests permissions,
+and I see a dialogue pop up on my screen that
+asks if I would like to actually make him a collaborator.
+So in other words, elevate his permissions from someone
+who cannot just play the game to someone
+who can actually edit the application
+or the underlying code of the Receiver role in this case.
+So now that Brian has done that,
+I can bring that block back over,
+and you see that now it sticks in the coding area.
+So all I have to do then is say, when I receive a message,
+that's the name of the message, and then I
+get the content of the message here.
+And so we'll just need to have, oh, well,
+we only have a turtle here.
+Let's bring Ada back over.
+Remember, we lost her in the transition.
+So there is Ada.
+And so we want Ada to respond now
+when this message comes through.
+So this is Steve Wozniak traveling back in time,
+sending messages to Ada Lovelace,
+but let's see if it works.
+So I'm going to then say, and what do I say?
+I don't say hello.
+What I want to say is the content of that message that
+came through for two seconds.
+And that should be all that it takes.
+So let's see if Brian sends that message,
+whether I can receive it.
+All right, so if I click this Send Message block,
+we'll see that nothing shows up on Cliff's screen.
+Because if we look back at our code,
+we have this Send Message block, but we never
+filled out who the recipient was going to be.
+So if we select this dropdown, now we
+can see Receiver, because Receiver
+is the name of the other role in our room,
+as well as a couple other options, like Others in Room
+and Everyone in Room.
+So we can now select Receiver.
+And now when we click the block, we
+can see that Ada says, hello, world.
+So that's a really quick introduction to these concepts.
+We're going to be building on them in future videos.
+But now you understand the concept of a room,
+roles within room, and how to send
+messages between those roles.
+So thanks, everybody, and we'll see you in our next video.
