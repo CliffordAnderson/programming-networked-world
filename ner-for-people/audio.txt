@@ -1,0 +1,358 @@
+Hi, everyone.
+Welcome back to Programming for a Networked World.
+In today's session, we're going to continue
+our exploration of natural language processing.
+In particular, we're going to use
+a technique called Named Entity Recognition, or NER.
+We're going to use it to explore headlines in the news
+and then pull out items of information
+that we're interested in.
+So ready to find people in the news?
+Let's get started.
+OK.
+So for this project, we're going to use two RPCs.
+And let me bring them out just so we can see what they are.
+So the first RPC under Network here
+is going to be where we get our news.
+That's the New York Times here.
+And you can see that it gives us options
+to pull various pieces of information from the New York
+Times.
+We're going to go with Articles.
+And let's go with the most popular.
+And let's get the most viewed.
+And that's going to give us a time period to choose from.
+And let's pick for the week.
+And so what happens when we click on this?
+We get back a list of lists.
+And we'll look at that later.
+But it gives us basically the titles
+that we're going to use to do some Named Entity Recognition.
+The second is the Core NLP library here.
+So this here should be under Language, Core NLP.
+And here you see that it has what's called an annotator.
+And you can annotate.
+And then it says Get Annotators.
+This will be a list of the annotators that we can use.
+There's a whole bunch of things that we can explore here.
+But today, we're going to be using the Named Entity
+Recognition Annotator, NER.
+So we'll go down and drop to Annotate.
+And it asks us for a text and then the annotators.
+Now, you notice that it's in plural.
+So it actually wants you to give us a list of the annotators.
+And let's just put this in list form
+that we're only going to use that one.
+And we're going to say NER.
+So that should set us up for the RPCs that we're going to use.
+Now, just to test this one to see what it looks like,
+let's say this is Clifford Anderson's test.
+OK, so we'll pass in some text.
+We'll use this NER.
+And then it's going to pass us back a sentence
+with some value here.
+Click into that.
+And then we get three more lists here.
+You can see the index 0.
+There's entity mentions.
+And then within entity mentions, there's
+information about an entity that was mentioned.
+And you can see here that this particular entity,
+it identified Clifford Anderson as a person.
+And it gives a confidence score here of 99%.
+So we're 99% sure that I'm a person, which is a good thing.
+So we'll use this technique of using the named entity
+recognition.
+But we're going to run it over the headlines that
+are most popular in last week's news.
+So in order to get this started, basically, this whole session
+is just going to be working with lists.
+And so we're going to be using our higher order functions that
+work over lists, namely the map, keep, and I think
+the other one, I always want to call it reduce.
+But it's not called reduce.
+It is called combine.
+So we're going to be using those three, map, keep, combine,
+in what follows to work with the lists that
+come back from these RPCs and kind of drill down
+to the results that we'd like to see.
+OK, so let's get started.
+And we'll use a bunch of variables throughout this.
+So we might as well get that going here.
+So let's go over here and just set up some script variables.
+And the first one we'll just say is
+going to be articles, say.
+OK, so we'll get the articles.
+And then we're going to set articles here
+to the New York Times.
+And so that part is pretty straightforward.
+Now, the next thing we want to do
+is when we get the articles back,
+we want to be able to look and see what we got back.
+Just the article, well, we always
+need to have a control here.
+We need to have the report block.
+So let's report that.
+Now, this is a little hard to read.
+So let's just report for right now maybe the first row.
+Take a look.
+And here's the information that comes back.
+Pull this over a little bit.
+OK, so here's the title of the article.
+This was Trump pulling a Putin amid the current crisis.
+There's an abstract.
+There's the byline section and everything like that.
+So you can see here that what we want is the title.
+Now, the easiest way to get the title
+is to go back to our library.
+And let's just open this here.
+We want to import a library.
+So let's go to Libraries.
+And we want to use the Structured Data Library.
+Here we go.
+So pull that in.
+And now under Custom, you can see that we've got value of.
+So let's just substitute this item one of and say
+value of title.
+So probably need to, my guess is,
+we're going to need to map this.
+Let's try that.
+All right.
+Here we go.
+Let's try that.
+Now, let's see how that works for us.
+There we go.
+Now we have all the titles.
+So the problem was we needed to go one step into the list
+and then we went to map over each of the rows
+in that long table and get the title out.
+So now we've got the title.
+But to pass this in, we could pass it
+in as that 20 or so titles.
+But it would be more efficient to actually combine
+these titles together and then pass them all at once
+into the RPC so we don't have to make 20 different calls out
+to Core NLP.
+So the way that we'll do that is we'll combine all these titles
+into one.
+Now, if we just combine them by joining this title like it is,
+there won't be a space between the titles.
+So we should probably put in a little space first
+before we do that.
+So let me just do that here.
+I'm going to join.
+And we'll just join a space at the end
+just to separate out the last word from the first word
+of the next title.
+And I'm going to pull this in here.
+And let's just take a look to see if this is working for us.
+Should just put spaces in between.
+So there's a space here at the end.
+Now, how do we actually get this into a single list?
+Well, there is that join here.
+But this is meant for here's two strings.
+How do you pass a list into this?
+Well, here's a little trick.
+So let's close up these spaces, these slots.
+So it has no slots at all.
+And I'm going to pull this map down.
+I'm just going to drop it there where
+there's no apparent slot.
+And you see that it actually changes now to join input list.
+So now it's going to join the strings that
+come back from that map into a single string
+without having to have a number of slots
+open for each one of those strings.
+It'll just assign those slots automatically
+based on the length of the list.
+So we click on that.
+Now you can see, if you look at this,
+it's kind of hard to see, that we've
+got a set of titles, all one next to the other,
+but with a space in between.
+So that's what we wanted.
+So now that we've got that information,
+we're going to set that to, let's call it, title.
+So I'm going to make another variable here,
+call it titles.
+Then we're going to set titles here.
+That should be titles.
+OK.
+I'm going to set titles here to the call out to Core NLP.
+OK, so we're on our way.
+Now, let's just see what comes back when we report that.
+Take a look again, sort of see where we want to go next.
+OK, so we're calling this out.
+But here's the thing.
+Oh, OK.
+Sorry, this should be what we set here.
+Getting ahead of myself.
+So we're going to do that now.
+Let's call out to Core NLP and sort of see
+what comes back when we send titles
+into the annotation here.
+So there we go.
+Let's try that.
+Again, we get sentences, and then we get this list of lists,
+and then we get this entity mention.
+So there's a lot of information coming back.
+And we kind of want to drill down and be able to just
+get to the results.
+So how can we do that?
+Well, first, we could go over here and under our custom,
+let's use this value and just get the sentences here.
+So that gives us one step in.
+OK, now let's take a look at what comes back.
+OK, that's good.
+And here now we have the entity mentions.
+And the entity mentions here has information
+about the people that are mentioned.
+So that's what we want.
+We just need to be able to get to those.
+So let's do that again.
+But now we're going to need to map over this.
+So I think this is maybe a good place for us
+to maybe make another variable.
+So let's just call this one Sentences.
+So we don't get too complex as we go forward.
+And let's assign that to a variable here.
+There we go.
+OK, so now that we've captured it in sentences,
+we want to drill down a little bit further.
+And so let's do that again with another map.
+So we'll report this information here just as we build this up.
+And let's go over and get our map again.
+Here.
+And let's map.
+And I believe that term was entity.
+Well, let's take a look, because I don't remember offhand
+what that term was.
+So let's take a look.
+OK, entity mentions.
+So that's what we want to use here, entity mentions.
+So let's see if we can get that out.
+Entity mentions over sentences.
+All right, try again.
+OK, so now let's see what we've got here.
+These are entities, in fact.
+And there may be, you can see here, quite a few
+and of different sorts.
+They're not all people.
+Some have to do with money.
+And some have to do with number.
+Some have to do with ideology.
+So there's a lot that's here that we probably
+don't want to have if we just want to look at the people.
+OK, so what we could do then is filter this.
+But in order to filter this, let's
+make this list a little bit easier to read.
+So we're going to call this, let's just
+call these entities first.
+All right, so we'll assign that value to entities.
+And I think that one thing that we
+could do to make this a little bit easier to read
+is we could just take that list that's a little bit jagged
+and make it a lot smoother.
+And we can do that using a technique
+that draws on combine and also on this append block.
+So what we'll do is we're going to combine the values that
+come back here from this map using this append block.
+Now, what this will do is smooth out our list for us.
+So now you can see that the list no longer is jagged.
+It just has 34 entries here.
+And only at the end, you see that you
+get some extra information for some of these
+that don't exist for others.
+We'll ignore that for now, because what we're going to do
+is the next step is we're going to filter or keep
+certain items that match our criteria.
+So let's do that next.
+But first, let's assign this here to entities.
+OK, so I want to set that block under variables.
+Here we go.
+And I'm going to set it to entities,
+bring this over here.
+OK, so our next step here is to filter.
+And let's go over and grab that, which is
+the keep block in nets blocks.
+We're going to keep items that meet a certain condition.
+And the condition that we want to meet
+is that they have an NER value equal to person.
+So as we saw, there was lots of other possibilities
+for named entity recognition.
+But in this particular case, we want to keep the persons.
+So let's go ahead and do that.
+So we will grab from custom that the value here of the NER
+in the list is going to be equal to person.
+And the way that person is spelled here is in all caps.
+And that's going to be from entities.
+All right, let's see how that looks.
+OK, now we've got a much smaller list.
+And we should see, and I think it's going to be here in H,
+that now these are all persons.
+That whole row or column, H, is going to be just people.
+So the last thing that we need to do to make this a little bit
+easier to see is to take out the keys
+and only look at the values.
+This is a little bit tricky, but we'll show you how to do that.
+So let's just put here, we're going
+to call this one persons because that's what we're
+dealing with at this point.
+So we'll drop this down.
+And we're going to set this, let's go here.
+OK, we're going to set this variable to persons.
+OK, here we go.
+And we'll, oh, didn't drop down.
+Persons, OK, not sure why that's not dropping down.
+Let's try it again.
+There we go, OK, set to persons, OK.
+Now, to get rid of the keys, we just
+need to map and get the, for each of the columns,
+they all contain a list.
+They have an item that shows the first item of the list
+is the key, and the second is the value.
+We just want to pull out the values.
+We're going to need to map twice to do that.
+So here's how we'll do this.
+Going to take this map, and then we're
+going to take another map, put it inside there.
+Going to take this person's list.
+We're going to map here item two of,
+and this should map over every row, and then
+every list in that row, or item in that row, which
+is a key value pair, and just take the value portion.
+Let's try that.
+And there we go.
+So now we can see the results.
+If I can pull this down, we've got seven different people
+that are mentioned.
+You can see the names here, and you can also see here
+the confidence scores.
+This is other information about where those items are found
+in the text.
+If we wanted to see the keys, we actually got rid of the keys.
+We'd have to go back and look.
+But for now, we've got a nice table
+that indicates who exactly we're looking for here,
+or we've discovered in the news, and these
+are the people that were most mentioned in the news
+during the last week.
+Now, if we want to look about Benjamin,
+I think we'd have to do some investigation.
+But otherwise, most of the names here are fairly recognizable.
+So that's what we'll do today.
+That's the end of our session today.
+You can see how named entity recognition works.
+You can also see that when you're
+working with these complex lists,
+you really have to master that ability
+to apply the different higher order list
+blocks that we've looked at.
+So that's map, keep, and combine.
+And by using them, you can process these lists really
+efficiently and get to the results that you'd like to see.
+So we'll continue with our exploration
+of natural language processing again next week,
+but that wraps it up for this segment.
+Thank you very much, and see you in the next one.
+Bye bye.

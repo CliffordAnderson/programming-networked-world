@@ -1,0 +1,429 @@
+Hi, everyone.
+Welcome back to Programming for a Networked World.
+In today's episode, we're going to be continuing
+our exploration of mapping.
+But today, we're going to see how
+we can make a map more dynamic.
+We want to be able to scroll around on the map
+and see what exists over the map's horizon, so to speak.
+So ready to explore the world by scrolling through maps?
+Let's get started.
+OK, so we'll begin today, just like we
+have in other ones of these particular series,
+by bringing out a map and displaying it on the stage.
+So here, I'm going to go over to get our block for the map
+and go down to Google Maps.
+And then we get to Google Maps.
+Here we go.
+Let's see.
+We're going to Git Map.
+There we go.
+OK, and we've got latitude, longitude, width, and zoom.
+We'll fill all that in.
+But we want to start with our latitude and longitude.
+So we want to actually look up where we are.
+So let's go back over here to Network.
+And let's pull out the call block here.
+And let's get the geolocation, RPC.
+And we're going to geolocate.
+And we'll geolocate our address.
+Let's just say Nashville.
+OK, and we'll call this.
+And we'll get our latitude and longitude.
+Now, let's create some variables for that.
+So we're going to be using this here.
+So let's go to our Variable tab.
+And we're going to make a variable.
+And let's just call it one latitude.
+How about just lat?
+That's easier.
+Lat.
+And then we'll create one for longitude.
+So we'll make a variable for lon, like that.
+And then we're going to make a variable for the zoom.
+OK, so we've got those three things
+that we need here to fill in the various slots in Google Maps.
+So let's assign them.
+So we'll start by assigning a longitude.
+And that's going to be here.
+We need to use the item of block.
+And we need to get to item 2 of item 1, I think.
+Let's try that.
+Let's try that.
+So here we go.
+We'll pull this down.
+Oops.
+Pull it down here and click on it.
+And 36, I think that's going to be right.
+That's the latitude.
+OK, there we go.
+So that one we should set to latitude.
+And then let's do the same thing here.
+But we'll duplicate this block and put it here.
+And we're going to switch this to the longitude.
+And now let's do item 2.
+And let's see if we can set that.
+So we have our lat and our longitude set.
+And zoom we'll set later.
+We don't need to display these on the stage.
+So we're going to unclick those boxes there.
+But we know we have that information captured.
+And then we want to be able to put this into our map.
+So let's go ahead and get the size of the stage
+like we normally do from sensing.
+So we'll go over here to get stage height, stage width.
+Stage height, stage width.
+And now we'll use our variables to fill in the rest.
+So latitude here, longitude here.
+And let's set an initial zoom of, let's say, 10.
+OK.
+So what we want to do is we want to set those variables up
+when we first start our program.
+And then we want to pass them into something
+that will create the map for us.
+So what we're going to do is we'll use a hat block here
+to say, when clicked, we're going
+to go to set these variables from our geolocation.
+And we could make this a little bit more dynamic
+by actually allowing people to choose what city they're in.
+Maybe we ought to go ahead and do that.
+So we can go to Looks, or actually to Sensing,
+I guess, right here, and ask what city.
+Or how about select a city or enter a city.
+How about that?
+And wait.
+And then we can use the answer here instead of just natural.
+So that'll help us to start a little bit more dynamically.
+And now, we'll start it that way.
+But then we need to call this particular block.
+So here, we're going to actually use an event.
+So we'll go over to our operators here.
+And actually, I think it's under Control.
+OK, Broadcast.
+That's what we want.
+OK.
+So we're going to broadcast an event.
+And let's just drop this down here.
+And we're going to say New.
+And we'll say, how about Show Map?
+OK.
+So we'll say Show Map.
+And then we're going to handle that event.
+So when I receive a Show Map, then we're
+going to display on the stage.
+We're going to switch to the costume of this particular map.
+And we'll put it in this block here.
+And we'll show that map.
+Now, this ought to work at this point.
+So let's try that.
+We're going to click on this.
+And we're going to say Nashville, like that.
+And then, if any luck, it should show us the map.
+Let's see.
+Did we miss something here?
+I think we didn't plug in our variables.
+No, we do.
+We have lat and long.
+We just need to have zoom.
+Let's see here.
+Let's pull that over under Variables.
+OK, so we'll get zoom here.
+OK, so it should show it.
+Let's just see if that works again.
+All right, so pick a city.
+We'll say, this time, Boston.
+OK, yeah, it's working.
+OK, so we didn't have zoom in before.
+So it didn't know how to zoom in.
+So we didn't see the map.
+OK, now the thing is, we need to make it more dynamic.
+We want to be able to actually move up.
+Right now, if I use my scroll keys or arrow keys,
+I can't move the map.
+It's just a map that is what it is.
+There's no way to zoom in.
+There's no way to move up or down, explore the area.
+So we want to make our map more dynamic.
+All right, how would we go about doing that?
+Well, the thing that we need to do
+is just change slightly where our location is.
+So we know that we have that location already here captured
+in latitude and longitude.
+So it would be simple, I think, to just say, OK,
+let's just change that.
+So we could, in response to a particular keystroke,
+let's say an up arrow, we could add some code to handle that.
+So let's go over here to say, when I'm
+going to see if I get some space down here.
+An up arrow is clicked.
+Then we want to move up.
+But how do we move up?
+Well, we add to our latitude.
+Oh, actually, this should be longitude, right?
+Let's see.
+So 42, let's see what's going on.
+All right, so let's try this.
+So we're going to take our lat, and we're going to add to it.
+All right, so here we go.
+All right, and so we're going to add.
+But what do we add to it?
+Well, let's just try adding one to it.
+And then we'll call the map again.
+All right, so here we go.
+Let's do that.
+When we do that, we just need to broadcast the map.
+I guess we'll pull that down again here.
+So let's go over to Broadcast, and we'll
+broadcast that we need to recreate that map, the show
+map.
+OK, so that's in place now.
+And so let's try the up arrow.
+If we do that, you can see that we are definitely moving,
+and we're moving up.
+But we're moving up in a kind of,
+it's hard to know how much we're moving at a time,
+but more than we probably want.
+It's actually hard to keep track of where we are.
+So let's try this again.
+I'm going to go back to Boston.
+And you can see that one movement up
+moves us way north.
+So we can't just move up by one.
+That's a little bit of an arbitrary number.
+And the thing is, it also depends
+on how far zoomed in you are.
+Adding one to our latitude, when it's really zoomed in,
+moves us a long way.
+But when we're zoomed out, may not move us much at all.
+So we actually need to know the relative amount we
+want to move at our level of zoom.
+We can do that with a technique of finding the max latitude
+and the min latitude at a particular level of zoom
+on the map, and then taking the difference between those
+and using that as the degree to which,
+or the number that we're going to use to move up and down.
+So let's figure out how to do that.
+So here, I'm going to write a little routine
+to find that information.
+You'll see that under the Network tab
+here, we can call Cloud Variables again.
+And if we drop down to the maps, we'll
+see here that we have min latitude and max latitude.
+Let's start with that.
+So we're going to get max latitude.
+Service is not available, but fortunately it is.
+And we'll duplicate that.
+And we're going to get the min latitude.
+So that's going to be the latitude
+at the top and the bottom of our map that's in view right now.
+And so then we can take the difference between them.
+And so I'll just pull this over here.
+And we'll put the min latitude here and the max latitude
+there.
+And we'll get a difference between the top and the bottom.
+Let me see if I can just pull this whole block over.
+Here we go.
+And so if I click on this block, you'll
+see here that it's 0.359.
+So that's showing us, OK, if you want
+to move a full page view up, that
+would be the amount that we would need to do.
+But we actually don't want to move probably even that much.
+We probably just want to move a quarter
+of the screen at a time.
+That gives us the sense of continuity
+as we're kind of moving through.
+So let me just drop this into here, if I can grab it.
+There we go.
+Get it in the right slot.
+There we go.
+I need more space over here.
+So let's do that.
+And I'm going to put in four into this slot,
+if I can move it in the right place.
+There we go.
+So I'm going to put four right here.
+And you can see now that we get this number that's
+fairly small, but that will give us
+a much more effective sense of scrolling through the map.
+So now that we've got that, that's
+what we want to use to figure out every time when
+we need to set a variable to capture that information.
+And then that will help us to know how much we need to move.
+So when we regenerate the map with a zoom level,
+we should probably also capture this information.
+So what I'll do is I will create a variable up here.
+Let's enter variables.
+And I'm going to call it, let's see.
+Let's see, I'll make a variable.
+And let's just call it scroll amount.
+And let's set that variable.
+And we're going to put this down here,
+scroll amount to this number.
+OK, now let's try that again.
+Let's bring our map back so we can see it here.
+And I'm going to turn scroll amount off.
+We'll just hit the green flag, get back to,
+let's try Nashville again.
+OK, so we're in Nashville.
+Now let me try the up arrow.
+Oh, wait, wait, wait.
+I think the reason it's not working
+is we haven't put the variable in the right place.
+So let's do that here.
+We're going to put scroll amount in here.
+And now let's start again.
+There we go.
+All right, ready?
+Now you can see the continuity of the screen
+as we go into Kentucky.
+So in order to get this to work as a full feature scrolling
+map, we just need to replace this.
+Let's see if we can do this here pretty quickly.
+We need to handle all four events.
+We need to do an up arrow.
+Whoa, not sure what happened to that one.
+OK, let's try that again.
+So let's do this.
+We're going to duplicate it.
+Oops, just got part of it here, but we'll duplicate the rest.
+There we go.
+And then let's duplicate it again.
+There we go, put it there.
+Our scripting area is getting kind of crowded.
+OK, so let's do up arrow and then down arrow.
+Down arrow, of course, we want this,
+but we want this to be subtracted.
+So let's go over here and get that.
+There we go.
+So we want that to be subtracted.
+And so that's the lat and the scroll amount.
+There we go.
+OK, and now let's do the same thing again here.
+So we've got up, down, and now we need left.
+And this one, of course, will be longitude.
+So let's get that from variables over here.
+So there's longitude.
+Now, you might ask, do we need to capture
+that information for the max longitude and the min
+longitude in the same way that we did the max latitude
+or the max, yeah, the max latitude and the min latitude?
+The thing is, actually, those numbers
+are basically the same.
+So in this case, since our map is square,
+we don't really need to worry about that.
+We can just use those same numbers and it should be fine.
+So we're going to just stay with the scroll amount that we have.
+And then the only thing that we need to do here
+is to also change this.
+And I'll just kind of duplicate this one up here.
+There we go.
+Oh, no, let's get that back.
+OK, let's duplicate it, bring it down here.
+Then we'll switch this one out, grab the longitude,
+subtract, and throw this in here.
+OK, so we should be handling all of the events now.
+So let's see how that works.
+So we'll start again.
+Let's try Houston.
+OK, so we're in Houston.
+Let's go up.
+Oh, OK, that did not work as I expected.
+So let's see what we did wrong here.
+OK, one other thing that we didn't change, you see?
+Simple bug here.
+So the up arrow is setting the lat to lat plus scroll amount.
+The down arrow, we need to change these
+to the longitude and the longitude.
+OK, so that's good.
+Although, I don't see why that's affecting that.
+Let's try it again here.
+OK, Houston.
+OK, I think we've got it working now.
+Let's try it.
+So we should be able to move around.
+And there we go.
+Now, there's one that's not working.
+Let's see.
+Just double check here.
+So down arrow, left arrow, up arrow.
+Oh, we've got up arrow in there twice.
+Actually, I think that was the cause of the bug.
+So now we want to go right arrow this direction.
+Let's see if we've got that.
+And we may actually have these backwards.
+Let's try right arrow and left arrow.
+There we go.
+OK.
+All right, here we go.
+Bring this map over.
+OK, up, down, left, right, up again, down again.
+OK, so you see now that we have a scrolling
+map, which is fantastic.
+There's only one thing left that we have to do.
+We have to be able to change our level of zoom.
+So let's pick another when something key is pressed block.
+And in this case, we're going to pick the plus.
+And that will increase our zoom level.
+And then we'll do the same thing,
+but we'll do it in reverse when we get the negative.
+So I'll just duplicate this here.
+This is going to be roughly parallel code.
+And we'll change that to a negative.
+OK, so we just need to adjust our level of zoom.
+So we came in with that default level of 10.
+So here, we'll set.
+And so when this plus key is pressed,
+we're going to set the zoom to one level higher.
+So let's go to get our variable zoom.
+Here we go.
+And we'll just say zoom plus 1.
+And same thing happens, but in the other direction.
+So we'll just duplicate this here, put this here.
+And we'll set the zoom.
+But in this case, we're going to go the other direction.
+So let's pick it as minus.
+And we'll put this in here.
+And we'll subtract 1.
+OK, so here we go.
+OK, let's try.
+Stop it, and we'll just run it again.
+OK, San Francisco.
+There we go.
+Now, let's try zooming in.
+I'm not getting a response right here.
+Let's see.
+We just click on this.
+Oh, well, there's a reason.
+You see, we've got the plus sign here.
+But the last thing we need to do is use this broadcast.
+So let's do that.
+We'll bring this down here.
+And we're going to do the same thing here.
+Let's duplicate that.
+There we go.
+Because we have to obviously pass it back to the map
+so that it can actually reset the level of zoom.
+OK, and then in the map itself, we've
+got the zoom where we expect it to be right there.
+OK, so now let's try zooming out.
+Let's see, there we go.
+Whoops, that's zooming in.
+No, it's zooming out.
+OK, perfect.
+There we go.
+And we want to zoom back in.
+There we go.
+Now, the trick is, at the level of zoom that we have,
+will our arrows work correctly?
+And they do.
+We're still getting the difference
+between the max longitude and the min longitude
+for the level of zoom we have in the map, which
+means that we're scrolling at the right level.
+So in the end, I want to thank kittyhacker101
+for the idea of how to develop a scrolling map.
+Although my technique is a little bit different than
+that person's technique, I appreciate the inspiration.
+So OK, in our next video, we'll sum up our work on mapping.
+And look forward to seeing you then.

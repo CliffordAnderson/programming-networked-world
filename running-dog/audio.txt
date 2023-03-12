@@ -1,0 +1,306 @@
+Welcome back, everyone, to Programming for a Network
+World.
+Today, we're going to be continuing
+our exploration of peer-to-peer networking within Netsblocks.
+So we're going to take this a step further,
+and we're going to take a graphic that we're
+going to animate on our Netsblocks screen,
+and then we're going to have that continue
+to animate on another screen.
+That is, to move from one program to another,
+but have the kind of illusion of the continuity
+of that animation.
+So you could think about that technique
+if you wanted to build a distributed video game
+in some way, maybe even like a Pong game that has players
+playing on different sides, and then
+the Net is where your animation crosses over
+to the other person's program.
+But for today, we're just going to do the animation part.
+And so to get started, let me turn
+to Brian, who's joining me again,
+and he'll help us get the animation going.
+Well, hello, everyone.
+Thank you, Cliff.
+So as Cliff said, we're going to be
+having this animation running from one computer
+across the internet to the other computer.
+So specifically, we're going to have
+a dog that's running across my computer,
+and then onto Cliff's, and then back to mine,
+and so on and so forth.
+So before we get into the networking portion of it,
+let's first just try to break this problem down
+into how can we animate this dog?
+How can we get it to actually appear to be running?
+So if we jump into our project right here,
+we can see I'm starting from a starter template
+where we already have a bunch of different costumes
+which show each different, I guess, frame in this animation.
+So if we want to show this illusion of running,
+all we need to do is change to the next costume
+that we have.
+We can see that if I click this really quickly,
+we get this kind of slow motion, and then we
+get this kind of run in slow motion.
+So instead of, of course, clicking a bunch of times,
+if we want to do something over and over,
+we might want to put it in a loop
+so I can get this forever loop.
+And now we can see that this animates way too fast.
+So we can certainly slow this down
+to something more reasonable by adding this weight block.
+And now we can see that we have this animation of this dog
+running at a reasonable speed.
+So it's running, but it's running in place.
+So we might want to certainly have this dog actually
+move as it's running as well.
+So we can drop this move 10 steps block into our loop.
+Now we can see that the dog runs clear off the screen.
+OK, so now we have this, the beginning of this program.
+We were able to show this or animate this dog's running
+across our screen.
+But we certainly probably wanted to make
+a couple of additional tweaks.
+For example, when the program starts,
+we probably want to start at the beginning of the stage.
+And then it would probably be nice to know
+when it runs off of the screen.
+So let's start by looking at how we
+might be able to get the program to animate
+the dog running from the beginning of the screen
+when the green flag is clicked.
+So use this one green flag click block.
+And then when the green flag is clicked,
+we want to move it to the beginning of the screen.
+So let's go to, say, 0, 0.
+And that's not really where we want the dog to be.
+We probably want it in the bottom left corner here.
+So we can try something, say, maybe negative 150 for x.
+Let's maybe make that negative 175.
+Now I can see we're right at the beginning.
+Negative 150 for y.
+This looks like it's about right.
+We've got the dog in the bottom left corner.
+And now we probably want to start
+at the beginning of the animation.
+So we can switch to costume dog 1.
+So now we started from the beginning of the animation.
+And then we can just broadcast some sort of event.
+Actually, let's not worry about the broadcast just yet.
+Then we can actually just have the animation start.
+So now if we click green flag clicked,
+we can see the dog starts in the lower left
+and runs across the screen.
+So it's looking pretty good.
+Now we just need to figure out how
+to tell when the dog is off the screen.
+And then Cliff can jump right into the networking portion.
+So if we're going to run until we're off the screen,
+we probably want to make a new variable that keeps track of if
+we are still on the screen.
+This variable should start with a value of true.
+And then when we are doing our whole animation portion,
+we want to probably only repeat that
+until we're off the screen.
+So repeat that until we are actually
+no longer on the screen or not on screen.
+All right.
+Now we throw out a forever loop because we're not
+going to be doing this indefinitely anymore.
+And to make this a little simpler,
+I always want to get into the networking portion
+since we're also going to need this animation.
+But let's put this script out on its own
+and actually broadcast an animate event.
+So now when I receive this animate event,
+we'll just do the animation while we're on the screen.
+And let's give this a try.
+If you press the green flag, we can
+see we're animating, animating, animating.
+But we're off the screen now, and our onScreen value
+is still true.
+And the problem is that there's no point in this loop
+where we're checking to see if we're still on the screen.
+So now we just need to add one more block or one more bit
+here where we're setting this onScreen variable
+to some expression that determines if we're still
+on the screen.
+So let's see.
+We know that our x position is going to be
+the important value here.
+So we can actually just try to figure out
+what the value of x is when we're off the screen
+by just running it and just trying to stop it right
+when we get off the screen.
+There we go.
+Let's say 305.
+So this is a little bit simplistic.
+And there are certainly other ways to do this.
+But for now, I think this is sufficient.
+So we're just going to check to see if this x position value is
+greater than, let's say, 305.
+All right, so now when we, whoops.
+So this is actually, so you can see I actually did the opposite.
+So I was determining how to tell if you're off the screen,
+but this variable is whether or not you're on the screen.
+So we want to just change this to a not.
+We also could just change the sign on the inequality.
+All right, so now we see we run off the screen.
+And as soon as we're off the screen, onScreen is now false.
+All right, so now up until this point,
+we've been able to create a running dog where
+we animate this running dog moving across our screen.
+And we know as soon as it gets off the screen.
+Now, once it's off the screen, we're
+going to need to have it show up on someone else's computer
+and then run across that screen as well.
+So I'm going to go to the room and duplicate my role
+and name this one Role2 so that when Cliff joins the role,
+he'll have the same set of costumes.
+So he has everything needed to animate this running dog,
+including the scripts that we've made up until this point.
+Now, I'm going to invite Cliff and turn it over to him
+to finish the networking portion.
+All right, thanks, Brian.
+So you see I get Brian's invitation.
+So I will accept that.
+And then, as Brian said, there's his project.
+So I get that on my screen, which is fantastic.
+You can just double check to see which room I'm in.
+I'm in Role2.
+I'm in the room, and I'm in Role2 here.
+So that's good.
+And the only thing is, remember before,
+I need to get permission from him
+to be able to change his project.
+So I'll request permission from Brian.
+And now that he's granted that to me,
+I can start coding on my side.
+So what I need to do then is, as we've seen,
+the dog will be running across the screen.
+And then when it hits the edge, it stops.
+And that's the end of the program so far.
+So in order to flip back and let the dog continue
+running on Brian's end when it's off the screen on my end,
+I need to send a message to Brian.
+So I need to use this send message block.
+Now, we want to send the message as soon as that block has
+turned to that we're at not here.
+So let's see.
+When we receive, we're going to repeat
+until it's not on screen.
+So this is setting that as not on screen.
+So then after that loop ends is the place I want to put it.
+Now, the question is, what do I want to send?
+So there is a built-in message.
+But we can actually customize your messages.
+And this is important because you
+may be sending various types of messages back and forth.
+And they may actually contain different types of data payload.
+And so here, we're going to customize and create
+our own message.
+The thing is, when you're building a distributed program
+like this, it's really crucial that you
+know what the type of message is that you're sending.
+Because if I just send him any message with any name
+and Brian doesn't know what that name is,
+he won't be able to know what to receive.
+So let's just create here a make a message type.
+And the name of the message is going to be,
+let's call it Enter Dog.
+And the field will be, now, what should the field be?
+What kind of information am I trying to pass back?
+Well, again, to preserve the continuity of the animation,
+we actually want to know where the dog is
+in terms of its gait.
+Like, what is it doing when it's running?
+Are its legs together or its legs apart?
+And in order to know that, we actually
+just want to pass back the number of the costume
+that we're using.
+So the costumes all have these numbers here.
+And even if they weren't numbered themselves,
+there are a numbered sequence here.
+So basically, what we want to say
+is whatever costume number we're on
+is what we're going to pass back.
+So I'm going to say I'll call this field Costume Number,
+just so that's clear.
+And so now I have that available to me.
+And if I drop down here, I can say Enter Dog.
+And you can see that it says Costume Number.
+Now, the costume number I can get under Sensing.
+And here it says Costume Number of.
+And I want to drop down to not the stage, but the dog.
+And if I click on that, it'll tell me
+that it's right now in 4.
+But we're not going to hard code that, of course.
+We're just going to drop that in.
+Let me make sure I get enough space for you all to see that.
+OK.
+So that's going to be, oh, wrong slot.
+There we go.
+And then I need to send this to role 1.
+So the message will go back to the role that Brian's in,
+but containing the information that Brian
+needs to keep that animation smoothly running.
+Now, the other thing is, when I receive a message back
+from Brian, I'm going to need to also handle that on my end.
+Otherwise, it would just be like,
+as soon as it runs off my screen,
+it would never come back.
+And so we'll go to Network here.
+And we're going to take When I Receive.
+And I'm going to drop this down.
+And I'm going to get that same message.
+So whenever I receive an Enter Dog,
+then I need to handle that with some animation on my end.
+Now, remember, I'm getting this message
+when the dog has run off the side of Brian's screen.
+So it should make an entrance on the left hand of my screen
+as it continues to run across.
+We actually already know where that is.
+If we just duplicate this block up here and I pull this down,
+that's the starting point.
+It's already in there.
+Now, the thing is, switch to costume Dog 1.
+That's where we need to say, no, it's actually not Dog 1.
+It's the costume number that comes through
+when we receive that message.
+So we'll replace that.
+We want to set onScreen to true.
+And then we're going to broadcast back to animate.
+And that will do the animation running all the way
+through until it reaches the end and it's not on screen anymore.
+And then we send the message to Brian
+to continue the animation on his end.
+Brian, I think we've got all the pieces in place.
+What do you think?
+I think so.
+Let's give it a try.
+All right, now let me bring my screen
+and make it a little bit bigger.
+So here we go.
+And since you're in role 1, why don't you kick us off?
+Sounds good.
+Here we go.
+There he is, running across the screen.
+And then back to Brian, running across the screen.
+And we did it.
+We did it.
+So this dog will just be running forever
+unless we give it some instructions otherwise.
+But you can see that this could be a great foundation
+for building a distributed video game.
+And so today, we've learned two things.
+We've learned how to animate the sprite on your screen
+so that it has an illusion of motion.
+And we've also learned how to customize messages
+so that we can send a custom message
+type with different types of data payload
+when we're trying to do something that's
+more sophisticated than just saying, hello, world.
+We'll stop it there.
+But thank you for joining us.
+And we look forward to seeing you in our next video.

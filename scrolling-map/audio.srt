@@ -1,0 +1,1716 @@
+1
+00:00:00,000 --> 00:00:01,200
+Hi, everyone.
+
+2
+00:00:01,200 --> 00:00:03,600
+Welcome back to Programming for a Networked World.
+
+3
+00:00:03,600 --> 00:00:06,280
+In today's episode, we're going to be continuing
+
+4
+00:00:06,280 --> 00:00:08,200
+our exploration of mapping.
+
+5
+00:00:08,200 --> 00:00:09,920
+But today, we're going to see how
+
+6
+00:00:09,920 --> 00:00:11,800
+we can make a map more dynamic.
+
+7
+00:00:11,800 --> 00:00:14,120
+We want to be able to scroll around on the map
+
+8
+00:00:14,120 --> 00:00:18,840
+and see what exists over the map's horizon, so to speak.
+
+9
+00:00:18,840 --> 00:00:22,600
+So ready to explore the world by scrolling through maps?
+
+10
+00:00:22,600 --> 00:00:23,400
+Let's get started.
+
+11
+00:00:30,160 --> 00:00:32,520
+OK, so we'll begin today, just like we
+
+12
+00:00:32,520 --> 00:00:35,480
+have in other ones of these particular series,
+
+13
+00:00:35,480 --> 00:00:39,160
+by bringing out a map and displaying it on the stage.
+
+14
+00:00:39,160 --> 00:00:44,960
+So here, I'm going to go over to get our block for the map
+
+15
+00:00:44,960 --> 00:00:47,760
+and go down to Google Maps.
+
+16
+00:00:47,760 --> 00:00:51,920
+And then we get to Google Maps.
+
+17
+00:00:51,920 --> 00:00:52,560
+Here we go.
+
+18
+00:00:52,560 --> 00:00:53,080
+Let's see.
+
+19
+00:00:53,080 --> 00:00:59,960
+We're going to Git Map.
+
+20
+00:00:59,960 --> 00:01:01,120
+There we go.
+
+21
+00:01:01,120 --> 00:01:03,840
+OK, and we've got latitude, longitude, width, and zoom.
+
+22
+00:01:03,840 --> 00:01:04,800
+We'll fill all that in.
+
+23
+00:01:04,800 --> 00:01:07,880
+But we want to start with our latitude and longitude.
+
+24
+00:01:07,880 --> 00:01:10,320
+So we want to actually look up where we are.
+
+25
+00:01:10,320 --> 00:01:14,480
+So let's go back over here to Network.
+
+26
+00:01:14,480 --> 00:01:17,680
+And let's pull out the call block here.
+
+27
+00:01:17,680 --> 00:01:22,240
+And let's get the geolocation, RPC.
+
+28
+00:01:22,240 --> 00:01:24,120
+And we're going to geolocate.
+
+29
+00:01:24,120 --> 00:01:27,520
+And we'll geolocate our address.
+
+30
+00:01:27,520 --> 00:01:31,840
+Let's just say Nashville.
+
+31
+00:01:31,840 --> 00:01:34,160
+OK, and we'll call this.
+
+32
+00:01:34,160 --> 00:01:36,200
+And we'll get our latitude and longitude.
+
+33
+00:01:36,200 --> 00:01:38,640
+Now, let's create some variables for that.
+
+34
+00:01:38,640 --> 00:01:40,400
+So we're going to be using this here.
+
+35
+00:01:40,400 --> 00:01:44,120
+So let's go to our Variable tab.
+
+36
+00:01:44,120 --> 00:01:45,720
+And we're going to make a variable.
+
+37
+00:01:45,720 --> 00:01:49,200
+And let's just call it one latitude.
+
+38
+00:01:52,680 --> 00:01:53,560
+How about just lat?
+
+39
+00:01:53,560 --> 00:01:55,000
+That's easier.
+
+40
+00:01:55,000 --> 00:01:56,240
+Lat.
+
+41
+00:01:56,240 --> 00:01:58,880
+And then we'll create one for longitude.
+
+42
+00:01:58,880 --> 00:02:04,160
+So we'll make a variable for lon, like that.
+
+43
+00:02:04,160 --> 00:02:12,480
+And then we're going to make a variable for the zoom.
+
+44
+00:02:12,480 --> 00:02:15,920
+OK, so we've got those three things
+
+45
+00:02:15,920 --> 00:02:18,840
+that we need here to fill in the various slots in Google Maps.
+
+46
+00:02:18,840 --> 00:02:20,400
+So let's assign them.
+
+47
+00:02:20,400 --> 00:02:26,800
+So we'll start by assigning a longitude.
+
+48
+00:02:26,800 --> 00:02:27,920
+And that's going to be here.
+
+49
+00:02:30,560 --> 00:02:33,720
+We need to use the item of block.
+
+50
+00:02:33,720 --> 00:02:38,560
+And we need to get to item 2 of item 1, I think.
+
+51
+00:02:38,560 --> 00:02:39,320
+Let's try that.
+
+52
+00:02:41,920 --> 00:02:43,000
+Let's try that.
+
+53
+00:02:43,000 --> 00:02:44,000
+So here we go.
+
+54
+00:02:44,000 --> 00:02:45,680
+We'll pull this down.
+
+55
+00:02:45,680 --> 00:02:46,880
+Oops.
+
+56
+00:02:46,880 --> 00:02:49,680
+Pull it down here and click on it.
+
+57
+00:02:49,680 --> 00:02:53,200
+And 36, I think that's going to be right.
+
+58
+00:02:53,200 --> 00:02:55,080
+That's the latitude.
+
+59
+00:02:55,080 --> 00:02:58,160
+OK, there we go.
+
+60
+00:02:58,160 --> 00:03:02,120
+So that one we should set to latitude.
+
+61
+00:03:02,120 --> 00:03:04,320
+And then let's do the same thing here.
+
+62
+00:03:04,320 --> 00:03:10,400
+But we'll duplicate this block and put it here.
+
+63
+00:03:10,400 --> 00:03:12,840
+And we're going to switch this to the longitude.
+
+64
+00:03:12,840 --> 00:03:16,920
+And now let's do item 2.
+
+65
+00:03:16,920 --> 00:03:21,360
+And let's see if we can set that.
+
+66
+00:03:21,360 --> 00:03:23,960
+So we have our lat and our longitude set.
+
+67
+00:03:23,960 --> 00:03:25,360
+And zoom we'll set later.
+
+68
+00:03:25,360 --> 00:03:27,360
+We don't need to display these on the stage.
+
+69
+00:03:27,360 --> 00:03:29,680
+So we're going to unclick those boxes there.
+
+70
+00:03:29,680 --> 00:03:33,000
+But we know we have that information captured.
+
+71
+00:03:33,000 --> 00:03:35,680
+And then we want to be able to put this into our map.
+
+72
+00:03:35,680 --> 00:03:39,280
+So let's go ahead and get the size of the stage
+
+73
+00:03:39,280 --> 00:03:41,320
+like we normally do from sensing.
+
+74
+00:03:41,320 --> 00:03:45,280
+So we'll go over here to get stage height, stage width.
+
+75
+00:03:47,560 --> 00:03:49,200
+Stage height, stage width.
+
+76
+00:03:52,160 --> 00:03:59,080
+And now we'll use our variables to fill in the rest.
+
+77
+00:03:59,080 --> 00:04:04,520
+So latitude here, longitude here.
+
+78
+00:04:04,520 --> 00:04:10,920
+And let's set an initial zoom of, let's say, 10.
+
+79
+00:04:11,920 --> 00:04:15,160
+OK.
+
+80
+00:04:15,160 --> 00:04:17,920
+So what we want to do is we want to set those variables up
+
+81
+00:04:17,920 --> 00:04:19,760
+when we first start our program.
+
+82
+00:04:19,760 --> 00:04:21,640
+And then we want to pass them into something
+
+83
+00:04:21,640 --> 00:04:23,680
+that will create the map for us.
+
+84
+00:04:23,680 --> 00:04:26,920
+So what we're going to do is we'll use a hat block here
+
+85
+00:04:26,920 --> 00:04:28,920
+to say, when clicked, we're going
+
+86
+00:04:28,920 --> 00:04:34,000
+to go to set these variables from our geolocation.
+
+87
+00:04:34,000 --> 00:04:36,600
+And we could make this a little bit more dynamic
+
+88
+00:04:36,600 --> 00:04:40,900
+by actually allowing people to choose what city they're in.
+
+89
+00:04:40,900 --> 00:04:42,700
+Maybe we ought to go ahead and do that.
+
+90
+00:04:42,700 --> 00:04:48,100
+So we can go to Looks, or actually to Sensing,
+
+91
+00:04:48,100 --> 00:04:55,180
+I guess, right here, and ask what city.
+
+92
+00:04:58,940 --> 00:05:04,780
+Or how about select a city or enter a city.
+
+93
+00:05:04,780 --> 00:05:06,740
+How about that?
+
+94
+00:05:06,740 --> 00:05:07,420
+And wait.
+
+95
+00:05:07,420 --> 00:05:10,540
+And then we can use the answer here instead of just natural.
+
+96
+00:05:10,700 --> 00:05:14,620
+So that'll help us to start a little bit more dynamically.
+
+97
+00:05:14,620 --> 00:05:18,060
+And now, we'll start it that way.
+
+98
+00:05:18,060 --> 00:05:20,180
+But then we need to call this particular block.
+
+99
+00:05:20,180 --> 00:05:23,220
+So here, we're going to actually use an event.
+
+100
+00:05:23,220 --> 00:05:28,380
+So we'll go over to our operators here.
+
+101
+00:05:28,380 --> 00:05:30,940
+And actually, I think it's under Control.
+
+102
+00:05:30,940 --> 00:05:31,700
+OK, Broadcast.
+
+103
+00:05:31,700 --> 00:05:32,620
+That's what we want.
+
+104
+00:05:32,620 --> 00:05:33,180
+OK.
+
+105
+00:05:33,180 --> 00:05:35,700
+So we're going to broadcast an event.
+
+106
+00:05:35,700 --> 00:05:37,540
+And let's just drop this down here.
+
+107
+00:05:37,540 --> 00:05:39,180
+And we're going to say New.
+
+108
+00:05:39,180 --> 00:05:49,500
+And we'll say, how about Show Map?
+
+109
+00:05:49,500 --> 00:05:50,180
+OK.
+
+110
+00:05:50,180 --> 00:05:51,500
+So we'll say Show Map.
+
+111
+00:05:51,500 --> 00:05:53,340
+And then we're going to handle that event.
+
+112
+00:05:53,340 --> 00:06:01,020
+So when I receive a Show Map, then we're
+
+113
+00:06:01,020 --> 00:06:03,740
+going to display on the stage.
+
+114
+00:06:03,740 --> 00:06:06,300
+We're going to switch to the costume of this particular map.
+
+115
+00:06:06,300 --> 00:06:08,220
+And we'll put it in this block here.
+
+116
+00:06:08,220 --> 00:06:09,420
+And we'll show that map.
+
+117
+00:06:09,420 --> 00:06:11,180
+Now, this ought to work at this point.
+
+118
+00:06:11,180 --> 00:06:12,780
+So let's try that.
+
+119
+00:06:12,780 --> 00:06:13,980
+We're going to click on this.
+
+120
+00:06:13,980 --> 00:06:18,020
+And we're going to say Nashville, like that.
+
+121
+00:06:18,020 --> 00:06:22,540
+And then, if any luck, it should show us the map.
+
+122
+00:06:22,540 --> 00:06:23,060
+Let's see.
+
+123
+00:06:23,060 --> 00:06:24,180
+Did we miss something here?
+
+124
+00:06:24,180 --> 00:06:26,900
+I think we didn't plug in our variables.
+
+125
+00:06:26,900 --> 00:06:27,420
+No, we do.
+
+126
+00:06:27,420 --> 00:06:28,420
+We have lat and long.
+
+127
+00:06:28,420 --> 00:06:30,220
+We just need to have zoom.
+
+128
+00:06:30,220 --> 00:06:30,860
+Let's see here.
+
+129
+00:06:30,860 --> 00:06:33,780
+Let's pull that over under Variables.
+
+130
+00:06:33,780 --> 00:06:37,260
+OK, so we'll get zoom here.
+
+131
+00:06:37,260 --> 00:06:39,900
+OK, so it should show it.
+
+132
+00:06:39,900 --> 00:06:41,460
+Let's just see if that works again.
+
+133
+00:06:41,460 --> 00:06:43,740
+All right, so pick a city.
+
+134
+00:06:43,740 --> 00:06:45,100
+We'll say, this time, Boston.
+
+135
+00:06:48,660 --> 00:06:49,820
+OK, yeah, it's working.
+
+136
+00:06:49,820 --> 00:06:51,400
+OK, so we didn't have zoom in before.
+
+137
+00:06:51,400 --> 00:06:53,020
+So it didn't know how to zoom in.
+
+138
+00:06:53,020 --> 00:06:54,380
+So we didn't see the map.
+
+139
+00:06:54,380 --> 00:06:56,940
+OK, now the thing is, we need to make it more dynamic.
+
+140
+00:06:56,940 --> 00:06:58,620
+We want to be able to actually move up.
+
+141
+00:06:58,620 --> 00:07:02,580
+Right now, if I use my scroll keys or arrow keys,
+
+142
+00:07:02,580 --> 00:07:03,540
+I can't move the map.
+
+143
+00:07:03,540 --> 00:07:07,260
+It's just a map that is what it is.
+
+144
+00:07:07,260 --> 00:07:08,460
+There's no way to zoom in.
+
+145
+00:07:08,460 --> 00:07:13,700
+There's no way to move up or down, explore the area.
+
+146
+00:07:13,700 --> 00:07:16,380
+So we want to make our map more dynamic.
+
+147
+00:07:16,380 --> 00:07:19,060
+All right, how would we go about doing that?
+
+148
+00:07:19,060 --> 00:07:21,780
+Well, the thing that we need to do
+
+149
+00:07:21,780 --> 00:07:24,700
+is just change slightly where our location is.
+
+150
+00:07:24,700 --> 00:07:27,260
+So we know that we have that location already here captured
+
+151
+00:07:27,260 --> 00:07:29,460
+in latitude and longitude.
+
+152
+00:07:29,460 --> 00:07:33,060
+So it would be simple, I think, to just say, OK,
+
+153
+00:07:33,060 --> 00:07:34,300
+let's just change that.
+
+154
+00:07:34,300 --> 00:07:38,140
+So we could, in response to a particular keystroke,
+
+155
+00:07:38,140 --> 00:07:42,860
+let's say an up arrow, we could add some code to handle that.
+
+156
+00:07:42,860 --> 00:07:46,860
+So let's go over here to say, when I'm
+
+157
+00:07:46,860 --> 00:07:50,460
+going to see if I get some space down here.
+
+158
+00:07:50,460 --> 00:07:52,940
+An up arrow is clicked.
+
+159
+00:07:52,940 --> 00:07:59,620
+Then we want to move up.
+
+160
+00:07:59,620 --> 00:08:00,540
+But how do we move up?
+
+161
+00:08:00,540 --> 00:08:03,020
+Well, we add to our latitude.
+
+162
+00:08:04,020 --> 00:08:09,500
+Oh, actually, this should be longitude, right?
+
+163
+00:08:09,500 --> 00:08:09,980
+Let's see.
+
+164
+00:08:09,980 --> 00:08:11,940
+So 42, let's see what's going on.
+
+165
+00:08:11,940 --> 00:08:13,620
+All right, so let's try this.
+
+166
+00:08:13,620 --> 00:08:20,260
+So we're going to take our lat, and we're going to add to it.
+
+167
+00:08:20,260 --> 00:08:21,740
+All right, so here we go.
+
+168
+00:08:26,300 --> 00:08:28,300
+All right, and so we're going to add.
+
+169
+00:08:28,300 --> 00:08:29,340
+But what do we add to it?
+
+170
+00:08:29,340 --> 00:08:31,300
+Well, let's just try adding one to it.
+
+171
+00:08:31,420 --> 00:08:33,460
+And then we'll call the map again.
+
+172
+00:08:33,460 --> 00:08:34,900
+All right, so here we go.
+
+173
+00:08:34,900 --> 00:08:36,620
+Let's do that.
+
+174
+00:08:36,620 --> 00:08:39,620
+When we do that, we just need to broadcast the map.
+
+175
+00:08:39,620 --> 00:08:41,860
+I guess we'll pull that down again here.
+
+176
+00:08:41,860 --> 00:08:45,140
+So let's go over to Broadcast, and we'll
+
+177
+00:08:45,140 --> 00:08:50,100
+broadcast that we need to recreate that map, the show
+
+178
+00:08:50,100 --> 00:08:50,860
+map.
+
+179
+00:08:50,860 --> 00:08:53,060
+OK, so that's in place now.
+
+180
+00:08:53,060 --> 00:08:54,940
+And so let's try the up arrow.
+
+181
+00:08:54,940 --> 00:09:00,540
+If we do that, you can see that we are definitely moving,
+
+182
+00:09:00,540 --> 00:09:02,260
+and we're moving up.
+
+183
+00:09:02,260 --> 00:09:06,060
+But we're moving up in a kind of,
+
+184
+00:09:06,060 --> 00:09:08,340
+it's hard to know how much we're moving at a time,
+
+185
+00:09:08,340 --> 00:09:09,980
+but more than we probably want.
+
+186
+00:09:09,980 --> 00:09:12,540
+It's actually hard to keep track of where we are.
+
+187
+00:09:12,540 --> 00:09:15,060
+So let's try this again.
+
+188
+00:09:15,060 --> 00:09:17,580
+I'm going to go back to Boston.
+
+189
+00:09:17,580 --> 00:09:21,420
+And you can see that one movement up
+
+190
+00:09:21,420 --> 00:09:23,580
+moves us way north.
+
+191
+00:09:23,580 --> 00:09:25,100
+So we can't just move up by one.
+
+192
+00:09:25,100 --> 00:09:26,900
+That's a little bit of an arbitrary number.
+
+193
+00:09:26,900 --> 00:09:29,220
+And the thing is, it also depends
+
+194
+00:09:29,220 --> 00:09:32,260
+on how far zoomed in you are.
+
+195
+00:09:32,260 --> 00:09:36,620
+Adding one to our latitude, when it's really zoomed in,
+
+196
+00:09:36,620 --> 00:09:37,580
+moves us a long way.
+
+197
+00:09:37,580 --> 00:09:40,740
+But when we're zoomed out, may not move us much at all.
+
+198
+00:09:40,740 --> 00:09:44,060
+So we actually need to know the relative amount we
+
+199
+00:09:44,060 --> 00:09:46,540
+want to move at our level of zoom.
+
+200
+00:09:46,540 --> 00:09:51,220
+We can do that with a technique of finding the max latitude
+
+201
+00:09:51,220 --> 00:09:54,740
+and the min latitude at a particular level of zoom
+
+202
+00:09:54,740 --> 00:09:58,180
+on the map, and then taking the difference between those
+
+203
+00:09:58,180 --> 00:10:01,860
+and using that as the degree to which,
+
+204
+00:10:01,860 --> 00:10:05,340
+or the number that we're going to use to move up and down.
+
+205
+00:10:05,340 --> 00:10:07,380
+So let's figure out how to do that.
+
+206
+00:10:07,380 --> 00:10:10,780
+So here, I'm going to write a little routine
+
+207
+00:10:10,780 --> 00:10:12,300
+to find that information.
+
+208
+00:10:12,300 --> 00:10:13,980
+You'll see that under the Network tab
+
+209
+00:10:13,980 --> 00:10:17,060
+here, we can call Cloud Variables again.
+
+210
+00:10:17,060 --> 00:10:22,820
+And if we drop down to the maps, we'll
+
+211
+00:10:22,820 --> 00:10:28,780
+see here that we have min latitude and max latitude.
+
+212
+00:10:28,780 --> 00:10:29,700
+Let's start with that.
+
+213
+00:10:29,700 --> 00:10:32,500
+So we're going to get max latitude.
+
+214
+00:10:32,500 --> 00:10:35,860
+Service is not available, but fortunately it is.
+
+215
+00:10:35,860 --> 00:10:37,460
+And we'll duplicate that.
+
+216
+00:10:37,460 --> 00:10:41,780
+And we're going to get the min latitude.
+
+217
+00:10:41,780 --> 00:10:44,620
+So that's going to be the latitude
+
+218
+00:10:44,620 --> 00:10:51,180
+at the top and the bottom of our map that's in view right now.
+
+219
+00:10:51,180 --> 00:10:54,580
+And so then we can take the difference between them.
+
+220
+00:10:54,580 --> 00:10:57,660
+And so I'll just pull this over here.
+
+221
+00:10:57,660 --> 00:11:02,340
+And we'll put the min latitude here and the max latitude
+
+222
+00:11:02,340 --> 00:11:03,440
+there.
+
+223
+00:11:03,440 --> 00:11:05,900
+And we'll get a difference between the top and the bottom.
+
+224
+00:11:05,900 --> 00:11:08,660
+Let me see if I can just pull this whole block over.
+
+225
+00:11:08,660 --> 00:11:10,460
+Here we go.
+
+226
+00:11:10,460 --> 00:11:12,500
+And so if I click on this block, you'll
+
+227
+00:11:12,500 --> 00:11:15,220
+see here that it's 0.359.
+
+228
+00:11:15,220 --> 00:11:17,380
+So that's showing us, OK, if you want
+
+229
+00:11:17,380 --> 00:11:20,240
+to move a full page view up, that
+
+230
+00:11:20,280 --> 00:11:22,400
+would be the amount that we would need to do.
+
+231
+00:11:22,400 --> 00:11:25,160
+But we actually don't want to move probably even that much.
+
+232
+00:11:25,160 --> 00:11:27,280
+We probably just want to move a quarter
+
+233
+00:11:27,280 --> 00:11:28,520
+of the screen at a time.
+
+234
+00:11:28,520 --> 00:11:30,080
+That gives us the sense of continuity
+
+235
+00:11:30,080 --> 00:11:31,800
+as we're kind of moving through.
+
+236
+00:11:31,800 --> 00:11:35,600
+So let me just drop this into here, if I can grab it.
+
+237
+00:11:35,600 --> 00:11:36,920
+There we go.
+
+238
+00:11:36,920 --> 00:11:38,600
+Get it in the right slot.
+
+239
+00:11:38,600 --> 00:11:40,280
+There we go.
+
+240
+00:11:40,280 --> 00:11:41,880
+I need more space over here.
+
+241
+00:11:41,880 --> 00:11:43,480
+So let's do that.
+
+242
+00:11:43,480 --> 00:11:45,800
+And I'm going to put in four into this slot,
+
+243
+00:11:45,800 --> 00:11:47,800
+if I can move it in the right place.
+
+244
+00:11:47,800 --> 00:11:49,600
+There we go.
+
+245
+00:11:49,680 --> 00:11:51,760
+So I'm going to put four right here.
+
+246
+00:11:51,760 --> 00:11:54,200
+And you can see now that we get this number that's
+
+247
+00:11:54,200 --> 00:11:56,760
+fairly small, but that will give us
+
+248
+00:11:56,760 --> 00:12:01,800
+a much more effective sense of scrolling through the map.
+
+249
+00:12:01,800 --> 00:12:04,320
+So now that we've got that, that's
+
+250
+00:12:04,320 --> 00:12:08,840
+what we want to use to figure out every time when
+
+251
+00:12:08,840 --> 00:12:11,560
+we need to set a variable to capture that information.
+
+252
+00:12:11,560 --> 00:12:14,440
+And then that will help us to know how much we need to move.
+
+253
+00:12:14,440 --> 00:12:17,640
+So when we regenerate the map with a zoom level,
+
+254
+00:12:17,640 --> 00:12:20,640
+we should probably also capture this information.
+
+255
+00:12:20,640 --> 00:12:24,120
+So what I'll do is I will create a variable up here.
+
+256
+00:12:24,120 --> 00:12:26,400
+Let's enter variables.
+
+257
+00:12:26,400 --> 00:12:30,800
+And I'm going to call it, let's see.
+
+258
+00:12:30,800 --> 00:12:32,320
+Let's see, I'll make a variable.
+
+259
+00:12:32,320 --> 00:12:37,160
+And let's just call it scroll amount.
+
+260
+00:12:37,160 --> 00:12:39,440
+And let's set that variable.
+
+261
+00:12:39,440 --> 00:12:41,880
+And we're going to put this down here,
+
+262
+00:12:41,880 --> 00:12:49,800
+scroll amount to this number.
+
+263
+00:12:49,800 --> 00:12:55,920
+OK, now let's try that again.
+
+264
+00:12:55,920 --> 00:12:58,080
+Let's bring our map back so we can see it here.
+
+265
+00:12:58,080 --> 00:13:00,440
+And I'm going to turn scroll amount off.
+
+266
+00:13:00,440 --> 00:13:02,880
+We'll just hit the green flag, get back to,
+
+267
+00:13:02,880 --> 00:13:06,000
+let's try Nashville again.
+
+268
+00:13:06,000 --> 00:13:07,080
+OK, so we're in Nashville.
+
+269
+00:13:07,080 --> 00:13:08,240
+Now let me try the up arrow.
+
+270
+00:13:12,840 --> 00:13:14,400
+Oh, wait, wait, wait.
+
+271
+00:13:14,400 --> 00:13:16,000
+I think the reason it's not working
+
+272
+00:13:16,000 --> 00:13:18,200
+is we haven't put the variable in the right place.
+
+273
+00:13:18,200 --> 00:13:19,280
+So let's do that here.
+
+274
+00:13:19,280 --> 00:13:21,680
+We're going to put scroll amount in here.
+
+275
+00:13:21,680 --> 00:13:24,200
+And now let's start again.
+
+276
+00:13:27,520 --> 00:13:28,440
+There we go.
+
+277
+00:13:28,440 --> 00:13:30,760
+All right, ready?
+
+278
+00:13:30,760 --> 00:13:35,040
+Now you can see the continuity of the screen
+
+279
+00:13:35,040 --> 00:13:36,680
+as we go into Kentucky.
+
+280
+00:13:36,680 --> 00:13:39,680
+So in order to get this to work as a full feature scrolling
+
+281
+00:13:39,720 --> 00:13:42,240
+map, we just need to replace this.
+
+282
+00:13:42,240 --> 00:13:45,520
+Let's see if we can do this here pretty quickly.
+
+283
+00:13:45,520 --> 00:13:47,760
+We need to handle all four events.
+
+284
+00:13:47,760 --> 00:13:49,080
+We need to do an up arrow.
+
+285
+00:13:49,080 --> 00:13:52,960
+Whoa, not sure what happened to that one.
+
+286
+00:13:52,960 --> 00:13:54,920
+OK, let's try that again.
+
+287
+00:13:54,920 --> 00:13:55,960
+So let's do this.
+
+288
+00:13:55,960 --> 00:13:59,280
+We're going to duplicate it.
+
+289
+00:13:59,280 --> 00:14:04,240
+Oops, just got part of it here, but we'll duplicate the rest.
+
+290
+00:14:04,240 --> 00:14:05,160
+There we go.
+
+291
+00:14:05,160 --> 00:14:08,560
+And then let's duplicate it again.
+
+292
+00:14:08,560 --> 00:14:10,480
+There we go, put it there.
+
+293
+00:14:10,480 --> 00:14:14,920
+Our scripting area is getting kind of crowded.
+
+294
+00:14:14,920 --> 00:14:20,760
+OK, so let's do up arrow and then down arrow.
+
+295
+00:14:20,760 --> 00:14:22,960
+Down arrow, of course, we want this,
+
+296
+00:14:22,960 --> 00:14:26,160
+but we want this to be subtracted.
+
+297
+00:14:26,160 --> 00:14:27,880
+So let's go over here and get that.
+
+298
+00:14:32,080 --> 00:14:33,600
+There we go.
+
+299
+00:14:33,600 --> 00:14:37,000
+So we want that to be subtracted.
+
+300
+00:14:37,000 --> 00:14:41,200
+And so that's the lat and the scroll amount.
+
+301
+00:14:41,200 --> 00:14:44,120
+There we go.
+
+302
+00:14:44,120 --> 00:14:47,640
+OK, and now let's do the same thing again here.
+
+303
+00:14:47,640 --> 00:14:53,440
+So we've got up, down, and now we need left.
+
+304
+00:14:53,440 --> 00:14:57,160
+And this one, of course, will be longitude.
+
+305
+00:14:57,160 --> 00:15:00,800
+So let's get that from variables over here.
+
+306
+00:15:00,800 --> 00:15:02,840
+So there's longitude.
+
+307
+00:15:02,840 --> 00:15:06,000
+Now, you might ask, do we need to capture
+
+308
+00:15:06,000 --> 00:15:09,160
+that information for the max longitude and the min
+
+309
+00:15:09,160 --> 00:15:12,800
+longitude in the same way that we did the max latitude
+
+310
+00:15:12,800 --> 00:15:18,280
+or the max, yeah, the max latitude and the min latitude?
+
+311
+00:15:18,280 --> 00:15:19,880
+The thing is, actually, those numbers
+
+312
+00:15:19,880 --> 00:15:21,760
+are basically the same.
+
+313
+00:15:21,760 --> 00:15:24,240
+So in this case, since our map is square,
+
+314
+00:15:24,240 --> 00:15:26,040
+we don't really need to worry about that.
+
+315
+00:15:26,040 --> 00:15:28,640
+We can just use those same numbers and it should be fine.
+
+316
+00:15:28,640 --> 00:15:31,560
+So we're going to just stay with the scroll amount that we have.
+
+317
+00:15:31,560 --> 00:15:34,400
+And then the only thing that we need to do here
+
+318
+00:15:34,400 --> 00:15:36,640
+is to also change this.
+
+319
+00:15:36,640 --> 00:15:40,840
+And I'll just kind of duplicate this one up here.
+
+320
+00:15:40,840 --> 00:15:41,560
+There we go.
+
+321
+00:15:41,560 --> 00:15:43,520
+Oh, no, let's get that back.
+
+322
+00:15:43,520 --> 00:15:46,840
+OK, let's duplicate it, bring it down here.
+
+323
+00:15:46,840 --> 00:15:51,240
+Then we'll switch this one out, grab the longitude,
+
+324
+00:15:51,240 --> 00:15:55,000
+subtract, and throw this in here.
+
+325
+00:15:55,000 --> 00:15:59,360
+OK, so we should be handling all of the events now.
+
+326
+00:15:59,360 --> 00:16:03,160
+So let's see how that works.
+
+327
+00:16:03,160 --> 00:16:06,400
+So we'll start again.
+
+328
+00:16:06,400 --> 00:16:07,280
+Let's try Houston.
+
+329
+00:16:10,640 --> 00:16:12,360
+OK, so we're in Houston.
+
+330
+00:16:12,360 --> 00:16:14,960
+Let's go up.
+
+331
+00:16:14,960 --> 00:16:17,920
+Oh, OK, that did not work as I expected.
+
+332
+00:16:17,920 --> 00:16:19,720
+So let's see what we did wrong here.
+
+333
+00:16:22,440 --> 00:16:25,560
+OK, one other thing that we didn't change, you see?
+
+334
+00:16:25,560 --> 00:16:26,320
+Simple bug here.
+
+335
+00:16:26,320 --> 00:16:32,160
+So the up arrow is setting the lat to lat plus scroll amount.
+
+336
+00:16:32,160 --> 00:16:34,440
+The down arrow, we need to change these
+
+337
+00:16:34,440 --> 00:16:38,960
+to the longitude and the longitude.
+
+338
+00:16:38,960 --> 00:16:40,920
+OK, so that's good.
+
+339
+00:16:40,920 --> 00:16:43,320
+Although, I don't see why that's affecting that.
+
+340
+00:16:43,320 --> 00:16:44,480
+Let's try it again here.
+
+341
+00:16:44,480 --> 00:16:45,760
+OK, Houston.
+
+342
+00:16:48,760 --> 00:16:52,280
+OK, I think we've got it working now.
+
+343
+00:16:52,280 --> 00:16:52,880
+Let's try it.
+
+344
+00:16:52,880 --> 00:16:54,600
+So we should be able to move around.
+
+345
+00:16:57,640 --> 00:17:01,440
+And there we go.
+
+346
+00:17:01,840 --> 00:17:03,320
+Now, there's one that's not working.
+
+347
+00:17:03,320 --> 00:17:04,880
+Let's see.
+
+348
+00:17:04,880 --> 00:17:05,920
+Just double check here.
+
+349
+00:17:05,920 --> 00:17:08,640
+So down arrow, left arrow, up arrow.
+
+350
+00:17:08,640 --> 00:17:11,120
+Oh, we've got up arrow in there twice.
+
+351
+00:17:11,120 --> 00:17:13,360
+Actually, I think that was the cause of the bug.
+
+352
+00:17:13,360 --> 00:17:17,280
+So now we want to go right arrow this direction.
+
+353
+00:17:17,280 --> 00:17:18,560
+Let's see if we've got that.
+
+354
+00:17:18,560 --> 00:17:20,280
+And we may actually have these backwards.
+
+355
+00:17:20,280 --> 00:17:26,360
+Let's try right arrow and left arrow.
+
+356
+00:17:26,360 --> 00:17:27,040
+There we go.
+
+357
+00:17:27,040 --> 00:17:29,200
+OK.
+
+358
+00:17:29,200 --> 00:17:31,080
+All right, here we go.
+
+359
+00:17:36,680 --> 00:17:37,560
+Bring this map over.
+
+360
+00:17:37,560 --> 00:17:48,920
+OK, up, down, left, right, up again, down again.
+
+361
+00:17:48,920 --> 00:17:51,320
+OK, so you see now that we have a scrolling
+
+362
+00:17:51,320 --> 00:17:53,240
+map, which is fantastic.
+
+363
+00:17:53,240 --> 00:17:55,280
+There's only one thing left that we have to do.
+
+364
+00:17:55,280 --> 00:17:58,320
+We have to be able to change our level of zoom.
+
+365
+00:17:58,360 --> 00:18:04,600
+So let's pick another when something key is pressed block.
+
+366
+00:18:04,600 --> 00:18:06,920
+And in this case, we're going to pick the plus.
+
+367
+00:18:06,920 --> 00:18:09,600
+And that will increase our zoom level.
+
+368
+00:18:09,600 --> 00:18:11,360
+And then we'll do the same thing,
+
+369
+00:18:11,360 --> 00:18:14,400
+but we'll do it in reverse when we get the negative.
+
+370
+00:18:14,400 --> 00:18:16,840
+So I'll just duplicate this here.
+
+371
+00:18:16,840 --> 00:18:19,280
+This is going to be roughly parallel code.
+
+372
+00:18:19,280 --> 00:18:21,440
+And we'll change that to a negative.
+
+373
+00:18:21,440 --> 00:18:26,320
+OK, so we just need to adjust our level of zoom.
+
+374
+00:18:26,320 --> 00:18:28,600
+So we came in with that default level of 10.
+
+375
+00:18:28,600 --> 00:18:32,600
+So here, we'll set.
+
+376
+00:18:32,600 --> 00:18:35,960
+And so when this plus key is pressed,
+
+377
+00:18:35,960 --> 00:18:43,160
+we're going to set the zoom to one level higher.
+
+378
+00:18:43,160 --> 00:18:46,920
+So let's go to get our variable zoom.
+
+379
+00:18:46,920 --> 00:18:47,920
+Here we go.
+
+380
+00:18:47,920 --> 00:18:51,640
+And we'll just say zoom plus 1.
+
+381
+00:18:51,640 --> 00:18:55,480
+And same thing happens, but in the other direction.
+
+382
+00:18:55,480 --> 00:18:58,720
+So we'll just duplicate this here, put this here.
+
+383
+00:18:58,720 --> 00:19:01,280
+And we'll set the zoom.
+
+384
+00:19:01,280 --> 00:19:04,280
+But in this case, we're going to go the other direction.
+
+385
+00:19:04,280 --> 00:19:07,760
+So let's pick it as minus.
+
+386
+00:19:07,760 --> 00:19:11,520
+And we'll put this in here.
+
+387
+00:19:11,520 --> 00:19:13,760
+And we'll subtract 1.
+
+388
+00:19:13,760 --> 00:19:15,480
+OK, so here we go.
+
+389
+00:19:15,480 --> 00:19:17,280
+OK, let's try.
+
+390
+00:19:17,280 --> 00:19:19,120
+Stop it, and we'll just run it again.
+
+391
+00:19:19,120 --> 00:19:24,960
+OK, San Francisco.
+
+392
+00:19:25,040 --> 00:19:26,040
+There we go.
+
+393
+00:19:26,040 --> 00:19:30,280
+Now, let's try zooming in.
+
+394
+00:19:30,280 --> 00:19:32,280
+I'm not getting a response right here.
+
+395
+00:19:32,280 --> 00:19:32,840
+Let's see.
+
+396
+00:19:32,840 --> 00:19:34,760
+We just click on this.
+
+397
+00:19:34,760 --> 00:19:37,480
+Oh, well, there's a reason.
+
+398
+00:19:37,480 --> 00:19:39,080
+You see, we've got the plus sign here.
+
+399
+00:19:39,080 --> 00:19:42,000
+But the last thing we need to do is use this broadcast.
+
+400
+00:19:42,000 --> 00:19:43,240
+So let's do that.
+
+401
+00:19:43,240 --> 00:19:45,240
+We'll bring this down here.
+
+402
+00:19:45,240 --> 00:19:48,120
+And we're going to do the same thing here.
+
+403
+00:19:48,120 --> 00:19:50,040
+Let's duplicate that.
+
+404
+00:19:50,040 --> 00:19:51,000
+There we go.
+
+405
+00:19:51,000 --> 00:19:53,840
+Because we have to obviously pass it back to the map
+
+406
+00:19:53,840 --> 00:19:56,960
+so that it can actually reset the level of zoom.
+
+407
+00:19:56,960 --> 00:19:59,520
+OK, and then in the map itself, we've
+
+408
+00:19:59,520 --> 00:20:02,360
+got the zoom where we expect it to be right there.
+
+409
+00:20:02,360 --> 00:20:05,480
+OK, so now let's try zooming out.
+
+410
+00:20:10,160 --> 00:20:11,720
+Let's see, there we go.
+
+411
+00:20:11,720 --> 00:20:15,160
+Whoops, that's zooming in.
+
+412
+00:20:15,160 --> 00:20:16,080
+No, it's zooming out.
+
+413
+00:20:16,080 --> 00:20:17,240
+OK, perfect.
+
+414
+00:20:17,240 --> 00:20:17,880
+There we go.
+
+415
+00:20:17,880 --> 00:20:21,360
+And we want to zoom back in.
+
+416
+00:20:21,360 --> 00:20:23,400
+There we go.
+
+417
+00:20:23,960 --> 00:20:27,800
+Now, the trick is, at the level of zoom that we have,
+
+418
+00:20:27,800 --> 00:20:29,560
+will our arrows work correctly?
+
+419
+00:20:29,560 --> 00:20:30,440
+And they do.
+
+420
+00:20:30,440 --> 00:20:31,860
+We're still getting the difference
+
+421
+00:20:31,860 --> 00:20:34,920
+between the max longitude and the min longitude
+
+422
+00:20:34,920 --> 00:20:36,960
+for the level of zoom we have in the map, which
+
+423
+00:20:36,960 --> 00:20:40,160
+means that we're scrolling at the right level.
+
+424
+00:20:40,160 --> 00:20:42,640
+So in the end, I want to thank kittyhacker101
+
+425
+00:20:42,640 --> 00:20:45,480
+for the idea of how to develop a scrolling map.
+
+426
+00:20:45,480 --> 00:20:47,980
+Although my technique is a little bit different than
+
+427
+00:20:47,980 --> 00:20:51,660
+that person's technique, I appreciate the inspiration.
+
+428
+00:20:51,660 --> 00:20:56,420
+So OK, in our next video, we'll sum up our work on mapping.
+
+429
+00:20:56,420 --> 00:20:59,180
+And look forward to seeing you then.
+

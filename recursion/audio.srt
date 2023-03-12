@@ -1,0 +1,1044 @@
+1
+00:00:00,000 --> 00:00:00,840
+All right.
+
+2
+00:00:00,840 --> 00:00:02,960
+Welcome back, everyone, to Programming for a Network
+
+3
+00:00:02,960 --> 00:00:03,640
+World.
+
+4
+00:00:03,640 --> 00:00:05,880
+Today, we're going to be exploring
+
+5
+00:00:05,880 --> 00:00:07,880
+the topic of recursion.
+
+6
+00:00:07,880 --> 00:00:10,880
+Recursion is sometimes considered a difficult topic,
+
+7
+00:00:10,880 --> 00:00:13,520
+but I want to show in this video that it's really not
+
+8
+00:00:13,520 --> 00:00:15,280
+so bad at all.
+
+9
+00:00:15,280 --> 00:00:18,920
+So ready to explore recursion?
+
+10
+00:00:18,920 --> 00:00:21,040
+Ready to explore recursion?
+
+11
+00:00:21,040 --> 00:00:22,760
+Oh, did I say that already?
+
+12
+00:00:22,760 --> 00:00:23,440
+Let's get going.
+
+13
+00:00:30,200 --> 00:00:32,200
+OK, here's what we're going to do today.
+
+14
+00:00:32,200 --> 00:00:36,560
+We're going to build a project that computes factorials.
+
+15
+00:00:36,560 --> 00:00:39,160
+So for those of you that remember factorials,
+
+16
+00:00:39,160 --> 00:00:43,520
+factorials are the product of an integer
+
+17
+00:00:43,520 --> 00:00:45,640
+combined with all the integers that came before it.
+
+18
+00:00:45,640 --> 00:00:50,680
+So for example, a factorial of 3 is 3 times 2 times 1,
+
+19
+00:00:50,680 --> 00:00:54,600
+which is 3 times 2 is 6, and 6 times 1 is 6.
+
+20
+00:00:54,600 --> 00:00:57,680
+So the factorial of 3 is 6.
+
+21
+00:00:57,720 --> 00:01:00,440
+We're going to make two programs that compute factorials.
+
+22
+00:01:00,440 --> 00:01:02,760
+We're going to do it the traditional way with just
+
+23
+00:01:02,760 --> 00:01:05,920
+a loop, and then we're going to redo it
+
+24
+00:01:05,920 --> 00:01:10,000
+as a recursive function or using a block that
+
+25
+00:01:10,000 --> 00:01:11,840
+employs recursion.
+
+26
+00:01:11,840 --> 00:01:12,360
+All right.
+
+27
+00:01:12,360 --> 00:01:14,000
+So how do we do it the traditional way?
+
+28
+00:01:14,000 --> 00:01:15,320
+Let's get started with that.
+
+29
+00:01:15,320 --> 00:01:16,960
+So I'm going to make a block over here,
+
+30
+00:01:16,960 --> 00:01:19,520
+and I'm going to say make a block.
+
+31
+00:01:19,520 --> 00:01:23,080
+I'm going to go over to the operator here,
+
+32
+00:01:23,080 --> 00:01:25,680
+and then we're going to pick a reporter.
+
+33
+00:01:25,680 --> 00:01:32,680
+I'm going to call this, let's call it loop factorial of n,
+
+34
+00:01:32,680 --> 00:01:34,120
+and we'll create that.
+
+35
+00:01:34,120 --> 00:01:37,320
+Then I'm going to click here to make n an input that
+
+36
+00:01:37,320 --> 00:01:39,480
+takes a number.
+
+37
+00:01:39,480 --> 00:01:40,720
+OK.
+
+38
+00:01:40,720 --> 00:01:42,960
+And that should be good.
+
+39
+00:01:42,960 --> 00:01:45,760
+So say OK.
+
+40
+00:01:45,760 --> 00:01:47,180
+I'm going to bring this over here
+
+41
+00:01:47,180 --> 00:01:48,980
+and open it up a little bit more so we can
+
+42
+00:01:48,980 --> 00:01:51,280
+see this whole scripting area.
+
+43
+00:01:51,280 --> 00:01:51,800
+All right.
+
+44
+00:01:51,800 --> 00:01:55,320
+So the first thing that we need to do is make a variable.
+
+45
+00:01:55,480 --> 00:02:00,320
+So let's make a variable here called result.
+
+46
+00:02:00,320 --> 00:02:02,560
+That's going to be the result that we pass out
+
+47
+00:02:02,560 --> 00:02:04,960
+of this function or that we report.
+
+48
+00:02:04,960 --> 00:02:07,200
+And then we want to start a loop.
+
+49
+00:02:07,200 --> 00:02:12,520
+So let's go up to Control, and let's get a for loop here.
+
+50
+00:02:12,520 --> 00:02:14,120
+Now, we want to loop as many times
+
+51
+00:02:14,120 --> 00:02:16,840
+as there are integers in a number that
+
+52
+00:02:16,840 --> 00:02:19,960
+are previous in the sequence going down to 1.
+
+53
+00:02:19,960 --> 00:02:21,960
+So from here, we'll just count up
+
+54
+00:02:21,960 --> 00:02:23,560
+because this is commutative.
+
+55
+00:02:23,560 --> 00:02:25,240
+We can go either direction.
+
+56
+00:02:25,240 --> 00:02:29,400
+We're going to count from 1 to n.
+
+57
+00:02:29,400 --> 00:02:31,280
+So n will be, for example, 3.
+
+58
+00:02:31,280 --> 00:02:33,840
+Then we'll do 1, 2, and 3.
+
+59
+00:02:33,840 --> 00:02:34,840
+OK.
+
+60
+00:02:34,840 --> 00:02:38,120
+And now, we just need to think about what we want to compute.
+
+61
+00:02:38,120 --> 00:02:44,040
+So we need to get a variable set block here.
+
+62
+00:02:44,040 --> 00:02:45,160
+I'm going to set this.
+
+63
+00:02:45,160 --> 00:02:49,200
+Now, we're going to set the result to in here.
+
+64
+00:02:49,200 --> 00:02:55,120
+We're going to get an operator to i,
+
+65
+00:02:55,120 --> 00:03:00,880
+which is going to be 1, 2, 3 times result.
+
+66
+00:03:00,880 --> 00:03:02,440
+Now, if you look at this right here,
+
+67
+00:03:02,440 --> 00:03:04,840
+we're going to have a bug because result is going
+
+68
+00:03:04,840 --> 00:03:07,120
+to be initialized to 0.
+
+69
+00:03:07,120 --> 00:03:08,760
+So we need to remember that if we're
+
+70
+00:03:08,760 --> 00:03:12,880
+going to initialize it to 1, we need to tell it so explicitly.
+
+71
+00:03:12,880 --> 00:03:14,760
+So we're going to say set result to 1.
+
+72
+00:03:14,760 --> 00:03:18,680
+Otherwise, everything multiplied by 0 would just end up being 0.
+
+73
+00:03:18,680 --> 00:03:22,800
+And then at the end of this, we want to report.
+
+74
+00:03:22,800 --> 00:03:27,520
+Let's see, under Control, we want to report our result.
+
+75
+00:03:27,520 --> 00:03:34,160
+All right, so let's get that and pull down Result.
+
+76
+00:03:34,160 --> 00:03:35,240
+And that should be it.
+
+77
+00:03:35,240 --> 00:03:36,840
+So let's give it a try.
+
+78
+00:03:36,840 --> 00:03:38,920
+So now, remember, it disappears because it's now
+
+79
+00:03:38,920 --> 00:03:40,840
+under Custom, loop factorial.
+
+80
+00:03:40,840 --> 00:03:42,840
+And we can try 3.
+
+81
+00:03:42,840 --> 00:03:44,480
+And the answer should be 6.
+
+82
+00:03:44,480 --> 00:03:45,440
+And it is.
+
+83
+00:03:45,440 --> 00:03:48,200
+And 5 should be 120.
+
+84
+00:03:48,200 --> 00:03:49,080
+And it is.
+
+85
+00:03:49,080 --> 00:03:52,200
+You go up to 10, and it gets to be a much bigger number.
+
+86
+00:03:52,200 --> 00:03:54,000
+But that is the correct result.
+
+87
+00:03:54,000 --> 00:03:56,960
+So we built a function that computes factorials.
+
+88
+00:03:56,960 --> 00:03:58,400
+Great.
+
+89
+00:03:58,400 --> 00:04:01,240
+Now, how do we do this in a recursive way?
+
+90
+00:04:01,240 --> 00:04:03,320
+So when you're thinking about recursion,
+
+91
+00:04:03,320 --> 00:04:07,120
+the fundamental idea is that you create a block that calls
+
+92
+00:04:07,120 --> 00:04:09,760
+itself as part of its solution.
+
+93
+00:04:09,760 --> 00:04:11,840
+And in order to do that, you need
+
+94
+00:04:11,840 --> 00:04:15,400
+to make sure that your recursive block has two cases.
+
+95
+00:04:15,440 --> 00:04:18,040
+One's called the base case, and the other
+
+96
+00:04:18,040 --> 00:04:20,120
+is called the recursive case.
+
+97
+00:04:20,120 --> 00:04:22,920
+And you want to make sure that when you're computing,
+
+98
+00:04:22,920 --> 00:04:26,600
+that your recursive case is tending towards the base case
+
+99
+00:04:26,600 --> 00:04:28,640
+and will eventually reach it.
+
+100
+00:04:28,640 --> 00:04:33,520
+Because the base case controls when the recursion ends.
+
+101
+00:04:33,520 --> 00:04:35,360
+And if you never get to the base case,
+
+102
+00:04:35,360 --> 00:04:39,400
+then you'll just keep going over and over in a circle.
+
+103
+00:04:39,400 --> 00:04:41,800
+And eventually, your program will produce something
+
+104
+00:04:41,800 --> 00:04:43,920
+called a stack overflow or some kind of error
+
+105
+00:04:43,960 --> 00:04:47,120
+that runs out of memory or space.
+
+106
+00:04:47,120 --> 00:04:49,400
+OK, that might seem a little abstract.
+
+107
+00:04:49,400 --> 00:04:53,240
+So let's just put it together in a practical example.
+
+108
+00:04:53,240 --> 00:04:54,680
+So we'll make a block here.
+
+109
+00:04:54,680 --> 00:04:56,200
+And we're going to take this.
+
+110
+00:04:56,200 --> 00:04:58,280
+It's going to be an operator again.
+
+111
+00:04:58,280 --> 00:05:07,600
+And we'll call this recursive factorial of n.
+
+112
+00:05:07,600 --> 00:05:09,240
+And it will be the same as the other.
+
+113
+00:05:09,240 --> 00:05:13,560
+We're just going to turn n into an input for a number.
+
+114
+00:05:14,120 --> 00:05:15,160
+Let's get a number here.
+
+115
+00:05:18,760 --> 00:05:20,360
+There we go.
+
+116
+00:05:20,360 --> 00:05:22,120
+All right.
+
+117
+00:05:22,120 --> 00:05:25,120
+And again, let's just make a little bit more space
+
+118
+00:05:25,120 --> 00:05:26,520
+and start building this up.
+
+119
+00:05:26,520 --> 00:05:30,200
+So again, with a base case and a recursive case,
+
+120
+00:05:30,200 --> 00:05:31,800
+the best way to handle this is probably
+
+121
+00:05:31,800 --> 00:05:35,560
+with an if-then expression or an if-then-else.
+
+122
+00:05:35,560 --> 00:05:37,760
+So let's grab an if-then-else.
+
+123
+00:05:37,760 --> 00:05:39,600
+And the first thing that we're going to test
+
+124
+00:05:39,600 --> 00:05:41,120
+is the base case.
+
+125
+00:05:41,120 --> 00:05:43,760
+So the base case is when we reach 1.
+
+126
+00:05:43,760 --> 00:05:46,600
+We don't want to go into 0, because if we multiply,
+
+127
+00:05:46,600 --> 00:05:48,960
+as I said before, anything by 0, it's
+
+128
+00:05:48,960 --> 00:05:50,760
+going to be 0 as a result. And we don't want
+
+129
+00:05:50,760 --> 00:05:52,720
+to get into negative numbers.
+
+130
+00:05:52,720 --> 00:05:54,760
+We probably should be testing the input on the way
+
+131
+00:05:54,760 --> 00:05:58,600
+in to make sure that the input to start with is not negative.
+
+132
+00:05:58,600 --> 00:06:00,880
+But we're trying to keep this example simple.
+
+133
+00:06:00,880 --> 00:06:04,640
+If you feel like adding that on, that would be a great exercise.
+
+134
+00:06:04,640 --> 00:06:13,240
+If n is equal to 1, then we're going
+
+135
+00:06:13,240 --> 00:06:17,880
+to do something, which is we're just going to report.
+
+136
+00:06:17,880 --> 00:06:18,480
+Here we go.
+
+137
+00:06:18,480 --> 00:06:19,940
+Oh, I keep going to the wrong tabs.
+
+138
+00:06:19,940 --> 00:06:21,600
+OK.
+
+139
+00:06:21,600 --> 00:06:26,520
+We want to go to report n.
+
+140
+00:06:26,520 --> 00:06:29,160
+Now, you could also just report 1, because if n equals 1,
+
+141
+00:06:29,160 --> 00:06:30,520
+then you know the answer is 1.
+
+142
+00:06:30,520 --> 00:06:33,760
+But to keep it kind of nice and clean, we're going to report n.
+
+143
+00:06:34,640 --> 00:06:36,320
+So this is the base case.
+
+144
+00:06:36,320 --> 00:06:39,000
+So else is going to be the recursive case.
+
+145
+00:06:39,000 --> 00:06:40,840
+And I might even just make comments here.
+
+146
+00:06:40,840 --> 00:06:44,560
+So let's just add something here.
+
+147
+00:06:44,560 --> 00:06:47,120
+Let's say a comment.
+
+148
+00:06:47,120 --> 00:06:48,920
+And we can put it right there.
+
+149
+00:06:48,920 --> 00:06:55,840
+And we can say base case, just to make that totally clear.
+
+150
+00:06:55,840 --> 00:07:00,880
+Then we can make another comment and put it down here.
+
+151
+00:07:00,880 --> 00:07:01,840
+Whoops.
+
+152
+00:07:01,840 --> 00:07:04,320
+I guess it's harder to do with the else.
+
+153
+00:07:04,320 --> 00:07:09,520
+So we'll just put it down here in recursive case.
+
+154
+00:07:14,000 --> 00:07:16,520
+OK.
+
+155
+00:07:16,520 --> 00:07:18,280
+So base case.
+
+156
+00:07:18,280 --> 00:07:21,160
+And then actually, the recursive case is here.
+
+157
+00:07:21,160 --> 00:07:23,080
+So we'll kind of just put it off to the side.
+
+158
+00:07:23,080 --> 00:07:24,000
+That's the base case.
+
+159
+00:07:24,000 --> 00:07:27,120
+This is going to be the recursive case inside the else.
+
+160
+00:07:27,120 --> 00:07:31,440
+So the recursive case has to call this function again,
+
+161
+00:07:31,440 --> 00:07:33,360
+but with different inputs.
+
+162
+00:07:33,360 --> 00:07:35,040
+So what would that look like?
+
+163
+00:07:35,040 --> 00:07:38,920
+So here, we're going to do report again.
+
+164
+00:07:38,920 --> 00:07:40,160
+So we're going to report.
+
+165
+00:07:40,160 --> 00:07:42,360
+And that's going to help us to call this function.
+
+166
+00:07:42,360 --> 00:07:44,200
+Now, you say, OK, I want to call this function again.
+
+167
+00:07:44,200 --> 00:07:46,040
+But how do I reach up and call it?
+
+168
+00:07:46,040 --> 00:07:48,960
+Well, you can go to custom and actually pull this block back
+
+169
+00:07:48,960 --> 00:07:49,600
+in.
+
+170
+00:07:49,600 --> 00:07:50,920
+So we're going to do that here.
+
+171
+00:07:50,920 --> 00:07:53,400
+This allows us now to connect a recursive case.
+
+172
+00:07:53,400 --> 00:07:54,520
+Good.
+
+173
+00:07:54,520 --> 00:07:58,160
+And we're going to say recursive factorial of.
+
+174
+00:07:58,160 --> 00:07:59,880
+And here, what is it?
+
+175
+00:07:59,880 --> 00:08:01,400
+It's not n any longer.
+
+176
+00:08:01,400 --> 00:08:03,880
+It's going to be n minus 1.
+
+177
+00:08:03,880 --> 00:08:07,200
+So let's do that.
+
+178
+00:08:07,200 --> 00:08:11,600
+Because we're trying to move towards or converge
+
+179
+00:08:11,600 --> 00:08:13,920
+on the base case.
+
+180
+00:08:13,920 --> 00:08:15,840
+But there's one more thing that we need to do.
+
+181
+00:08:15,840 --> 00:08:17,000
+So here we go.
+
+182
+00:08:17,000 --> 00:08:21,240
+Recursive case of n minus 1.
+
+183
+00:08:21,240 --> 00:08:27,600
+We also need to multiply n times all the other numbers that
+
+184
+00:08:27,600 --> 00:08:31,600
+are in the line of integers until we get to 1.
+
+185
+00:08:31,600 --> 00:08:34,200
+And so to do that, we're going to take this multiplication
+
+186
+00:08:34,200 --> 00:08:37,000
+here, going to multiply this, and we're
+
+187
+00:08:37,000 --> 00:08:38,600
+going to multiply this by n.
+
+188
+00:08:41,240 --> 00:08:45,680
+So again, you can see this here.
+
+189
+00:08:48,960 --> 00:08:49,960
+There we go.
+
+190
+00:08:49,960 --> 00:08:51,840
+So we have the base case.
+
+191
+00:08:51,840 --> 00:08:54,320
+If n equals 1, then we just report n.
+
+192
+00:08:54,320 --> 00:08:57,120
+Otherwise, we report n.
+
+193
+00:08:57,120 --> 00:09:01,680
+That could be 3 times the recursive factorial of 2.
+
+194
+00:09:01,680 --> 00:09:03,360
+And then that will recurse.
+
+195
+00:09:03,360 --> 00:09:06,360
+And again, you'll have the same question.
+
+196
+00:09:06,360 --> 00:09:08,280
+Is it going to be the base case?
+
+197
+00:09:08,280 --> 00:09:09,600
+No, this time it's 2.
+
+198
+00:09:09,600 --> 00:09:13,560
+So then it's going to be 2 times the recursive factorial of 1.
+
+199
+00:09:13,560 --> 00:09:15,680
+And then it's going to go through again and say,
+
+200
+00:09:15,680 --> 00:09:16,200
+is it 1?
+
+201
+00:09:16,200 --> 00:09:16,760
+Yes.
+
+202
+00:09:16,760 --> 00:09:18,040
+And so it reports 1.
+
+203
+00:09:18,040 --> 00:09:22,440
+And then it calculates 1 times 2 times 3.
+
+204
+00:09:22,440 --> 00:09:24,600
+And you get your answer of 6.
+
+205
+00:09:24,600 --> 00:09:26,320
+So that's how recursion is done.
+
+206
+00:09:26,320 --> 00:09:28,120
+And let's just see if it works in practice.
+
+207
+00:09:28,120 --> 00:09:30,240
+So we're going to go over here to Custom again.
+
+208
+00:09:30,240 --> 00:09:32,880
+We're going to bring over the recursive factorial.
+
+209
+00:09:32,880 --> 00:09:35,400
+And I'm going to try again 3 just to test it out.
+
+210
+00:09:35,400 --> 00:09:36,680
+It should be 6.
+
+211
+00:09:36,680 --> 00:09:37,960
+It is.
+
+212
+00:09:37,960 --> 00:09:39,320
+Let's test it out as 5.
+
+213
+00:09:39,320 --> 00:09:40,280
+Should be 120.
+
+214
+00:09:40,280 --> 00:09:41,360
+It is.
+
+215
+00:09:41,360 --> 00:09:44,480
+And then we can test.
+
+216
+00:09:44,480 --> 00:09:46,880
+Let's try 10.
+
+217
+00:09:46,880 --> 00:09:48,680
+Now, you might say, OK, these are two ways
+
+218
+00:09:48,680 --> 00:09:50,480
+of doing the same thing.
+
+219
+00:09:50,520 --> 00:09:53,600
+Why would I even bother with doing recursion?
+
+220
+00:09:53,600 --> 00:09:56,520
+And the answer is it depends on the context.
+
+221
+00:09:56,520 --> 00:10:00,200
+In almost all the cases, with some very small sort
+
+222
+00:10:00,200 --> 00:10:04,520
+of edge cases, you can always turn a recursive operation
+
+223
+00:10:04,520 --> 00:10:07,760
+into a loop and vice versa.
+
+224
+00:10:07,760 --> 00:10:11,480
+But sometimes it's more efficient to calculate
+
+225
+00:10:11,480 --> 00:10:12,840
+something recursively.
+
+226
+00:10:12,840 --> 00:10:14,800
+And sometimes it's even easier to program it
+
+227
+00:10:14,800 --> 00:10:17,280
+because you're kind of focused on the logic of the problem
+
+228
+00:10:17,280 --> 00:10:19,200
+rather than the looping operation
+
+229
+00:10:19,200 --> 00:10:21,840
+and keeping track of the state of all those interim values.
+
+230
+00:10:21,840 --> 00:10:23,760
+You kind of let the computer do that for you
+
+231
+00:10:23,760 --> 00:10:25,520
+when you're doing recursion.
+
+232
+00:10:25,520 --> 00:10:29,400
+And depending on your programming environment,
+
+233
+00:10:29,400 --> 00:10:31,320
+doing a recursive function may actually
+
+234
+00:10:31,320 --> 00:10:33,360
+be faster and more efficient.
+
+235
+00:10:33,360 --> 00:10:35,680
+So let's just test this out here very unscientifically.
+
+236
+00:10:35,680 --> 00:10:37,180
+But I'm going to take a big number.
+
+237
+00:10:37,180 --> 00:10:39,360
+Let's try 50 for both of these.
+
+238
+00:10:39,360 --> 00:10:41,560
+And you'll see a noticeable lag, for example,
+
+239
+00:10:41,560 --> 00:10:43,480
+when I run this first one.
+
+240
+00:10:43,480 --> 00:10:46,560
+Calculates, and then we get it in scientific notation.
+
+241
+00:10:46,560 --> 00:10:49,760
+But you can see that it took maybe a second.
+
+242
+00:10:49,760 --> 00:10:52,720
+And we do the same thing here, and it instantly reports.
+
+243
+00:10:52,720 --> 00:10:54,480
+I don't even know if we can get up to 100.
+
+244
+00:10:54,480 --> 00:10:56,920
+Let's see if we'll go that high.
+
+245
+00:10:56,920 --> 00:10:58,960
+You can see that it probably took about two seconds
+
+246
+00:10:58,960 --> 00:11:00,960
+to calculate that.
+
+247
+00:11:00,960 --> 00:11:06,340
+And again, with this function, it's more or less instantaneous.
+
+248
+00:11:06,340 --> 00:11:07,720
+And we could keep going with that.
+
+249
+00:11:07,720 --> 00:11:09,920
+Again, we're going to hit an upper limit where it won't
+
+250
+00:11:09,920 --> 00:11:13,000
+be able to calculate this at all.
+
+251
+00:11:13,000 --> 00:11:14,560
+We got to infinity.
+
+252
+00:11:14,560 --> 00:11:17,360
+And we probably will reach infinity faster here.
+
+253
+00:11:17,360 --> 00:11:19,080
+So express train to infinity.
+
+254
+00:11:19,080 --> 00:11:20,000
+There you go.
+
+255
+00:11:20,000 --> 00:11:22,320
+But the point is, within NETs blocks,
+
+256
+00:11:22,320 --> 00:11:26,520
+sometimes recursion will produce faster results
+
+257
+00:11:26,520 --> 00:11:28,720
+than the traditional way of doing things
+
+258
+00:11:28,720 --> 00:11:31,440
+with looping structures.
+
+259
+00:11:31,440 --> 00:11:34,360
+All right, so that is our video for today.
+
+260
+00:11:34,360 --> 00:11:37,040
+I hope that was a useful introduction to recursion.
+
+261
+00:11:37,040 --> 00:11:40,120
+And I will see you in our next video.
+

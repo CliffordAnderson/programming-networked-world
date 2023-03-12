@@ -1,0 +1,261 @@
+All right.
+Welcome back, everyone, to Programming for a Network
+World.
+Today, we're going to be exploring
+the topic of recursion.
+Recursion is sometimes considered a difficult topic,
+but I want to show in this video that it's really not
+so bad at all.
+So ready to explore recursion?
+Ready to explore recursion?
+Oh, did I say that already?
+Let's get going.
+OK, here's what we're going to do today.
+We're going to build a project that computes factorials.
+So for those of you that remember factorials,
+factorials are the product of an integer
+combined with all the integers that came before it.
+So for example, a factorial of 3 is 3 times 2 times 1,
+which is 3 times 2 is 6, and 6 times 1 is 6.
+So the factorial of 3 is 6.
+We're going to make two programs that compute factorials.
+We're going to do it the traditional way with just
+a loop, and then we're going to redo it
+as a recursive function or using a block that
+employs recursion.
+All right.
+So how do we do it the traditional way?
+Let's get started with that.
+So I'm going to make a block over here,
+and I'm going to say make a block.
+I'm going to go over to the operator here,
+and then we're going to pick a reporter.
+I'm going to call this, let's call it loop factorial of n,
+and we'll create that.
+Then I'm going to click here to make n an input that
+takes a number.
+OK.
+And that should be good.
+So say OK.
+I'm going to bring this over here
+and open it up a little bit more so we can
+see this whole scripting area.
+All right.
+So the first thing that we need to do is make a variable.
+So let's make a variable here called result.
+That's going to be the result that we pass out
+of this function or that we report.
+And then we want to start a loop.
+So let's go up to Control, and let's get a for loop here.
+Now, we want to loop as many times
+as there are integers in a number that
+are previous in the sequence going down to 1.
+So from here, we'll just count up
+because this is commutative.
+We can go either direction.
+We're going to count from 1 to n.
+So n will be, for example, 3.
+Then we'll do 1, 2, and 3.
+OK.
+And now, we just need to think about what we want to compute.
+So we need to get a variable set block here.
+I'm going to set this.
+Now, we're going to set the result to in here.
+We're going to get an operator to i,
+which is going to be 1, 2, 3 times result.
+Now, if you look at this right here,
+we're going to have a bug because result is going
+to be initialized to 0.
+So we need to remember that if we're
+going to initialize it to 1, we need to tell it so explicitly.
+So we're going to say set result to 1.
+Otherwise, everything multiplied by 0 would just end up being 0.
+And then at the end of this, we want to report.
+Let's see, under Control, we want to report our result.
+All right, so let's get that and pull down Result.
+And that should be it.
+So let's give it a try.
+So now, remember, it disappears because it's now
+under Custom, loop factorial.
+And we can try 3.
+And the answer should be 6.
+And it is.
+And 5 should be 120.
+And it is.
+You go up to 10, and it gets to be a much bigger number.
+But that is the correct result.
+So we built a function that computes factorials.
+Great.
+Now, how do we do this in a recursive way?
+So when you're thinking about recursion,
+the fundamental idea is that you create a block that calls
+itself as part of its solution.
+And in order to do that, you need
+to make sure that your recursive block has two cases.
+One's called the base case, and the other
+is called the recursive case.
+And you want to make sure that when you're computing,
+that your recursive case is tending towards the base case
+and will eventually reach it.
+Because the base case controls when the recursion ends.
+And if you never get to the base case,
+then you'll just keep going over and over in a circle.
+And eventually, your program will produce something
+called a stack overflow or some kind of error
+that runs out of memory or space.
+OK, that might seem a little abstract.
+So let's just put it together in a practical example.
+So we'll make a block here.
+And we're going to take this.
+It's going to be an operator again.
+And we'll call this recursive factorial of n.
+And it will be the same as the other.
+We're just going to turn n into an input for a number.
+Let's get a number here.
+There we go.
+All right.
+And again, let's just make a little bit more space
+and start building this up.
+So again, with a base case and a recursive case,
+the best way to handle this is probably
+with an if-then expression or an if-then-else.
+So let's grab an if-then-else.
+And the first thing that we're going to test
+is the base case.
+So the base case is when we reach 1.
+We don't want to go into 0, because if we multiply,
+as I said before, anything by 0, it's
+going to be 0 as a result. And we don't want
+to get into negative numbers.
+We probably should be testing the input on the way
+in to make sure that the input to start with is not negative.
+But we're trying to keep this example simple.
+If you feel like adding that on, that would be a great exercise.
+If n is equal to 1, then we're going
+to do something, which is we're just going to report.
+Here we go.
+Oh, I keep going to the wrong tabs.
+OK.
+We want to go to report n.
+Now, you could also just report 1, because if n equals 1,
+then you know the answer is 1.
+But to keep it kind of nice and clean, we're going to report n.
+So this is the base case.
+So else is going to be the recursive case.
+And I might even just make comments here.
+So let's just add something here.
+Let's say a comment.
+And we can put it right there.
+And we can say base case, just to make that totally clear.
+Then we can make another comment and put it down here.
+Whoops.
+I guess it's harder to do with the else.
+So we'll just put it down here in recursive case.
+OK.
+So base case.
+And then actually, the recursive case is here.
+So we'll kind of just put it off to the side.
+That's the base case.
+This is going to be the recursive case inside the else.
+So the recursive case has to call this function again,
+but with different inputs.
+So what would that look like?
+So here, we're going to do report again.
+So we're going to report.
+And that's going to help us to call this function.
+Now, you say, OK, I want to call this function again.
+But how do I reach up and call it?
+Well, you can go to custom and actually pull this block back
+in.
+So we're going to do that here.
+This allows us now to connect a recursive case.
+Good.
+And we're going to say recursive factorial of.
+And here, what is it?
+It's not n any longer.
+It's going to be n minus 1.
+So let's do that.
+Because we're trying to move towards or converge
+on the base case.
+But there's one more thing that we need to do.
+So here we go.
+Recursive case of n minus 1.
+We also need to multiply n times all the other numbers that
+are in the line of integers until we get to 1.
+And so to do that, we're going to take this multiplication
+here, going to multiply this, and we're
+going to multiply this by n.
+So again, you can see this here.
+There we go.
+So we have the base case.
+If n equals 1, then we just report n.
+Otherwise, we report n.
+That could be 3 times the recursive factorial of 2.
+And then that will recurse.
+And again, you'll have the same question.
+Is it going to be the base case?
+No, this time it's 2.
+So then it's going to be 2 times the recursive factorial of 1.
+And then it's going to go through again and say,
+is it 1?
+Yes.
+And so it reports 1.
+And then it calculates 1 times 2 times 3.
+And you get your answer of 6.
+So that's how recursion is done.
+And let's just see if it works in practice.
+So we're going to go over here to Custom again.
+We're going to bring over the recursive factorial.
+And I'm going to try again 3 just to test it out.
+It should be 6.
+It is.
+Let's test it out as 5.
+Should be 120.
+It is.
+And then we can test.
+Let's try 10.
+Now, you might say, OK, these are two ways
+of doing the same thing.
+Why would I even bother with doing recursion?
+And the answer is it depends on the context.
+In almost all the cases, with some very small sort
+of edge cases, you can always turn a recursive operation
+into a loop and vice versa.
+But sometimes it's more efficient to calculate
+something recursively.
+And sometimes it's even easier to program it
+because you're kind of focused on the logic of the problem
+rather than the looping operation
+and keeping track of the state of all those interim values.
+You kind of let the computer do that for you
+when you're doing recursion.
+And depending on your programming environment,
+doing a recursive function may actually
+be faster and more efficient.
+So let's just test this out here very unscientifically.
+But I'm going to take a big number.
+Let's try 50 for both of these.
+And you'll see a noticeable lag, for example,
+when I run this first one.
+Calculates, and then we get it in scientific notation.
+But you can see that it took maybe a second.
+And we do the same thing here, and it instantly reports.
+I don't even know if we can get up to 100.
+Let's see if we'll go that high.
+You can see that it probably took about two seconds
+to calculate that.
+And again, with this function, it's more or less instantaneous.
+And we could keep going with that.
+Again, we're going to hit an upper limit where it won't
+be able to calculate this at all.
+We got to infinity.
+And we probably will reach infinity faster here.
+So express train to infinity.
+There you go.
+But the point is, within NETs blocks,
+sometimes recursion will produce faster results
+than the traditional way of doing things
+with looping structures.
+All right, so that is our video for today.
+I hope that was a useful introduction to recursion.
+And I will see you in our next video.
