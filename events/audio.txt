@@ -1,0 +1,88 @@
+Hello, everyone. Welcome back to our series on programming for a networked world.
+Today, we're going to be talking about events.
+So, events take place in the world all around us,
+and we oftentimes have to respond to those events in appropriate ways.
+For example, if someone's walking down the street and calls out,
+Hey, Cliff!
+Then my response should be,
+Hey, how are you?
+If I just walk on by and I don't respond,
+that's also a type of event, but not a very friendly one.
+So, when events occur,
+our computer code also needs to respond to the user in such appropriate ways.
+That means, as programmers,
+we have to respond to those events by capturing them
+and then setting a setup box up to respond to them appropriately.
+We're going to learn how to do that in this video.
+So, ready to trap events and respond to them appropriately?
+Let's get started.
+Okay, today our plan is actually very simple.
+We're going to make a program that draws on the screen when we hold our mouse down.
+To do that, we need to be able to capture the mouse down event.
+So, I'm going to go over here to Control,
+and then I'm going to pull over this hat block that has a space for a Boolean,
+and there is a built-in mouse down detector
+that will return a Boolean whenever the mouse is down or up.
+And so, if the mouse is down, then this hat block will execute.
+So, we just need to then put in code to respond to the event of the mouse being down.
+Since we want to draw, let's put in code to draw on the screen.
+So, we'll put in firstPinDown.
+And now, I think we should also switch our costume,
+so Ada will become a turtle again. It's easier to draw with.
+And then we want to have the mouse go to the location on the screen where our pointer currently is.
+And so, for that, we're going to go to x, y,
+but we have to sense where the x and y are of our mouse.
+So, it'll be mouseX and mouseY.
+Now, you notice that the line disappeared on the screen here, and why is that?
+Well, because my event is already wired up.
+So, when I let go of the mouse, or when I clicked on it,
+it went off to the side somewhere on the stage,
+went off the stage onto the side of the screen where you can't see it.
+So, we'll have to handle that in a moment.
+But for now, let's just finish up this event,
+and then when the event is over, we want to put the pin up, like this,
+and now we've got a tool to help us draw on the screen.
+You can see here that we can start drawing lines using this event,
+just by capturing our mouse down button.
+But as I said, we probably want to make it a little bit easier for people to get started,
+so we can also capture the event of the when green flag is clicked.
+And we've actually already seen this in other of our programs,
+we just haven't called it out as an event.
+So, let me bring when green flag clicked is over,
+and now we put in some starter code that helps us to get a line properly for our drawings.
+So, we should probably put in under pin that will clear the stage,
+and we'll set the pin color to red, say,
+and we'll set the pin size to make it a little bit bigger,
+so that it's a little bit more striking.
+There we go, that's three, that's good.
+And we also might want to just start right at the beginning of the,
+right in the center of the stage,
+so that we don't start awkwardly off to the side by having to click on when mouse is down.
+So now you can see, when we do that, we start at the center of the stage,
+and I can draw, oh, that's not a very good triangle.
+Maybe we should add another event that allows me to erase what I've done so far,
+and then start over again without having to click on the green flag.
+Because if I do that, you'll see that there's a line that goes up,
+and then disappears when I go off the screen,
+because it's trapping my event of clicking on the green flag.
+So maybe we should add one more event that responds to a click of the space key.
+Now you notice in this particular hat block,
+we can drop down and see that it can respond to any key.
+The space key is just a convenient one, because it's big and easy to locate.
+So now, when we hit the space key, what we're going to do is we're going to clear,
+and then we'll go back to the centers.
+So let's do that, too, like this.
+Okay, ready to try it?
+So we hit the green flag.
+Let's say I draw something like that.
+I'm not really happy with that triangle,
+so rather than going up in here and clicking again,
+I'm just going to hit the space key, and there I can do that again.
+So that's a quick introduction to events,
+but you can combine events with something called messages
+to create much more complex effects in your program.
+So in our next video, we'll go deeper with events,
+and we'll also introduce the concept of messaging.
+But for now, you've learned how to trap events,
+and then add blocks to handle them when they occur.
+All right, so I'll see you in our next video.
