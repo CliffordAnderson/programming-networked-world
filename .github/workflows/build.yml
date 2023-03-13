@@ -1,0 +1,25 @@
+name: Build GH-pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        repository: ${{ github.event.pull_request.head.repo.full_name }}
+        ref: ${{ github.event.pull_request.head.ref }}
+    - name: Use Node.js 18
+      uses: actions/setup-node@v1
+      with:
+        node-version: 18.x
+    - run: node build.js
+    - uses: EndBug/add-and-commit@v9
+      with:
+        author_name: 'BuildBot'
