@@ -1,0 +1,244 @@
+Hi everyone. Welcome back to our series on programming for a networked world.
+Today's topic is variable scope. What is scope?
+We use the term scope in ordinary language to talk about what is relevant to an undertaking
+and what falls outside of its ambit.
+Perhaps you've been in a conversation about a project and someone says,
+that's out of scope. In other words, that idea does not fall within the parameters
+of what we've agreed to work on together.
+Scope in programming languages is a similar concept.
+When you create a variable, you should think about which parts of your program
+need to have access to that information and which do not.
+By defining the scope of your variable, you keep information restricted to its relevant context.
+In general, it's better to limit the scope of your variables
+so that different parts of your program avoid tripping over one another.
+Ready to bind values to variables? Let's get going.
+Let's start with the easiest case, creating a global variable.
+This is a variable that every block and every sprite, including the stage, has access to.
+So how do we do that? We'll click on this make a variable block,
+and we're going to type the name of the variable, namely greeting.
+And we'll sign it for all sprites. So I'll say OK.
+And there we go, we've got greeting here.
+And you notice here that it appears in our variable palette.
+And there's a checkbox next to it. And if you click the checkbox,
+it will disappear from the stage.
+If it's checked, it will show the variable name and its current value.
+Now, how do we set the variable so that we could have Ada say hello to us?
+We bring over this set block. And here we drop down,
+and we can see that we have this global variable in the drop-down list called greeting.
+And we assign it a value.
+So we'll put hello, world right here, like that.
+And we'll click it, and it'll be set.
+And you can see now that on the screen right here,
+hello world is set as the value of greeting.
+Now, if we want Ada to say hello to us,
+we'll go up to looks, and we'll click on say hello for two seconds.
+But instead of just saying hello, she'll say our greeting.
+Now we need to grab that variable, and we'll bring it down over here,
+put it inside the slot, and click on it.
+And there you go. Ada's saying hello, world.
+What is happening here? I created a global variable
+by selecting the for all sprites button.
+As the dialog box implies, this means that every sprite will have access
+to the information bound to this variable.
+After giving it a name, I see that the greeting appears
+near the top of the variable's palette.
+What is the value of the variable when it's first created?
+If you look closely, you saw that it was zero.
+In NIST blocks, all variables begin life with a value zero.
+If you want to change that assignment, then you need to use a set to block,
+like we did to bind the variable to a new value.
+In this case, I set the value to hello, world.
+And now the variable is available to me anywhere in the project.
+Actually, it's available across all sprites in the stage,
+but not on peer-to-peer networks.
+We'll talk about how to communicate information across networks
+in an upcoming video.
+Notice the gray and orange block at the upper right of the stage.
+That's called a variable watcher.
+It's used to keep track of the values bound to variables.
+Watchers prove useful, especially when you're seeking to debug variables.
+That is to understand why your variable does not have the value
+that you expect it should have.
+But sometimes those watchers just take up space in the stage,
+and if you have too many variable watchers,
+the stage can be cluttered with orange boxes.
+To toggle them on and off, just click the checkbox
+besides the name of the respective variable
+near the top of the variable palette.
+And voila, it's gone.
+Since this is a global variable,
+all my other sprites and code blocks have access to it.
+So if I want to create another sprite,
+that sprite can also use the variable to greet us.
+So let's do that with Alonzo.
+So I need to create another sprite.
+I'm going to do that by clicking here, and there's the sprite.
+It comes in as an arrow or the turtle.
+And now if I want to give it a costume, I can do that.
+So let's say up here we're going to give it a costume.
+It takes a moment to open the costumes.
+There's Alonzo.
+Bring it in.
+Close.
+Let's bring Alonzo a little bit further up.
+Now we want Alonzo to say hello to us too.
+So I'm now coding within the Alonzo sprite.
+So here I'll just bring over the looks,
+and I'm going to save for two seconds,
+and I can go back and grab that same variable here, greeting,
+put it in there.
+Now, since I'm inside of Alonzo, when I click on this,
+you'll see that it'll be Alonzo that says our greeting.
+There you go. Hello, world.
+I didn't have to redefine it, though,
+because it's a global variable.
+It's available to all the sprites.
+Notice that I did not need to set the value of the greeting again.
+I could just use it in the scripting area of the Alonzo sprite.
+However, if I create a variable for the sprite only,
+then only Alonzo can use it.
+If I set the value of goodbye, for example, to farewell,
+you'll see that its watcher prefaces the name of the variable,
+and a pin appears in front of the name of the block on the variable palette.
+Let's give that a try.
+So I'll go now create another variable,
+and we'll call it goodbye,
+but I'm going to make it for this sprite only.
+There we go.
+And now you see here that sprite2,
+and let's give it a better name so we know who it is.
+Let's see. Sprite2 should be called Alonzo.
+Okay, so now this variable is set only for Alonzo's use.
+So here we can set this, and we can then change this goodbye to goodbye.
+Let's just call it goodbyeAda.
+There we go.
+Now it's set to goodbyeAda,
+and here we can have Alonzo say that for us.
+So actually I'll just use this block right here,
+and we'll bring in that variable this time,
+and say goodbye.
+GoodbyeAda.
+Now I'm going to get rid of this from the stage so you can see better,
+but if I move back to Ada and I try to use that variable,
+you see it's not available to me because it's private now,
+or its scope is only the Alonzo sprite.
+We can create a sprite variable with the same name for pixelAda,
+and it will not step on Alonzo's toes.
+So we can have Ada, for example, say goodbye to Alonzo.
+Let's do that.
+So since there's no goodbye here,
+I can just say make a variable for this sprite only,
+call it the same thing, goodbye,
+but this will be Ada's goodbye.
+And now I can set the value of Ada's goodbye to goodbyeAlonzo.
+Here we go, we want to say goodbye.
+Set it.
+Take it off the screen.
+We'll say it.
+Oop, that's the greeting.
+Say goodbye now.
+And you see goodbyeAlonzo.
+If we switch back to Alonzo, goodbye, Ada.
+They don't step on each other's toes.
+But wait, we're not ready to say goodbye yet.
+There are still a couple other variables we need to cover.
+We saw how to keep variables private to sprites,
+but did you know that you can also keep variables private
+to stacks of blocks as well?
+In fact, there are two ways to do this.
+The first is to create a script variable.
+You can find the script variable block on the variable palette here.
+You can see it right here, script variables.
+If you drag this block over,
+you can connect it with other blocks in the stack,
+and those other blocks will be able to use that variable.
+Let's try this out with a simple mathematics example.
+I'm going to make a stack of blocks that prompts the user for two numbers,
+assigns those numbers to script variables,
+and then uses those script variables for calculating the answer.
+All right, so let's create two script variables.
+You can click this arrow to make two at once,
+and I'm just going to call this num1, okay,
+and then num2.
+And here we'll set...
+You notice if I drop down here, I've got them, num1,
+and we're going to set num2.
+Let's set this one to 5, and let's set this one to 7,
+and then we can report...
+those two variables.
+We need an operator here to add them together.
+Here we go.
+Grab this one, num1.
+Grab this one, num2.
+And you should expect that this will report 12,
+and indeed it does.
+After the stack of blocks has finished executing,
+the two script variables go out of scope.
+Those variables are no longer available in our program
+unless we click on this stack of blocks again.
+If we do so, they are reinitialized with values of 0
+as if they had never previously existed.
+Let's talk about the last type of variable,
+namely block variables.
+Block variables are essentially similar to script variables.
+You create block variables when making custom blocks,
+and as their name suggests, they remain in scope
+only for the scope of your custom block.
+Block variables are subtly hidden
+within the user interface of Nets Blocks,
+so let me show you how to find them.
+We'll create a counter using a custom block.
+To do this, we'll create a custom block called incrementSum,
+and let's just go ahead and start doing that now.
+So I'll right-click here and make a block.
+I'm going to have it be an operator and a reporter
+called incrementSum.
+Say OK. There it is.
+If you right-click here, you'll see block variables pop up,
+and then there's a drop-down arrow.
+If you squint, you might miss it.
+You click on that, and you'll see block variables appear,
+and then, like before, you can click on that
+and give a name to your variable.
+If you need more, you can use those arrows to do that.
+So here's what I'll do.
+I'm going to bring a control block down.
+Oh, under variables, I'll use a set block here.
+Put it there.
+I'm going to set sum to the value of sum plus 1.
+And then I'm going to report.
+Here we are.
+I'm going to report the value of sum.
+OK.
+The first time you click on the increment block, it reports 1.
+Why?
+Well, the default value of the variable is 0,
+so the block reports 0 plus 1, which is 1.
+But now let's click on the block again, and we get 2.
+If we click again, the answer is 3.
+If we click it again, the answer is 4.
+So what's going on here?
+The answer is that block variables, unlike script variables,
+retain their value after the custom blocks finish executing.
+If you use a script variable, by contrast,
+it gets reset to 0 the next time the stack of blocks runs.
+So a block variable remembers its value,
+and you can use it to store information for later computations.
+This can come in handy if you want to keep track of the name,
+for example, of a player or of the high score in a game.
+OK.
+So that's it for today.
+We've learned about four different types of variables in Nest Blocks,
+global variables, sprite variables, script variables, and block variables.
+Which should you use for your project?
+Well, circumstances vary.
+In general, you should create variables with as limited a scope as possible.
+New programmers like to work primarily with global variables
+because they're so easy to use,
+but you'll find that most experienced programmers tend to eschew them
+in favor of sprite, script, or block variables.
+What matters at this point is that you understand the concept of variables,
+how to create them and to bind them to values,
+and also know how to tell when they're in or out of scope.
+Thanks, everyone.
+I look forward to seeing you again in our next video.

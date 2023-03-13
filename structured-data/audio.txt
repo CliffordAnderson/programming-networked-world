@@ -1,0 +1,100 @@
+Hi everyone. Welcome back to Programming for a Network World. Today we're going to
+be talking about a way to make it easier to work with lists. So sometimes you get
+really long lists of lists and they become difficult to manage. You're saying
+index 1 of this list and index 2 of that list, trying to get down to the
+information that you want to retrieve. In this video we're going to be talking
+about ways to find information in lists by their keys. That should make it a lot
+easier to keep track of the items in your list. Ready to find information with
+the right key? All right, let's get started.
+So let's begin by opening the particular library that we need to use, which is
+called the Structured Data Library. So if I go over here to Libraries and it's
+down here and I click on that, see I've got a list of libraries that I can
+import. So we'll type Structured Data and I'm going to open that and it imports
+those blocks. And if you look under the custom blocks you'll see that they're
+right here in this list that I can use. Okay, so it gives us several blocks. I
+pull them over. We've got a value, set value, delete, and we won't worry about
+the error block for now. Okay, so the difference between these blocks and
+your index 1 of blocks or index n of blocks is that they will be able to find
+information by a key. So it's typical that you might have information that
+comes in the form of key value pairs. And it will look like this. Let's just make a
+simple list together. So I'll make two slots here and then I'm going to put
+inside of the slot another set of lists here like this and open those up. There
+we go. Okay, and so when you have a structure like this, the first item will
+be your key. So we might say like course. And then the second item will be your
+value. So we might say like programming. And then in the second list we could do
+something equivalent. So the first will be, let's say, date and the second will
+be 2022. Now when we look at that, we've got a nice list of lists. If you
+normally wanted to get information from this, you would go to get the item 1 or
+item n of block and then you could drop this in here. And you could say, okay, let
+me get item 1, which is going to give you course and programming. And then you
+might want to say, oh, but I just want to get the value of that. So then you have
+to get another one of these blocks and get 2 here for the value. And this
+should give you programming. Okay, so that's fine and it works well when you
+have a kind of simple list of lists. But the thing is that it's easy to lose
+track of where that information is. Should it be indexing to item 2, indexing
+to item 1. It's easy to forget what that number should be and then you'll get the
+wrong piece of information out. So that's what the structured data library
+aims to solve. If you've got lists in this format, then you can use the
+structured data library to retrieve the particular values of those key value
+pairs by name. So for example, let's assign, we'll make a variable here and
+we're going to call this course information. So we can imagine it's like
+a course management system that we're doing. So let's go to the variables tab
+and we'll set a variable here. I'm going to set this course information to this
+particular list. We'll get rid of the item 1 of and item 2 of. Okay, bring that
+up here. So we've got the list of lists and I'm setting it to the variable
+course information. Okay, so now that we've got this variable, let's bring that
+down, course information, and we'll drop it into this slot here. And let's say
+that I want to see the course that I'm taking. Well, I can just type in course
+for the key. I've got to set it first. Rookie mistake, didn't set the value of
+the variable to the list. So you can see that we've got course information there.
+So let's try to get the value out. So in this case, I've got the value course and
+if I click on it again, I get programming. Okay, so that's the way that it's
+intended to work once you set the value. Now, if I want to get the date out, I can
+do the same thing. Just type in date. I think you can see that that's a much
+easier way to approach these types of key value pairs inside of a list. And you
+can also use the same library to set information. So for example, I can set the
+value of the course. It's actually not programming. It's programming for a
+network world. So programming for a networked world. And if I click on that,
+you'll see that now when I go down and bring out the value of course
+information, let's say a course in course information, it's now programming for a
+networked world. So I can set the value that way and if I wanted to, I could also
+delete that key. And now if I go down here, it should return an error because
+it couldn't find any key with that or any value under that key. Okay, so that's
+the way the library works. Let me show you an example from the real world about
+how you might use it. So let's go and get some data from the Internet. We'll go to
+our network tab and let's pull over our block here. We're going to call one of
+our RPCs and I'm going to get this course information out of the way there.
+Okay, I'm going to call one of the RPCs. I'm going to go to the history. We'll go
+to the New York Public Library. Let's search and let's search for the term
+Vanderbilt. Let's see what we get. We'll get 10 results per page and we'll just do one
+page of results. So when you click on this, you get this kind of typical list
+of lists and it's, at least in this view, it's got so much embedded information
+that it's hard to read. You can't actually read it without clicking into
+it. Now we could still take that approach of going to get the item one of and
+we'll take a look at that, sort of see what information came back, and we see
+that for item one we have four key value pairs, the UUID and the item ID, but we
+also have a title and a date digitized. I think what might be most interesting is
+for us to just look at the titles of the information that came back. So let's do
+that. Now again, like we could iterate through all this with, you know, the item
+blocks, but let's not do it that way. Let's use our new library. And so let's
+go down to the for each block and pull that over. And the for each block will
+loop through this list and each time assign that item to one of the items in
+the list. So that's a helpful helper block to have. We'll just drop our RPC
+there. So now that we're going to be iterating through each item in the list,
+then we can do something with what's inside. And so here we're going to take
+this value of and we'll have Ada say it. So I'll bring over the looks. Let's see
+here, say hello, and we'll replace hello with the value. Now the value should be
+title of the item and she'll say it for two seconds. Now if this works as we
+expect, the RPC will go out and get that data, 10 items in the New York Public
+Library about Vanderbilt, and then it will go through each one and pull out
+the title. And we don't need to remember where the title fell in that list of key
+value pairs. We can just say we want the title from each of those items. And here
+we go. So now you're seeing that's two items have the same title, but there's a
+different title. Knox 1909, number 665, the Breakers, New York City, Cornelius
+Vanderbilt, the Commodore, and maybe one without a title, the Vanderbilt Hotel. And
+we're at the end of our list. So you can see there that in terms of readable code,
+that's a lot easier to read and understand what's going on, not only for
+yourself, but for someone else that might want to use your program in the future.
+All right, that was our short introduction to the structured data
+block. Thank you for joining me, and I look forward to seeing you in our next
+video.

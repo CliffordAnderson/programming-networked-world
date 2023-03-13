@@ -1,0 +1,225 @@
+Welcome back to Programming for a Networked World.
+Today we're going to be continuing our exploration of the chart RPC.
+But I'm going to let you in on a little secret.
+Last time we had nicely formatted data,
+a list of lists that we passed into the chart EPC, RPC,
+and then got back a good graphic.
+But your data doesn't always come nicely packaged as a list of lists.
+So what do you do then?
+We're going to learn how to apply our knowledge of how to work with lists
+so that we can format our data in a way that makes it easy to chart.
+Let's get started.
+Okay, so here's our plan.
+We're going to look at the difference between linear growth and exponential growth.
+And we're going to do that by combining two lists.
+A list of numbers, just say 1 to 15,
+and then those numbers either multiplied by 2 or squared.
+But to do this, we need to combine two lists.
+The first list of our initial numbers,
+and then the list of those numbers with the mathematical function applied to them.
+Okay, so how do we do that?
+Well, to get started, we can just make a list of lists.
+So that's easy enough.
+We'll go down to our lists here and let's take a look.
+There's numbers 1 to 10.
+If we click on that, we get 1 to 10.
+Let's just change it 1 to 15.
+There we go.
+And now how do we get the list of numbers with the function applied?
+Well, that's also fairly easy to do here
+because we can take one of these blocks here that's like square root,
+and we can drop down and we can find, for example, 2 times.
+Here we go.
+And if we pass that in,
+you see that it automatically applies that function to every item in the list.
+So that's great.
+We have now our list of numbers 1 to 15,
+and then we have the squares from 1 to 15,
+and we can do the same thing, of course,
+if we come over here and we get the multiply by 2.
+Let's do that.
+So we'll say 2 times, and then we're going to make a copy of the numbers.
+We'll duplicate that.
+And again, it produces a nice list for us of those numbers multiplied by 2.
+The trouble comes in when we want to actually combine these lists
+because, as you know, the chart RPC requires us to pass in a list of lists.
+And here we have two single lists side by side.
+So we need to combine them.
+And this operation in programming speech is called zipping the lists.
+That is taking one list and another
+and making a list out of a list or a matrix out of them.
+So how do we go about doing that?
+Well, let's develop a block that will help us.
+We're going to call this block join.
+All right, so let's just create a new block here.
+And we're going to call it join.
+And it's going to be a reporter.
+So we're just going to say join, let's say, list 1 and list 2.
+So now, and maybe we'll call it join list just to be clear that it's not joining strings.
+And we're going to turn that to reporter,
+and we're going to put it into the operations category here.
+And now we're going to take that and make it an input.
+And the input type is going to be a list.
+And that's good.
+I'm going to say okay.
+Here we go.
+And here, do the same thing.
+I'm going to make that a list.
+Say okay to that.
+Okay, so there's the block that we'll be working with.
+And now, how do we start putting these together?
+Well, first let's create a variable called matrix.
+So let's see, under variables here, we'll make it a script variable
+because we just want to contain it within the block.
+Call it matrix.
+There we go.
+And now we're going to iterate through the length of this list.
+And then we're going to, for each item in one list,
+we'll add the second item, and then we'll send back a combined list.
+Now the trick is you should make sure that the lists going in here are the same length
+because if they aren't, you might have unexpected results.
+We're going to assume for the sake of this demonstration that they are.
+Okay, so we'll just take a loop here.
+We'll say like a for loop.
+And here we go.
+And we'll say from 1 until the length of list 1.
+And now what do we do?
+Well, we want to combine those lists.
+So we're going to make a new list,
+and we're going to use this add function here.
+Find it down towards the bottom.
+There we go.
+And what we're going to add is a list
+because this is a list of lists,
+so we're going to add a list right here
+like that with two slots.
+And we're going to take item 1 of the first list
+and item 1 of the second list.
+But of course, we don't want it to be item 1 each time.
+That would make the list of only the first items.
+We want it to be item i and item i of the first list
+and of the second list.
+And then we're going to assign those to matrix.
+Now, the only other thing that we need to remember is
+we need to make sure that matrix is given the type of a list
+so that when we first assign lists to it,
+the compiler doesn't complain,
+or the interpreter, I should say, doesn't complain.
+Okay, so let's do that.
+And here we're going to set under variables matrix
+to an empty list.
+That'll help us get started.
+All right.
+So this operation, again, is called zipping a list,
+and let's see if it works as we expect.
+So I'll say done, and we'll go to custom blocks here.
+I'm going to grab this join list,
+and now let's get our numbers from 1 to 10.
+So we'll duplicate this.
+And again, it's 1 to 15, I should say.
+That's fine.
+So we're going to pass that in as the first list,
+and then let's do this one,
+which are the squares of those numbers,
+as the second list.
+There we go.
+And let's try it out.
+And okay, we're getting an error.
+So let's take a look.
+Set matrix to list for i equals 1 to length of list.
+Oh, this needs to be the length of list 1.
+All right, let's do that.
+Let's go under lists here
+and get the length of because there we go.
+Not just the list, but the length of the list.
+And now we didn't get a report.
+Let's go check out what's going on here.
+Ah, yes.
+It would be helpful to add a report to the list at the end.
+So let's do that.
+All the simple things we need to remember
+when we're making blocks.
+All right, so let's get our report here,
+which should be...
+There we go.
+Report.
+Okay.
+And now we're going to report the matrix.
+And that is, in fact, what our chart service needs.
+So if we go back out to our chart service,
+we can go here to network.
+Let's bring over our chart.
+Drop down.
+And we're going to just do the draw.
+And remember, we discovered we don't need default options
+if we're just going to keep the options in place.
+And we can take this here as our lines.
+And we'll have to say goodbye to eta,
+but because we want to plot this on the screen,
+we're going to put that switch to costume there.
+There we go.
+And let's try it out.
+There we go.
+So that is a chart of exponential growth.
+And if we want to do a similar chart of linear growth,
+it would just be a question of changing
+this particular function right here.
+We'll put that two times in here.
+And let's look at the difference between exponential
+and linear growth.
+And there you go.
+So that's a linear function as opposed to an exponential one.
+Okay.
+So the main thing is those zipping operations
+are things that you're going to run into all the time
+if you need to chart, because you always need something
+for the x-axis and another list for the y-axis.
+Now, I'll let you in on yet another secret.
+If you don't want to write those zipping functions yourself,
+Brian has already written one for us.
+And you can find this under here.
+If you go to Libraries and you click on Libraries,
+and then this is a tab that we haven't used before.
+It's called Community.
+And community libraries are libraries that are provided
+by members of the NetSplocks community,
+and you can access them here.
+And so if you look and we type in zip,
+you can see that there is a zip library.
+And if you drop down, you can see that it has
+a function called zip.
+So let's try this out.
+We're going to substitute the zip function that we've written,
+which is join list here, and let's use Brian's.
+So in this case, you see that it takes a single list,
+but we need to expand it to contain two.
+We're going to drop our numbers in here.
+There's the first slot.
+And then we want to drop this function into the second slot,
+and let's see if it produces a list.
+There it does.
+That's our linear list.
+Let's do the exponential one.
+There we go.
+We'll click on that, and you can see that it works
+in exactly the same way.
+Now, if you look under the covers,
+the operations are different.
+I'll leave that to you to explore how Brian
+has implemented this function.
+But let's just drop it back for completeness sake
+into our charting operation and see if it works.
+It needs to go into the line slot, not into the options.
+Let's switch to costume, and there we have it.
+Okay, so in this video, you learned what zipping a list is.
+It's taking a list of numbers and another list of numbers
+and then combining them into a matrix.
+And you learned that you need to do that
+when you want to chart operations in which you need
+to have an x-axis and a y-axis.
+And you also learned a little bit about how you can use
+community-contributed libraries like Brian's
+if you don't want to write those kind of functions yourself.
+Although, that's the fun of programming, of course.
+All right, that's it for today.
+I look forward to seeing you in our next video.

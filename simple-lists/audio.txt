@@ -1,0 +1,110 @@
+Hi everyone. Welcome back to our series on programming for a networked world.
+Today we're talking about lists. We all have experience making lists.
+Every day I add items to my list of things to do.
+For example, I added a reminder to make a video today about lists.
+So, now I can cross that item off my to-do list.
+Lists in Nextbox function in a similar fashion.
+Nextbox allows programmers to create lists, add items to lists,
+find items on lists, and remove items from lists.
+Lists also help programmers to manage related items of information.
+Ready to recreate your virtual to-do list in Nextbox?
+Let's make some lists together.
+Lists are a fundamental data structure in Nextbox.
+Lists come in all shapes and sizes, but we'll begin by covering the simplest
+form of list. That is a one-dimensional list.
+A one-dimensional list is a fancy name for a list that just contains a
+sequence of things like numbers, strings, sprites, etc.
+We can create a list of this simple sort by
+going over to the variable palette and pulling out the list block.
+In that input slot we can just put, let's see,
+script a video. And if we want to add something else I can
+expand this block and say
+film a video. If you click on the list block now
+you'll notice that we have a pop-up. It gives us the items in the list back
+next to the numbers 1 and 2. So, as you can imagine,
+those are the first and second items in the list.
+In some languages the first item in the list is indexed as 0
+and the second item as 1. In Nextbox we follow the more intuitive system
+of numbering the first item as 1 and the second as 2
+and so on and so forth. But that is called the
+index of the item. It gives you a number by which you can look up that item
+in the list. Adding items to our list by just expanding the list block
+and adding them manually will get boring over time.
+We'd rather have our program do this for us, right? Not just do it by hand.
+Fortunately we can add new items programmatically as well.
+So, for instance, we can add a third item,
+say like edit video to our list, using the add to list block.
+We'll type in the item that we want to add to our list and then we'll bring
+down the list and hopefully it'll all work. Let's take a
+look. So the four blocks that you see down here
+are command blocks that mutate lists. That is, they'll change the information
+contained in a list. And the four blocks, as you can see, are
+add, delete, insert, and replace. We're going to try
+all four of them, but let's start with the add block.
+So I can bring over the add block here and
+this little slot here with the alternating red and white
+is the slot for the list. And then I can add
+a thing. Let's give it a name. Let's say
+produce video. So I can type that in, produce
+video, and then I can click on it. Ah, but nothing happened.
+Why didn't anything happen? Well, this is a command block
+and it mutated the list, but it didn't show us the result.
+So in order for us to see what the result is, we need to create a variable
+first to contain our list. So I will create a variable called to do.
+Let's go up to the top here and make a variable.
+And I'll call the variable to do. There we go.
+And now what I'm going to do is I'm going to bring over this set block
+and I'm going to drop this list in and I'll call it to do.
+And now I can take that reference here and put it down here. So you can see
+if I bring up the watcher now, after I set it,
+I've got two items in my list. But when I add
+another item, it will appear as the third item in the list.
+And there you go. So I've just mutated the list by adding a third
+item to it. So now the list contains three items.
+So let's try our hand at the three other blocks that mutate lists.
+The delete block, the replace block, and the insert block. These blocks all
+work with the index of the items in the list.
+To use them, you need to know where the item you want to remove or insert or
+replace falls in the list. So for example, if I have finished the
+script for the video, I should delete that from my to-do list.
+I can use the delete block to do that. And since I know that that was the first
+item on my list, it's very easy to get the index. It's
+just index one. So let's try that. I'll go over here
+and bring in delete. Delete item one of. Let's duplicate this to-do list.
+And I'll bring it down here. Put it in the slot. Delete item one.
+You can see I've finished now scripting the video.
+The second thing that I need to do is let's add a third thing. I want to produce
+the video. I've got that. So let's say upload it to YouTube. So let's say
+upload video to YouTube. How about that? Spell that correctly.
+Okay, so I'm going to add that, but I don't want to add it as my first item, so
+that's not the right place to put it. I'm going to insert it now.
+If I can get that text again so I don't have to retype it all.
+And put it down here. And I'm going to insert that as number
+three. So I'll put it at the end of the list. So there we go.
+Oh, yes, if you don't put the list in, you will see that error message.
+So I'll put the list in and insert it. And there it is. Upload video.
+Okay, oh, misspelled. So I misspelled it. That's actually helpful because now I
+want to replace it with something that's spelled correctly.
+So let's do that. So I'm going to take this
+replace item, and I want to replace number three.
+And I want to use the same list. So I'll duplicate the list here.
+Put it in. And again, I'll click and copy this. But before I change it, I want to
+change this O to a P so it's spelled correctly. So you see we
+have UOLOAD. And if I click on this now,
+oh, don't need it connected with another block. If I click on this now,
+you can see that it replaced it to upload video.
+So with the combination of these four blocks,
+you can make lists contain any type of information you want,
+and you can keep it updated in real time as information
+in the program changes. So keeping track of information using lists is an
+extremely common task in Nest Blocks. Practically every application you write
+will involve the use of lists. Many times it will involve the use of
+multiple lists. In this video, we saw how to create a
+one-dimensional list and mutate it by adding, deleting,
+inserting, and changing items. But lists can do more than store your
+to-do items. In the next video, we'll explore how to
+use two-dimensional lists to store and explore tabular information.
+But that's it for today. If you want to do something for extra credit,
+then try building your own to-do list in Nest Blocks.
+And don't forget to add watch the next video in this series
+to that to-do list. Thanks very much, and see you next time.

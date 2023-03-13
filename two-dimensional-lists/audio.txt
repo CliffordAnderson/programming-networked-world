@@ -1,0 +1,174 @@
+Hi everyone, welcome back to our series on programming for a networked world.
+In this video, we are covering two-dimensional lists.
+The term two-dimensional list is a formal way of talking about a very common data structure
+that we may alternatively call a list of lists, a matrix, a table, or a spreadsheet.
+Keeping track of data using columns and rows proves efficient in many scenarios.
+Netsblocks also optimizes the display of two-dimensional lists to make it easier for you to read and
+edit them.
+Ready to expand your knowledge of lists into the second dimension?
+Let's get started.
+What is a two-dimensional list?
+In the last video, we talked about one-dimensional lists.
+As you recall, a one-dimensional list is just an ordered sequence of items.
+So my grocery list is a one-dimensional list.
+I need to buy eggs, milk, tea, and so on.
+But I also mentioned that lists can hold data beyond strings and numbers.
+A list can contain sprites, for instance, or blocks.
+But what happens if you put a list inside of a list?
+Now you have a two-dimensional list.
+How might a list of lists prove valuable in a program?
+Let's imagine a scenario where you are programming for people who are speaking different languages,
+and you wanted Ada to interact with them in their own languages.
+You might want to keep a table of equivalent phrases from those different languages.
+So for instance, I might want to create a list of greetings to use in my program.
+My English greeting would be Hello, my Dutch greeting would be Guten Tag, my German greeting
+would be Guten Tag, and my Chinese greeting might be Ni Hao.
+And I would want to put all those greetings into a list.
+And just so we had an equivalent way to say goodbye, I'd want to do the same for saying
+goodbye in Chinese, Dutch, French, German, etc.
+So how can we keep all that information together?
+The answer is simple.
+We just have to put both lists inside of a list.
+And that will make a two-dimensional list.
+And then we'll see, as we do that, that it forms what looks like a table in NetsBlocks.
+So let's get started and see how that works.
+So I'm going to grab a list here and bring it over.
+And now I'm going to put on this list a series of languages we want to use.
+So let's say Chinese, and Dutch, and French, and German, and English, let's not forget
+English.
+OK, so that's a good list.
+And then let's put the greetings that we want for each of these.
+So I'm going to open up slots now for each one of these languages to put in the way that
+we would like to greet people.
+So let's say in Chinese, that's Ni Hao.
+And then in Dutch, Guten Tag.
+And in German, oh, it's in French, Bonjour.
+And in German, Guten Tag.
+And in English, hello.
+Now let's do the same thing with another list where we say our goodbyes.
+OK, whoops, keep clicking on it when I don't mean to, just when I get those arrows.
+OK, so Chinese, that would be Zai Jian.
+And in Dutch, we'll say Tot Ziens.
+And in French, Au Revoir.
+And in German, let's say Tschüss.
+Oops, there we go.
+And in English, finally, we'll just say, goodbye.
+OK, so now we have these three lists, but we want to put them together so that they're
+just a single data structure.
+And here's where the cool thing happens with a two-dimensional list.
+So I'm going to take a list, and I'm going to open three slots.
+And I'm going to move the first list into the first slot, the second list into the second
+slot, and I'm going to move the third list into the third slot here.
+Now this is a two-dimensional list.
+You can see that it's a list of lists.
+And when I click on it, it displays like a table.
+So you can see here that this is the column with the Chinese greetings and the Dutch greetings,
+the French greetings, the German greetings, and the English greetings.
+Now if you want to extract any information from this, how would you do that?
+OK, so you would use the same item of, and then you would drop this list of lists into
+it.
+But now what is item one going to get us?
+And here's where we have to learn to think about how lists of lists are composed.
+So if we ask for item one of this list, it's going to return us the first list.
+There we go, Chinese, Dutch, French, and German.
+So if we actually wanted to get item one of that list, then we'd put item one around
+this again like this, item one of, like that.
+And then we get Chinese, OK?
+And so if we wanted to, for example, have bonjour, then we'd have to go to, can you
+guess it, item two, so that's the second list right here, and then we want to get item three
+from that list.
+And there's bonjour.
+So when you're thinking about it, make sure when you're indexing into these lists that
+you index first into the lists that you want, and then subsequently into the item in the
+list that's returned.
+So thinking about this, you think about the list that you want first, and then the item
+in that list.
+And if you have more deeply nested lists, it's the same process.
+You keep drilling down to the list that you want until you finally are able to pull out
+an item from the list that you extract.
+Now that we've seen how to do this, let's go ahead and build the program that we had
+in mind.
+So the program that I want to do is, I want to have Ada here greet us in our own language.
+How should we do that?
+So I'm going to start a program with when clicked, it's always a good starting point,
+and then I'm going to create some variables.
+Let's create script variables here, and I'm going to name the first one language, and
+then I'm going to name the second one language selection.
+Now that I have those variables, I want to set the languages, or the, I guess I'll call
+this languages just to be clear.
+I'm going to set the languages to our list of lists.
+And then I want Ada to ask us what language we prefer her to speak in.
+So I'll bring this down here for this ask block, and I'm going to say, what language
+do you speak?
+I guess we have to start off with English because there is no neutral language obviously.
+So we'll start with English, and then we'll say, what language do you speak?
+And remember that the answer will come in the form of this answer block.
+Okay.
+Then we want to set the language here.
+We want to set the language selection, and here's what we have to think about.
+We want to set it to the index of the response in the first list.
+So we know the first list contains all the languages that we have.
+So we have a block down here that says the index of, so we want to look up where this
+answer block appears, where this answer appears in our first list.
+And so we need to know that, but we also have to extract that first list.
+We can't just give it the list of lists.
+We need to get the first list in the list of lists like this.
+So now we're going to be asking, okay, for the language that you responded, what language
+is that in our list of lists?
+So basically, what column is it?
+And then by identifying that column, we'll know in the future where to draw the equivalent
+language forms for Ada's responses.
+So we'll now just do the second part.
+Let's just do a simple hello, goodbye.
+So Ada will say hello, and then Ada will say goodbye.
+So I'll go to looks, and I'm going to bring over this hello block, and we'll use it twice.
+But the first time, we're going to index into the list here, and I'm going to get item,
+and I'm going to use language selection, because that's what we assigned here.
+So we want item, language selection, and that's going to give us the index that we need of,
+and we know that this particular row has all of the hellos, forms of saying hello in different
+languages, so we want that with our languages.
+And then we can duplicate this block, put it here, and we know the third row has all
+the forms of goodbye.
+So now I can drop this into here, and into here, and let's see if it works.
+So I'll click on this, and Ada says, what language do you speak?
+Let's start off with saying that we speak Chinese.
+Aha.
+I've got a mistake here.
+Let's see what's going on.
+Index of answer in item one of languages, oh, right, this should be languages, not language
+selection.
+There we go.
+All right.
+So let's try that again.
+Got to use the right list.
+Click on this, and we're going to say Chinese, and then Ada responds, ni hao, zai jian.
+Let's try it again with, let's say German.
+So we'll say German, speak German, guten tag, and tschuess.
+Okay, just to test that it works with English too, let's try English, hello, goodbye.
+Okay, just one more thing I'd like to show you.
+So if you want to change your representation of a list of lists from a table like this
+one into an actual list of lists representation, you can click on this and say list view, and
+then your view will look like this.
+You'll see that it's actually composed now of a list of lists.
+You see the three lists within another list.
+Most people prefer to see it as a table, but when you get multiply embedded lists, multidimensional
+lists, three or four dimensions, then you'll need to look at that list of lists view.
+The tricky thing when retrieving items from lists of lists is that you work from the outermost
+list towards the innermost list, but your item of list block winds up getting stacked
+in reverse order.
+So the outermost block will give you the result from the innermost list, and so you kind of
+need to think backwards from the inside out.
+It's actually not different from any other stack of blocks and nets blocks which give
+you values that you can then compute in other expressions.
+And don't worry if you get mixed up from time to time about what list you're working with.
+So do professional programmers.
+Just try varying that index of, and you'll see eventually you'll get to the right item
+in your list.
+All right, so let's wrap up this video here.
+In this video, you learned how to create two-dimensional lists in nets blocks and to explore those
+lists in both tabular and list form.
+You also learned how to index into two-dimensional lists to retrieve items of information.
+And you built a program that demonstrates the utility of making lists of lists for tasks
+like internationalization.
+In the next video, we'll experiment with the call block to make lists and tables.
+See you in the next video.

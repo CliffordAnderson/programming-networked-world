@@ -1,0 +1,976 @@
+1
+00:00:00,000 --> 00:00:04,000
+Hi everyone. Welcome back to our series on programming for a networked world.
+
+2
+00:00:04,000 --> 00:00:08,000
+Today's topic is variable scope. What is scope?
+
+3
+00:00:08,000 --> 00:00:13,000
+We use the term scope in ordinary language to talk about what is relevant to an undertaking
+
+4
+00:00:13,000 --> 00:00:15,000
+and what falls outside of its ambit.
+
+5
+00:00:15,000 --> 00:00:18,000
+Perhaps you've been in a conversation about a project and someone says,
+
+6
+00:00:18,000 --> 00:00:23,000
+that's out of scope. In other words, that idea does not fall within the parameters
+
+7
+00:00:23,000 --> 00:00:26,000
+of what we've agreed to work on together.
+
+8
+00:00:26,000 --> 00:00:30,000
+Scope in programming languages is a similar concept.
+
+9
+00:00:30,000 --> 00:00:34,000
+When you create a variable, you should think about which parts of your program
+
+10
+00:00:34,000 --> 00:00:38,000
+need to have access to that information and which do not.
+
+11
+00:00:38,000 --> 00:00:43,000
+By defining the scope of your variable, you keep information restricted to its relevant context.
+
+12
+00:00:43,000 --> 00:00:47,000
+In general, it's better to limit the scope of your variables
+
+13
+00:00:47,000 --> 00:00:51,000
+so that different parts of your program avoid tripping over one another.
+
+14
+00:00:52,000 --> 00:00:56,000
+Ready to bind values to variables? Let's get going.
+
+15
+00:01:03,000 --> 00:01:07,000
+Let's start with the easiest case, creating a global variable.
+
+16
+00:01:07,000 --> 00:01:12,000
+This is a variable that every block and every sprite, including the stage, has access to.
+
+17
+00:01:12,000 --> 00:01:16,000
+So how do we do that? We'll click on this make a variable block,
+
+18
+00:01:16,000 --> 00:01:19,000
+and we're going to type the name of the variable, namely greeting.
+
+19
+00:01:19,000 --> 00:01:23,000
+And we'll sign it for all sprites. So I'll say OK.
+
+20
+00:01:23,000 --> 00:01:26,000
+And there we go, we've got greeting here.
+
+21
+00:01:26,000 --> 00:01:30,000
+And you notice here that it appears in our variable palette.
+
+22
+00:01:30,000 --> 00:01:33,000
+And there's a checkbox next to it. And if you click the checkbox,
+
+23
+00:01:33,000 --> 00:01:36,000
+it will disappear from the stage.
+
+24
+00:01:36,000 --> 00:01:40,000
+If it's checked, it will show the variable name and its current value.
+
+25
+00:01:40,000 --> 00:01:44,000
+Now, how do we set the variable so that we could have Ada say hello to us?
+
+26
+00:01:44,000 --> 00:01:48,000
+We bring over this set block. And here we drop down,
+
+27
+00:01:48,000 --> 00:01:52,000
+and we can see that we have this global variable in the drop-down list called greeting.
+
+28
+00:01:52,000 --> 00:01:55,000
+And we assign it a value.
+
+29
+00:01:55,000 --> 00:02:00,000
+So we'll put hello, world right here, like that.
+
+30
+00:02:00,000 --> 00:02:03,000
+And we'll click it, and it'll be set.
+
+31
+00:02:03,000 --> 00:02:06,000
+And you can see now that on the screen right here,
+
+32
+00:02:06,000 --> 00:02:10,000
+hello world is set as the value of greeting.
+
+33
+00:02:10,000 --> 00:02:13,000
+Now, if we want Ada to say hello to us,
+
+34
+00:02:13,000 --> 00:02:19,000
+we'll go up to looks, and we'll click on say hello for two seconds.
+
+35
+00:02:19,000 --> 00:02:23,000
+But instead of just saying hello, she'll say our greeting.
+
+36
+00:02:23,000 --> 00:02:27,000
+Now we need to grab that variable, and we'll bring it down over here,
+
+37
+00:02:27,000 --> 00:02:31,000
+put it inside the slot, and click on it.
+
+38
+00:02:31,000 --> 00:02:35,000
+And there you go. Ada's saying hello, world.
+
+39
+00:02:35,000 --> 00:02:38,000
+What is happening here? I created a global variable
+
+40
+00:02:38,000 --> 00:02:41,000
+by selecting the for all sprites button.
+
+41
+00:02:41,000 --> 00:02:45,000
+As the dialog box implies, this means that every sprite will have access
+
+42
+00:02:45,000 --> 00:02:48,000
+to the information bound to this variable.
+
+43
+00:02:48,000 --> 00:02:51,000
+After giving it a name, I see that the greeting appears
+
+44
+00:02:51,000 --> 00:02:54,000
+near the top of the variable's palette.
+
+45
+00:02:54,000 --> 00:02:57,000
+What is the value of the variable when it's first created?
+
+46
+00:02:57,000 --> 00:03:00,000
+If you look closely, you saw that it was zero.
+
+47
+00:03:00,000 --> 00:03:03,000
+In NIST blocks, all variables begin life with a value zero.
+
+48
+00:03:03,000 --> 00:03:07,000
+If you want to change that assignment, then you need to use a set to block,
+
+49
+00:03:07,000 --> 00:03:10,000
+like we did to bind the variable to a new value.
+
+50
+00:03:10,000 --> 00:03:13,000
+In this case, I set the value to hello, world.
+
+51
+00:03:13,000 --> 00:03:17,000
+And now the variable is available to me anywhere in the project.
+
+52
+00:03:17,000 --> 00:03:21,000
+Actually, it's available across all sprites in the stage,
+
+53
+00:03:21,000 --> 00:03:24,000
+but not on peer-to-peer networks.
+
+54
+00:03:24,000 --> 00:03:27,000
+We'll talk about how to communicate information across networks
+
+55
+00:03:27,000 --> 00:03:29,000
+in an upcoming video.
+
+56
+00:03:29,000 --> 00:03:32,000
+Notice the gray and orange block at the upper right of the stage.
+
+57
+00:03:32,000 --> 00:03:35,000
+That's called a variable watcher.
+
+58
+00:03:35,000 --> 00:03:39,000
+It's used to keep track of the values bound to variables.
+
+59
+00:03:39,000 --> 00:03:43,000
+Watchers prove useful, especially when you're seeking to debug variables.
+
+60
+00:03:43,000 --> 00:03:46,000
+That is to understand why your variable does not have the value
+
+61
+00:03:46,000 --> 00:03:48,000
+that you expect it should have.
+
+62
+00:03:48,000 --> 00:03:51,000
+But sometimes those watchers just take up space in the stage,
+
+63
+00:03:51,000 --> 00:03:53,000
+and if you have too many variable watchers,
+
+64
+00:03:53,000 --> 00:03:56,000
+the stage can be cluttered with orange boxes.
+
+65
+00:03:56,000 --> 00:03:59,000
+To toggle them on and off, just click the checkbox
+
+66
+00:03:59,000 --> 00:04:01,000
+besides the name of the respective variable
+
+67
+00:04:01,000 --> 00:04:04,000
+near the top of the variable palette.
+
+68
+00:04:04,000 --> 00:04:08,000
+And voila, it's gone.
+
+69
+00:04:08,000 --> 00:04:10,000
+Since this is a global variable,
+
+70
+00:04:10,000 --> 00:04:14,000
+all my other sprites and code blocks have access to it.
+
+71
+00:04:14,000 --> 00:04:16,000
+So if I want to create another sprite,
+
+72
+00:04:16,000 --> 00:04:20,000
+that sprite can also use the variable to greet us.
+
+73
+00:04:20,000 --> 00:04:22,000
+So let's do that with Alonzo.
+
+74
+00:04:22,000 --> 00:04:24,000
+So I need to create another sprite.
+
+75
+00:04:24,000 --> 00:04:26,000
+I'm going to do that by clicking here, and there's the sprite.
+
+76
+00:04:26,000 --> 00:04:30,000
+It comes in as an arrow or the turtle.
+
+77
+00:04:30,000 --> 00:04:33,000
+And now if I want to give it a costume, I can do that.
+
+78
+00:04:33,000 --> 00:04:38,000
+So let's say up here we're going to give it a costume.
+
+79
+00:04:38,000 --> 00:04:41,000
+It takes a moment to open the costumes.
+
+80
+00:04:41,000 --> 00:04:43,000
+There's Alonzo.
+
+81
+00:04:43,000 --> 00:04:45,000
+Bring it in.
+
+82
+00:04:45,000 --> 00:04:46,000
+Close.
+
+83
+00:04:46,000 --> 00:04:48,000
+Let's bring Alonzo a little bit further up.
+
+84
+00:04:48,000 --> 00:04:51,000
+Now we want Alonzo to say hello to us too.
+
+85
+00:04:51,000 --> 00:04:56,000
+So I'm now coding within the Alonzo sprite.
+
+86
+00:04:56,000 --> 00:05:01,000
+So here I'll just bring over the looks,
+
+87
+00:05:01,000 --> 00:05:04,000
+and I'm going to save for two seconds,
+
+88
+00:05:04,000 --> 00:05:09,000
+and I can go back and grab that same variable here, greeting,
+
+89
+00:05:09,000 --> 00:05:11,000
+put it in there.
+
+90
+00:05:11,000 --> 00:05:14,000
+Now, since I'm inside of Alonzo, when I click on this,
+
+91
+00:05:14,000 --> 00:05:19,000
+you'll see that it'll be Alonzo that says our greeting.
+
+92
+00:05:19,000 --> 00:05:21,000
+There you go. Hello, world.
+
+93
+00:05:21,000 --> 00:05:23,000
+I didn't have to redefine it, though,
+
+94
+00:05:23,000 --> 00:05:25,000
+because it's a global variable.
+
+95
+00:05:25,000 --> 00:05:27,000
+It's available to all the sprites.
+
+96
+00:05:27,000 --> 00:05:30,000
+Notice that I did not need to set the value of the greeting again.
+
+97
+00:05:30,000 --> 00:05:35,000
+I could just use it in the scripting area of the Alonzo sprite.
+
+98
+00:05:35,000 --> 00:05:39,000
+However, if I create a variable for the sprite only,
+
+99
+00:05:39,000 --> 00:05:41,000
+then only Alonzo can use it.
+
+100
+00:05:41,000 --> 00:05:45,000
+If I set the value of goodbye, for example, to farewell,
+
+101
+00:05:45,000 --> 00:05:49,000
+you'll see that its watcher prefaces the name of the variable,
+
+102
+00:05:49,000 --> 00:05:53,000
+and a pin appears in front of the name of the block on the variable palette.
+
+103
+00:05:53,000 --> 00:05:55,000
+Let's give that a try.
+
+104
+00:05:55,000 --> 00:05:58,000
+So I'll go now create another variable,
+
+105
+00:05:58,000 --> 00:06:01,000
+and we'll call it goodbye,
+
+106
+00:06:01,000 --> 00:06:04,000
+but I'm going to make it for this sprite only.
+
+107
+00:06:04,000 --> 00:06:07,000
+There we go.
+
+108
+00:06:07,000 --> 00:06:10,000
+And now you see here that sprite2,
+
+109
+00:06:10,000 --> 00:06:13,000
+and let's give it a better name so we know who it is.
+
+110
+00:06:13,000 --> 00:06:22,000
+Let's see. Sprite2 should be called Alonzo.
+
+111
+00:06:22,000 --> 00:06:27,000
+Okay, so now this variable is set only for Alonzo's use.
+
+112
+00:06:27,000 --> 00:06:37,000
+So here we can set this, and we can then change this goodbye to goodbye.
+
+113
+00:06:37,000 --> 00:06:43,000
+Let's just call it goodbyeAda.
+
+114
+00:06:43,000 --> 00:06:45,000
+There we go.
+
+115
+00:06:45,000 --> 00:06:47,000
+Now it's set to goodbyeAda,
+
+116
+00:06:47,000 --> 00:06:51,000
+and here we can have Alonzo say that for us.
+
+117
+00:06:51,000 --> 00:06:55,000
+So actually I'll just use this block right here,
+
+118
+00:06:55,000 --> 00:06:58,000
+and we'll bring in that variable this time,
+
+119
+00:06:58,000 --> 00:07:01,000
+and say goodbye.
+
+120
+00:07:01,000 --> 00:07:04,000
+GoodbyeAda.
+
+121
+00:07:04,000 --> 00:07:07,000
+Now I'm going to get rid of this from the stage so you can see better,
+
+122
+00:07:07,000 --> 00:07:11,000
+but if I move back to Ada and I try to use that variable,
+
+123
+00:07:11,000 --> 00:07:15,000
+you see it's not available to me because it's private now,
+
+124
+00:07:15,000 --> 00:07:19,000
+or its scope is only the Alonzo sprite.
+
+125
+00:07:19,000 --> 00:07:24,000
+We can create a sprite variable with the same name for pixelAda,
+
+126
+00:07:24,000 --> 00:07:27,000
+and it will not step on Alonzo's toes.
+
+127
+00:07:27,000 --> 00:07:32,000
+So we can have Ada, for example, say goodbye to Alonzo.
+
+128
+00:07:32,000 --> 00:07:35,000
+Let's do that.
+
+129
+00:07:35,000 --> 00:07:37,000
+So since there's no goodbye here,
+
+130
+00:07:37,000 --> 00:07:42,000
+I can just say make a variable for this sprite only,
+
+131
+00:07:42,000 --> 00:07:45,000
+call it the same thing, goodbye,
+
+132
+00:07:45,000 --> 00:07:47,000
+but this will be Ada's goodbye.
+
+133
+00:07:47,000 --> 00:07:59,000
+And now I can set the value of Ada's goodbye to goodbyeAlonzo.
+
+134
+00:07:59,000 --> 00:08:01,000
+Here we go, we want to say goodbye.
+
+135
+00:08:01,000 --> 00:08:03,000
+Set it.
+
+136
+00:08:03,000 --> 00:08:04,000
+Take it off the screen.
+
+137
+00:08:04,000 --> 00:08:06,000
+We'll say it.
+
+138
+00:08:06,000 --> 00:08:08,000
+Oop, that's the greeting.
+
+139
+00:08:08,000 --> 00:08:11,000
+Say goodbye now.
+
+140
+00:08:11,000 --> 00:08:13,000
+And you see goodbyeAlonzo.
+
+141
+00:08:13,000 --> 00:08:18,000
+If we switch back to Alonzo, goodbye, Ada.
+
+142
+00:08:18,000 --> 00:08:20,000
+They don't step on each other's toes.
+
+143
+00:08:20,000 --> 00:08:23,000
+But wait, we're not ready to say goodbye yet.
+
+144
+00:08:23,000 --> 00:08:26,000
+There are still a couple other variables we need to cover.
+
+145
+00:08:26,000 --> 00:08:29,000
+We saw how to keep variables private to sprites,
+
+146
+00:08:29,000 --> 00:08:34,000
+but did you know that you can also keep variables private
+
+147
+00:08:34,000 --> 00:08:36,000
+to stacks of blocks as well?
+
+148
+00:08:36,000 --> 00:08:39,000
+In fact, there are two ways to do this.
+
+149
+00:08:39,000 --> 00:08:42,000
+The first is to create a script variable.
+
+150
+00:08:42,000 --> 00:08:47,000
+You can find the script variable block on the variable palette here.
+
+151
+00:08:47,000 --> 00:08:50,000
+You can see it right here, script variables.
+
+152
+00:08:50,000 --> 00:08:52,000
+If you drag this block over,
+
+153
+00:08:52,000 --> 00:08:55,000
+you can connect it with other blocks in the stack,
+
+154
+00:08:55,000 --> 00:08:58,000
+and those other blocks will be able to use that variable.
+
+155
+00:08:58,000 --> 00:09:03,000
+Let's try this out with a simple mathematics example.
+
+156
+00:09:03,000 --> 00:09:09,000
+I'm going to make a stack of blocks that prompts the user for two numbers,
+
+157
+00:09:09,000 --> 00:09:12,000
+assigns those numbers to script variables,
+
+158
+00:09:12,000 --> 00:09:17,000
+and then uses those script variables for calculating the answer.
+
+159
+00:09:17,000 --> 00:09:20,000
+All right, so let's create two script variables.
+
+160
+00:09:20,000 --> 00:09:23,000
+You can click this arrow to make two at once,
+
+161
+00:09:23,000 --> 00:09:27,000
+and I'm just going to call this num1, okay,
+
+162
+00:09:27,000 --> 00:09:32,000
+and then num2.
+
+163
+00:09:32,000 --> 00:09:37,000
+And here we'll set...
+
+164
+00:09:37,000 --> 00:09:41,000
+You notice if I drop down here, I've got them, num1,
+
+165
+00:09:41,000 --> 00:09:46,000
+and we're going to set num2.
+
+166
+00:09:46,000 --> 00:09:51,000
+Let's set this one to 5, and let's set this one to 7,
+
+167
+00:09:51,000 --> 00:09:57,000
+and then we can report...
+
+168
+00:09:57,000 --> 00:10:06,000
+those two variables.
+
+169
+00:10:06,000 --> 00:10:09,000
+We need an operator here to add them together.
+
+170
+00:10:09,000 --> 00:10:11,000
+Here we go.
+
+171
+00:10:11,000 --> 00:10:13,000
+Grab this one, num1.
+
+172
+00:10:13,000 --> 00:10:15,000
+Grab this one, num2.
+
+173
+00:10:15,000 --> 00:10:19,000
+And you should expect that this will report 12,
+
+174
+00:10:19,000 --> 00:10:21,000
+and indeed it does.
+
+175
+00:10:21,000 --> 00:10:23,000
+After the stack of blocks has finished executing,
+
+176
+00:10:23,000 --> 00:10:26,000
+the two script variables go out of scope.
+
+177
+00:10:26,000 --> 00:10:29,000
+Those variables are no longer available in our program
+
+178
+00:10:29,000 --> 00:10:33,000
+unless we click on this stack of blocks again.
+
+179
+00:10:33,000 --> 00:10:37,000
+If we do so, they are reinitialized with values of 0
+
+180
+00:10:37,000 --> 00:10:40,000
+as if they had never previously existed.
+
+181
+00:10:40,000 --> 00:10:43,000
+Let's talk about the last type of variable,
+
+182
+00:10:43,000 --> 00:10:45,000
+namely block variables.
+
+183
+00:10:45,000 --> 00:10:48,000
+Block variables are essentially similar to script variables.
+
+184
+00:10:48,000 --> 00:10:52,000
+You create block variables when making custom blocks,
+
+185
+00:10:52,000 --> 00:10:55,000
+and as their name suggests, they remain in scope
+
+186
+00:10:55,000 --> 00:10:59,000
+only for the scope of your custom block.
+
+187
+00:10:59,000 --> 00:11:01,000
+Block variables are subtly hidden
+
+188
+00:11:01,000 --> 00:11:04,000
+within the user interface of Nets Blocks,
+
+189
+00:11:04,000 --> 00:11:06,000
+so let me show you how to find them.
+
+190
+00:11:06,000 --> 00:11:09,000
+We'll create a counter using a custom block.
+
+191
+00:11:09,000 --> 00:11:13,000
+To do this, we'll create a custom block called incrementSum,
+
+192
+00:11:13,000 --> 00:11:17,000
+and let's just go ahead and start doing that now.
+
+193
+00:11:17,000 --> 00:11:21,000
+So I'll right-click here and make a block.
+
+194
+00:11:21,000 --> 00:11:23,000
+I'm going to have it be an operator and a reporter
+
+195
+00:11:23,000 --> 00:11:31,000
+called incrementSum.
+
+196
+00:11:31,000 --> 00:11:33,000
+Say OK. There it is.
+
+197
+00:11:33,000 --> 00:11:38,000
+If you right-click here, you'll see block variables pop up,
+
+198
+00:11:38,000 --> 00:11:40,000
+and then there's a drop-down arrow.
+
+199
+00:11:40,000 --> 00:11:42,000
+If you squint, you might miss it.
+
+200
+00:11:42,000 --> 00:11:46,000
+You click on that, and you'll see block variables appear,
+
+201
+00:11:46,000 --> 00:11:49,000
+and then, like before, you can click on that
+
+202
+00:11:49,000 --> 00:11:51,000
+and give a name to your variable.
+
+203
+00:11:51,000 --> 00:11:54,000
+If you need more, you can use those arrows to do that.
+
+204
+00:11:54,000 --> 00:11:56,000
+So here's what I'll do.
+
+205
+00:11:56,000 --> 00:11:58,000
+I'm going to bring a control block down.
+
+206
+00:11:58,000 --> 00:12:02,000
+Oh, under variables, I'll use a set block here.
+
+207
+00:12:02,000 --> 00:12:03,000
+Put it there.
+
+208
+00:12:03,000 --> 00:12:13,000
+I'm going to set sum to the value of sum plus 1.
+
+209
+00:12:13,000 --> 00:12:20,000
+And then I'm going to report.
+
+210
+00:12:20,000 --> 00:12:22,000
+Here we are.
+
+211
+00:12:22,000 --> 00:12:27,000
+I'm going to report the value of sum.
+
+212
+00:12:27,000 --> 00:12:28,000
+OK.
+
+213
+00:12:28,000 --> 00:12:32,000
+The first time you click on the increment block, it reports 1.
+
+214
+00:12:32,000 --> 00:12:33,000
+Why?
+
+215
+00:12:33,000 --> 00:12:36,000
+Well, the default value of the variable is 0,
+
+216
+00:12:36,000 --> 00:12:39,000
+so the block reports 0 plus 1, which is 1.
+
+217
+00:12:39,000 --> 00:12:44,000
+But now let's click on the block again, and we get 2.
+
+218
+00:12:44,000 --> 00:12:48,000
+If we click again, the answer is 3.
+
+219
+00:12:48,000 --> 00:12:51,000
+If we click it again, the answer is 4.
+
+220
+00:12:51,000 --> 00:12:53,000
+So what's going on here?
+
+221
+00:12:53,000 --> 00:12:57,000
+The answer is that block variables, unlike script variables,
+
+222
+00:12:57,000 --> 00:13:01,000
+retain their value after the custom blocks finish executing.
+
+223
+00:13:01,000 --> 00:13:04,000
+If you use a script variable, by contrast,
+
+224
+00:13:04,000 --> 00:13:07,000
+it gets reset to 0 the next time the stack of blocks runs.
+
+225
+00:13:07,000 --> 00:13:10,000
+So a block variable remembers its value,
+
+226
+00:13:10,000 --> 00:13:14,000
+and you can use it to store information for later computations.
+
+227
+00:13:14,000 --> 00:13:17,000
+This can come in handy if you want to keep track of the name,
+
+228
+00:13:17,000 --> 00:13:20,000
+for example, of a player or of the high score in a game.
+
+229
+00:13:20,000 --> 00:13:21,000
+OK.
+
+230
+00:13:21,000 --> 00:13:23,000
+So that's it for today.
+
+231
+00:13:23,000 --> 00:13:27,000
+We've learned about four different types of variables in Nest Blocks,
+
+232
+00:13:27,000 --> 00:13:33,000
+global variables, sprite variables, script variables, and block variables.
+
+233
+00:13:33,000 --> 00:13:35,000
+Which should you use for your project?
+
+234
+00:13:35,000 --> 00:13:38,000
+Well, circumstances vary.
+
+235
+00:13:38,000 --> 00:13:43,000
+In general, you should create variables with as limited a scope as possible.
+
+236
+00:13:43,000 --> 00:13:46,000
+New programmers like to work primarily with global variables
+
+237
+00:13:46,000 --> 00:13:48,000
+because they're so easy to use,
+
+238
+00:13:48,000 --> 00:13:51,000
+but you'll find that most experienced programmers tend to eschew them
+
+239
+00:13:51,000 --> 00:13:55,000
+in favor of sprite, script, or block variables.
+
+240
+00:13:55,000 --> 00:14:00,000
+What matters at this point is that you understand the concept of variables,
+
+241
+00:14:00,000 --> 00:14:03,000
+how to create them and to bind them to values,
+
+242
+00:14:03,000 --> 00:14:09,000
+and also know how to tell when they're in or out of scope.
+
+243
+00:14:09,000 --> 00:14:10,000
+Thanks, everyone.
+
+244
+00:14:10,000 --> 00:14:13,000
+I look forward to seeing you again in our next video.
+

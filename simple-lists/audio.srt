@@ -1,0 +1,440 @@
+1
+00:00:00,000 --> 00:00:04,400
+Hi everyone. Welcome back to our series on programming for a networked world.
+
+2
+00:00:04,400 --> 00:00:08,400
+Today we're talking about lists. We all have experience making lists.
+
+3
+00:00:08,400 --> 00:00:11,520
+Every day I add items to my list of things to do.
+
+4
+00:00:11,520 --> 00:00:16,000
+For example, I added a reminder to make a video today about lists.
+
+5
+00:00:16,000 --> 00:00:20,000
+So, now I can cross that item off my to-do list.
+
+6
+00:00:20,000 --> 00:00:23,200
+Lists in Nextbox function in a similar fashion.
+
+7
+00:00:23,200 --> 00:00:26,880
+Nextbox allows programmers to create lists, add items to lists,
+
+8
+00:00:26,880 --> 00:00:29,840
+find items on lists, and remove items from lists.
+
+9
+00:00:29,840 --> 00:00:34,800
+Lists also help programmers to manage related items of information.
+
+10
+00:00:34,800 --> 00:00:39,200
+Ready to recreate your virtual to-do list in Nextbox?
+
+11
+00:00:39,200 --> 00:00:42,560
+Let's make some lists together.
+
+12
+00:00:46,160 --> 00:00:49,280
+Lists are a fundamental data structure in Nextbox.
+
+13
+00:00:49,280 --> 00:00:55,040
+Lists come in all shapes and sizes, but we'll begin by covering the simplest
+
+14
+00:00:55,040 --> 00:00:58,960
+form of list. That is a one-dimensional list.
+
+15
+00:00:58,960 --> 00:01:03,120
+A one-dimensional list is a fancy name for a list that just contains a
+
+16
+00:01:03,120 --> 00:01:07,680
+sequence of things like numbers, strings, sprites, etc.
+
+17
+00:01:07,680 --> 00:01:11,120
+We can create a list of this simple sort by
+
+18
+00:01:11,120 --> 00:01:16,560
+going over to the variable palette and pulling out the list block.
+
+19
+00:01:16,560 --> 00:01:22,720
+In that input slot we can just put, let's see,
+
+20
+00:01:22,720 --> 00:01:28,720
+script a video. And if we want to add something else I can
+
+21
+00:01:28,720 --> 00:01:33,120
+expand this block and say
+
+22
+00:01:33,360 --> 00:01:38,080
+film a video. If you click on the list block now
+
+23
+00:01:38,080 --> 00:01:42,880
+you'll notice that we have a pop-up. It gives us the items in the list back
+
+24
+00:01:42,880 --> 00:01:47,680
+next to the numbers 1 and 2. So, as you can imagine,
+
+25
+00:01:47,680 --> 00:01:51,440
+those are the first and second items in the list.
+
+26
+00:01:51,440 --> 00:01:55,440
+In some languages the first item in the list is indexed as 0
+
+27
+00:01:55,440 --> 00:02:00,560
+and the second item as 1. In Nextbox we follow the more intuitive system
+
+28
+00:02:00,560 --> 00:02:03,840
+of numbering the first item as 1 and the second as 2
+
+29
+00:02:03,840 --> 00:02:06,960
+and so on and so forth. But that is called the
+
+30
+00:02:06,960 --> 00:02:11,360
+index of the item. It gives you a number by which you can look up that item
+
+31
+00:02:11,360 --> 00:02:15,840
+in the list. Adding items to our list by just expanding the list block
+
+32
+00:02:15,840 --> 00:02:19,040
+and adding them manually will get boring over time.
+
+33
+00:02:19,040 --> 00:02:22,960
+We'd rather have our program do this for us, right? Not just do it by hand.
+
+34
+00:02:22,960 --> 00:02:26,320
+Fortunately we can add new items programmatically as well.
+
+35
+00:02:26,320 --> 00:02:29,360
+So, for instance, we can add a third item,
+
+36
+00:02:29,360 --> 00:02:34,080
+say like edit video to our list, using the add to list block.
+
+37
+00:02:34,080 --> 00:02:37,760
+We'll type in the item that we want to add to our list and then we'll bring
+
+38
+00:02:37,760 --> 00:02:40,400
+down the list and hopefully it'll all work. Let's take a
+
+39
+00:02:40,400 --> 00:02:43,680
+look. So the four blocks that you see down here
+
+40
+00:02:43,680 --> 00:02:49,760
+are command blocks that mutate lists. That is, they'll change the information
+
+41
+00:02:49,760 --> 00:02:53,520
+contained in a list. And the four blocks, as you can see, are
+
+42
+00:02:53,520 --> 00:02:57,440
+add, delete, insert, and replace. We're going to try
+
+43
+00:02:57,440 --> 00:03:00,400
+all four of them, but let's start with the add block.
+
+44
+00:03:00,400 --> 00:03:03,840
+So I can bring over the add block here and
+
+45
+00:03:03,840 --> 00:03:07,120
+this little slot here with the alternating red and white
+
+46
+00:03:07,120 --> 00:03:10,240
+is the slot for the list. And then I can add
+
+47
+00:03:10,240 --> 00:03:14,480
+a thing. Let's give it a name. Let's say
+
+48
+00:03:14,480 --> 00:03:18,240
+produce video. So I can type that in, produce
+
+49
+00:03:18,240 --> 00:03:24,800
+video, and then I can click on it. Ah, but nothing happened.
+
+50
+00:03:24,800 --> 00:03:29,520
+Why didn't anything happen? Well, this is a command block
+
+51
+00:03:29,520 --> 00:03:33,680
+and it mutated the list, but it didn't show us the result.
+
+52
+00:03:33,680 --> 00:03:38,160
+So in order for us to see what the result is, we need to create a variable
+
+53
+00:03:38,160 --> 00:03:43,280
+first to contain our list. So I will create a variable called to do.
+
+54
+00:03:43,280 --> 00:03:47,440
+Let's go up to the top here and make a variable.
+
+55
+00:03:47,440 --> 00:03:51,840
+And I'll call the variable to do. There we go.
+
+56
+00:03:51,840 --> 00:03:54,960
+And now what I'm going to do is I'm going to bring over this set block
+
+57
+00:03:54,960 --> 00:04:00,560
+and I'm going to drop this list in and I'll call it to do.
+
+58
+00:04:00,560 --> 00:04:04,640
+And now I can take that reference here and put it down here. So you can see
+
+59
+00:04:04,720 --> 00:04:08,320
+if I bring up the watcher now, after I set it,
+
+60
+00:04:08,320 --> 00:04:12,400
+I've got two items in my list. But when I add
+
+61
+00:04:12,400 --> 00:04:17,280
+another item, it will appear as the third item in the list.
+
+62
+00:04:17,280 --> 00:04:20,960
+And there you go. So I've just mutated the list by adding a third
+
+63
+00:04:20,960 --> 00:04:24,560
+item to it. So now the list contains three items.
+
+64
+00:04:24,560 --> 00:04:28,080
+So let's try our hand at the three other blocks that mutate lists.
+
+65
+00:04:28,080 --> 00:04:34,400
+The delete block, the replace block, and the insert block. These blocks all
+
+66
+00:04:34,400 --> 00:04:37,040
+work with the index of the items in the list.
+
+67
+00:04:37,040 --> 00:04:41,360
+To use them, you need to know where the item you want to remove or insert or
+
+68
+00:04:41,360 --> 00:04:46,320
+replace falls in the list. So for example, if I have finished the
+
+69
+00:04:46,320 --> 00:04:49,440
+script for the video, I should delete that from my to-do list.
+
+70
+00:04:49,440 --> 00:04:53,600
+I can use the delete block to do that. And since I know that that was the first
+
+71
+00:04:53,600 --> 00:04:56,640
+item on my list, it's very easy to get the index. It's
+
+72
+00:04:56,640 --> 00:05:01,600
+just index one. So let's try that. I'll go over here
+
+73
+00:05:01,600 --> 00:05:09,680
+and bring in delete. Delete item one of. Let's duplicate this to-do list.
+
+74
+00:05:09,680 --> 00:05:13,760
+And I'll bring it down here. Put it in the slot. Delete item one.
+
+75
+00:05:13,760 --> 00:05:18,080
+You can see I've finished now scripting the video.
+
+76
+00:05:18,080 --> 00:05:22,480
+The second thing that I need to do is let's add a third thing. I want to produce
+
+77
+00:05:22,480 --> 00:05:27,360
+the video. I've got that. So let's say upload it to YouTube. So let's say
+
+78
+00:05:27,360 --> 00:05:35,760
+upload video to YouTube. How about that? Spell that correctly.
+
+79
+00:05:35,760 --> 00:05:39,520
+Okay, so I'm going to add that, but I don't want to add it as my first item, so
+
+80
+00:05:39,520 --> 00:05:44,720
+that's not the right place to put it. I'm going to insert it now.
+
+81
+00:05:46,720 --> 00:05:51,280
+If I can get that text again so I don't have to retype it all.
+
+82
+00:05:52,240 --> 00:05:58,080
+And put it down here. And I'm going to insert that as number
+
+83
+00:05:58,080 --> 00:06:03,440
+three. So I'll put it at the end of the list. So there we go.
+
+84
+00:06:03,440 --> 00:06:08,880
+Oh, yes, if you don't put the list in, you will see that error message.
+
+85
+00:06:08,880 --> 00:06:15,920
+So I'll put the list in and insert it. And there it is. Upload video.
+
+86
+00:06:15,920 --> 00:06:20,480
+Okay, oh, misspelled. So I misspelled it. That's actually helpful because now I
+
+87
+00:06:20,480 --> 00:06:22,720
+want to replace it with something that's spelled correctly.
+
+88
+00:06:22,720 --> 00:06:26,560
+So let's do that. So I'm going to take this
+
+89
+00:06:26,560 --> 00:06:29,760
+replace item, and I want to replace number three.
+
+90
+00:06:29,760 --> 00:06:34,640
+And I want to use the same list. So I'll duplicate the list here.
+
+91
+00:06:34,640 --> 00:06:42,400
+Put it in. And again, I'll click and copy this. But before I change it, I want to
+
+92
+00:06:42,400 --> 00:06:47,520
+change this O to a P so it's spelled correctly. So you see we
+
+93
+00:06:47,520 --> 00:06:52,240
+have UOLOAD. And if I click on this now,
+
+94
+00:06:52,240 --> 00:06:57,120
+oh, don't need it connected with another block. If I click on this now,
+
+95
+00:06:57,120 --> 00:07:00,800
+you can see that it replaced it to upload video.
+
+96
+00:07:00,800 --> 00:07:04,000
+So with the combination of these four blocks,
+
+97
+00:07:04,000 --> 00:07:07,760
+you can make lists contain any type of information you want,
+
+98
+00:07:07,760 --> 00:07:11,360
+and you can keep it updated in real time as information
+
+99
+00:07:11,360 --> 00:07:16,240
+in the program changes. So keeping track of information using lists is an
+
+100
+00:07:16,240 --> 00:07:21,520
+extremely common task in Nest Blocks. Practically every application you write
+
+101
+00:07:21,520 --> 00:07:25,520
+will involve the use of lists. Many times it will involve the use of
+
+102
+00:07:25,520 --> 00:07:28,800
+multiple lists. In this video, we saw how to create a
+
+103
+00:07:28,800 --> 00:07:32,000
+one-dimensional list and mutate it by adding, deleting,
+
+104
+00:07:32,000 --> 00:07:36,160
+inserting, and changing items. But lists can do more than store your
+
+105
+00:07:36,160 --> 00:07:39,600
+to-do items. In the next video, we'll explore how to
+
+106
+00:07:39,600 --> 00:07:44,800
+use two-dimensional lists to store and explore tabular information.
+
+107
+00:07:44,800 --> 00:07:48,800
+But that's it for today. If you want to do something for extra credit,
+
+108
+00:07:48,800 --> 00:07:52,640
+then try building your own to-do list in Nest Blocks.
+
+109
+00:07:52,640 --> 00:07:56,640
+And don't forget to add watch the next video in this series
+
+110
+00:07:56,640 --> 00:08:02,560
+to that to-do list. Thanks very much, and see you next time.
+

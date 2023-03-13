@@ -1,0 +1,2132 @@
+1
+00:00:00,000 --> 00:00:02,480
+Welcome back, everyone, to Programming for a Network
+
+2
+00:00:02,480 --> 00:00:03,480
+World.
+
+3
+00:00:03,480 --> 00:00:05,760
+We're going to be continuing our exploration
+
+4
+00:00:05,760 --> 00:00:07,560
+of textual analysis.
+
+5
+00:00:07,560 --> 00:00:09,720
+But this week, we're going to explore
+
+6
+00:00:09,720 --> 00:00:13,000
+how to get a feed from Twitter and then
+
+7
+00:00:13,000 --> 00:00:17,240
+to screen out any bad words that might be in that feed.
+
+8
+00:00:17,240 --> 00:00:23,140
+So ready to develop your own parental filter in NetBlocks?
+
+9
+00:00:23,140 --> 00:00:23,800
+Let's get going.
+
+10
+00:00:30,760 --> 00:00:32,480
+OK, so here's our project.
+
+11
+00:00:32,480 --> 00:00:36,080
+As I said, we're going to reach out and get tweets from Twitter
+
+12
+00:00:36,080 --> 00:00:37,440
+on a particular topic.
+
+13
+00:00:37,440 --> 00:00:40,780
+And then we're going to develop a filter for those tweets that
+
+14
+00:00:40,780 --> 00:00:45,840
+will examine any tweets that have insulting, negative,
+
+15
+00:00:45,840 --> 00:00:47,760
+foul language, however you want to put it.
+
+16
+00:00:47,760 --> 00:00:49,560
+And we're going to try to filter those out.
+
+17
+00:00:49,560 --> 00:00:51,840
+And we're also going to develop a kind of sensitivity
+
+18
+00:00:51,840 --> 00:00:55,960
+level that you can select to decide how carefully you want
+
+19
+00:00:55,960 --> 00:00:57,840
+it to be filtered out or whether you
+
+20
+00:00:57,840 --> 00:01:01,480
+might be willing to risk a few bad words coming through.
+
+21
+00:01:01,480 --> 00:01:06,480
+So let's get started by just bringing over our network tools
+
+22
+00:01:06,480 --> 00:01:06,960
+here.
+
+23
+00:01:06,960 --> 00:01:11,120
+So I'm going to go over to the call cloud variables.
+
+24
+00:01:11,120 --> 00:01:12,080
+That's not what I want.
+
+25
+00:01:12,080 --> 00:01:15,560
+I want Twitter, which is down here at the bottom.
+
+26
+00:01:15,560 --> 00:01:17,360
+OK.
+
+27
+00:01:17,360 --> 00:01:19,040
+And let's just see how this works.
+
+28
+00:01:19,040 --> 00:01:20,760
+So we're going to do a search.
+
+29
+00:01:20,760 --> 00:01:22,920
+And you see here that there's a keyword and account.
+
+30
+00:01:22,920 --> 00:01:25,960
+So let's start.
+
+31
+00:01:25,960 --> 00:01:29,280
+I'm going to choose a kind of homegrown example here.
+
+32
+00:01:29,280 --> 00:01:31,280
+I thought kind of what I should use
+
+33
+00:01:31,280 --> 00:01:35,360
+to illustrate this, some kind of contested topic.
+
+34
+00:01:35,360 --> 00:01:37,420
+And I thought, OK, well, we just released
+
+35
+00:01:37,420 --> 00:01:41,080
+a new logo at Vanderbilt. Some people really love the logo.
+
+36
+00:01:41,080 --> 00:01:43,240
+Some people really don't like the logo.
+
+37
+00:01:43,240 --> 00:01:45,800
+So we're going to look for Vanderbilt logo
+
+38
+00:01:45,800 --> 00:01:48,280
+and see what people are tweeting about the logo.
+
+39
+00:01:48,280 --> 00:01:50,800
+So here we go.
+
+40
+00:01:50,800 --> 00:01:52,560
+I'm sure that everybody listening to this
+
+41
+00:01:52,560 --> 00:01:54,480
+after they see it will have their own opinion.
+
+42
+00:01:54,560 --> 00:01:57,360
+Send a tweet about it and get included in this list.
+
+43
+00:01:57,360 --> 00:01:58,600
+OK, so Vanderbilt logo.
+
+44
+00:01:58,600 --> 00:02:00,780
+And let's just get a count of 20.
+
+45
+00:02:00,780 --> 00:02:05,440
+And you see here that what comes back are tweets.
+
+46
+00:02:05,440 --> 00:02:08,640
+And good to see Vanderbilt golf.
+
+47
+00:02:08,640 --> 00:02:10,440
+Well, you have to kind of pull this out.
+
+48
+00:02:10,440 --> 00:02:12,960
+Vanderbilt introduces a new logo.
+
+49
+00:02:12,960 --> 00:02:15,840
+So the old logo was unique.
+
+50
+00:02:15,840 --> 00:02:17,160
+Does Vanderbilt have a new logo?
+
+51
+00:02:17,160 --> 00:02:19,760
+So a lot of this is kind of neutral.
+
+52
+00:02:19,760 --> 00:02:22,840
+But probably some people in there have some negative takes.
+
+53
+00:02:22,840 --> 00:02:25,560
+And hopefully, people have positive takes, too.
+
+54
+00:02:25,560 --> 00:02:27,800
+Now, you notice when you look at this
+
+55
+00:02:27,800 --> 00:02:30,120
+that the tweets are coming through,
+
+56
+00:02:30,120 --> 00:02:32,560
+but there's some metadata that's included on the front end.
+
+57
+00:02:32,560 --> 00:02:34,200
+And we don't really want that because we
+
+58
+00:02:34,200 --> 00:02:36,560
+want to send just the content of the tweet
+
+59
+00:02:36,560 --> 00:02:40,760
+to our natural language processing toolkit.
+
+60
+00:02:40,760 --> 00:02:44,840
+And so what we need to do first is work with these tweets
+
+61
+00:02:44,840 --> 00:02:48,160
+to split them up a little bit and take off that metadata
+
+62
+00:02:48,160 --> 00:02:51,080
+and also take off the handle of the person that
+
+63
+00:02:51,080 --> 00:02:52,540
+is sending the tweet and just get
+
+64
+00:02:52,540 --> 00:02:54,880
+the content of the tweet itself.
+
+65
+00:02:54,880 --> 00:02:56,760
+So let's start by doing that.
+
+66
+00:02:56,760 --> 00:02:59,220
+In order to do that, we're going to create some variables.
+
+67
+00:02:59,220 --> 00:03:01,640
+And so I'm going to bring over some script variables
+
+68
+00:03:01,640 --> 00:03:03,440
+that we'll start using.
+
+69
+00:03:03,440 --> 00:03:08,440
+And let's just set this one to get tweets.
+
+70
+00:03:08,440 --> 00:03:13,960
+And then we'll set tweets over here to call tweets.
+
+71
+00:03:13,960 --> 00:03:15,240
+So that'll get our tweets.
+
+72
+00:03:15,240 --> 00:03:16,680
+So that's good.
+
+73
+00:03:16,680 --> 00:03:19,120
+And then let's get the next one where
+
+74
+00:03:19,160 --> 00:03:23,400
+we tokenize those tweets and we split them by word.
+
+75
+00:03:23,400 --> 00:03:25,400
+And so that will help us then to be
+
+76
+00:03:25,400 --> 00:03:27,760
+able to filter out the parts of the tweet
+
+77
+00:03:27,760 --> 00:03:32,560
+that we don't want to send for NLP examination.
+
+78
+00:03:32,560 --> 00:03:36,760
+So we'll call this tokens.
+
+79
+00:03:39,400 --> 00:03:41,960
+And here I'm going to set tokens.
+
+80
+00:03:41,960 --> 00:03:43,720
+Maybe I'll move the stage over a little bit
+
+81
+00:03:43,720 --> 00:03:46,640
+so we can see this better.
+
+82
+00:03:46,640 --> 00:03:53,160
+I'll set tokens here to let's get this operator here split.
+
+83
+00:03:56,400 --> 00:04:00,000
+We're going to split tokens.
+
+84
+00:04:00,000 --> 00:04:01,360
+But we actually need to map this,
+
+85
+00:04:01,360 --> 00:04:03,600
+I guess, because we're dealing not just one set,
+
+86
+00:04:03,600 --> 00:04:05,680
+but a whole bunch of tokens.
+
+87
+00:04:05,680 --> 00:04:12,520
+So let's get our map block out there.
+
+88
+00:04:12,560 --> 00:04:16,680
+And so we're going to map this split here.
+
+89
+00:04:16,680 --> 00:04:19,200
+And we'll put nothing in there.
+
+90
+00:04:19,200 --> 00:04:22,640
+And we're going to do it by word.
+
+91
+00:04:22,640 --> 00:04:24,040
+Oops, this is the wrong place.
+
+92
+00:04:24,040 --> 00:04:25,840
+This needs to go in here.
+
+93
+00:04:25,840 --> 00:04:28,040
+And the list goes over here.
+
+94
+00:04:28,040 --> 00:04:30,880
+Now, let's start seeing if we're making
+
+95
+00:04:30,880 --> 00:04:31,880
+the progress we'd like.
+
+96
+00:04:31,880 --> 00:04:37,480
+So what we'll need to do is go to Control here and find
+
+97
+00:04:37,480 --> 00:04:40,000
+our report block.
+
+98
+00:04:40,000 --> 00:04:42,520
+And we'll just report those tokens,
+
+99
+00:04:42,520 --> 00:04:45,040
+make sure that we're getting back what we expect.
+
+100
+00:04:45,040 --> 00:04:48,560
+So let's run this.
+
+101
+00:04:48,560 --> 00:04:50,320
+And no, indeed, we're not.
+
+102
+00:04:50,320 --> 00:04:52,640
+So, oh, I put in tokens.
+
+103
+00:04:52,640 --> 00:04:54,800
+This needs to be tweets.
+
+104
+00:04:54,800 --> 00:04:55,520
+There we go.
+
+105
+00:04:55,520 --> 00:04:58,040
+All right, let's see if this works now.
+
+106
+00:04:58,040 --> 00:05:01,920
+OK, so you can see now that everything that's
+
+107
+00:05:01,920 --> 00:05:04,000
+considered a word, and that could be the beginning
+
+108
+00:05:04,000 --> 00:05:05,440
+of the parentheses here.
+
+109
+00:05:05,440 --> 00:05:10,280
+And these are the handles all sorted out.
+
+110
+00:05:10,280 --> 00:05:11,280
+It's pretty uniform.
+
+111
+00:05:11,280 --> 00:05:13,760
+So we can see that all we really need to do,
+
+112
+00:05:13,760 --> 00:05:19,360
+then, is we want to get rid of 1, 2, 3, 4, 5, 6,
+
+113
+00:05:19,360 --> 00:05:21,560
+the first six columns.
+
+114
+00:05:21,560 --> 00:05:25,000
+And so how do we get rid of those columns?
+
+115
+00:05:25,000 --> 00:05:28,320
+Well, we can take another map.
+
+116
+00:05:28,320 --> 00:05:31,760
+And we could just say that we want column 7
+
+117
+00:05:31,760 --> 00:05:33,960
+to the end of that list.
+
+118
+00:05:33,960 --> 00:05:36,840
+So we'll just drop the first six by mapping
+
+119
+00:05:36,840 --> 00:05:39,320
+that we want only the content.
+
+120
+00:05:39,320 --> 00:05:43,200
+So I'm going to call these contents.
+
+121
+00:05:43,200 --> 00:05:44,960
+And so here's how we'll do this.
+
+122
+00:05:44,960 --> 00:05:49,160
+We're going to set contents to a map.
+
+123
+00:05:49,160 --> 00:05:51,040
+Let's get this over here.
+
+124
+00:05:51,040 --> 00:05:56,040
+And in the map, we're going to say item.
+
+125
+00:05:56,040 --> 00:06:01,920
+Let's see, let's take, yeah, item here.
+
+126
+00:06:01,920 --> 00:06:05,880
+Now, we don't want 1, or we can't just say 8 or whatever,
+
+127
+00:06:05,880 --> 00:06:09,080
+because we actually need more than one item.
+
+128
+00:06:09,080 --> 00:06:13,640
+So we can drop in here more than one.
+
+129
+00:06:13,640 --> 00:06:17,400
+So we want items number 7.
+
+130
+00:06:17,400 --> 00:06:19,120
+And then to 10, well, the thing is,
+
+131
+00:06:19,120 --> 00:06:21,240
+we don't know where the list actually ends.
+
+132
+00:06:21,240 --> 00:06:23,040
+So we're going to grab length of list.
+
+133
+00:06:23,040 --> 00:06:24,440
+And the nice thing about this map
+
+134
+00:06:24,440 --> 00:06:27,920
+is these empty slots that we leave
+
+135
+00:06:27,920 --> 00:06:31,680
+are going to be filled in with the items from the list.
+
+136
+00:06:32,440 --> 00:06:36,080
+So we'll know, for example, if there are particular tweets
+
+137
+00:06:36,080 --> 00:06:37,720
+that are longer than others, that we'll
+
+138
+00:06:37,720 --> 00:06:40,440
+go all the way to the end and capture all the content.
+
+139
+00:06:40,440 --> 00:06:47,320
+So then we're going to use here tokens as what we map over.
+
+140
+00:06:50,080 --> 00:06:53,360
+Let's see if this works by returning the contents now.
+
+141
+00:06:53,360 --> 00:07:02,360
+And you can see now that we have a smaller list of lists.
+
+142
+00:07:02,360 --> 00:07:04,920
+And it's just listing the content.
+
+143
+00:07:04,920 --> 00:07:10,560
+It's actually now removed those first seven of our columns
+
+144
+00:07:10,560 --> 00:07:12,040
+so that we just have the content,
+
+145
+00:07:12,040 --> 00:07:13,240
+which is what we wanted.
+
+146
+00:07:13,240 --> 00:07:14,720
+So we're making progress here.
+
+147
+00:07:14,720 --> 00:07:18,200
+But now we need to compose it back together with a join.
+
+148
+00:07:18,200 --> 00:07:20,240
+OK, so how do we do that?
+
+149
+00:07:20,800 --> 00:07:23,640
+We're going to use our combine block.
+
+150
+00:07:23,640 --> 00:07:31,600
+And let's make another variable here.
+
+151
+00:07:31,600 --> 00:07:39,560
+So maybe we'll call this combined.
+
+152
+00:07:39,560 --> 00:07:46,960
+OK, so let's then set combined here.
+
+153
+00:07:47,480 --> 00:07:53,480
+And as I say, we'll go out and get our combine block.
+
+154
+00:07:53,480 --> 00:07:59,000
+Now, combine, as we know, it's a little bit different
+
+155
+00:07:59,000 --> 00:07:59,600
+in its style.
+
+156
+00:07:59,600 --> 00:08:00,800
+It's going to take this list.
+
+157
+00:08:00,800 --> 00:08:04,320
+And then it's going to create all the elements in the list
+
+158
+00:08:04,320 --> 00:08:07,800
+will be joined together using some kind of operator.
+
+159
+00:08:07,800 --> 00:08:09,760
+And the operator needs to have two slots.
+
+160
+00:08:09,760 --> 00:08:12,200
+It's basically a slot for how it's
+
+161
+00:08:12,200 --> 00:08:14,440
+going to operate with each element in the list.
+
+162
+00:08:14,440 --> 00:08:16,440
+And then we'll continue to process the list.
+
+163
+00:08:16,440 --> 00:08:19,720
+So it's two slots rather than just one.
+
+164
+00:08:19,720 --> 00:08:20,920
+So let's go over here.
+
+165
+00:08:20,920 --> 00:08:25,280
+And the two slots that we want are going to be under join.
+
+166
+00:08:25,280 --> 00:08:27,920
+And we want to join things with a space in between.
+
+167
+00:08:27,920 --> 00:08:29,320
+So that's what we're going to do.
+
+168
+00:08:29,320 --> 00:08:31,000
+If I can find join here.
+
+169
+00:08:31,000 --> 00:08:35,920
+All right, so I'm going to do it like this.
+
+170
+00:08:35,920 --> 00:08:43,000
+And we're going to join, leave an empty slot there,
+
+171
+00:08:43,000 --> 00:08:44,640
+put a space in the middle.
+
+172
+00:08:44,760 --> 00:08:46,800
+And then we'll put another slot there.
+
+173
+00:08:46,800 --> 00:08:48,840
+OK, so that's how we're going to combine it.
+
+174
+00:08:48,840 --> 00:08:50,560
+Now, the thing is, it's the same problem
+
+175
+00:08:50,560 --> 00:08:52,520
+we had before, which is we don't want to just combine
+
+176
+00:08:52,520 --> 00:08:53,280
+one row this way.
+
+177
+00:08:53,280 --> 00:08:56,280
+We want to combine all the rows this way.
+
+178
+00:08:56,280 --> 00:08:58,760
+So we need to have a map.
+
+179
+00:08:58,760 --> 00:09:01,160
+And this could be a little confusing.
+
+180
+00:09:01,160 --> 00:09:03,600
+Sometimes when you use two of these higher order functions
+
+181
+00:09:03,600 --> 00:09:06,400
+together, it looks a little complicated.
+
+182
+00:09:06,400 --> 00:09:07,600
+But it's the same principle.
+
+183
+00:09:07,600 --> 00:09:09,560
+We're just going to apply this to every row.
+
+184
+00:09:09,560 --> 00:09:11,440
+And that should take every single row
+
+185
+00:09:11,440 --> 00:09:14,640
+that has each of those columns, no matter
+
+186
+00:09:14,640 --> 00:09:18,560
+how many columns there are, and combine it into a single string
+
+187
+00:09:18,560 --> 00:09:22,400
+or just a textual element.
+
+188
+00:09:22,400 --> 00:09:27,920
+So we just need to map this now over words,
+
+189
+00:09:27,920 --> 00:09:31,000
+or I guess in this case, combined.
+
+190
+00:09:31,000 --> 00:09:34,120
+And then we want to report combined.
+
+191
+00:09:34,120 --> 00:09:36,440
+So let's see here if that works for us.
+
+192
+00:09:39,240 --> 00:09:41,180
+And it did not yet.
+
+193
+00:09:41,180 --> 00:09:42,820
+So where did we go wrong here?
+
+194
+00:09:47,620 --> 00:09:48,900
+Oh, oh, oh, oh.
+
+195
+00:09:48,900 --> 00:09:50,100
+I'm getting ahead of myself.
+
+196
+00:09:50,100 --> 00:09:51,520
+It's the second time I've done it.
+
+197
+00:09:51,520 --> 00:09:52,940
+We want to do it over contents.
+
+198
+00:09:52,940 --> 00:09:54,940
+The data should be flowing from top to bottom.
+
+199
+00:09:54,940 --> 00:09:56,940
+So each time that we create a new variable,
+
+200
+00:09:56,940 --> 00:09:58,380
+that goes in as the input.
+
+201
+00:09:58,380 --> 00:10:01,220
+And then it's set to another variable that's,
+
+202
+00:10:01,220 --> 00:10:02,500
+in a sense, the output.
+
+203
+00:10:02,500 --> 00:10:04,460
+So let's try that again.
+
+204
+00:10:04,460 --> 00:10:05,780
+OK, and there we go.
+
+205
+00:10:05,780 --> 00:10:08,140
+So now, those are the tweets.
+
+206
+00:10:08,140 --> 00:10:09,980
+But they're the tweets without the metadata.
+
+207
+00:10:09,980 --> 00:10:12,140
+They're the tweets without the indication
+
+208
+00:10:12,140 --> 00:10:14,060
+of how much they've been retweeted
+
+209
+00:10:14,060 --> 00:10:16,480
+and without the indication of who sent them.
+
+210
+00:10:16,480 --> 00:10:18,060
+There could be scenarios in which you
+
+211
+00:10:18,060 --> 00:10:20,260
+want to keep that information and then put it back
+
+212
+00:10:20,260 --> 00:10:23,180
+into a table and just have the columns maybe
+
+213
+00:10:23,180 --> 00:10:25,980
+have three parts, metadata, who sent the tweet,
+
+214
+00:10:25,980 --> 00:10:27,180
+and the content of the tweet.
+
+215
+00:10:27,180 --> 00:10:29,540
+But for this project, we don't actually need that.
+
+216
+00:10:29,540 --> 00:10:30,980
+So I'm just going to stay with this
+
+217
+00:10:30,980 --> 00:10:34,180
+to keep it on the simple side.
+
+218
+00:10:34,180 --> 00:10:36,140
+So that's the list processing that we
+
+219
+00:10:36,140 --> 00:10:39,340
+have to do to get our tweets.
+
+220
+00:10:39,340 --> 00:10:42,020
+Now, the next stage here is we want
+
+221
+00:10:42,020 --> 00:10:46,420
+to think about how to go through each of these tweets
+
+222
+00:10:46,420 --> 00:10:50,300
+and then examine to see whether they contain language that
+
+223
+00:10:50,300 --> 00:10:52,100
+should be filtered out.
+
+224
+00:10:52,100 --> 00:10:54,660
+So the way we're going to do that is,
+
+225
+00:10:54,660 --> 00:10:56,220
+let's go back over to the network.
+
+226
+00:10:56,220 --> 00:10:57,940
+And we'll bring another call block over.
+
+227
+00:10:57,940 --> 00:10:59,740
+And let's just see how this works.
+
+228
+00:10:59,740 --> 00:11:02,860
+We're going to go back to the service
+
+229
+00:11:02,860 --> 00:11:06,820
+here under Language, Parallel Dots.
+
+230
+00:11:06,820 --> 00:11:08,860
+And you can see here that we've got getAbuse,
+
+231
+00:11:08,860 --> 00:11:09,860
+getEmotion, getIntent.
+
+232
+00:11:09,860 --> 00:11:11,700
+We're going to go with getAbuse.
+
+233
+00:11:11,700 --> 00:11:13,940
+And let's just test this.
+
+234
+00:11:13,940 --> 00:11:16,620
+I like the new logo.
+
+235
+00:11:16,620 --> 00:11:19,460
+So this should not be abusive.
+
+236
+00:11:19,460 --> 00:11:22,100
+Let's call that.
+
+237
+00:11:22,100 --> 00:11:25,500
+And you can see here that it gives a very low probability
+
+238
+00:11:25,500 --> 00:11:28,500
+that that's abusive, basically almost none.
+
+239
+00:11:28,500 --> 00:11:31,340
+There's also an indication of whether it's hate speech.
+
+240
+00:11:31,340 --> 00:11:34,340
+And then there's a high probability that it's neither.
+
+241
+00:11:34,340 --> 00:11:42,060
+Now, if I change this and I maybe said, I detest,
+
+242
+00:11:42,060 --> 00:11:43,100
+now, is it abuse?
+
+243
+00:11:43,100 --> 00:11:45,100
+It's just an opinion, really.
+
+244
+00:11:45,100 --> 00:11:49,660
+But it should register higher on an abuse scale.
+
+245
+00:11:49,660 --> 00:11:50,860
+Only a little bit.
+
+246
+00:11:50,860 --> 00:11:54,420
+So let's see.
+
+247
+00:11:54,420 --> 00:11:55,780
+I detest the new logo.
+
+248
+00:11:55,780 --> 00:11:57,420
+Didn't really count as abuse.
+
+249
+00:11:57,460 --> 00:12:04,580
+But how about, I detest the designers of the logo.
+
+250
+00:12:07,700 --> 00:12:09,260
+Again, pretty low.
+
+251
+00:12:09,260 --> 00:12:12,220
+So you see that it'll pass a lot of things through.
+
+252
+00:12:17,860 --> 00:12:21,020
+I feel bad typing all this stuff.
+
+253
+00:12:21,020 --> 00:12:22,420
+That's a lot closer to abusive.
+
+254
+00:12:22,420 --> 00:12:24,700
+So you see here, I hate next blocks.
+
+255
+00:12:24,700 --> 00:12:26,500
+I hope you don't feel that way.
+
+256
+00:12:26,540 --> 00:12:28,420
+But if you did, we'd just screen you out.
+
+257
+00:12:28,420 --> 00:12:29,060
+So there you go.
+
+258
+00:12:29,060 --> 00:12:32,980
+That's abusive, according to our natural language processing
+
+259
+00:12:32,980 --> 00:12:33,460
+unit.
+
+260
+00:12:33,460 --> 00:12:34,860
+So here's the thing.
+
+261
+00:12:34,860 --> 00:12:35,900
+We're going to use that.
+
+262
+00:12:35,900 --> 00:12:39,980
+And we're going to plug this in to the tool
+
+263
+00:12:39,980 --> 00:12:42,060
+here that we've built, this set of blocks.
+
+264
+00:12:42,060 --> 00:12:44,420
+And we're just going to process each of these tweets.
+
+265
+00:12:44,420 --> 00:12:46,620
+And then we're going to respond appropriately.
+
+266
+00:12:46,620 --> 00:12:53,700
+So let's take a, under variables here,
+
+267
+00:12:53,700 --> 00:12:57,540
+we're going to take this block called forEach.
+
+268
+00:12:57,540 --> 00:12:58,660
+Let's go ahead and grab it.
+
+269
+00:12:58,660 --> 00:12:59,940
+There we go.
+
+270
+00:12:59,940 --> 00:13:01,180
+Pull this off.
+
+271
+00:13:01,180 --> 00:13:04,500
+And so we're going to put in the forEach here
+
+272
+00:13:04,500 --> 00:13:11,420
+that for each item in, let's say, content, actually
+
+273
+00:13:11,420 --> 00:13:15,300
+combined, sorry, there we go, for each item in combined.
+
+274
+00:13:15,300 --> 00:13:17,100
+And we could make this a little bit clearer
+
+275
+00:13:17,100 --> 00:13:21,340
+by calling it forEachTweetInCombined.
+
+276
+00:13:21,340 --> 00:13:22,140
+Let's do something.
+
+277
+00:13:22,140 --> 00:13:29,140
+And what we want to do is use an if else.
+
+278
+00:13:29,140 --> 00:13:36,060
+So we will call parallelDots and ask if it's abusive.
+
+279
+00:13:36,060 --> 00:13:38,880
+And then if it is, we'll register that it is.
+
+280
+00:13:38,880 --> 00:13:41,740
+If not, we'll pass it through.
+
+281
+00:13:41,740 --> 00:13:47,300
+So we want to, let's just take this here
+
+282
+00:13:47,300 --> 00:13:53,300
+and see if we can set a threshold for being abusive.
+
+283
+00:13:53,300 --> 00:13:56,780
+So if parallelDots comes back and says
+
+284
+00:13:56,780 --> 00:13:59,620
+the threshold is less than a certain amount,
+
+285
+00:13:59,620 --> 00:14:07,420
+let's say 0.05, then we'll say that it's not abusive.
+
+286
+00:14:07,420 --> 00:14:11,220
+If it's higher than that, then we'll say that it is.
+
+287
+00:14:11,220 --> 00:14:13,740
+Maybe let's just try 0.5 for now.
+
+288
+00:14:14,180 --> 00:14:22,020
+So now we'll just put in here, just for a moment,
+
+289
+00:14:22,020 --> 00:14:24,460
+something to kind of stub in what we want to do.
+
+290
+00:14:24,460 --> 00:14:29,100
+So I'm going to say, I don't really
+
+291
+00:14:29,100 --> 00:14:30,860
+need the report block anymore.
+
+292
+00:14:30,860 --> 00:14:32,980
+Get that out of there.
+
+293
+00:14:32,980 --> 00:14:41,140
+So we want to say not abusive or abusive.
+
+294
+00:14:44,340 --> 00:14:46,260
+Actually, it's this tweet here that goes in.
+
+295
+00:14:46,260 --> 00:14:48,260
+So that's going to contain each line.
+
+296
+00:14:48,260 --> 00:14:49,700
+We're going to call parallelDots.
+
+297
+00:14:49,700 --> 00:14:51,300
+We're going to get that information.
+
+298
+00:14:51,300 --> 00:14:54,780
+And then we're going to see if it meets the threshold.
+
+299
+00:14:54,780 --> 00:14:58,460
+And if it does, then it will fall into the abusive.
+
+300
+00:14:58,460 --> 00:15:00,620
+If it goes under, it'll be not abusive.
+
+301
+00:15:00,620 --> 00:15:02,020
+Now, we can just run this.
+
+302
+00:15:02,020 --> 00:15:04,860
+And let's just run it for maybe three tweets
+
+303
+00:15:04,860 --> 00:15:07,340
+just to check out what it says, because we
+
+304
+00:15:07,340 --> 00:15:09,100
+want to build this into a larger program.
+
+305
+00:15:09,100 --> 00:15:12,340
+But I just want to test it to see if it works.
+
+306
+00:15:12,340 --> 00:15:17,380
+And non-abusive, non-abusive, non-abusive.
+
+307
+00:15:17,380 --> 00:15:20,500
+Let's just take a look to see, for example,
+
+308
+00:15:20,500 --> 00:15:23,940
+what is actually coming back in terms of what
+
+309
+00:15:23,940 --> 00:15:25,620
+parallelDots is telling us.
+
+310
+00:15:25,620 --> 00:15:29,100
+So one way we could do that is we
+
+311
+00:15:29,100 --> 00:15:32,140
+could do the call above here.
+
+312
+00:15:32,140 --> 00:15:34,540
+So we could just set another variable.
+
+313
+00:15:34,540 --> 00:15:38,740
+Let's do abuse score.
+
+314
+00:15:44,380 --> 00:15:45,980
+So it gives more insight into actually
+
+315
+00:15:45,980 --> 00:15:48,300
+what the scores are that are coming back.
+
+316
+00:15:48,300 --> 00:15:59,020
+And then let's, for each tweet, we want to set that here first.
+
+317
+00:15:59,020 --> 00:16:00,460
+Let's get the variable set.
+
+318
+00:16:00,460 --> 00:16:02,500
+Oops.
+
+319
+00:16:02,500 --> 00:16:04,740
+OK.
+
+320
+00:16:04,740 --> 00:16:06,340
+And this should be inside the forEach.
+
+321
+00:16:10,140 --> 00:16:10,660
+OK.
+
+322
+00:16:10,660 --> 00:16:14,220
+So we're going to set this abuse score
+
+323
+00:16:14,220 --> 00:16:16,620
+to calling for this tweet.
+
+324
+00:16:16,620 --> 00:16:22,460
+And then, oh, I think here's the problem.
+
+325
+00:16:22,460 --> 00:16:25,340
+We need to actually drill into that abuse score a little bit
+
+326
+00:16:25,340 --> 00:16:28,220
+in order to get the actual number.
+
+327
+00:16:28,220 --> 00:16:29,860
+We're not actually getting to the right number,
+
+328
+00:16:29,860 --> 00:16:31,380
+which is why this is not working.
+
+329
+00:16:31,380 --> 00:16:32,060
+OK.
+
+330
+00:16:32,060 --> 00:16:34,260
+So that's probably what our mistake is right here.
+
+331
+00:16:34,260 --> 00:16:39,980
+So remember, when we call parallelDots and we say,
+
+332
+00:16:39,980 --> 00:16:43,420
+let's just give it the word abuse,
+
+333
+00:16:43,420 --> 00:16:45,500
+then it has a score here.
+
+334
+00:16:45,500 --> 00:16:47,700
+So we need to actually get this score.
+
+335
+00:16:47,700 --> 00:16:49,740
+And what we're passing in is this list of lists.
+
+336
+00:16:49,740 --> 00:16:51,080
+And that's why it's not working.
+
+337
+00:16:51,080 --> 00:16:55,020
+So let's go over here to get that structured data library.
+
+338
+00:16:58,820 --> 00:16:59,340
+OK.
+
+339
+00:16:59,340 --> 00:17:01,580
+So we're going to get the structured data library.
+
+340
+00:17:01,580 --> 00:17:06,700
+And let's go down and start pulling pieces out of this.
+
+341
+00:17:06,700 --> 00:17:13,100
+So here, I think what we want to get is abusive.
+
+342
+00:17:13,100 --> 00:17:16,100
+And then let's pass in this tweet.
+
+343
+00:17:16,100 --> 00:17:17,620
+And then we should get a score.
+
+344
+00:17:17,620 --> 00:17:19,820
+And that's giving us an actual score.
+
+345
+00:17:19,820 --> 00:17:21,020
+So that's what we needed.
+
+346
+00:17:21,020 --> 00:17:22,300
+And that's fine.
+
+347
+00:17:22,300 --> 00:17:26,740
+So let's bring this back in here.
+
+348
+00:17:26,740 --> 00:17:28,340
+And that will give us the score.
+
+349
+00:17:28,340 --> 00:17:30,580
+And there's our tweet that goes in.
+
+350
+00:17:30,580 --> 00:17:38,700
+And then we can say, if the abuse score is less than 0.1,
+
+351
+00:17:38,700 --> 00:17:40,140
+say not abusive otherwise.
+
+352
+00:17:40,140 --> 00:17:41,500
+So now we can test it again.
+
+353
+00:17:41,500 --> 00:17:42,900
+Let's bring this over here so it's
+
+354
+00:17:42,900 --> 00:17:44,420
+a little bit easier to read.
+
+355
+00:17:44,420 --> 00:17:48,500
+And let's give it another shot.
+
+356
+00:17:48,500 --> 00:17:50,380
+Not abusive.
+
+357
+00:17:50,380 --> 00:17:52,540
+Not abusive.
+
+358
+00:17:52,540 --> 00:17:57,060
+Again, abusive.
+
+359
+00:17:57,060 --> 00:17:57,860
+OK.
+
+360
+00:17:57,860 --> 00:17:59,100
+So now we know abusive.
+
+361
+00:17:59,100 --> 00:18:00,740
+OK.
+
+362
+00:18:00,740 --> 00:18:03,060
+So we've set a threshold.
+
+363
+00:18:03,060 --> 00:18:04,460
+And you can see that it's flagging
+
+364
+00:18:04,460 --> 00:18:07,980
+certain of our tweets as abusive and others as non-abusive.
+
+365
+00:18:07,980 --> 00:18:12,180
+So now, in principle, we've got everything working.
+
+366
+00:18:12,180 --> 00:18:14,300
+What we need to do is just turn this
+
+367
+00:18:14,300 --> 00:18:17,700
+into something that's got a better user interface.
+
+368
+00:18:17,700 --> 00:18:23,420
+So what we want to do now is let's start by, well,
+
+369
+00:18:23,420 --> 00:18:25,700
+always good to start by putting a hat block at the top.
+
+370
+00:18:25,700 --> 00:18:26,980
+So we'll do that.
+
+371
+00:18:26,980 --> 00:18:31,100
+And then let's ask a question at the beginning.
+
+372
+00:18:31,100 --> 00:18:33,780
+I think that we may want to switch Ada out
+
+373
+00:18:33,780 --> 00:18:37,500
+for a different costume here.
+
+374
+00:18:37,500 --> 00:18:39,860
+Let's just go to our turtle.
+
+375
+00:18:39,860 --> 00:18:43,500
+And that will be, I think, easier to use.
+
+376
+00:18:43,500 --> 00:18:44,220
+OK.
+
+377
+00:18:44,220 --> 00:18:48,660
+So now we want to ask a question.
+
+378
+00:18:48,660 --> 00:18:54,700
+So that is going to be under Sensing right here.
+
+379
+00:18:54,700 --> 00:19:05,940
+And the question we want to ask is, what topic on Twitter
+
+380
+00:19:05,940 --> 00:19:09,140
+would you like to search?
+
+381
+00:19:09,140 --> 00:19:09,620
+OK.
+
+382
+00:19:09,620 --> 00:19:10,500
+And then we'll wait.
+
+383
+00:19:10,500 --> 00:19:13,460
+Now, so here, we're going to take the answer
+
+384
+00:19:13,460 --> 00:19:14,340
+and plug it in there.
+
+385
+00:19:14,340 --> 00:19:17,340
+So that will allow folks to put in whatever topic
+
+386
+00:19:17,340 --> 00:19:18,860
+they'd like to have.
+
+387
+00:19:18,860 --> 00:19:21,660
+And then we also want, later on, to ask
+
+388
+00:19:21,660 --> 00:19:23,740
+for the level of sensitivity here.
+
+389
+00:19:23,740 --> 00:19:27,180
+So after we get through looking up
+
+390
+00:19:27,180 --> 00:19:29,460
+the contents of that topic on Twitter
+
+391
+00:19:29,460 --> 00:19:31,300
+and doing the list processing, then
+
+392
+00:19:31,300 --> 00:19:36,180
+we want to think about what level of sensitivity.
+
+393
+00:19:36,180 --> 00:19:39,780
+What is the sensitivity?
+
+394
+00:19:39,780 --> 00:19:46,740
+What level of sensitivity do you want?
+
+395
+00:19:46,740 --> 00:19:52,820
+And we'll set a score between 1 to 100.
+
+396
+00:19:52,820 --> 00:19:53,660
+OK.
+
+397
+00:19:53,660 --> 00:19:57,180
+Now, here, we're going to use the answer again,
+
+398
+00:19:57,180 --> 00:20:00,340
+because now it's going to be set to the answer for this question.
+
+399
+00:20:00,340 --> 00:20:03,820
+And when we set this abusive score here,
+
+400
+00:20:03,820 --> 00:20:06,660
+let's set the value of that abusive score.
+
+401
+00:20:06,820 --> 00:20:13,060
+It comes back with a number that's up to 1,
+
+402
+00:20:13,060 --> 00:20:16,420
+so like 0.99 or something at the highest level.
+
+403
+00:20:16,420 --> 00:20:19,820
+So if we want to think about the sensitivity level,
+
+404
+00:20:19,820 --> 00:20:23,620
+then we need to take that answer, 1 to 100,
+
+405
+00:20:23,620 --> 00:20:28,340
+and just divide it the same way by 100.
+
+406
+00:20:28,340 --> 00:20:30,940
+Here we go.
+
+407
+00:20:30,940 --> 00:20:36,500
+And now we can use this here to set our level.
+
+408
+00:20:37,340 --> 00:20:38,500
+So that will set the level.
+
+409
+00:20:38,500 --> 00:20:39,620
+Excuse me.
+
+410
+00:20:39,620 --> 00:20:43,060
+And then we'll be able to see, for example,
+
+411
+00:20:43,060 --> 00:20:45,380
+based on our answer, we'll let people
+
+412
+00:20:45,380 --> 00:20:47,300
+set their own sort of comfort level
+
+413
+00:20:47,300 --> 00:20:48,660
+with seeing texts come through.
+
+414
+00:20:51,260 --> 00:20:52,860
+Now, the last thing that we want to do
+
+415
+00:20:52,860 --> 00:20:54,220
+is just write on the screen.
+
+416
+00:20:54,220 --> 00:20:56,860
+And we've seen this before in the Sentimental Writer,
+
+417
+00:20:56,860 --> 00:20:58,940
+but I want to take the time to actually go through
+
+418
+00:20:58,940 --> 00:21:00,420
+and do it this time.
+
+419
+00:21:00,420 --> 00:21:05,460
+So let's just start here by clearing the screen.
+
+420
+00:21:05,460 --> 00:21:07,740
+So we'll put a clear up at the top.
+
+421
+00:21:07,740 --> 00:21:09,980
+And then let's set a pen color.
+
+422
+00:21:09,980 --> 00:21:13,060
+This is all just to make sure that we can write in a nice way.
+
+423
+00:21:13,060 --> 00:21:17,780
+So we'll set the default pen color to a nice blue.
+
+424
+00:21:17,780 --> 00:21:20,100
+Then I think that what we'll do is we'll put
+
+425
+00:21:20,100 --> 00:21:22,300
+the pen in the right place.
+
+426
+00:21:22,300 --> 00:21:26,260
+So let's go, and you kind of have to experiment with this
+
+427
+00:21:26,260 --> 00:21:30,180
+just to kind of figure out where you want to start.
+
+428
+00:21:30,180 --> 00:21:34,940
+On our screen, I think negative 220 and then the y value of 150
+
+429
+00:21:34,940 --> 00:21:35,780
+should put us in the right place.
+
+430
+00:21:35,780 --> 00:21:37,260
+We can sort of test where that would be just
+
+431
+00:21:37,260 --> 00:21:38,700
+by dropping this down here.
+
+432
+00:21:38,700 --> 00:21:40,900
+You can see that it puts us up in this corner.
+
+433
+00:21:40,900 --> 00:21:42,860
+Maybe it's a little bit too far over,
+
+434
+00:21:42,860 --> 00:21:47,700
+so let's say negative 210, something like that.
+
+435
+00:21:47,700 --> 00:21:48,820
+That looks good.
+
+436
+00:21:48,820 --> 00:21:53,500
+So that's where we'll start writing, and with the color
+
+437
+00:21:53,500 --> 00:21:54,020
+blue.
+
+438
+00:21:54,020 --> 00:21:56,900
+So that's good.
+
+439
+00:21:56,900 --> 00:21:59,220
+Now, we need to do the writing part, which is actually
+
+440
+00:21:59,220 --> 00:22:00,060
+down here.
+
+441
+00:22:00,060 --> 00:22:04,380
+So we'll take out these stubs that we put in, the say blocks.
+
+442
+00:22:04,380 --> 00:22:08,020
+And so this one is going to be if something's not abusive.
+
+443
+00:22:08,020 --> 00:22:12,060
+So basically, what we want to do is write the item to the screen,
+
+444
+00:22:12,060 --> 00:22:14,540
+and we can do that with pen here.
+
+445
+00:22:14,540 --> 00:22:17,700
+Let's go down to write.
+
+446
+00:22:17,700 --> 00:22:19,380
+And we're going to make it size 10,
+
+447
+00:22:19,380 --> 00:22:21,860
+because even at that size, the whole tweet
+
+448
+00:22:21,860 --> 00:22:22,700
+won't fit on screen.
+
+449
+00:22:22,700 --> 00:22:24,820
+There are some libraries that you
+
+450
+00:22:24,820 --> 00:22:29,520
+can use that we can provide to wrap the writing on the screen,
+
+451
+00:22:29,520 --> 00:22:31,220
+but we're not going to go that far in this
+
+452
+00:22:31,220 --> 00:22:33,220
+because our goal here is not to show you
+
+453
+00:22:33,220 --> 00:22:34,780
+how to build those kind of libraries.
+
+454
+00:22:34,780 --> 00:22:37,700
+It's just to help you to see what
+
+455
+00:22:37,700 --> 00:22:39,380
+the tweets are that are coming through
+
+456
+00:22:39,380 --> 00:22:42,420
+and what ones are getting filtered out.
+
+457
+00:22:42,420 --> 00:22:44,300
+So what we want to write, though,
+
+458
+00:22:44,300 --> 00:22:47,380
+is the tweet, content of the tweet.
+
+459
+00:22:47,380 --> 00:22:48,700
+So there we go.
+
+460
+00:22:48,700 --> 00:22:51,260
+And that's good.
+
+461
+00:22:51,260 --> 00:22:54,540
+Now, the only thing that we need to do is just make sure
+
+462
+00:22:54,540 --> 00:22:56,140
+that we're in the right place here.
+
+463
+00:22:56,140 --> 00:23:01,340
+So at the end of our writing, we want to go back to,
+
+464
+00:23:01,340 --> 00:23:04,100
+let's see, set x.
+
+465
+00:23:04,100 --> 00:23:06,580
+x is going to be stable, because x is always
+
+466
+00:23:06,580 --> 00:23:09,020
+going to be just starting on this left-hand side.
+
+467
+00:23:09,020 --> 00:23:14,180
+So I think we said that was negative 210, right?
+
+468
+00:23:14,180 --> 00:23:17,540
+And then the y value is going to change.
+
+469
+00:23:17,540 --> 00:23:19,620
+So we're going to take this change block here.
+
+470
+00:23:19,620 --> 00:23:22,060
+We're going to change the y value every time.
+
+471
+00:23:22,060 --> 00:23:25,660
+And since we want to be going down on the screen,
+
+472
+00:23:25,660 --> 00:23:27,340
+we're not going to change it positively.
+
+473
+00:23:27,340 --> 00:23:28,260
+That would move it up.
+
+474
+00:23:28,260 --> 00:23:31,300
+We're going to change it negatively to move it down.
+
+475
+00:23:31,300 --> 00:23:32,060
+So that's good.
+
+476
+00:23:32,060 --> 00:23:34,900
+And we can use basically the set of blocks
+
+477
+00:23:34,900 --> 00:23:39,060
+here with a little tweak for the abusive part.
+
+478
+00:23:39,060 --> 00:23:42,060
+The tweak is we're going to change the pen color
+
+479
+00:23:42,060 --> 00:23:43,820
+so that we're writing in a different color
+
+480
+00:23:43,820 --> 00:23:45,820
+to indicate that we've filtered something out.
+
+481
+00:23:45,820 --> 00:23:47,400
+And we're also not going to pass through the tweet,
+
+482
+00:23:47,400 --> 00:23:49,620
+because that would kind of defeat the purpose.
+
+483
+00:23:49,620 --> 00:23:52,740
+We're just going to write in redacted.
+
+484
+00:23:52,740 --> 00:23:53,460
+Put censored.
+
+485
+00:23:53,460 --> 00:23:56,580
+You could put not shown, whatever you like to say.
+
+486
+00:23:56,580 --> 00:23:57,940
+So redacted.
+
+487
+00:23:57,940 --> 00:24:00,420
+And let's change the pen color.
+
+488
+00:24:00,420 --> 00:24:03,620
+So let's go over here, change the pen color,
+
+489
+00:24:03,620 --> 00:24:07,020
+and let's put it in maybe a lighter red, something
+
+490
+00:24:07,020 --> 00:24:08,500
+like that.
+
+491
+00:24:08,500 --> 00:24:12,740
+And then we need to set the pen color back.
+
+492
+00:24:12,740 --> 00:24:15,980
+And let me duplicate this up here.
+
+493
+00:24:15,980 --> 00:24:17,140
+Oh, I got the whole thing.
+
+494
+00:24:17,140 --> 00:24:20,820
+That's more than I needed, but it's all right.
+
+495
+00:24:20,820 --> 00:24:28,900
+So let's drag this down and set the pen color back.
+
+496
+00:24:31,420 --> 00:24:34,180
+I think that should be it.
+
+497
+00:24:34,180 --> 00:24:35,220
+Shall we give it a shot?
+
+498
+00:24:35,220 --> 00:24:36,780
+Let's try this.
+
+499
+00:24:36,780 --> 00:24:39,820
+So I'm going to get the screen a little bit bigger
+
+500
+00:24:39,820 --> 00:24:41,620
+so we can see what's going on here.
+
+501
+00:24:41,620 --> 00:24:43,320
+We don't need to watch the code as much.
+
+502
+00:24:45,900 --> 00:24:47,820
+And let's hit that green flag.
+
+503
+00:24:47,820 --> 00:24:50,580
+So what topic would you like to search on Twitter?
+
+504
+00:24:50,580 --> 00:24:56,220
+And we're going to go for the Vanderbilt logo.
+
+505
+00:24:56,220 --> 00:24:57,620
+And what's sensitivity?
+
+506
+00:24:57,620 --> 00:24:59,260
+Let's just go for, like, 30.
+
+507
+00:25:00,220 --> 00:25:03,060
+We're going to be pretty sensitive.
+
+508
+00:25:03,060 --> 00:25:05,460
+So we've got some positive ones, and then we've
+
+509
+00:25:05,460 --> 00:25:07,340
+got some ones that were redacted.
+
+510
+00:25:07,340 --> 00:25:09,100
+And you can see that the positive ones are
+
+511
+00:25:09,100 --> 00:25:09,660
+indeed positive.
+
+512
+00:25:09,660 --> 00:25:11,660
+Good to see Vanderbilt golf coaches and players
+
+513
+00:25:11,660 --> 00:25:13,180
+wearing the correct logo.
+
+514
+00:25:13,180 --> 00:25:15,380
+New logo didn't catch up.
+
+515
+00:25:15,380 --> 00:25:16,820
+Introduce a new logo.
+
+516
+00:25:16,820 --> 00:25:19,100
+Fans see the beauty.
+
+517
+00:25:19,100 --> 00:25:22,460
+Logo battle, who you got.
+
+518
+00:25:22,460 --> 00:25:26,740
+So there were two comments that were taken out
+
+519
+00:25:26,740 --> 00:25:28,020
+based on our sensitivity level.
+
+520
+00:25:28,020 --> 00:25:31,020
+So if we run this again and we set a very low sensitivity
+
+521
+00:25:31,020 --> 00:25:33,740
+level, let's just set it at a 1, we
+
+522
+00:25:33,740 --> 00:25:35,460
+should see probably even more redactions.
+
+523
+00:25:35,460 --> 00:25:38,980
+Oh, I need to put Vanderbilt logo here.
+
+524
+00:25:38,980 --> 00:25:41,700
+And then let's set a 1.
+
+525
+00:25:41,700 --> 00:25:43,320
+We got one more redaction.
+
+526
+00:25:43,320 --> 00:25:49,180
+And then if we ran this again and we
+
+527
+00:25:49,180 --> 00:25:53,540
+set our sensitivity level as 99, we only had one item redacted.
+
+528
+00:25:53,540 --> 00:25:56,580
+So you can see that our sensitivity
+
+529
+00:25:56,620 --> 00:26:00,180
+to what's coming through our filter, we can easily adjust.
+
+530
+00:26:00,180 --> 00:26:04,100
+And that's all thanks to the natural language processing
+
+531
+00:26:04,100 --> 00:26:06,340
+that's built into Nest Blocks.
+
+532
+00:26:06,340 --> 00:26:09,340
+So that's the end of our segment for today.
+
+533
+00:26:09,340 --> 00:26:12,700
+I look forward to seeing you in our next video.
+

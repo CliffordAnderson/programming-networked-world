@@ -1,0 +1,400 @@
+1
+00:00:00,000 --> 00:00:04,640
+Hi everyone. Welcome back to Programming for a Network World. Today we're going to
+
+2
+00:00:04,640 --> 00:00:09,520
+be talking about a way to make it easier to work with lists. So sometimes you get
+
+3
+00:00:09,520 --> 00:00:15,000
+really long lists of lists and they become difficult to manage. You're saying
+
+4
+00:00:15,000 --> 00:00:20,560
+index 1 of this list and index 2 of that list, trying to get down to the
+
+5
+00:00:20,560 --> 00:00:24,600
+information that you want to retrieve. In this video we're going to be talking
+
+6
+00:00:24,600 --> 00:00:30,360
+about ways to find information in lists by their keys. That should make it a lot
+
+7
+00:00:30,360 --> 00:00:35,960
+easier to keep track of the items in your list. Ready to find information with
+
+8
+00:00:35,960 --> 00:00:41,240
+the right key? All right, let's get started.
+
+9
+00:00:44,440 --> 00:00:50,360
+So let's begin by opening the particular library that we need to use, which is
+
+10
+00:00:50,360 --> 00:00:59,320
+called the Structured Data Library. So if I go over here to Libraries and it's
+
+11
+00:00:59,320 --> 00:01:02,840
+down here and I click on that, see I've got a list of libraries that I can
+
+12
+00:01:02,840 --> 00:01:10,200
+import. So we'll type Structured Data and I'm going to open that and it imports
+
+13
+00:01:10,200 --> 00:01:13,640
+those blocks. And if you look under the custom blocks you'll see that they're
+
+14
+00:01:13,640 --> 00:01:19,200
+right here in this list that I can use. Okay, so it gives us several blocks. I
+
+15
+00:01:19,200 --> 00:01:24,240
+pull them over. We've got a value, set value, delete, and we won't worry about
+
+16
+00:01:24,240 --> 00:01:29,880
+the error block for now. Okay, so the difference between these blocks and
+
+17
+00:01:29,880 --> 00:01:37,800
+your index 1 of blocks or index n of blocks is that they will be able to find
+
+18
+00:01:37,800 --> 00:01:43,080
+information by a key. So it's typical that you might have information that
+
+19
+00:01:43,080 --> 00:01:47,640
+comes in the form of key value pairs. And it will look like this. Let's just make a
+
+20
+00:01:47,640 --> 00:01:52,320
+simple list together. So I'll make two slots here and then I'm going to put
+
+21
+00:01:52,320 --> 00:01:59,480
+inside of the slot another set of lists here like this and open those up. There
+
+22
+00:01:59,480 --> 00:02:04,760
+we go. Okay, and so when you have a structure like this, the first item will
+
+23
+00:02:04,760 --> 00:02:09,080
+be your key. So we might say like course. And then the second item will be your
+
+24
+00:02:09,080 --> 00:02:13,600
+value. So we might say like programming. And then in the second list we could do
+
+25
+00:02:13,600 --> 00:02:17,680
+something equivalent. So the first will be, let's say, date and the second will
+
+26
+00:02:17,680 --> 00:02:24,240
+be 2022. Now when we look at that, we've got a nice list of lists. If you
+
+27
+00:02:24,240 --> 00:02:29,120
+normally wanted to get information from this, you would go to get the item 1 or
+
+28
+00:02:29,120 --> 00:02:35,940
+item n of block and then you could drop this in here. And you could say, okay, let
+
+29
+00:02:35,940 --> 00:02:41,560
+me get item 1, which is going to give you course and programming. And then you
+
+30
+00:02:41,560 --> 00:02:45,360
+might want to say, oh, but I just want to get the value of that. So then you have
+
+31
+00:02:45,360 --> 00:02:49,880
+to get another one of these blocks and get 2 here for the value. And this
+
+32
+00:02:49,880 --> 00:02:55,200
+should give you programming. Okay, so that's fine and it works well when you
+
+33
+00:02:55,200 --> 00:02:58,960
+have a kind of simple list of lists. But the thing is that it's easy to lose
+
+34
+00:02:58,960 --> 00:03:03,640
+track of where that information is. Should it be indexing to item 2, indexing
+
+35
+00:03:03,640 --> 00:03:08,280
+to item 1. It's easy to forget what that number should be and then you'll get the
+
+36
+00:03:08,280 --> 00:03:12,360
+wrong piece of information out. So that's what the structured data library
+
+37
+00:03:12,360 --> 00:03:16,960
+aims to solve. If you've got lists in this format, then you can use the
+
+38
+00:03:16,960 --> 00:03:22,020
+structured data library to retrieve the particular values of those key value
+
+39
+00:03:22,020 --> 00:03:27,680
+pairs by name. So for example, let's assign, we'll make a variable here and
+
+40
+00:03:27,680 --> 00:03:30,720
+we're going to call this course information. So we can imagine it's like
+
+41
+00:03:30,720 --> 00:03:34,600
+a course management system that we're doing. So let's go to the variables tab
+
+42
+00:03:34,600 --> 00:03:43,120
+and we'll set a variable here. I'm going to set this course information to this
+
+43
+00:03:43,120 --> 00:03:48,760
+particular list. We'll get rid of the item 1 of and item 2 of. Okay, bring that
+
+44
+00:03:48,760 --> 00:03:53,520
+up here. So we've got the list of lists and I'm setting it to the variable
+
+45
+00:03:53,520 --> 00:03:59,200
+course information. Okay, so now that we've got this variable, let's bring that
+
+46
+00:03:59,200 --> 00:04:04,080
+down, course information, and we'll drop it into this slot here. And let's say
+
+47
+00:04:04,080 --> 00:04:08,560
+that I want to see the course that I'm taking. Well, I can just type in course
+
+48
+00:04:08,560 --> 00:04:16,520
+for the key. I've got to set it first. Rookie mistake, didn't set the value of
+
+49
+00:04:16,520 --> 00:04:20,440
+the variable to the list. So you can see that we've got course information there.
+
+50
+00:04:20,440 --> 00:04:28,800
+So let's try to get the value out. So in this case, I've got the value course and
+
+51
+00:04:28,880 --> 00:04:34,680
+if I click on it again, I get programming. Okay, so that's the way that it's
+
+52
+00:04:34,680 --> 00:04:39,360
+intended to work once you set the value. Now, if I want to get the date out, I can
+
+53
+00:04:39,360 --> 00:04:44,080
+do the same thing. Just type in date. I think you can see that that's a much
+
+54
+00:04:44,080 --> 00:04:49,440
+easier way to approach these types of key value pairs inside of a list. And you
+
+55
+00:04:49,440 --> 00:04:55,280
+can also use the same library to set information. So for example, I can set the
+
+56
+00:04:55,280 --> 00:05:00,280
+value of the course. It's actually not programming. It's programming for a
+
+57
+00:05:00,280 --> 00:05:09,280
+network world. So programming for a networked world. And if I click on that,
+
+58
+00:05:09,280 --> 00:05:14,720
+you'll see that now when I go down and bring out the value of course
+
+59
+00:05:14,720 --> 00:05:22,920
+information, let's say a course in course information, it's now programming for a
+
+60
+00:05:22,920 --> 00:05:28,200
+networked world. So I can set the value that way and if I wanted to, I could also
+
+61
+00:05:28,200 --> 00:05:35,600
+delete that key. And now if I go down here, it should return an error because
+
+62
+00:05:35,600 --> 00:05:42,120
+it couldn't find any key with that or any value under that key. Okay, so that's
+
+63
+00:05:42,120 --> 00:05:46,800
+the way the library works. Let me show you an example from the real world about
+
+64
+00:05:46,800 --> 00:05:51,680
+how you might use it. So let's go and get some data from the Internet. We'll go to
+
+65
+00:05:51,680 --> 00:05:58,400
+our network tab and let's pull over our block here. We're going to call one of
+
+66
+00:05:58,400 --> 00:06:07,000
+our RPCs and I'm going to get this course information out of the way there.
+
+67
+00:06:07,000 --> 00:06:11,640
+Okay, I'm going to call one of the RPCs. I'm going to go to the history. We'll go
+
+68
+00:06:11,640 --> 00:06:16,760
+to the New York Public Library. Let's search and let's search for the term
+
+69
+00:06:17,360 --> 00:06:22,360
+Vanderbilt. Let's see what we get. We'll get 10 results per page and we'll just do one
+
+70
+00:06:22,360 --> 00:06:28,440
+page of results. So when you click on this, you get this kind of typical list
+
+71
+00:06:28,440 --> 00:06:35,200
+of lists and it's, at least in this view, it's got so much embedded information
+
+72
+00:06:35,200 --> 00:06:38,680
+that it's hard to read. You can't actually read it without clicking into
+
+73
+00:06:38,680 --> 00:06:44,360
+it. Now we could still take that approach of going to get the item one of and
+
+74
+00:06:44,360 --> 00:06:49,760
+we'll take a look at that, sort of see what information came back, and we see
+
+75
+00:06:49,760 --> 00:06:56,920
+that for item one we have four key value pairs, the UUID and the item ID, but we
+
+76
+00:06:56,920 --> 00:07:01,520
+also have a title and a date digitized. I think what might be most interesting is
+
+77
+00:07:01,520 --> 00:07:06,080
+for us to just look at the titles of the information that came back. So let's do
+
+78
+00:07:06,080 --> 00:07:10,960
+that. Now again, like we could iterate through all this with, you know, the item
+
+79
+00:07:11,000 --> 00:07:16,880
+blocks, but let's not do it that way. Let's use our new library. And so let's
+
+80
+00:07:16,880 --> 00:07:24,240
+go down to the for each block and pull that over. And the for each block will
+
+81
+00:07:24,240 --> 00:07:29,280
+loop through this list and each time assign that item to one of the items in
+
+82
+00:07:29,280 --> 00:07:35,440
+the list. So that's a helpful helper block to have. We'll just drop our RPC
+
+83
+00:07:35,440 --> 00:07:39,160
+there. So now that we're going to be iterating through each item in the list,
+
+84
+00:07:39,160 --> 00:07:45,280
+then we can do something with what's inside. And so here we're going to take
+
+85
+00:07:45,280 --> 00:07:53,000
+this value of and we'll have Ada say it. So I'll bring over the looks. Let's see
+
+86
+00:07:53,000 --> 00:07:59,800
+here, say hello, and we'll replace hello with the value. Now the value should be
+
+87
+00:07:59,800 --> 00:08:06,760
+title of the item and she'll say it for two seconds. Now if this works as we
+
+88
+00:08:06,760 --> 00:08:12,160
+expect, the RPC will go out and get that data, 10 items in the New York Public
+
+89
+00:08:12,160 --> 00:08:17,200
+Library about Vanderbilt, and then it will go through each one and pull out
+
+90
+00:08:17,200 --> 00:08:21,540
+the title. And we don't need to remember where the title fell in that list of key
+
+91
+00:08:21,540 --> 00:08:25,440
+value pairs. We can just say we want the title from each of those items. And here
+
+92
+00:08:25,440 --> 00:08:31,000
+we go. So now you're seeing that's two items have the same title, but there's a
+
+93
+00:08:31,000 --> 00:08:41,440
+different title. Knox 1909, number 665, the Breakers, New York City, Cornelius
+
+94
+00:08:41,440 --> 00:08:47,480
+Vanderbilt, the Commodore, and maybe one without a title, the Vanderbilt Hotel. And
+
+95
+00:08:47,480 --> 00:08:52,000
+we're at the end of our list. So you can see there that in terms of readable code,
+
+96
+00:08:52,000 --> 00:08:56,280
+that's a lot easier to read and understand what's going on, not only for
+
+97
+00:08:56,280 --> 00:09:00,240
+yourself, but for someone else that might want to use your program in the future.
+
+98
+00:09:00,360 --> 00:09:04,680
+All right, that was our short introduction to the structured data
+
+99
+00:09:04,680 --> 00:09:08,680
+block. Thank you for joining me, and I look forward to seeing you in our next
+
+100
+00:09:08,680 --> 00:09:11,000
+video.
+

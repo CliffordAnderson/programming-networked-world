@@ -1,0 +1,489 @@
+Hi, everyone.
+Welcome back to Programming for a Networked World.
+We're going to continue our exploration of networking
+concepts in Netsblocks today.
+And we're going to do that by interacting very dynamically
+and graphically with each other's programs.
+So we're going to return to this concept of a room that
+has roles.
+And our goal today is to develop a shared whiteboard.
+That is, we're going to make it possible for me
+to write something on the stage,
+and then for that to show up on Brian's computer,
+and vice versa.
+When he writes something on his stage,
+it'll show up in my computer.
+So you could think about it as a collaborative whiteboard.
+And so to do this, we're going to go back
+to that idea of using messages to pass content
+to each other with particular message types.
+And to get us all started on this,
+let me pass over to Brian, who's going to show us,
+first of all, how we even start drawing stuff on our screen.
+All right.
+Well, thank you, Cliff.
+So as Cliff said, we're going to be starting
+with this shared whiteboard example.
+So much like our running dog example,
+where we were sending some sort of data payload
+that was relevant for the application,
+so not just displaying, but for knowing what costumes are set,
+or things like that, we're going to be seeing something similar
+here with our shared whiteboard.
+Now, as Cliff mentioned, we first
+need to start by just, rather than jumping right
+into this collaborative whiteboard, where we're both
+drawing and seeing what each other draw on our screens,
+we're going to simplify this problem,
+or break it down anyway, into just trying to draw
+on our screen by ourselves.
+So I've got this new project here, this shared whiteboard.
+And I might rename this sprite something like, I don't know,
+my pen.
+And this sprite is going to represent, again,
+the pen that we're using to draw,
+if you want to think of it that way.
+So the first thing we need is that when
+we're moving our mouse, our pen, or our drawing tool anyway,
+it should be following our cursor.
+So if we look at the motion category,
+we have a block that's the go-to mouse pointer.
+And if we click it, we can see the sprite disappears,
+because it moves all the way off the stage,
+right to where my cursor is, which
+is, again, over this block.
+So let's put this in a loop, a forever loop,
+and see if we can see that it is, in fact,
+following our cursor as we move it around.
+We can see that it is.
+Now, you'll notice, though, that when I'm, well,
+we'll see more of this later.
+But we'll see that it is staying right on top,
+and I think just underneath my cursor, which
+will come up in a moment here.
+Now, we probably want our program
+to start when the green flag is clicked.
+And when the mouse is down, we probably want to draw.
+And when it's released, we probably want to stop drawing.
+So we can use an if block here.
+So if the mouse is down, then we can draw or put our pen down.
+So now if we try this, we click the green flag.
+I push my mouse down, and I draw.
+And you see that it actually is into drawing.
+So this is kind of odd.
+But if you take a close look, you'll
+notice that when I let go of the cursor, there is no shadow.
+But when I click, there's actually
+a shadow behind my sprite.
+So this is a common gotcha when you're
+building this application.
+And if you look over to your sprite,
+we can see there's a draggable toggle right at the bottom.
+And if we click that, now we can't pick up our sprite.
+So since our sprite was following our cursor,
+when we clicked, we actually clicked on it,
+and we're moving our sprite around.
+So now we can see that we are, in fact, drawing.
+But of course, even when I let go of my mouse,
+it's still drawing.
+And that makes sense, because if we look at our code here,
+we can see that we don't have any point in this code
+where we actually pick our mouse back up,
+or pick the pen back up, so it's always drawing.
+If we right-click on the if block here, we can relabel.
+This is a little tip to convert our if statement
+into an if else.
+So if the mouse isn't down, instead of doing the pen up,
+we'll put it down.
+Now we can clear the whiteboard by just clicking this block.
+We actually might also want to clear it
+every time we start a new, start drawing fresh, so to speak.
+So now if we click, we can see that the program is,
+if we click the green flag,
+we see that our program is running,
+our sprite is following our cursor.
+When we click and put the mouse down,
+or click our mouse and move it around,
+we can see we are drawing.
+And now if I release, I stop drawing.
+So now we have a very simple drawing application.
+We might want to make a couple little tweaks
+because this pen does look a little funny
+at this kind of 90 degree angle.
+So maybe we want to, say, point in the direction of,
+I don't know, maybe over here.
+If we try this, now we can see that we have an indicator
+that looks a little bit more natural.
+All right, so this gives us our simplest program to start,
+where we're actually able to draw on the screen.
+So now we can start thinking a little bit more
+about the networking components.
+And the first thing that we'll do is actually
+create a new role and invite Cliff to it.
+So we can start adapting this
+to be a distributed application.
+Now, rather than just adding a new role
+by clicking this plus button at the bottom,
+we can actually click on our role and just duplicate it.
+So Cliff will get a copy of all our code
+and everything too, so role dupe.
+Now I can invite Cliff over.
+All right, I got Brian's invitation here.
+So I'll accept, and as you know,
+I'll just move things around
+and I get that request to be a collaborator,
+so I'll request that permission.
+And when Brian grants that to me,
+I can move things around, so that's fantastic.
+Now, one thing you have to realize,
+because this is a distributed application,
+the green flag clicked.
+That means that the process kicks off on your own computer.
+But if you're working with a process
+that's on someone else's computer,
+that green flag won't have any effect.
+You're in a separate process from them.
+So you actually need to send a message
+to indicate that your program is starting.
+So you can't just rely on the green flag clicked
+to kick off a process on both parts.
+You need to do that explicitly.
+So what we'll do here is we're going to pull this out
+and we're going to say, when green flag clicked,
+and then we're going to send a message over the network.
+And let's just call this message.
+We're going to make it very simple.
+We're going to call it start.
+And we don't want to have any fields, because we don't need
+to have any fields for it, just a plain token, basically,
+saying that our program is starting.
+So when the green flag is clicked,
+I am going to send message start.
+And we're going to send it to just everyone in the room.
+So we could set a particular role,
+but we might want to add more people to the shared message
+board.
+So we're just going to have everyone
+when this starts.
+Now, we also need to handle this ourselves,
+because if you just click like that,
+you send the message and nothing happens.
+So we do need to then also say, when I receive, start,
+just like this, and then we'll pull these blocks back up.
+So now we're kicking things off.
+When this starts, I'll receive start,
+and then I can start drawing.
+And Brian can start drawing.
+Anyone in the room can start drawing.
+That is if we actually have messages that communicate
+what should be drawn.
+So for that part, let me just turn it back over to Brian
+to talk about how to set it up so
+that what you're writing on your screen
+actually gets sent out as a message to others.
+Well, thank you, Cliff.
+So as Cliff mentioned, we need to have some way
+to communicate not just when the program starts,
+but also what should be drawn or what has been
+drawn by the other person.
+So to be able to share this information,
+we need to have some message type that includes this data.
+So we're going to make a new message type,
+and we're going to call it, let's say, draw.
+We can give it two fields, one which I'm calling Xs,
+or just spelling Xs, and the other one which
+is following the same approach that's Ys, so Ys.
+So once we define this new message type,
+now we just need to think about what exactly
+should this data payload be.
+So we know we added these two fields, Xs and Ys,
+which we can think of as the X locations and Y locations
+that we were drawing on.
+So when we're drawing, so when our pen is down,
+we can start sending these X and Y locations
+that we are drawing.
+The only tricky thing, though, and actually
+before we jump into that, and we can
+see that if we use these under the motion category,
+this X position and Y position block,
+this will tell us where our little indicator,
+our kind of pen, is on the screen.
+So we could just go through, and if we think about the process
+before we write this code, we could just go through,
+and when the mouse is down, so in other words,
+when we're drawing, which we already
+have an if statement that is capturing this condition,
+we could just start collecting a small segment of line
+that we drew, and then we could send it over
+to the other people involved.
+So let's give this a try.
+So actually, before we jump into it this way,
+we could make it one step even simpler.
+And we could just keep track of what we drew
+and then send it over once we're done drawing.
+So we can just make some variables.
+I'm just going to name them the same thing that we're naming
+our field, so X's and Y's.
+And when the mouse is down, these X's and Y's
+are the list of X coordinates and Y coordinates to draw on,
+can just start collecting the current location of your pen.
+So in other words, if the mouse is down, we have pen down,
+but then we'll also add our current X position
+to our list of X positions to draw.
+And similarly, add our current Y position to our list of Y's.
+Now, like before, we're going to also
+need to initialize, of course, these lists of X's and Y's.
+So when the green flag is clear, or when the program starts,
+set your X's and Y's to an empty list.
+Now, you'll notice that I first started putting it
+under the when green flag click, but then I
+caught myself, because we really want it
+when the program starts, which could be when I click
+the green flag, or when Cliff clicks the green flag,
+and then I just receive the start message.
+So now we have this simple first pass, where when we're drawing,
+we're recording this list of X's and Y's.
+And then as soon as the pen comes up,
+then we could just draw or share whatever
+we drew in that little batch.
+So now we would share this by sending a draw message
+to Cliff or to the other roles.
+That includes your X's and Y's.
+Now, we probably don't want to send this if they're empty.
+So we probably just want to make sure
+that we actually did draw something,
+or else every time we don't have our pen down,
+we'll just be sending a bunch of messages.
+So we can add another if statement in here
+that's checking to see if we have any X's or Y's in the list.
+All right.
+So we check to see if the length of our X's,
+or we could check with the Y's, they should be the same length,
+is greater than 0.
+And if that's the case, then we're
+going to send this draw message to the others in the room.
+All right.
+So now at this point, when we're drawing,
+now, it'll put the pen down and should draw it on our screen.
+And then as soon as we stop drawing something,
+it should send the drawing that we just made over
+to the other people in the room.
+And then, of course, we should be
+drawing that on our own screen.
+So with that, I will kick it over to Cliff
+to implement the remote pen, or the pen of the other person
+using this whiteboard, that should be then drawing
+or handling these draw messages.
+So I believe that I have at least a similar version
+to what Ryan coded on his end.
+As you say, as long as it has the same functionality,
+we're good.
+But now the thing is, why do I need to create another sprite?
+Well, I could handle his messages coming over
+in my same sprite, but the effect
+would be that we'd be fighting over that sprite.
+I would be trying to write, and then messages
+would be coming in saying that Brian wants to write there.
+And we would probably be bouncing around or struggling
+to take control of that sprite.
+And that's not what we want.
+We actually want a collaborative whiteboard.
+So in order to do that, I'm going
+to create a new sprite over here.
+And I'm going to call this one, let's call it remote pen.
+How about that?
+And in remote pen, I'm going to then
+want to capture the messages that
+are coming from the pen that Brian is using
+and then draw them on my board.
+So I can actually reuse a lot of what I've got here.
+So let me just pull this part over.
+Oops, am I going to be able to pull over and leave it?
+Oh, yeah.
+Yeah, there we go.
+OK.
+OK, so we don't need the start here,
+because we're already going to be starting.
+But what we do need is to handle the message that's
+coming from Brian that he's wanting us to draw.
+So when I receive draw, then I've got my x's and y's.
+We don't need to set those anymore.
+And so I've got my x's and y's.
+And what we need to do now is just
+And what we need to do now is just to draw them.
+And I also didn't need to capture the information,
+because presumably, we've already got that information.
+But we don't want the forever block,
+because we only want to do this for the amount of time
+that Brian has data in the payload that he sent us.
+So for that reason, we'll use another kind of loop here.
+Let's go to get a loop here.
+And we'll just repeat for the length of the x's,
+because they always come in pairs of x's and y's.
+So I can duplicate this here.
+And so there we go.
+So for the length of the x's, we're going to repeat this.
+I'm going to put the pin down.
+And then we're going to go to, now, the question is,
+where do you want to put the pin down?
+If you put the pin down before you get started,
+you'll have these kind of jump lines
+that go from where you are right now,
+or where Brian left off, to where he's drawing.
+We don't want to do that.
+We want to actually just put the pin down
+after we get the initial starting point.
+So we probably don't need this now.
+So we'll start at length.
+We'll repeat this for the length of our iterations
+that we get from draw.
+And now we just need to do the drawing.
+So we'll go to this x and y-coordinate here.
+And there.
+And then at the end of this, we just take the pin up.
+And that's under pin, of course.
+It's a different green.
+There we go.
+And that should take the pin up.
+I think that's all we need.
+Let's see.
+Let's give it a whirl.
+Let's give it a try.
+All right, so I'm going to actually take these watchers
+off, too, which just make it look nice.
+All right, so I'm going to hit the green flag.
+That should start for both of us.
+You can see that messages are coming
+through, lots of messages.
+We are not drawing on my end yet.
+So there are a few problems.
+As you can see, we have this little red speech bubble
+on Cliff's screen right here.
+And that's showing that there are
+a lot of messages being sent.
+So if we look back at our code, we
+can see that if the length of the x's is greater than 0,
+we send this draw message.
+But we don't actually clear the list of x's.
+And we are also not handling the,
+we need to iterate through this in a way that
+actually handles each item in the list and then clears it.
+Yeah, exactly.
+So we need to.
+There's some problems on both ends, I would say.
+Yeah, there are.
+But debugging is a natural part of it.
+Debugging is good.
+All right, so why don't you debug your side first?
+So if we look on our side, we can see that we just
+need to set the x's and the y's to this empty list.
+And that should take care of it.
+Now, on Cliff's side, you can see
+he's got this big message queue buildup.
+He should be able to just right click, I believe,
+on the message handler.
+Or maybe it's just regular click on the dialog.
+Can you click on the little dialog?
+I always forget.
+There we go.
+OK.
+You can clear the message queue.
+OK.
+So now we don't have to worry about actually handling
+those thousands of messages.
+That's actually a good thing to know,
+because that will happen frequently
+if you have messages piling up.
+And so the way that you saw us clear them,
+it's important to understand.
+And also, what we see here, then,
+is I need to, when I'm getting the length of this list,
+I actually need to then iterate through it each item at a time
+and then draw it.
+So probably, rather than the repeat block,
+since I need to actually keep track
+of where I am in the iteration, we
+should probably use a for loop.
+So let's do this.
+So for 1 to the length of xs is going to be better.
+And then we're going to have to grab from our list the item
+that corresponds here.
+So we can duplicate this.
+And then we're going to want to go here to each of these
+in turn.
+Make sure we get the x and the y in the right place.
+There we go.
+And then we put the pin down here so that we start writing.
+And at the end of it, we take the pin up.
+All right.
+So we'll give it another try.
+See if that works better.
+All right.
+So now I draw something.
+And as soon as I'm done drawing, it draws on my side.
+And no messages are piling up either.
+So I think we cleared those two bugs.
+That's fantastic.
+Now, there is a lot more that you
+can do with this distributive whiteboard.
+On my end, it should be the case that if I'm drawing,
+let's see.
+So we do need to fix that bug on this side.
+Yeah, we have not fixed it.
+And so I'm piling up those messages here.
+So that might be something that we could do together.
+Or you could, again, look at this code
+and see where you need to fix that.
+Basically, you need to make sure that you're
+emptying these lists at a certain point.
+Otherwise, your lists are just going to increase in size.
+And you're just going to continually send these
+messages.
+So we need to empty our lists.
+And there are other things that you
+can do to maximize performance.
+We're not going to probably get into it in this video.
+But one thing that you could do, for example,
+is send over lists of a certain size
+so that you don't send each particular point
+as a single item over the internet.
+Because, again, there's a lot of latency involved.
+Your messages may get piled up.
+It might be better to send reliable chunks.
+And the size of those chunks may depend
+on what your network conditions are like.
+So that's something you might want to experiment with.
+But Brian, any other final thoughts before we wind up?
+OK, so basically, one extension to this
+is that currently, you can see that we're only
+sending the drawings once they're complete.
+So it might be nice to actually send drawings
+while they're being drawn so that I don't finish my drawing
+and then it shows up.
+You could actually see me in the process of drawing
+while I'm drawing it.
+So if we wanted to do something like this,
+we could actually start breaking the drawing into smaller chunks
+and not waiting until the pen has come up
+before we send it.
+There are other nice features that
+might be nice to add, like selecting your pen color
+and, of course, synchronizing this across both devices.
+Similarly, clearing the screen and synchronizing that as well
+would be another kind of feature that would be nice to have.
+All right, but I think we'll leave
+that to you as an exercise.
+We'll put some of that information in the comments
+if you want to tackle those and maybe look at projects
+where those features are implemented.
+But for now, at least you get the idea
+of how you can work collaboratively with two
+sprites to develop a shared whiteboard.
+And you also saw, by way of our errors,
+what happens when something goes wrong in message passing
+and how to both diagnose that error
+and then to clear it from your program
+so you can continue programming.
+For sure.
+So thanks, everyone, for joining us.
+And we'll see you in our next video.

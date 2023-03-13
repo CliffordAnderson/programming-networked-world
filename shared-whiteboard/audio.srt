@@ -1,0 +1,1956 @@
+1
+00:00:00,000 --> 00:00:00,660
+Hi, everyone.
+
+2
+00:00:00,660 --> 00:00:03,500
+Welcome back to Programming for a Networked World.
+
+3
+00:00:03,500 --> 00:00:06,540
+We're going to continue our exploration of networking
+
+4
+00:00:06,540 --> 00:00:08,840
+concepts in Netsblocks today.
+
+5
+00:00:08,840 --> 00:00:12,880
+And we're going to do that by interacting very dynamically
+
+6
+00:00:12,880 --> 00:00:15,720
+and graphically with each other's programs.
+
+7
+00:00:15,720 --> 00:00:19,160
+So we're going to return to this concept of a room that
+
+8
+00:00:19,160 --> 00:00:20,400
+has roles.
+
+9
+00:00:20,400 --> 00:00:24,520
+And our goal today is to develop a shared whiteboard.
+
+10
+00:00:24,520 --> 00:00:27,720
+That is, we're going to make it possible for me
+
+11
+00:00:27,720 --> 00:00:30,440
+to write something on the stage,
+
+12
+00:00:30,440 --> 00:00:32,800
+and then for that to show up on Brian's computer,
+
+13
+00:00:32,800 --> 00:00:33,600
+and vice versa.
+
+14
+00:00:33,600 --> 00:00:35,120
+When he writes something on his stage,
+
+15
+00:00:35,120 --> 00:00:36,320
+it'll show up in my computer.
+
+16
+00:00:36,320 --> 00:00:39,840
+So you could think about it as a collaborative whiteboard.
+
+17
+00:00:39,840 --> 00:00:42,320
+And so to do this, we're going to go back
+
+18
+00:00:42,320 --> 00:00:46,360
+to that idea of using messages to pass content
+
+19
+00:00:46,360 --> 00:00:49,320
+to each other with particular message types.
+
+20
+00:00:49,320 --> 00:00:51,600
+And to get us all started on this,
+
+21
+00:00:51,600 --> 00:00:53,720
+let me pass over to Brian, who's going to show us,
+
+22
+00:00:53,720 --> 00:00:56,480
+first of all, how we even start drawing stuff on our screen.
+
+23
+00:00:58,680 --> 00:00:59,180
+All right.
+
+24
+00:01:03,120 --> 00:01:04,120
+Well, thank you, Cliff.
+
+25
+00:01:04,120 --> 00:01:06,120
+So as Cliff said, we're going to be starting
+
+26
+00:01:06,120 --> 00:01:07,720
+with this shared whiteboard example.
+
+27
+00:01:07,720 --> 00:01:10,360
+So much like our running dog example,
+
+28
+00:01:10,360 --> 00:01:13,700
+where we were sending some sort of data payload
+
+29
+00:01:13,700 --> 00:01:16,920
+that was relevant for the application,
+
+30
+00:01:16,920 --> 00:01:21,440
+so not just displaying, but for knowing what costumes are set,
+
+31
+00:01:21,440 --> 00:01:23,900
+or things like that, we're going to be seeing something similar
+
+32
+00:01:23,900 --> 00:01:25,900
+here with our shared whiteboard.
+
+33
+00:01:25,920 --> 00:01:27,880
+Now, as Cliff mentioned, we first
+
+34
+00:01:27,880 --> 00:01:31,960
+need to start by just, rather than jumping right
+
+35
+00:01:31,960 --> 00:01:34,120
+into this collaborative whiteboard, where we're both
+
+36
+00:01:34,120 --> 00:01:36,920
+drawing and seeing what each other draw on our screens,
+
+37
+00:01:36,920 --> 00:01:38,520
+we're going to simplify this problem,
+
+38
+00:01:38,520 --> 00:01:41,360
+or break it down anyway, into just trying to draw
+
+39
+00:01:41,360 --> 00:01:44,440
+on our screen by ourselves.
+
+40
+00:01:44,440 --> 00:01:48,460
+So I've got this new project here, this shared whiteboard.
+
+41
+00:01:48,460 --> 00:01:52,800
+And I might rename this sprite something like, I don't know,
+
+42
+00:01:52,800 --> 00:01:56,460
+my pen.
+
+43
+00:01:56,460 --> 00:01:58,860
+And this sprite is going to represent, again,
+
+44
+00:01:58,860 --> 00:02:00,620
+the pen that we're using to draw,
+
+45
+00:02:00,620 --> 00:02:04,380
+if you want to think of it that way.
+
+46
+00:02:04,380 --> 00:02:06,420
+So the first thing we need is that when
+
+47
+00:02:06,420 --> 00:02:09,940
+we're moving our mouse, our pen, or our drawing tool anyway,
+
+48
+00:02:09,940 --> 00:02:12,500
+it should be following our cursor.
+
+49
+00:02:12,500 --> 00:02:15,060
+So if we look at the motion category,
+
+50
+00:02:15,060 --> 00:02:21,000
+we have a block that's the go-to mouse pointer.
+
+51
+00:02:21,020 --> 00:02:23,300
+And if we click it, we can see the sprite disappears,
+
+52
+00:02:23,300 --> 00:02:25,140
+because it moves all the way off the stage,
+
+53
+00:02:25,140 --> 00:02:26,580
+right to where my cursor is, which
+
+54
+00:02:26,580 --> 00:02:29,260
+is, again, over this block.
+
+55
+00:02:29,260 --> 00:02:32,500
+So let's put this in a loop, a forever loop,
+
+56
+00:02:32,500 --> 00:02:36,300
+and see if we can see that it is, in fact,
+
+57
+00:02:36,300 --> 00:02:38,820
+following our cursor as we move it around.
+
+58
+00:02:38,820 --> 00:02:42,820
+We can see that it is.
+
+59
+00:02:42,820 --> 00:02:45,020
+Now, you'll notice, though, that when I'm, well,
+
+60
+00:02:45,020 --> 00:02:46,740
+we'll see more of this later.
+
+61
+00:02:46,740 --> 00:02:49,580
+But we'll see that it is staying right on top,
+
+62
+00:02:49,580 --> 00:02:51,800
+and I think just underneath my cursor, which
+
+63
+00:02:51,800 --> 00:02:53,980
+will come up in a moment here.
+
+64
+00:02:53,980 --> 00:02:55,360
+Now, we probably want our program
+
+65
+00:02:55,360 --> 00:02:58,680
+to start when the green flag is clicked.
+
+66
+00:02:58,680 --> 00:03:02,480
+And when the mouse is down, we probably want to draw.
+
+67
+00:03:02,480 --> 00:03:06,080
+And when it's released, we probably want to stop drawing.
+
+68
+00:03:06,080 --> 00:03:10,080
+So we can use an if block here.
+
+69
+00:03:10,080 --> 00:03:19,280
+So if the mouse is down, then we can draw or put our pen down.
+
+70
+00:03:19,300 --> 00:03:23,540
+So now if we try this, we click the green flag.
+
+71
+00:03:23,540 --> 00:03:27,140
+I push my mouse down, and I draw.
+
+72
+00:03:27,140 --> 00:03:30,060
+And you see that it actually is into drawing.
+
+73
+00:03:30,060 --> 00:03:31,260
+So this is kind of odd.
+
+74
+00:03:31,260 --> 00:03:33,900
+But if you take a close look, you'll
+
+75
+00:03:33,900 --> 00:03:38,900
+notice that when I let go of the cursor, there is no shadow.
+
+76
+00:03:38,900 --> 00:03:42,060
+But when I click, there's actually
+
+77
+00:03:42,060 --> 00:03:43,940
+a shadow behind my sprite.
+
+78
+00:03:43,940 --> 00:03:46,340
+So this is a common gotcha when you're
+
+79
+00:03:46,340 --> 00:03:48,440
+building this application.
+
+80
+00:03:48,440 --> 00:03:49,940
+And if you look over to your sprite,
+
+81
+00:03:49,940 --> 00:03:52,860
+we can see there's a draggable toggle right at the bottom.
+
+82
+00:03:52,860 --> 00:03:56,020
+And if we click that, now we can't pick up our sprite.
+
+83
+00:03:56,020 --> 00:03:58,900
+So since our sprite was following our cursor,
+
+84
+00:03:58,900 --> 00:04:00,860
+when we clicked, we actually clicked on it,
+
+85
+00:04:00,860 --> 00:04:03,820
+and we're moving our sprite around.
+
+86
+00:04:03,820 --> 00:04:05,980
+So now we can see that we are, in fact, drawing.
+
+87
+00:04:05,980 --> 00:04:09,820
+But of course, even when I let go of my mouse,
+
+88
+00:04:09,820 --> 00:04:12,540
+it's still drawing.
+
+89
+00:04:12,540 --> 00:04:14,980
+And that makes sense, because if we look at our code here,
+
+90
+00:04:15,000 --> 00:04:19,120
+we can see that we don't have any point in this code
+
+91
+00:04:19,120 --> 00:04:21,240
+where we actually pick our mouse back up,
+
+92
+00:04:21,240 --> 00:04:24,240
+or pick the pen back up, so it's always drawing.
+
+93
+00:04:24,240 --> 00:04:27,400
+If we right-click on the if block here, we can relabel.
+
+94
+00:04:27,400 --> 00:04:32,240
+This is a little tip to convert our if statement
+
+95
+00:04:32,240 --> 00:04:34,000
+into an if else.
+
+96
+00:04:34,000 --> 00:04:36,600
+So if the mouse isn't down, instead of doing the pen up,
+
+97
+00:04:36,600 --> 00:04:38,880
+we'll put it down.
+
+98
+00:04:38,880 --> 00:04:43,640
+Now we can clear the whiteboard by just clicking this block.
+
+99
+00:04:43,660 --> 00:04:45,220
+We actually might also want to clear it
+
+100
+00:04:45,220 --> 00:04:50,220
+every time we start a new, start drawing fresh, so to speak.
+
+101
+00:04:50,580 --> 00:04:55,060
+So now if we click, we can see that the program is,
+
+102
+00:04:55,060 --> 00:04:56,020
+if we click the green flag,
+
+103
+00:04:56,020 --> 00:04:58,140
+we see that our program is running,
+
+104
+00:04:58,140 --> 00:04:59,500
+our sprite is following our cursor.
+
+105
+00:04:59,500 --> 00:05:01,580
+When we click and put the mouse down,
+
+106
+00:05:01,580 --> 00:05:05,460
+or click our mouse and move it around,
+
+107
+00:05:05,460 --> 00:05:06,500
+we can see we are drawing.
+
+108
+00:05:06,500 --> 00:05:09,580
+And now if I release, I stop drawing.
+
+109
+00:05:09,580 --> 00:05:12,820
+So now we have a very simple drawing application.
+
+110
+00:05:12,840 --> 00:05:15,520
+We might want to make a couple little tweaks
+
+111
+00:05:15,520 --> 00:05:17,760
+because this pen does look a little funny
+
+112
+00:05:17,760 --> 00:05:20,080
+at this kind of 90 degree angle.
+
+113
+00:05:20,080 --> 00:05:24,400
+So maybe we want to, say, point in the direction of,
+
+114
+00:05:24,400 --> 00:05:25,900
+I don't know, maybe over here.
+
+115
+00:05:27,400 --> 00:05:32,400
+If we try this, now we can see that we have an indicator
+
+116
+00:05:35,160 --> 00:05:37,000
+that looks a little bit more natural.
+
+117
+00:05:38,000 --> 00:05:43,000
+All right, so this gives us our simplest program to start,
+
+118
+00:05:43,940 --> 00:05:46,820
+where we're actually able to draw on the screen.
+
+119
+00:05:46,820 --> 00:05:48,740
+So now we can start thinking a little bit more
+
+120
+00:05:48,740 --> 00:05:51,660
+about the networking components.
+
+121
+00:05:51,660 --> 00:05:55,360
+And the first thing that we'll do is actually
+
+122
+00:05:57,260 --> 00:05:59,780
+create a new role and invite Cliff to it.
+
+123
+00:05:59,780 --> 00:06:02,660
+So we can start adapting this
+
+124
+00:06:02,660 --> 00:06:04,980
+to be a distributed application.
+
+125
+00:06:04,980 --> 00:06:06,900
+Now, rather than just adding a new role
+
+126
+00:06:07,800 --> 00:06:10,560
+by clicking this plus button at the bottom,
+
+127
+00:06:10,560 --> 00:06:13,920
+we can actually click on our role and just duplicate it.
+
+128
+00:06:13,920 --> 00:06:18,920
+So Cliff will get a copy of all our code
+
+129
+00:06:20,040 --> 00:06:23,440
+and everything too, so role dupe.
+
+130
+00:06:23,440 --> 00:06:25,080
+Now I can invite Cliff over.
+
+131
+00:06:33,200 --> 00:06:35,700
+All right, I got Brian's invitation here.
+
+132
+00:06:35,720 --> 00:06:37,640
+So I'll accept, and as you know,
+
+133
+00:06:37,640 --> 00:06:38,720
+I'll just move things around
+
+134
+00:06:38,720 --> 00:06:41,560
+and I get that request to be a collaborator,
+
+135
+00:06:41,560 --> 00:06:43,560
+so I'll request that permission.
+
+136
+00:06:43,560 --> 00:06:45,000
+And when Brian grants that to me,
+
+137
+00:06:45,000 --> 00:06:47,520
+I can move things around, so that's fantastic.
+
+138
+00:06:47,520 --> 00:06:49,000
+Now, one thing you have to realize,
+
+139
+00:06:49,000 --> 00:06:51,680
+because this is a distributed application,
+
+140
+00:06:51,680 --> 00:06:53,360
+the green flag clicked.
+
+141
+00:06:53,360 --> 00:06:57,600
+That means that the process kicks off on your own computer.
+
+142
+00:06:57,600 --> 00:07:00,360
+But if you're working with a process
+
+143
+00:07:00,360 --> 00:07:02,080
+that's on someone else's computer,
+
+144
+00:07:02,080 --> 00:07:03,800
+that green flag won't have any effect.
+
+145
+00:07:04,580 --> 00:07:06,320
+You're in a separate process from them.
+
+146
+00:07:06,320 --> 00:07:08,480
+So you actually need to send a message
+
+147
+00:07:08,480 --> 00:07:11,260
+to indicate that your program is starting.
+
+148
+00:07:11,260 --> 00:07:13,800
+So you can't just rely on the green flag clicked
+
+149
+00:07:13,800 --> 00:07:15,860
+to kick off a process on both parts.
+
+150
+00:07:15,860 --> 00:07:17,540
+You need to do that explicitly.
+
+151
+00:07:17,540 --> 00:07:20,300
+So what we'll do here is we're going to pull this out
+
+152
+00:07:20,300 --> 00:07:22,700
+and we're going to say, when green flag clicked,
+
+153
+00:07:22,700 --> 00:07:25,620
+and then we're going to send a message over the network.
+
+154
+00:07:25,620 --> 00:07:27,380
+And let's just call this message.
+
+155
+00:07:27,380 --> 00:07:29,580
+We're going to make it very simple.
+
+156
+00:07:29,580 --> 00:07:31,540
+We're going to call it start.
+
+157
+00:07:32,540 --> 00:07:35,040
+And we don't want to have any fields, because we don't need
+
+158
+00:07:35,040 --> 00:07:38,880
+to have any fields for it, just a plain token, basically,
+
+159
+00:07:38,880 --> 00:07:42,120
+saying that our program is starting.
+
+160
+00:07:42,120 --> 00:07:44,760
+So when the green flag is clicked,
+
+161
+00:07:44,760 --> 00:07:49,880
+I am going to send message start.
+
+162
+00:07:49,880 --> 00:07:54,080
+And we're going to send it to just everyone in the room.
+
+163
+00:07:54,080 --> 00:07:55,680
+So we could set a particular role,
+
+164
+00:07:55,680 --> 00:07:58,560
+but we might want to add more people to the shared message
+
+165
+00:07:58,560 --> 00:07:59,060
+board.
+
+166
+00:07:59,060 --> 00:08:00,560
+So we're just going to have everyone
+
+167
+00:08:01,420 --> 00:08:02,140
+when this starts.
+
+168
+00:08:02,140 --> 00:08:03,860
+Now, we also need to handle this ourselves,
+
+169
+00:08:03,860 --> 00:08:05,660
+because if you just click like that,
+
+170
+00:08:05,660 --> 00:08:07,820
+you send the message and nothing happens.
+
+171
+00:08:07,820 --> 00:08:12,620
+So we do need to then also say, when I receive, start,
+
+172
+00:08:12,620 --> 00:08:15,300
+just like this, and then we'll pull these blocks back up.
+
+173
+00:08:15,300 --> 00:08:18,260
+So now we're kicking things off.
+
+174
+00:08:18,260 --> 00:08:21,260
+When this starts, I'll receive start,
+
+175
+00:08:21,260 --> 00:08:23,780
+and then I can start drawing.
+
+176
+00:08:23,780 --> 00:08:25,880
+And Brian can start drawing.
+
+177
+00:08:25,880 --> 00:08:28,760
+Anyone in the room can start drawing.
+
+178
+00:08:28,780 --> 00:08:31,860
+That is if we actually have messages that communicate
+
+179
+00:08:31,860 --> 00:08:33,300
+what should be drawn.
+
+180
+00:08:33,300 --> 00:08:36,420
+So for that part, let me just turn it back over to Brian
+
+181
+00:08:36,420 --> 00:08:38,420
+to talk about how to set it up so
+
+182
+00:08:38,420 --> 00:08:40,300
+that what you're writing on your screen
+
+183
+00:08:40,300 --> 00:08:42,740
+actually gets sent out as a message to others.
+
+184
+00:08:42,740 --> 00:08:43,820
+Well, thank you, Cliff.
+
+185
+00:08:43,820 --> 00:08:47,060
+So as Cliff mentioned, we need to have some way
+
+186
+00:08:47,060 --> 00:08:49,420
+to communicate not just when the program starts,
+
+187
+00:08:49,420 --> 00:08:53,220
+but also what should be drawn or what has been
+
+188
+00:08:53,220 --> 00:08:55,780
+drawn by the other person.
+
+189
+00:08:55,800 --> 00:09:00,160
+So to be able to share this information,
+
+190
+00:09:00,160 --> 00:09:04,040
+we need to have some message type that includes this data.
+
+191
+00:09:04,040 --> 00:09:05,880
+So we're going to make a new message type,
+
+192
+00:09:05,880 --> 00:09:08,560
+and we're going to call it, let's say, draw.
+
+193
+00:09:08,560 --> 00:09:12,640
+We can give it two fields, one which I'm calling Xs,
+
+194
+00:09:12,640 --> 00:09:16,720
+or just spelling Xs, and the other one which
+
+195
+00:09:16,720 --> 00:09:22,680
+is following the same approach that's Ys, so Ys.
+
+196
+00:09:22,680 --> 00:09:24,480
+So once we define this new message type,
+
+197
+00:09:24,500 --> 00:09:27,820
+now we just need to think about what exactly
+
+198
+00:09:27,820 --> 00:09:30,420
+should this data payload be.
+
+199
+00:09:30,420 --> 00:09:34,740
+So we know we added these two fields, Xs and Ys,
+
+200
+00:09:34,740 --> 00:09:39,100
+which we can think of as the X locations and Y locations
+
+201
+00:09:39,100 --> 00:09:40,980
+that we were drawing on.
+
+202
+00:09:40,980 --> 00:09:45,480
+So when we're drawing, so when our pen is down,
+
+203
+00:09:45,480 --> 00:09:50,140
+we can start sending these X and Y locations
+
+204
+00:09:50,140 --> 00:09:51,980
+that we are drawing.
+
+205
+00:09:52,360 --> 00:09:55,280
+The only tricky thing, though, and actually
+
+206
+00:09:55,280 --> 00:09:57,020
+before we jump into that, and we can
+
+207
+00:09:57,020 --> 00:10:01,120
+see that if we use these under the motion category,
+
+208
+00:10:01,120 --> 00:10:03,360
+this X position and Y position block,
+
+209
+00:10:03,360 --> 00:10:05,560
+this will tell us where our little indicator,
+
+210
+00:10:05,560 --> 00:10:08,360
+our kind of pen, is on the screen.
+
+211
+00:10:08,360 --> 00:10:10,880
+So we could just go through, and if we think about the process
+
+212
+00:10:10,880 --> 00:10:13,700
+before we write this code, we could just go through,
+
+213
+00:10:13,700 --> 00:10:16,480
+and when the mouse is down, so in other words,
+
+214
+00:10:16,480 --> 00:10:17,960
+when we're drawing, which we already
+
+215
+00:10:17,960 --> 00:10:21,760
+have an if statement that is capturing this condition,
+
+216
+00:10:21,760 --> 00:10:25,380
+we could just start collecting a small segment of line
+
+217
+00:10:25,380 --> 00:10:28,140
+that we drew, and then we could send it over
+
+218
+00:10:28,140 --> 00:10:33,260
+to the other people involved.
+
+219
+00:10:33,260 --> 00:10:39,260
+So let's give this a try.
+
+220
+00:10:39,260 --> 00:10:42,860
+So actually, before we jump into it this way,
+
+221
+00:10:42,860 --> 00:10:45,060
+we could make it one step even simpler.
+
+222
+00:10:45,060 --> 00:10:46,940
+And we could just keep track of what we drew
+
+223
+00:10:46,940 --> 00:10:51,700
+and then send it over once we're done drawing.
+
+224
+00:10:51,700 --> 00:10:54,800
+So we can just make some variables.
+
+225
+00:10:54,800 --> 00:10:57,840
+I'm just going to name them the same thing that we're naming
+
+226
+00:10:57,840 --> 00:11:00,440
+our field, so X's and Y's.
+
+227
+00:11:00,440 --> 00:11:05,240
+And when the mouse is down, these X's and Y's
+
+228
+00:11:05,240 --> 00:11:09,240
+are the list of X coordinates and Y coordinates to draw on,
+
+229
+00:11:09,240 --> 00:11:14,960
+can just start collecting the current location of your pen.
+
+230
+00:11:14,960 --> 00:11:19,760
+So in other words, if the mouse is down, we have pen down,
+
+231
+00:11:19,780 --> 00:11:23,460
+but then we'll also add our current X position
+
+232
+00:11:23,460 --> 00:11:27,340
+to our list of X positions to draw.
+
+233
+00:11:27,340 --> 00:11:35,660
+And similarly, add our current Y position to our list of Y's.
+
+234
+00:11:35,660 --> 00:11:37,580
+Now, like before, we're going to also
+
+235
+00:11:37,580 --> 00:11:42,220
+need to initialize, of course, these lists of X's and Y's.
+
+236
+00:11:42,220 --> 00:11:49,460
+So when the green flag is clear, or when the program starts,
+
+237
+00:11:49,460 --> 00:11:54,080
+set your X's and Y's to an empty list.
+
+238
+00:11:54,080 --> 00:11:56,880
+Now, you'll notice that I first started putting it
+
+239
+00:11:56,880 --> 00:11:58,680
+under the when green flag click, but then I
+
+240
+00:11:58,680 --> 00:12:02,240
+caught myself, because we really want it
+
+241
+00:12:02,240 --> 00:12:06,920
+when the program starts, which could be when I click
+
+242
+00:12:06,920 --> 00:12:09,680
+the green flag, or when Cliff clicks the green flag,
+
+243
+00:12:09,680 --> 00:12:13,680
+and then I just receive the start message.
+
+244
+00:12:13,680 --> 00:12:18,400
+So now we have this simple first pass, where when we're drawing,
+
+245
+00:12:18,400 --> 00:12:21,460
+we're recording this list of X's and Y's.
+
+246
+00:12:21,460 --> 00:12:24,340
+And then as soon as the pen comes up,
+
+247
+00:12:24,340 --> 00:12:26,620
+then we could just draw or share whatever
+
+248
+00:12:26,620 --> 00:12:29,420
+we drew in that little batch.
+
+249
+00:12:29,420 --> 00:12:38,740
+So now we would share this by sending a draw message
+
+250
+00:12:38,740 --> 00:12:42,900
+to Cliff or to the other roles.
+
+251
+00:12:42,900 --> 00:12:47,540
+That includes your X's and Y's.
+
+252
+00:12:47,560 --> 00:12:50,240
+Now, we probably don't want to send this if they're empty.
+
+253
+00:12:50,240 --> 00:12:51,280
+So we probably just want to make sure
+
+254
+00:12:51,280 --> 00:12:53,040
+that we actually did draw something,
+
+255
+00:12:53,040 --> 00:12:56,440
+or else every time we don't have our pen down,
+
+256
+00:12:56,440 --> 00:12:59,160
+we'll just be sending a bunch of messages.
+
+257
+00:12:59,160 --> 00:13:01,640
+So we can add another if statement in here
+
+258
+00:13:01,640 --> 00:13:12,400
+that's checking to see if we have any X's or Y's in the list.
+
+259
+00:13:12,400 --> 00:13:13,840
+All right.
+
+260
+00:13:13,860 --> 00:13:20,300
+So we check to see if the length of our X's,
+
+261
+00:13:20,300 --> 00:13:23,860
+or we could check with the Y's, they should be the same length,
+
+262
+00:13:23,860 --> 00:13:25,420
+is greater than 0.
+
+263
+00:13:25,420 --> 00:13:27,420
+And if that's the case, then we're
+
+264
+00:13:27,420 --> 00:13:38,260
+going to send this draw message to the others in the room.
+
+265
+00:13:38,260 --> 00:13:40,180
+All right.
+
+266
+00:13:40,200 --> 00:13:44,360
+So now at this point, when we're drawing,
+
+267
+00:13:44,360 --> 00:13:50,160
+now, it'll put the pen down and should draw it on our screen.
+
+268
+00:13:50,160 --> 00:13:52,640
+And then as soon as we stop drawing something,
+
+269
+00:13:52,640 --> 00:13:56,440
+it should send the drawing that we just made over
+
+270
+00:13:56,440 --> 00:13:58,520
+to the other people in the room.
+
+271
+00:13:58,520 --> 00:14:01,800
+And then, of course, we should be
+
+272
+00:14:01,800 --> 00:14:04,920
+drawing that on our own screen.
+
+273
+00:14:04,920 --> 00:14:08,640
+So with that, I will kick it over to Cliff
+
+274
+00:14:08,640 --> 00:14:14,100
+to implement the remote pen, or the pen of the other person
+
+275
+00:14:14,100 --> 00:14:17,980
+using this whiteboard, that should be then drawing
+
+276
+00:14:17,980 --> 00:14:20,100
+or handling these draw messages.
+
+277
+00:14:20,100 --> 00:14:23,540
+So I believe that I have at least a similar version
+
+278
+00:14:23,540 --> 00:14:25,820
+to what Ryan coded on his end.
+
+279
+00:14:25,820 --> 00:14:29,620
+As you say, as long as it has the same functionality,
+
+280
+00:14:29,620 --> 00:14:31,220
+we're good.
+
+281
+00:14:31,220 --> 00:14:35,160
+But now the thing is, why do I need to create another sprite?
+
+282
+00:14:35,160 --> 00:14:38,520
+Well, I could handle his messages coming over
+
+283
+00:14:38,560 --> 00:14:40,180
+in my same sprite, but the effect
+
+284
+00:14:40,180 --> 00:14:42,860
+would be that we'd be fighting over that sprite.
+
+285
+00:14:42,860 --> 00:14:44,860
+I would be trying to write, and then messages
+
+286
+00:14:44,860 --> 00:14:47,580
+would be coming in saying that Brian wants to write there.
+
+287
+00:14:47,580 --> 00:14:50,520
+And we would probably be bouncing around or struggling
+
+288
+00:14:50,520 --> 00:14:52,020
+to take control of that sprite.
+
+289
+00:14:52,020 --> 00:14:53,220
+And that's not what we want.
+
+290
+00:14:53,220 --> 00:14:55,420
+We actually want a collaborative whiteboard.
+
+291
+00:14:55,420 --> 00:14:57,340
+So in order to do that, I'm going
+
+292
+00:14:57,340 --> 00:14:59,060
+to create a new sprite over here.
+
+293
+00:14:59,060 --> 00:15:06,700
+And I'm going to call this one, let's call it remote pen.
+
+294
+00:15:06,700 --> 00:15:08,140
+How about that?
+
+295
+00:15:08,160 --> 00:15:12,640
+And in remote pen, I'm going to then
+
+296
+00:15:12,640 --> 00:15:14,800
+want to capture the messages that
+
+297
+00:15:14,800 --> 00:15:18,480
+are coming from the pen that Brian is using
+
+298
+00:15:18,480 --> 00:15:20,560
+and then draw them on my board.
+
+299
+00:15:20,560 --> 00:15:25,280
+So I can actually reuse a lot of what I've got here.
+
+300
+00:15:25,280 --> 00:15:29,440
+So let me just pull this part over.
+
+301
+00:15:29,440 --> 00:15:31,680
+Oops, am I going to be able to pull over and leave it?
+
+302
+00:15:31,680 --> 00:15:32,040
+Oh, yeah.
+
+303
+00:15:32,040 --> 00:15:32,880
+Yeah, there we go.
+
+304
+00:15:32,880 --> 00:15:33,380
+OK.
+
+305
+00:15:34,380 --> 00:15:36,600
+OK, so we don't need the start here,
+
+306
+00:15:36,600 --> 00:15:38,360
+because we're already going to be starting.
+
+307
+00:15:38,360 --> 00:15:42,120
+But what we do need is to handle the message that's
+
+308
+00:15:42,120 --> 00:15:46,040
+coming from Brian that he's wanting us to draw.
+
+309
+00:15:46,040 --> 00:15:52,040
+So when I receive draw, then I've got my x's and y's.
+
+310
+00:15:52,040 --> 00:15:55,520
+We don't need to set those anymore.
+
+311
+00:15:55,520 --> 00:15:57,920
+And so I've got my x's and y's.
+
+312
+00:15:57,920 --> 00:16:00,680
+And what we need to do now is just
+
+313
+00:16:00,820 --> 00:16:04,220
+And what we need to do now is just to draw them.
+
+314
+00:16:04,220 --> 00:16:08,020
+And I also didn't need to capture the information,
+
+315
+00:16:08,020 --> 00:16:13,740
+because presumably, we've already got that information.
+
+316
+00:16:13,740 --> 00:16:16,340
+But we don't want the forever block,
+
+317
+00:16:16,340 --> 00:16:20,300
+because we only want to do this for the amount of time
+
+318
+00:16:20,300 --> 00:16:24,440
+that Brian has data in the payload that he sent us.
+
+319
+00:16:24,440 --> 00:16:28,980
+So for that reason, we'll use another kind of loop here.
+
+320
+00:16:28,980 --> 00:16:32,240
+Let's go to get a loop here.
+
+321
+00:16:32,240 --> 00:16:42,360
+And we'll just repeat for the length of the x's,
+
+322
+00:16:42,360 --> 00:16:45,080
+because they always come in pairs of x's and y's.
+
+323
+00:16:45,080 --> 00:16:48,840
+So I can duplicate this here.
+
+324
+00:16:48,840 --> 00:16:50,280
+And so there we go.
+
+325
+00:16:50,280 --> 00:16:52,840
+So for the length of the x's, we're going to repeat this.
+
+326
+00:16:52,840 --> 00:16:55,800
+I'm going to put the pin down.
+
+327
+00:16:55,800 --> 00:17:01,100
+And then we're going to go to, now, the question is,
+
+328
+00:17:01,100 --> 00:17:02,680
+where do you want to put the pin down?
+
+329
+00:17:02,680 --> 00:17:05,220
+If you put the pin down before you get started,
+
+330
+00:17:05,220 --> 00:17:07,100
+you'll have these kind of jump lines
+
+331
+00:17:07,100 --> 00:17:08,940
+that go from where you are right now,
+
+332
+00:17:08,940 --> 00:17:11,820
+or where Brian left off, to where he's drawing.
+
+333
+00:17:11,820 --> 00:17:13,300
+We don't want to do that.
+
+334
+00:17:13,300 --> 00:17:15,940
+We want to actually just put the pin down
+
+335
+00:17:15,940 --> 00:17:18,100
+after we get the initial starting point.
+
+336
+00:17:18,100 --> 00:17:28,160
+So we probably don't need this now.
+
+337
+00:17:28,160 --> 00:17:31,640
+So we'll start at length.
+
+338
+00:17:31,640 --> 00:17:34,000
+We'll repeat this for the length of our iterations
+
+339
+00:17:34,000 --> 00:17:35,880
+that we get from draw.
+
+340
+00:17:35,880 --> 00:17:39,240
+And now we just need to do the drawing.
+
+341
+00:17:39,240 --> 00:17:47,720
+So we'll go to this x and y-coordinate here.
+
+342
+00:17:47,720 --> 00:17:50,980
+And there.
+
+343
+00:17:50,980 --> 00:17:54,200
+And then at the end of this, we just take the pin up.
+
+344
+00:17:54,200 --> 00:17:55,540
+And that's under pin, of course.
+
+345
+00:17:55,540 --> 00:17:57,940
+It's a different green.
+
+346
+00:17:57,940 --> 00:17:58,460
+There we go.
+
+347
+00:17:58,460 --> 00:18:00,740
+And that should take the pin up.
+
+348
+00:18:00,740 --> 00:18:04,060
+I think that's all we need.
+
+349
+00:18:04,060 --> 00:18:04,660
+Let's see.
+
+350
+00:18:04,660 --> 00:18:05,180
+Let's give it a whirl.
+
+351
+00:18:05,180 --> 00:18:06,220
+Let's give it a try.
+
+352
+00:18:06,220 --> 00:18:07,860
+All right, so I'm going to actually take these watchers
+
+353
+00:18:07,860 --> 00:18:10,040
+off, too, which just make it look nice.
+
+354
+00:18:13,900 --> 00:18:15,820
+All right, so I'm going to hit the green flag.
+
+355
+00:18:15,820 --> 00:18:17,220
+That should start for both of us.
+
+356
+00:18:17,240 --> 00:18:18,760
+You can see that messages are coming
+
+357
+00:18:18,760 --> 00:18:20,200
+through, lots of messages.
+
+358
+00:18:23,640 --> 00:18:27,040
+We are not drawing on my end yet.
+
+359
+00:18:27,040 --> 00:18:28,720
+So there are a few problems.
+
+360
+00:18:28,720 --> 00:18:32,240
+As you can see, we have this little red speech bubble
+
+361
+00:18:32,240 --> 00:18:34,040
+on Cliff's screen right here.
+
+362
+00:18:34,040 --> 00:18:35,720
+And that's showing that there are
+
+363
+00:18:35,720 --> 00:18:38,120
+a lot of messages being sent.
+
+364
+00:18:38,120 --> 00:18:39,880
+So if we look back at our code, we
+
+365
+00:18:39,880 --> 00:18:44,720
+can see that if the length of the x's is greater than 0,
+
+366
+00:18:44,720 --> 00:18:46,320
+we send this draw message.
+
+367
+00:18:47,020 --> 00:18:49,060
+But we don't actually clear the list of x's.
+
+368
+00:18:49,060 --> 00:18:51,660
+And we are also not handling the,
+
+369
+00:18:51,660 --> 00:18:53,500
+we need to iterate through this in a way that
+
+370
+00:18:53,500 --> 00:18:57,100
+actually handles each item in the list and then clears it.
+
+371
+00:18:57,100 --> 00:18:59,260
+Yeah, exactly.
+
+372
+00:18:59,260 --> 00:19:01,900
+So we need to.
+
+373
+00:19:01,900 --> 00:19:04,020
+There's some problems on both ends, I would say.
+
+374
+00:19:04,020 --> 00:19:05,180
+Yeah, there are.
+
+375
+00:19:05,180 --> 00:19:06,900
+But debugging is a natural part of it.
+
+376
+00:19:06,900 --> 00:19:07,980
+Debugging is good.
+
+377
+00:19:07,980 --> 00:19:13,380
+All right, so why don't you debug your side first?
+
+378
+00:19:14,040 --> 00:19:17,960
+So if we look on our side, we can see that we just
+
+379
+00:19:17,960 --> 00:19:21,160
+need to set the x's and the y's to this empty list.
+
+380
+00:19:21,160 --> 00:19:23,400
+And that should take care of it.
+
+381
+00:19:23,400 --> 00:19:25,040
+Now, on Cliff's side, you can see
+
+382
+00:19:25,040 --> 00:19:26,800
+he's got this big message queue buildup.
+
+383
+00:19:26,800 --> 00:19:29,000
+He should be able to just right click, I believe,
+
+384
+00:19:29,000 --> 00:19:31,920
+on the message handler.
+
+385
+00:19:31,920 --> 00:19:33,920
+Or maybe it's just regular click on the dialog.
+
+386
+00:19:33,920 --> 00:19:35,040
+Can you click on the little dialog?
+
+387
+00:19:35,040 --> 00:19:35,480
+I always forget.
+
+388
+00:19:35,480 --> 00:19:35,960
+There we go.
+
+389
+00:19:35,960 --> 00:19:36,240
+OK.
+
+390
+00:19:36,240 --> 00:19:37,600
+You can clear the message queue.
+
+391
+00:19:37,600 --> 00:19:38,520
+OK.
+
+392
+00:19:38,520 --> 00:19:41,040
+So now we don't have to worry about actually handling
+
+393
+00:19:41,040 --> 00:19:42,240
+those thousands of messages.
+
+394
+00:19:42,260 --> 00:19:43,820
+That's actually a good thing to know,
+
+395
+00:19:43,820 --> 00:19:45,300
+because that will happen frequently
+
+396
+00:19:45,300 --> 00:19:46,780
+if you have messages piling up.
+
+397
+00:19:46,780 --> 00:19:49,420
+And so the way that you saw us clear them,
+
+398
+00:19:49,420 --> 00:19:50,860
+it's important to understand.
+
+399
+00:19:50,860 --> 00:19:53,340
+And also, what we see here, then,
+
+400
+00:19:53,340 --> 00:19:56,540
+is I need to, when I'm getting the length of this list,
+
+401
+00:19:56,540 --> 00:20:00,540
+I actually need to then iterate through it each item at a time
+
+402
+00:20:00,540 --> 00:20:02,580
+and then draw it.
+
+403
+00:20:02,580 --> 00:20:05,380
+So probably, rather than the repeat block,
+
+404
+00:20:05,380 --> 00:20:07,540
+since I need to actually keep track
+
+405
+00:20:07,540 --> 00:20:09,300
+of where I am in the iteration, we
+
+406
+00:20:09,320 --> 00:20:12,200
+should probably use a for loop.
+
+407
+00:20:12,200 --> 00:20:13,000
+So let's do this.
+
+408
+00:20:13,000 --> 00:20:19,120
+So for 1 to the length of xs is going to be better.
+
+409
+00:20:19,120 --> 00:20:25,280
+And then we're going to have to grab from our list the item
+
+410
+00:20:25,280 --> 00:20:27,400
+that corresponds here.
+
+411
+00:20:27,400 --> 00:20:30,120
+So we can duplicate this.
+
+412
+00:20:30,120 --> 00:20:36,800
+And then we're going to want to go here to each of these
+
+413
+00:20:36,820 --> 00:20:39,140
+in turn.
+
+414
+00:20:39,140 --> 00:20:43,180
+Make sure we get the x and the y in the right place.
+
+415
+00:20:43,180 --> 00:20:43,700
+There we go.
+
+416
+00:20:43,700 --> 00:20:46,580
+And then we put the pin down here so that we start writing.
+
+417
+00:20:46,580 --> 00:20:49,500
+And at the end of it, we take the pin up.
+
+418
+00:20:49,500 --> 00:20:50,300
+All right.
+
+419
+00:20:50,300 --> 00:20:53,140
+So we'll give it another try.
+
+420
+00:20:53,140 --> 00:20:54,580
+See if that works better.
+
+421
+00:20:54,580 --> 00:20:55,100
+All right.
+
+422
+00:20:55,100 --> 00:20:57,060
+So now I draw something.
+
+423
+00:20:57,060 --> 00:21:00,820
+And as soon as I'm done drawing, it draws on my side.
+
+424
+00:21:00,820 --> 00:21:03,100
+And no messages are piling up either.
+
+425
+00:21:03,100 --> 00:21:06,460
+So I think we cleared those two bugs.
+
+426
+00:21:06,520 --> 00:21:08,120
+That's fantastic.
+
+427
+00:21:08,120 --> 00:21:09,680
+Now, there is a lot more that you
+
+428
+00:21:09,680 --> 00:21:12,440
+can do with this distributive whiteboard.
+
+429
+00:21:12,440 --> 00:21:16,760
+On my end, it should be the case that if I'm drawing,
+
+430
+00:21:16,760 --> 00:21:18,100
+let's see.
+
+431
+00:21:18,100 --> 00:21:20,200
+So we do need to fix that bug on this side.
+
+432
+00:21:20,200 --> 00:21:21,360
+Yeah, we have not fixed it.
+
+433
+00:21:21,360 --> 00:21:23,680
+And so I'm piling up those messages here.
+
+434
+00:21:23,680 --> 00:21:27,040
+So that might be something that we could do together.
+
+435
+00:21:27,040 --> 00:21:29,600
+Or you could, again, look at this code
+
+436
+00:21:29,600 --> 00:21:32,000
+and see where you need to fix that.
+
+437
+00:21:32,000 --> 00:21:33,840
+Basically, you need to make sure that you're
+
+438
+00:21:33,840 --> 00:21:35,880
+emptying these lists at a certain point.
+
+439
+00:21:35,880 --> 00:21:38,580
+Otherwise, your lists are just going to increase in size.
+
+440
+00:21:38,580 --> 00:21:40,420
+And you're just going to continually send these
+
+441
+00:21:40,420 --> 00:21:40,940
+messages.
+
+442
+00:21:40,940 --> 00:21:43,980
+So we need to empty our lists.
+
+443
+00:21:43,980 --> 00:21:45,540
+And there are other things that you
+
+444
+00:21:45,540 --> 00:21:48,900
+can do to maximize performance.
+
+445
+00:21:48,900 --> 00:21:51,140
+We're not going to probably get into it in this video.
+
+446
+00:21:51,140 --> 00:21:53,060
+But one thing that you could do, for example,
+
+447
+00:21:53,060 --> 00:21:56,260
+is send over lists of a certain size
+
+448
+00:21:56,260 --> 00:22:00,180
+so that you don't send each particular point
+
+449
+00:22:00,180 --> 00:22:02,260
+as a single item over the internet.
+
+450
+00:22:02,260 --> 00:22:05,740
+Because, again, there's a lot of latency involved.
+
+451
+00:22:06,600 --> 00:22:09,120
+Your messages may get piled up.
+
+452
+00:22:09,120 --> 00:22:11,920
+It might be better to send reliable chunks.
+
+453
+00:22:11,920 --> 00:22:13,960
+And the size of those chunks may depend
+
+454
+00:22:13,960 --> 00:22:17,560
+on what your network conditions are like.
+
+455
+00:22:17,560 --> 00:22:20,500
+So that's something you might want to experiment with.
+
+456
+00:22:20,500 --> 00:22:22,840
+But Brian, any other final thoughts before we wind up?
+
+457
+00:22:22,840 --> 00:22:25,480
+OK, so basically, one extension to this
+
+458
+00:22:25,480 --> 00:22:27,360
+is that currently, you can see that we're only
+
+459
+00:22:27,360 --> 00:22:31,720
+sending the drawings once they're complete.
+
+460
+00:22:31,720 --> 00:22:33,880
+So it might be nice to actually send drawings
+
+461
+00:22:33,900 --> 00:22:37,220
+while they're being drawn so that I don't finish my drawing
+
+462
+00:22:37,220 --> 00:22:38,620
+and then it shows up.
+
+463
+00:22:38,620 --> 00:22:41,060
+You could actually see me in the process of drawing
+
+464
+00:22:41,060 --> 00:22:42,420
+while I'm drawing it.
+
+465
+00:22:42,420 --> 00:22:44,380
+So if we wanted to do something like this,
+
+466
+00:22:44,380 --> 00:22:48,060
+we could actually start breaking the drawing into smaller chunks
+
+467
+00:22:48,060 --> 00:22:50,420
+and not waiting until the pen has come up
+
+468
+00:22:50,420 --> 00:22:52,300
+before we send it.
+
+469
+00:22:52,300 --> 00:22:53,980
+There are other nice features that
+
+470
+00:22:53,980 --> 00:22:56,780
+might be nice to add, like selecting your pen color
+
+471
+00:22:56,780 --> 00:22:59,500
+and, of course, synchronizing this across both devices.
+
+472
+00:22:59,500 --> 00:23:03,220
+Similarly, clearing the screen and synchronizing that as well
+
+473
+00:23:04,040 --> 00:23:08,160
+would be another kind of feature that would be nice to have.
+
+474
+00:23:08,160 --> 00:23:09,640
+All right, but I think we'll leave
+
+475
+00:23:09,640 --> 00:23:10,920
+that to you as an exercise.
+
+476
+00:23:10,920 --> 00:23:12,760
+We'll put some of that information in the comments
+
+477
+00:23:12,760 --> 00:23:15,480
+if you want to tackle those and maybe look at projects
+
+478
+00:23:15,480 --> 00:23:17,520
+where those features are implemented.
+
+479
+00:23:17,520 --> 00:23:19,540
+But for now, at least you get the idea
+
+480
+00:23:19,540 --> 00:23:23,400
+of how you can work collaboratively with two
+
+481
+00:23:23,400 --> 00:23:26,480
+sprites to develop a shared whiteboard.
+
+482
+00:23:26,480 --> 00:23:30,240
+And you also saw, by way of our errors,
+
+483
+00:23:30,260 --> 00:23:33,660
+what happens when something goes wrong in message passing
+
+484
+00:23:33,660 --> 00:23:36,380
+and how to both diagnose that error
+
+485
+00:23:36,380 --> 00:23:38,620
+and then to clear it from your program
+
+486
+00:23:38,620 --> 00:23:40,540
+so you can continue programming.
+
+487
+00:23:40,540 --> 00:23:41,420
+For sure.
+
+488
+00:23:41,420 --> 00:23:43,020
+So thanks, everyone, for joining us.
+
+489
+00:23:43,020 --> 00:23:45,740
+And we'll see you in our next video.
+
