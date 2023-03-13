@@ -1,0 +1,388 @@
+Hi everybody, welcome back. My name is Cliff Anderson, and I'm a librarian at Vanderbilt University.
+This time around, we're going to use NetsBlocks to draw a painting.
+We're going to create circles of various sizes on the stage,
+trying to achieve something that resembles a work of contemporary art.
+Along the way, I'm going to introduce you to the concept of variables,
+which allow you to label and then to make use of data more efficiently in your programs.
+We're going to also learn a few tips and tricks of the NetsBlocks environment.
+So, let's summon our inner abstract expressionist and get started.
+Our goal today is to create a painting composed of many circles.
+The history of making images with tiny dots goes back a long way,
+stretching all the way back to the post-impressionist painters like Georges Seurat.
+Seurat developed a technique called pointillism
+to represent scenes by combining colored circles of paint on a canvas.
+As you likely know, the fundamental element in computer graphics is called a pixel.
+A pixel is a single dot on your computer screen.
+Computers create graphical images by relating pixels on a two-dimensional matrix.
+The more pixels you have at your disposal, the better the resolution of your image.
+If your pixels become dense enough on the screen,
+you can no longer make them out and the pixels effectively disappear from view.
+That's what computer manufacturers mean when they talk about so-called retina devices.
+To be clear, we're not going to create an image working directly with pixels this time around.
+There are ways that you can manipulate pixels in Netsblocks,
+and I'll discuss those in a subsequent video.
+For now, we're going to simulate the experience of drawing with pixels
+by using circles and combining them on the stage to generate a work of art.
+Last time, we explored two different ways of making a circle.
+But why not? Let's simplify by making a circle in yet another way.
+Alright, so what do we need to do?
+Let's start again with our control block here.
+I'm going to bring over this repeat block,
+and I'll change the slot to be 360.
+And then I'm going to take a motion block,
+and we'll take this turn one degree here.
+And then we'll have a move block, and this will make the radius,
+and I'm going to change that to 30.
+Now here's a slight difference from what we did last time.
+I'm going to take the pen, and I'm going to put the pen down right here.
+Then I'm going to take the pen up right there,
+and then I'm going to take another move block right here,
+and then I'm going to put that as negative 30.
+So instead of setting the x and y coordinates explicitly,
+we're just going to say move 30 in one direction,
+and then move 30 back in the other direction,
+but the second time around, as you're moving back,
+don't trace the movement.
+Alright, let's give it a shot, see if it works.
+Here we go.
+Circle.
+It's making a circle.
+So I'm going to let you in on a secret.
+When we go sketching a circle, depending on how we do it,
+we're either creating a 360 degree polygon,
+or we're simply putting up dots that are spaced out
+along the circumference at intervals that are too small for us to see.
+But in neither case are we actually creating a true circle.
+That's an illusion created by the fact that the pixels are so close together
+on the screen that our eyes can't pick up the difference.
+But if we made this circle bigger, we'd notice a difference.
+Let's try expanding the radius of our circle now
+to see how the circumference of our shape changes as it expands.
+Alright, so in that case, I'm going to take this,
+I'm going to set the radius to like 60, let's say,
+and then have to have an equal number back,
+and let's run this.
+Oh, let's clear the screen just so we make sure
+that nothing's going on in the background.
+Whoa!
+The problem is it needs to be negative 60 steps back.
+Okay, so let's clear the screen and run this again,
+and we need to show...
+There we go, let's bring it back right to the center.
+Okay, let's try that again.
+So it still looks like a circle,
+but maybe you can notice it's a little rougher on the edges.
+Let's move that even bigger to like 120,
+and this time negative 120.
+Try that.
+And now I think you can see that you can definitely pick up
+on sort of the fuzziness here as the lines that we're drawing
+have white spaces in between.
+Let's go to even higher resolution here.
+Let's say 200 and then negative 200.
+Okay, so you can see now, I mean, it's a nice effect,
+but it's not drawing a perfect circle.
+You can see now that it has lines going out,
+and in that case, if we want to fill those lines in
+to make it look like a perfect circle,
+we'd actually have to reduce the number of degrees
+that we used to make that circle.
+So we'd have to probably move it to like 0.5 degrees
+and then double this number of 360 to 720.
+Let's see if that works.
+Better, right?
+In any case, it makes a difference as you expand the radius
+how many times you need to mark that outer circumference with dots
+in order to keep the representation of a circle.
+And, in fact, we can move the other direction.
+We can put points down on the circumference
+at intervals of 2 degrees
+and still achieve the smooth effect that we want
+as long as we keep the radius of the circle relatively small.
+So let's try this in the other direction now.
+I'm going to say let's move 180 times around,
+but this time we're going to move with 2 degrees each time.
+And I will make this, let's say, 30 and negative 30.
+Take a look.
+And you can see that the circle looks just like a circle.
+So what's the advantage of doing it that way?
+Well, the advantage of that technique
+is that our program will execute faster
+if we require fewer computational steps to create circles.
+It's kind of fun to see the turtle busily drawing the circumference
+when you're only creating one circle,
+but it gets to be a drag when you're creating many circles,
+as we hope to do.
+So by reducing the number of computational steps,
+we speed up the drawing of the circle.
+In this case, we can effectively cut the time in half.
+Here are a couple other tricks and tips
+to make your computations cleaner and faster.
+Sometimes you want to hide the turtle
+rather than show that busy little sprite at work.
+If that's the case, you can drag over this hide block.
+Take a look over here, and you can see under Looks,
+there is a hide block right here.
+And if I put that at the top, here's the turtle right now.
+If I click it, the turtle disappears,
+but the drawing still appears.
+The sprite is still at its coordinate position,
+but it's no longer visible.
+If you want to see the sprite again,
+click the corresponding show block.
+Right here, put this at the end,
+and if we click it now,
+I'll just pull it off so we don't run it again,
+you can see that the sprite reappeared to view.
+Another nice trick is to use Turbo Mode
+to speed up your computations.
+Turbo Mode allows NetZblocks to take shortcuts
+when updating the stage.
+You can see that turning it on
+makes a huge difference when drawing shapes.
+When it's on, the green flag becomes a lightning bolt.
+And just look at the difference.
+Here, and I'm going to take,
+it's right down here, let's see, Turbo Mode, there it is.
+I'm going to click on it,
+and let's just, there's the lightning bolt,
+and let's try it out.
+Well, did it do anything? It did.
+Let's move it over here, we can see.
+It just does it instantaneously.
+Much faster.
+Okay, so let's begin developing our program.
+We're going to draw circles of various random shapes,
+sizes, and colors on the screen.
+There's a block in the palette under Operators
+that allows us to generate random numbers.
+We can use that block to set the high and low end
+of the random numbers using the input slots
+that the block provides.
+So we'll take a look over here, and we say,
+pick random from 1 to 10,
+and so I can set this to anything I like.
+Let's just do this right now from, you know,
+I guess, let's say from 10 to 30.
+And you see when I click on it,
+each time it's going to give me a different random number
+that's within that range.
+Here is where we're going to need to introduce
+the concept of a variable.
+A variable is basically a label that we create for a value.
+It's like an alias or a codename for a value.
+When we create a variable, we can use it
+to refer back to that computation
+or any computation that produces a value.
+That's actually kind of a deep point
+that we're going to come back to later.
+For now, what a variable allows us to do
+is to store a value, and if we want to,
+to update that value as our code runs along.
+So in this following example,
+we're going to use a variable to store
+the radius of the circle.
+By making the variable bigger or smaller,
+we'll be able to control the circle size
+and make different size circles on the screen.
+The reason I need a variable is
+I want it to be the same for moving the pen
+this number of steps forward
+and then this number of steps back
+to control the radius size.
+So I have to use the same random number each time.
+I don't want that to change as the loop goes around.
+So in that case, what I'm going to do
+is I will create our first variable.
+So I'm going to go over here,
+and I'm going to click on Make a Variable.
+In this case, what we want to do is create a radius variable.
+I'm going to call it radius.
+You can call it anything you like,
+but it's typical to call it something that's meaningful.
+So radius.
+And now,
+let's go over here to
+set it.
+And you'll see that radius appears as a variable.
+It's got a checkbox here,
+which means that it shows up on our stage.
+We don't really want it to show up on the stage,
+so I'm going to unclick that checkbox,
+and you see it disappears.
+But when I drop down here,
+it shows that there is a variable called radius
+that we can assign.
+And I'm going to assign it to this random number.
+So, now,
+when I bring this in here,
+I can say, set the radius to a random size
+between 10 and 30.
+Now, the trick is I need to use it here
+because these two numbers have to be the same.
+So what can I do?
+Well, I can grab radius off the side here,
+and I'm going to move it into that slot.
+So now it's going to be Move Radius Steps,
+which will be the value of the outcome
+of the random number generator
+that we've put inside of the block.
+Now, to go the opposite way,
+we'll have to do a little bit of math,
+and we're just going to take an operator here,
+and we're going to multiply that by negative 1.
+So you can see here,
+put a negative 1,
+and then I'm going to carry that same variable over,
+radius,
+and there you go.
+So we're going to Move Radius Steps,
+negative 1 times radius steps,
+which will be the inverse
+of the number of steps that we moved,
+without changing that number
+until we've done our full loop.
+All right, ready to see it go?
+Let's move this off here,
+put it back here so we can see,
+and let's run.
+OK, there's one size, there's another, there's another.
+You can see that each time I click it,
+I'm getting a different size circle.
+And we can make it bigger,
+just to get that sense of what's happening.
+There we go.
+Sometimes when you get up to 60, though,
+you can see the quasi-pixelation that's taking place.
+So we don't really want to go that high in our drawing.
+Let's stay with 30 as our highest number.
+To create the illusion of painting,
+we also want to assign
+the location of the circle
+close to the previous circle.
+This will help us to maintain
+that kind of flow that you get in a painting,
+which does make it look like it was
+seamlessly coming out of someone's paintbrush.
+What we're going to do
+is bring over a motion block,
+and we're going to say here,
+move 10 steps, let's say,
+and
+we'll also
+maybe just put it off at an angle.
+So we don't want to just say
+10 steps or 15 degrees every time,
+that would be a little bit boring.
+What we want to do then is
+pick a random number again.
+So some number
+between, let's say,
+5 and 5 degrees
+we'll turn, so that'll be turning
+left or right, and
+let's move
+again some random number
+between 1 and 10.
+Now, in order to have more
+than one circle appear on the screen,
+we need yet another control block.
+Let's go over to our controls and bring this down,
+and
+let's take a look at what we want.
+The one that I suggest we use,
+if I can find it here, is
+the forever block. This basically means
+just continue doing this loop forever
+until we hit that red stop button.
+So I'm going to take that
+and let's move
+all this inside here.
+So now you can see we have two control structures,
+one encompassing the other,
+and we're going to put that hide and clear on the top,
+and
+let's see what happens.
+Oh, it went right off the screen.
+OK. That's because
+we need one more piece here.
+We need a block to tell it if it hits
+the side of the screen to
+bounce back towards the middle, and fortunately
+there is a block that does exactly that
+under motion. It's
+if on edge, bounce.
+So we're going to take that and put it right under our move, and that should
+help us to prevent that from happening
+again, and let's right click
+on this and show
+our turtle. We'll put it right back here,
+and we're going to give it another shot.
+And you can see now
+that it's moving around.
+Let's change our radius to
+between 1 and 20, just
+to get a little bit more of a fine detail
+on the points that we're putting on.
+There, it's
+beginning to look a little bit
+more like an artist's brush,
+but we can actually make it
+even smaller, and I think that would increase
+the detail. Let's go to
+between 1 and 10.
+All right.
+Now that's beginning to look like something,
+right? The last piece of detail
+that we want here is we don't want to just
+paint with the same color. We want to
+be able to change colors as we go along.
+So in order to do that,
+let's go over here to
+pen, and we can see that we have
+change color
+by
+10,
+and let's take that down here.
+And again, we don't necessarily want
+to change it by 10 every
+time. We might want to just
+change it by a little bit
+on one direction or the other
+of the scale. So, okay,
+we're going to go over and grab that random again,
+which is under operator. Let's put random
+in here,
+and let's change it by
+negative 1 and 1. Just kind of, every time
+we go through, we'll just subtly change it,
+which should give, again, that illusion of continuity.
+Try it again.
+And now, it's beginning to look like
+a proper splatter painting,
+some kind of abstract expressionist.
+Well, I did promise you that
+we would do some painting.
+In the end, I think our painting looks a little bit
+more like Lee Krasner
+than George Seurat, but
+it's actually quite a nice effect, don't you think?
+So, if only we could get Alonzo
+to sign it for us, perhaps we could go
+in the market and sell it.
+Wow, we covered a lot of ground once again
+in this video. We built our most complicated
+program so far, combining
+two control blocks, the forever block
+and the repeat block, along with
+random blocks. We learned how
+to create variables to store and to update
+values, and we also picked up a few
+tips and tricks of the NetsBlock
+environment to speed up our computations
+and to make them look more attractive.
+And then we made some art in the process.
+So, that's a wrap for this video.
+Thanks for watching, and look forward
+to having you with me next time.
+Bye!

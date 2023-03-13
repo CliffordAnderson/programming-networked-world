@@ -1,0 +1,1552 @@
+1
+00:00:00,000 --> 00:00:05,000
+Hi everybody, welcome back. My name is Cliff Anderson, and I'm a librarian at Vanderbilt University.
+
+2
+00:00:05,000 --> 00:00:09,000
+This time around, we're going to use NetsBlocks to draw a painting.
+
+3
+00:00:09,000 --> 00:00:12,000
+We're going to create circles of various sizes on the stage,
+
+4
+00:00:12,000 --> 00:00:16,000
+trying to achieve something that resembles a work of contemporary art.
+
+5
+00:00:16,000 --> 00:00:19,000
+Along the way, I'm going to introduce you to the concept of variables,
+
+6
+00:00:19,000 --> 00:00:24,000
+which allow you to label and then to make use of data more efficiently in your programs.
+
+7
+00:00:24,000 --> 00:00:28,000
+We're going to also learn a few tips and tricks of the NetsBlocks environment.
+
+8
+00:00:28,000 --> 00:00:33,000
+So, let's summon our inner abstract expressionist and get started.
+
+9
+00:00:53,000 --> 00:00:57,000
+Our goal today is to create a painting composed of many circles.
+
+10
+00:00:57,000 --> 00:01:02,000
+The history of making images with tiny dots goes back a long way,
+
+11
+00:01:02,000 --> 00:01:07,000
+stretching all the way back to the post-impressionist painters like Georges Seurat.
+
+12
+00:01:07,000 --> 00:01:10,000
+Seurat developed a technique called pointillism
+
+13
+00:01:10,000 --> 00:01:14,000
+to represent scenes by combining colored circles of paint on a canvas.
+
+14
+00:01:16,000 --> 00:01:21,000
+As you likely know, the fundamental element in computer graphics is called a pixel.
+
+15
+00:01:21,000 --> 00:01:24,000
+A pixel is a single dot on your computer screen.
+
+16
+00:01:24,000 --> 00:01:29,000
+Computers create graphical images by relating pixels on a two-dimensional matrix.
+
+17
+00:01:29,000 --> 00:01:33,000
+The more pixels you have at your disposal, the better the resolution of your image.
+
+18
+00:01:33,000 --> 00:01:36,000
+If your pixels become dense enough on the screen,
+
+19
+00:01:36,000 --> 00:01:40,000
+you can no longer make them out and the pixels effectively disappear from view.
+
+20
+00:01:40,000 --> 00:01:45,000
+That's what computer manufacturers mean when they talk about so-called retina devices.
+
+21
+00:01:46,000 --> 00:01:51,000
+To be clear, we're not going to create an image working directly with pixels this time around.
+
+22
+00:01:51,000 --> 00:01:54,000
+There are ways that you can manipulate pixels in Netsblocks,
+
+23
+00:01:54,000 --> 00:01:57,000
+and I'll discuss those in a subsequent video.
+
+24
+00:01:57,000 --> 00:02:01,000
+For now, we're going to simulate the experience of drawing with pixels
+
+25
+00:02:01,000 --> 00:02:06,000
+by using circles and combining them on the stage to generate a work of art.
+
+26
+00:02:06,000 --> 00:02:10,000
+Last time, we explored two different ways of making a circle.
+
+27
+00:02:10,000 --> 00:02:15,000
+But why not? Let's simplify by making a circle in yet another way.
+
+28
+00:02:15,000 --> 00:02:18,000
+Alright, so what do we need to do?
+
+29
+00:02:18,000 --> 00:02:22,000
+Let's start again with our control block here.
+
+30
+00:02:22,000 --> 00:02:25,000
+I'm going to bring over this repeat block,
+
+31
+00:02:25,000 --> 00:02:29,000
+and I'll change the slot to be 360.
+
+32
+00:02:29,000 --> 00:02:33,000
+And then I'm going to take a motion block,
+
+33
+00:02:33,000 --> 00:02:37,000
+and we'll take this turn one degree here.
+
+34
+00:02:39,000 --> 00:02:43,000
+And then we'll have a move block, and this will make the radius,
+
+35
+00:02:43,000 --> 00:02:46,000
+and I'm going to change that to 30.
+
+36
+00:02:46,000 --> 00:02:48,000
+Now here's a slight difference from what we did last time.
+
+37
+00:02:48,000 --> 00:02:55,000
+I'm going to take the pen, and I'm going to put the pen down right here.
+
+38
+00:02:55,000 --> 00:02:59,000
+Then I'm going to take the pen up right there,
+
+39
+00:02:59,000 --> 00:03:05,000
+and then I'm going to take another move block right here,
+
+40
+00:03:05,000 --> 00:03:07,000
+and then I'm going to put that as negative 30.
+
+41
+00:03:07,000 --> 00:03:10,000
+So instead of setting the x and y coordinates explicitly,
+
+42
+00:03:10,000 --> 00:03:13,000
+we're just going to say move 30 in one direction,
+
+43
+00:03:13,000 --> 00:03:15,000
+and then move 30 back in the other direction,
+
+44
+00:03:15,000 --> 00:03:17,000
+but the second time around, as you're moving back,
+
+45
+00:03:17,000 --> 00:03:19,000
+don't trace the movement.
+
+46
+00:03:19,000 --> 00:03:21,000
+Alright, let's give it a shot, see if it works.
+
+47
+00:03:21,000 --> 00:03:22,000
+Here we go.
+
+48
+00:03:22,000 --> 00:03:25,000
+Circle.
+
+49
+00:03:25,000 --> 00:03:27,000
+It's making a circle.
+
+50
+00:03:27,000 --> 00:03:29,000
+So I'm going to let you in on a secret.
+
+51
+00:03:29,000 --> 00:03:34,000
+When we go sketching a circle, depending on how we do it,
+
+52
+00:03:34,000 --> 00:03:38,000
+we're either creating a 360 degree polygon,
+
+53
+00:03:38,000 --> 00:03:43,000
+or we're simply putting up dots that are spaced out
+
+54
+00:03:43,000 --> 00:03:48,000
+along the circumference at intervals that are too small for us to see.
+
+55
+00:03:48,000 --> 00:03:53,000
+But in neither case are we actually creating a true circle.
+
+56
+00:03:53,000 --> 00:03:56,000
+That's an illusion created by the fact that the pixels are so close together
+
+57
+00:03:56,000 --> 00:04:00,000
+on the screen that our eyes can't pick up the difference.
+
+58
+00:04:00,000 --> 00:04:03,000
+But if we made this circle bigger, we'd notice a difference.
+
+59
+00:04:03,000 --> 00:04:05,000
+Let's try expanding the radius of our circle now
+
+60
+00:04:05,000 --> 00:04:09,000
+to see how the circumference of our shape changes as it expands.
+
+61
+00:04:10,000 --> 00:04:14,000
+Alright, so in that case, I'm going to take this,
+
+62
+00:04:14,000 --> 00:04:17,000
+I'm going to set the radius to like 60, let's say,
+
+63
+00:04:17,000 --> 00:04:20,000
+and then have to have an equal number back,
+
+64
+00:04:20,000 --> 00:04:21,000
+and let's run this.
+
+65
+00:04:21,000 --> 00:04:23,000
+Oh, let's clear the screen just so we make sure
+
+66
+00:04:23,000 --> 00:04:25,000
+that nothing's going on in the background.
+
+67
+00:04:25,000 --> 00:04:27,000
+Whoa!
+
+68
+00:04:27,000 --> 00:04:30,000
+The problem is it needs to be negative 60 steps back.
+
+69
+00:04:30,000 --> 00:04:33,000
+Okay, so let's clear the screen and run this again,
+
+70
+00:04:33,000 --> 00:04:36,000
+and we need to show...
+
+71
+00:04:36,000 --> 00:04:41,000
+There we go, let's bring it back right to the center.
+
+72
+00:04:41,000 --> 00:04:45,000
+Okay, let's try that again.
+
+73
+00:04:46,000 --> 00:04:48,000
+So it still looks like a circle,
+
+74
+00:04:48,000 --> 00:04:51,000
+but maybe you can notice it's a little rougher on the edges.
+
+75
+00:04:51,000 --> 00:04:54,000
+Let's move that even bigger to like 120,
+
+76
+00:04:54,000 --> 00:04:57,000
+and this time negative 120.
+
+77
+00:04:57,000 --> 00:05:00,000
+Try that.
+
+78
+00:05:00,000 --> 00:05:03,000
+And now I think you can see that you can definitely pick up
+
+79
+00:05:03,000 --> 00:05:06,000
+on sort of the fuzziness here as the lines that we're drawing
+
+80
+00:05:06,000 --> 00:05:08,000
+have white spaces in between.
+
+81
+00:05:08,000 --> 00:05:10,000
+Let's go to even higher resolution here.
+
+82
+00:05:10,000 --> 00:05:16,000
+Let's say 200 and then negative 200.
+
+83
+00:05:18,000 --> 00:05:21,000
+Okay, so you can see now, I mean, it's a nice effect,
+
+84
+00:05:21,000 --> 00:05:24,000
+but it's not drawing a perfect circle.
+
+85
+00:05:24,000 --> 00:05:26,000
+You can see now that it has lines going out,
+
+86
+00:05:26,000 --> 00:05:29,000
+and in that case, if we want to fill those lines in
+
+87
+00:05:29,000 --> 00:05:31,000
+to make it look like a perfect circle,
+
+88
+00:05:31,000 --> 00:05:34,000
+we'd actually have to reduce the number of degrees
+
+89
+00:05:34,000 --> 00:05:37,000
+that we used to make that circle.
+
+90
+00:05:37,000 --> 00:05:40,000
+So we'd have to probably move it to like 0.5 degrees
+
+91
+00:05:40,000 --> 00:05:46,000
+and then double this number of 360 to 720.
+
+92
+00:05:46,000 --> 00:05:50,000
+Let's see if that works.
+
+93
+00:05:51,000 --> 00:05:55,000
+Better, right?
+
+94
+00:05:55,000 --> 00:06:00,000
+In any case, it makes a difference as you expand the radius
+
+95
+00:06:00,000 --> 00:06:04,000
+how many times you need to mark that outer circumference with dots
+
+96
+00:06:04,000 --> 00:06:07,000
+in order to keep the representation of a circle.
+
+97
+00:06:07,000 --> 00:06:10,000
+And, in fact, we can move the other direction.
+
+98
+00:06:10,000 --> 00:06:12,000
+We can put points down on the circumference
+
+99
+00:06:12,000 --> 00:06:14,000
+at intervals of 2 degrees
+
+100
+00:06:14,000 --> 00:06:16,000
+and still achieve the smooth effect that we want
+
+101
+00:06:16,000 --> 00:06:20,000
+as long as we keep the radius of the circle relatively small.
+
+102
+00:06:20,000 --> 00:06:22,000
+So let's try this in the other direction now.
+
+103
+00:06:22,000 --> 00:06:25,000
+I'm going to say let's move 180 times around,
+
+104
+00:06:25,000 --> 00:06:29,000
+but this time we're going to move with 2 degrees each time.
+
+105
+00:06:29,000 --> 00:06:34,000
+And I will make this, let's say, 30 and negative 30.
+
+106
+00:06:34,000 --> 00:06:38,000
+Take a look.
+
+107
+00:06:38,000 --> 00:06:42,000
+And you can see that the circle looks just like a circle.
+
+108
+00:06:42,000 --> 00:06:44,000
+So what's the advantage of doing it that way?
+
+109
+00:06:44,000 --> 00:06:46,000
+Well, the advantage of that technique
+
+110
+00:06:46,000 --> 00:06:49,000
+is that our program will execute faster
+
+111
+00:06:49,000 --> 00:06:53,000
+if we require fewer computational steps to create circles.
+
+112
+00:06:53,000 --> 00:06:56,000
+It's kind of fun to see the turtle busily drawing the circumference
+
+113
+00:06:56,000 --> 00:06:58,000
+when you're only creating one circle,
+
+114
+00:06:58,000 --> 00:07:00,000
+but it gets to be a drag when you're creating many circles,
+
+115
+00:07:00,000 --> 00:07:02,000
+as we hope to do.
+
+116
+00:07:02,000 --> 00:07:05,000
+So by reducing the number of computational steps,
+
+117
+00:07:05,000 --> 00:07:07,000
+we speed up the drawing of the circle.
+
+118
+00:07:07,000 --> 00:07:10,000
+In this case, we can effectively cut the time in half.
+
+119
+00:07:10,000 --> 00:07:12,000
+Here are a couple other tricks and tips
+
+120
+00:07:12,000 --> 00:07:15,000
+to make your computations cleaner and faster.
+
+121
+00:07:15,000 --> 00:07:17,000
+Sometimes you want to hide the turtle
+
+122
+00:07:17,000 --> 00:07:20,000
+rather than show that busy little sprite at work.
+
+123
+00:07:20,000 --> 00:07:24,000
+If that's the case, you can drag over this hide block.
+
+124
+00:07:24,000 --> 00:07:30,000
+Take a look over here, and you can see under Looks,
+
+125
+00:07:30,000 --> 00:07:32,000
+there is a hide block right here.
+
+126
+00:07:32,000 --> 00:07:36,000
+And if I put that at the top, here's the turtle right now.
+
+127
+00:07:36,000 --> 00:07:40,000
+If I click it, the turtle disappears,
+
+128
+00:07:40,000 --> 00:07:44,000
+but the drawing still appears.
+
+129
+00:07:44,000 --> 00:07:46,000
+The sprite is still at its coordinate position,
+
+130
+00:07:46,000 --> 00:07:48,000
+but it's no longer visible.
+
+131
+00:07:48,000 --> 00:07:50,000
+If you want to see the sprite again,
+
+132
+00:07:50,000 --> 00:07:53,000
+click the corresponding show block.
+
+133
+00:07:53,000 --> 00:07:56,000
+Right here, put this at the end,
+
+134
+00:07:56,000 --> 00:07:58,000
+and if we click it now,
+
+135
+00:07:58,000 --> 00:08:00,000
+I'll just pull it off so we don't run it again,
+
+136
+00:08:00,000 --> 00:08:03,000
+you can see that the sprite reappeared to view.
+
+137
+00:08:03,000 --> 00:08:06,000
+Another nice trick is to use Turbo Mode
+
+138
+00:08:06,000 --> 00:08:08,000
+to speed up your computations.
+
+139
+00:08:08,000 --> 00:08:10,000
+Turbo Mode allows NetZblocks to take shortcuts
+
+140
+00:08:10,000 --> 00:08:12,000
+when updating the stage.
+
+141
+00:08:12,000 --> 00:08:14,000
+You can see that turning it on
+
+142
+00:08:14,000 --> 00:08:16,000
+makes a huge difference when drawing shapes.
+
+143
+00:08:16,000 --> 00:08:20,000
+When it's on, the green flag becomes a lightning bolt.
+
+144
+00:08:20,000 --> 00:08:22,000
+And just look at the difference.
+
+145
+00:08:22,000 --> 00:08:24,000
+Here, and I'm going to take,
+
+146
+00:08:24,000 --> 00:08:28,000
+it's right down here, let's see, Turbo Mode, there it is.
+
+147
+00:08:28,000 --> 00:08:30,000
+I'm going to click on it,
+
+148
+00:08:30,000 --> 00:08:32,000
+and let's just, there's the lightning bolt,
+
+149
+00:08:32,000 --> 00:08:35,000
+and let's try it out.
+
+150
+00:08:35,000 --> 00:08:37,000
+Well, did it do anything? It did.
+
+151
+00:08:37,000 --> 00:08:39,000
+Let's move it over here, we can see.
+
+152
+00:08:39,000 --> 00:08:41,000
+It just does it instantaneously.
+
+153
+00:08:41,000 --> 00:08:44,000
+Much faster.
+
+154
+00:08:44,000 --> 00:08:47,000
+Okay, so let's begin developing our program.
+
+155
+00:08:47,000 --> 00:08:50,000
+We're going to draw circles of various random shapes,
+
+156
+00:08:50,000 --> 00:08:52,000
+sizes, and colors on the screen.
+
+157
+00:08:52,000 --> 00:08:55,000
+There's a block in the palette under Operators
+
+158
+00:08:55,000 --> 00:08:57,000
+that allows us to generate random numbers.
+
+159
+00:08:57,000 --> 00:09:01,000
+We can use that block to set the high and low end
+
+160
+00:09:01,000 --> 00:09:03,000
+of the random numbers using the input slots
+
+161
+00:09:03,000 --> 00:09:05,000
+that the block provides.
+
+162
+00:09:05,000 --> 00:09:07,000
+So we'll take a look over here, and we say,
+
+163
+00:09:07,000 --> 00:09:09,000
+pick random from 1 to 10,
+
+164
+00:09:09,000 --> 00:09:12,000
+and so I can set this to anything I like.
+
+165
+00:09:12,000 --> 00:09:16,000
+Let's just do this right now from, you know,
+
+166
+00:09:16,000 --> 00:09:23,000
+I guess, let's say from 10 to 30.
+
+167
+00:09:23,000 --> 00:09:25,000
+And you see when I click on it,
+
+168
+00:09:25,000 --> 00:09:28,000
+each time it's going to give me a different random number
+
+169
+00:09:28,000 --> 00:09:30,000
+that's within that range.
+
+170
+00:09:30,000 --> 00:09:32,000
+Here is where we're going to need to introduce
+
+171
+00:09:32,000 --> 00:09:34,000
+the concept of a variable.
+
+172
+00:09:34,000 --> 00:09:38,000
+A variable is basically a label that we create for a value.
+
+173
+00:09:38,000 --> 00:09:41,000
+It's like an alias or a codename for a value.
+
+174
+00:09:41,000 --> 00:09:44,000
+When we create a variable, we can use it
+
+175
+00:09:44,000 --> 00:09:46,000
+to refer back to that computation
+
+176
+00:09:46,000 --> 00:09:49,000
+or any computation that produces a value.
+
+177
+00:09:49,000 --> 00:09:51,000
+That's actually kind of a deep point
+
+178
+00:09:51,000 --> 00:09:53,000
+that we're going to come back to later.
+
+179
+00:09:53,000 --> 00:09:56,000
+For now, what a variable allows us to do
+
+180
+00:09:56,000 --> 00:09:58,000
+is to store a value, and if we want to,
+
+181
+00:09:58,000 --> 00:10:01,000
+to update that value as our code runs along.
+
+182
+00:10:01,000 --> 00:10:03,000
+So in this following example,
+
+183
+00:10:03,000 --> 00:10:05,000
+we're going to use a variable to store
+
+184
+00:10:05,000 --> 00:10:07,000
+the radius of the circle.
+
+185
+00:10:07,000 --> 00:10:09,000
+By making the variable bigger or smaller,
+
+186
+00:10:09,000 --> 00:10:12,000
+we'll be able to control the circle size
+
+187
+00:10:12,000 --> 00:10:14,000
+and make different size circles on the screen.
+
+188
+00:10:14,000 --> 00:10:16,000
+The reason I need a variable is
+
+189
+00:10:16,000 --> 00:10:18,000
+I want it to be the same for moving the pen
+
+190
+00:10:18,000 --> 00:10:20,000
+this number of steps forward
+
+191
+00:10:20,000 --> 00:10:22,000
+and then this number of steps back
+
+192
+00:10:22,000 --> 00:10:24,000
+to control the radius size.
+
+193
+00:10:24,000 --> 00:10:27,000
+So I have to use the same random number each time.
+
+194
+00:10:27,000 --> 00:10:30,000
+I don't want that to change as the loop goes around.
+
+195
+00:10:30,000 --> 00:10:32,000
+So in that case, what I'm going to do
+
+196
+00:10:32,000 --> 00:10:34,000
+is I will create our first variable.
+
+197
+00:10:34,000 --> 00:10:36,000
+So I'm going to go over here,
+
+198
+00:10:36,000 --> 00:10:38,000
+and I'm going to click on Make a Variable.
+
+199
+00:10:38,000 --> 00:10:41,000
+In this case, what we want to do is create a radius variable.
+
+200
+00:10:41,000 --> 00:10:43,000
+I'm going to call it radius.
+
+201
+00:10:43,000 --> 00:10:45,000
+You can call it anything you like,
+
+202
+00:10:45,000 --> 00:10:47,000
+but it's typical to call it something that's meaningful.
+
+203
+00:10:47,000 --> 00:10:49,000
+So radius.
+
+204
+00:10:50,000 --> 00:10:52,000
+And now,
+
+205
+00:10:52,000 --> 00:10:54,000
+let's go over here to
+
+206
+00:10:54,000 --> 00:10:56,000
+set it.
+
+207
+00:10:56,000 --> 00:10:58,000
+And you'll see that radius appears as a variable.
+
+208
+00:10:58,000 --> 00:11:00,000
+It's got a checkbox here,
+
+209
+00:11:00,000 --> 00:11:02,000
+which means that it shows up on our stage.
+
+210
+00:11:02,000 --> 00:11:04,000
+We don't really want it to show up on the stage,
+
+211
+00:11:04,000 --> 00:11:06,000
+so I'm going to unclick that checkbox,
+
+212
+00:11:06,000 --> 00:11:08,000
+and you see it disappears.
+
+213
+00:11:08,000 --> 00:11:10,000
+But when I drop down here,
+
+214
+00:11:10,000 --> 00:11:12,000
+it shows that there is a variable called radius
+
+215
+00:11:12,000 --> 00:11:14,000
+that we can assign.
+
+216
+00:11:14,000 --> 00:11:16,000
+And I'm going to assign it to this random number.
+
+217
+00:11:16,000 --> 00:11:18,000
+So, now,
+
+218
+00:11:18,000 --> 00:11:20,000
+when I bring this in here,
+
+219
+00:11:20,000 --> 00:11:22,000
+I can say, set the radius to a random size
+
+220
+00:11:22,000 --> 00:11:24,000
+between 10 and 30.
+
+221
+00:11:24,000 --> 00:11:26,000
+Now, the trick is I need to use it here
+
+222
+00:11:26,000 --> 00:11:28,000
+because these two numbers have to be the same.
+
+223
+00:11:28,000 --> 00:11:30,000
+So what can I do?
+
+224
+00:11:30,000 --> 00:11:33,000
+Well, I can grab radius off the side here,
+
+225
+00:11:33,000 --> 00:11:35,000
+and I'm going to move it into that slot.
+
+226
+00:11:35,000 --> 00:11:38,000
+So now it's going to be Move Radius Steps,
+
+227
+00:11:38,000 --> 00:11:40,000
+which will be the value of the outcome
+
+228
+00:11:40,000 --> 00:11:42,000
+of the random number generator
+
+229
+00:11:42,000 --> 00:11:44,000
+that we've put inside of the block.
+
+230
+00:11:44,000 --> 00:11:46,000
+Now, to go the opposite way,
+
+231
+00:11:46,000 --> 00:11:48,000
+we'll have to do a little bit of math,
+
+232
+00:11:48,000 --> 00:11:51,000
+and we're just going to take an operator here,
+
+233
+00:11:51,000 --> 00:11:54,000
+and we're going to multiply that by negative 1.
+
+234
+00:11:54,000 --> 00:11:56,000
+So you can see here,
+
+235
+00:11:56,000 --> 00:11:58,000
+put a negative 1,
+
+236
+00:11:58,000 --> 00:12:01,000
+and then I'm going to carry that same variable over,
+
+237
+00:12:01,000 --> 00:12:03,000
+radius,
+
+238
+00:12:03,000 --> 00:12:05,000
+and there you go.
+
+239
+00:12:05,000 --> 00:12:07,000
+So we're going to Move Radius Steps,
+
+240
+00:12:07,000 --> 00:12:09,000
+negative 1 times radius steps,
+
+241
+00:12:09,000 --> 00:12:11,000
+which will be the inverse
+
+242
+00:12:11,000 --> 00:12:13,000
+of the number of steps that we moved,
+
+243
+00:12:13,000 --> 00:12:15,000
+without changing that number
+
+244
+00:12:15,000 --> 00:12:17,000
+until we've done our full loop.
+
+245
+00:12:17,000 --> 00:12:19,000
+All right, ready to see it go?
+
+246
+00:12:19,000 --> 00:12:21,000
+Let's move this off here,
+
+247
+00:12:21,000 --> 00:12:23,000
+put it back here so we can see,
+
+248
+00:12:23,000 --> 00:12:25,000
+and let's run.
+
+249
+00:12:25,000 --> 00:12:27,000
+OK, there's one size, there's another, there's another.
+
+250
+00:12:27,000 --> 00:12:29,000
+You can see that each time I click it,
+
+251
+00:12:29,000 --> 00:12:31,000
+I'm getting a different size circle.
+
+252
+00:12:31,000 --> 00:12:33,000
+And we can make it bigger,
+
+253
+00:12:33,000 --> 00:12:35,000
+just to get that sense of what's happening.
+
+254
+00:12:35,000 --> 00:12:37,000
+There we go.
+
+255
+00:12:37,000 --> 00:12:39,000
+Sometimes when you get up to 60, though,
+
+256
+00:12:39,000 --> 00:12:41,000
+you can see the quasi-pixelation that's taking place.
+
+257
+00:12:41,000 --> 00:12:43,000
+So we don't really want to go that high in our drawing.
+
+258
+00:12:43,000 --> 00:12:45,000
+Let's stay with 30 as our highest number.
+
+259
+00:12:45,000 --> 00:12:47,000
+To create the illusion of painting,
+
+260
+00:12:47,000 --> 00:12:49,000
+we also want to assign
+
+261
+00:12:49,000 --> 00:12:51,000
+the location of the circle
+
+262
+00:12:51,000 --> 00:12:53,000
+close to the previous circle.
+
+263
+00:12:53,000 --> 00:12:55,000
+This will help us to maintain
+
+264
+00:12:55,000 --> 00:12:57,000
+that kind of flow that you get in a painting,
+
+265
+00:12:57,000 --> 00:12:59,000
+which does make it look like it was
+
+266
+00:12:59,000 --> 00:13:01,000
+seamlessly coming out of someone's paintbrush.
+
+267
+00:13:01,000 --> 00:13:03,000
+What we're going to do
+
+268
+00:13:03,000 --> 00:13:05,000
+is bring over a motion block,
+
+269
+00:13:05,000 --> 00:13:07,000
+and we're going to say here,
+
+270
+00:13:07,000 --> 00:13:09,000
+move 10 steps, let's say,
+
+271
+00:13:11,000 --> 00:13:13,000
+and
+
+272
+00:13:13,000 --> 00:13:15,000
+we'll also
+
+273
+00:13:15,000 --> 00:13:17,000
+maybe just put it off at an angle.
+
+274
+00:13:17,000 --> 00:13:19,000
+So we don't want to just say
+
+275
+00:13:19,000 --> 00:13:21,000
+10 steps or 15 degrees every time,
+
+276
+00:13:21,000 --> 00:13:23,000
+that would be a little bit boring.
+
+277
+00:13:23,000 --> 00:13:25,000
+What we want to do then is
+
+278
+00:13:25,000 --> 00:13:27,000
+pick a random number again.
+
+279
+00:13:27,000 --> 00:13:29,000
+So some number
+
+280
+00:13:29,000 --> 00:13:31,000
+between, let's say,
+
+281
+00:13:31,000 --> 00:13:33,000
+5 and 5 degrees
+
+282
+00:13:33,000 --> 00:13:35,000
+we'll turn, so that'll be turning
+
+283
+00:13:35,000 --> 00:13:37,000
+left or right, and
+
+284
+00:13:37,000 --> 00:13:39,000
+let's move
+
+285
+00:13:39,000 --> 00:13:41,000
+again some random number
+
+286
+00:13:41,000 --> 00:13:43,000
+between 1 and 10.
+
+287
+00:13:43,000 --> 00:13:45,000
+Now, in order to have more
+
+288
+00:13:45,000 --> 00:13:47,000
+than one circle appear on the screen,
+
+289
+00:13:47,000 --> 00:13:49,000
+we need yet another control block.
+
+290
+00:13:49,000 --> 00:13:51,000
+Let's go over to our controls and bring this down,
+
+291
+00:13:51,000 --> 00:13:53,000
+and
+
+292
+00:13:53,000 --> 00:13:55,000
+let's take a look at what we want.
+
+293
+00:13:55,000 --> 00:13:57,000
+The one that I suggest we use,
+
+294
+00:13:57,000 --> 00:13:59,000
+if I can find it here, is
+
+295
+00:13:59,000 --> 00:14:01,000
+the forever block. This basically means
+
+296
+00:14:01,000 --> 00:14:03,000
+just continue doing this loop forever
+
+297
+00:14:03,000 --> 00:14:05,000
+until we hit that red stop button.
+
+298
+00:14:05,000 --> 00:14:07,000
+So I'm going to take that
+
+299
+00:14:07,000 --> 00:14:09,000
+and let's move
+
+300
+00:14:09,000 --> 00:14:11,000
+all this inside here.
+
+301
+00:14:11,000 --> 00:14:13,000
+So now you can see we have two control structures,
+
+302
+00:14:13,000 --> 00:14:15,000
+one encompassing the other,
+
+303
+00:14:15,000 --> 00:14:17,000
+and we're going to put that hide and clear on the top,
+
+304
+00:14:17,000 --> 00:14:19,000
+and
+
+305
+00:14:19,000 --> 00:14:21,000
+let's see what happens.
+
+306
+00:14:23,000 --> 00:14:25,000
+Oh, it went right off the screen.
+
+307
+00:14:25,000 --> 00:14:27,000
+OK. That's because
+
+308
+00:14:27,000 --> 00:14:29,000
+we need one more piece here.
+
+309
+00:14:29,000 --> 00:14:31,000
+We need a block to tell it if it hits
+
+310
+00:14:31,000 --> 00:14:33,000
+the side of the screen to
+
+311
+00:14:33,000 --> 00:14:35,000
+bounce back towards the middle, and fortunately
+
+312
+00:14:35,000 --> 00:14:37,000
+there is a block that does exactly that
+
+313
+00:14:37,000 --> 00:14:39,000
+under motion. It's
+
+314
+00:14:39,000 --> 00:14:41,000
+if on edge, bounce.
+
+315
+00:14:41,000 --> 00:14:43,000
+So we're going to take that and put it right under our move, and that should
+
+316
+00:14:43,000 --> 00:14:45,000
+help us to prevent that from happening
+
+317
+00:14:45,000 --> 00:14:47,000
+again, and let's right click
+
+318
+00:14:47,000 --> 00:14:49,000
+on this and show
+
+319
+00:14:49,000 --> 00:14:51,000
+our turtle. We'll put it right back here,
+
+320
+00:14:51,000 --> 00:14:53,000
+and we're going to give it another shot.
+
+321
+00:14:53,000 --> 00:14:55,000
+And you can see now
+
+322
+00:14:55,000 --> 00:14:57,000
+that it's moving around.
+
+323
+00:14:57,000 --> 00:14:59,000
+Let's change our radius to
+
+324
+00:14:59,000 --> 00:15:01,000
+between 1 and 20, just
+
+325
+00:15:01,000 --> 00:15:03,000
+to get a little bit more of a fine detail
+
+326
+00:15:03,000 --> 00:15:05,000
+on the points that we're putting on.
+
+327
+00:15:05,000 --> 00:15:07,000
+There, it's
+
+328
+00:15:07,000 --> 00:15:09,000
+beginning to look a little bit
+
+329
+00:15:09,000 --> 00:15:11,000
+more like an artist's brush,
+
+330
+00:15:11,000 --> 00:15:13,000
+but we can actually make it
+
+331
+00:15:13,000 --> 00:15:15,000
+even smaller, and I think that would increase
+
+332
+00:15:15,000 --> 00:15:17,000
+the detail. Let's go to
+
+333
+00:15:17,000 --> 00:15:19,000
+between 1 and 10.
+
+334
+00:15:19,000 --> 00:15:21,000
+All right.
+
+335
+00:15:21,000 --> 00:15:23,000
+Now that's beginning to look like something,
+
+336
+00:15:23,000 --> 00:15:25,000
+right? The last piece of detail
+
+337
+00:15:25,000 --> 00:15:27,000
+that we want here is we don't want to just
+
+338
+00:15:27,000 --> 00:15:29,000
+paint with the same color. We want to
+
+339
+00:15:29,000 --> 00:15:31,000
+be able to change colors as we go along.
+
+340
+00:15:31,000 --> 00:15:33,000
+So in order to do that,
+
+341
+00:15:33,000 --> 00:15:35,000
+let's go over here to
+
+342
+00:15:35,000 --> 00:15:37,000
+pen, and we can see that we have
+
+343
+00:15:37,000 --> 00:15:39,000
+change color
+
+344
+00:15:39,000 --> 00:15:41,000
+by
+
+345
+00:15:41,000 --> 00:15:43,000
+10,
+
+346
+00:15:43,000 --> 00:15:45,000
+and let's take that down here.
+
+347
+00:15:45,000 --> 00:15:47,000
+And again, we don't necessarily want
+
+348
+00:15:47,000 --> 00:15:49,000
+to change it by 10 every
+
+349
+00:15:49,000 --> 00:15:51,000
+time. We might want to just
+
+350
+00:15:51,000 --> 00:15:53,000
+change it by a little bit
+
+351
+00:15:53,000 --> 00:15:55,000
+on one direction or the other
+
+352
+00:15:55,000 --> 00:15:57,000
+of the scale. So, okay,
+
+353
+00:15:57,000 --> 00:15:59,000
+we're going to go over and grab that random again,
+
+354
+00:15:59,000 --> 00:16:01,000
+which is under operator. Let's put random
+
+355
+00:16:01,000 --> 00:16:03,000
+in here,
+
+356
+00:16:03,000 --> 00:16:05,000
+and let's change it by
+
+357
+00:16:05,000 --> 00:16:07,000
+negative 1 and 1. Just kind of, every time
+
+358
+00:16:07,000 --> 00:16:09,000
+we go through, we'll just subtly change it,
+
+359
+00:16:09,000 --> 00:16:11,000
+which should give, again, that illusion of continuity.
+
+360
+00:16:11,000 --> 00:16:13,000
+Try it again.
+
+361
+00:16:15,000 --> 00:16:17,000
+And now, it's beginning to look like
+
+362
+00:16:17,000 --> 00:16:19,000
+a proper splatter painting,
+
+363
+00:16:19,000 --> 00:16:21,000
+some kind of abstract expressionist.
+
+364
+00:16:21,000 --> 00:16:23,000
+Well, I did promise you that
+
+365
+00:16:23,000 --> 00:16:25,000
+we would do some painting.
+
+366
+00:16:25,000 --> 00:16:27,000
+In the end, I think our painting looks a little bit
+
+367
+00:16:27,000 --> 00:16:29,000
+more like Lee Krasner
+
+368
+00:16:29,000 --> 00:16:31,000
+than George Seurat, but
+
+369
+00:16:31,000 --> 00:16:33,000
+it's actually quite a nice effect, don't you think?
+
+370
+00:16:33,000 --> 00:16:35,000
+So, if only we could get Alonzo
+
+371
+00:16:35,000 --> 00:16:37,000
+to sign it for us, perhaps we could go
+
+372
+00:16:37,000 --> 00:16:39,000
+in the market and sell it.
+
+373
+00:16:39,000 --> 00:16:41,000
+Wow, we covered a lot of ground once again
+
+374
+00:16:41,000 --> 00:16:43,000
+in this video. We built our most complicated
+
+375
+00:16:43,000 --> 00:16:45,000
+program so far, combining
+
+376
+00:16:45,000 --> 00:16:47,000
+two control blocks, the forever block
+
+377
+00:16:47,000 --> 00:16:49,000
+and the repeat block, along with
+
+378
+00:16:49,000 --> 00:16:51,000
+random blocks. We learned how
+
+379
+00:16:51,000 --> 00:16:53,000
+to create variables to store and to update
+
+380
+00:16:53,000 --> 00:16:55,000
+values, and we also picked up a few
+
+381
+00:16:55,000 --> 00:16:57,000
+tips and tricks of the NetsBlock
+
+382
+00:16:57,000 --> 00:16:59,000
+environment to speed up our computations
+
+383
+00:16:59,000 --> 00:17:01,000
+and to make them look more attractive.
+
+384
+00:17:01,000 --> 00:17:03,000
+And then we made some art in the process.
+
+385
+00:17:03,000 --> 00:17:05,000
+So, that's a wrap for this video.
+
+386
+00:17:05,000 --> 00:17:07,000
+Thanks for watching, and look forward
+
+387
+00:17:07,000 --> 00:17:09,000
+to having you with me next time.
+
+388
+00:17:17,000 --> 00:17:19,000
+Bye!
+
