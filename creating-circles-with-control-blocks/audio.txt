@@ -1,0 +1,212 @@
+Hey everybody, welcome back to this introductory series on Nest Blocks.
+I'm Cliff Anderson, a librarian at Vanderbilt University,
+and a member of our Computational Thinking and Learning Initiative.
+In our last video, we learned to draw simple shapes on the stage.
+In this video, I'm going to show you how to draw a circle.
+What makes creating a circle that different from a square?
+Stick around to find out.
+So
+our goal today is to ask our turtle to draw a circle on the stage.
+What's the most straightforward way to draw a circle?
+Well, we could move a step, turn a degree, then move another step, turn a degree,
+and so on and so on until we reach 360 degrees.
+So what blocks do we need to carry out that method?
+Let's go take a look.
+All right, so I'm going to bring over here from the motion palette over here.
+I'm going to grab, let's see, turn.
+That'll help us to turn a degree.
+And this is going to help us move.
+So I'll snap that together.
+So we want to say turn one degree, and then we want to move one step.
+And as you remember from last time, we'll take our pen here.
+We're going to say pen down, so we'll do that, and pen up.
+Okay, that's great.
+Let's take over.
+Oh, our sprite has disappeared.
+If this ever happens, right click on this and just click show.
+There's the sprite.
+Let's bring it down to the middle.
+Okay, so pen down, turn one degree, move one step, pen up.
+Click on this.
+We should be able to see, if you look carefully right here, a single dot.
+So all we have to do is make 360 of those dots, and we'll be done, right?
+So we could do what we did last time and just replicate these blocks.
+We could right click on this here and say duplicate, and we could duplicate that 360 times.
+But as I guess you could imagine, that would be a pretty dull way to make a program.
+We'd end up with like a huge stack of blocks on the screen that would actually go off the bottom.
+So we're not going to do it that way.
+Fortunately, there is another way to do this.
+And programmers have developed an acronym for avoiding that kind of repetition,
+where you just copy blocks over and over again.
+It's called the DRY principle, or the Do Not Repeat Yourself principle.
+The DRY principle basically says that you should find a way of reducing repetition
+whenever possible in your program.
+If you discover yourself duplicating a set of blocks over and over again,
+then you should try another solution.
+In this case, what we need is a control block.
+So the set of control blocks are colored yellow in NetsBlocks.
+Let's take a look over here.
+Let's go up and you can see.
+I guess that's yellow.
+Maybe like a kind of yellowish brown.
+In any case, those are the control blocks.
+So these control blocks affect what we call flow of control in a program.
+The idea is pretty simple.
+Think about reading a book.
+If you read a book in English, the text reads from left to right across the page.
+But if you're reading manga, then you need to read from right to left.
+In Chinese, you may find books laid out in various formats,
+from left to right across the page,
+or perhaps in columns from top to bottom, and then from right to left.
+And if you try to read a page in a way differently than the publisher intended,
+the individual words on the page will not make sense.
+A similar idea applies to programming languages.
+In NetsBlocks, you need to read programs from top to bottom.
+So we start at the top of the set of blocks, and then we work our way down the stack.
+But we can use control structures to alter that straightforward flow.
+For example, if we want to repeat a set of blocks over and over again,
+then we can use a repeat block to repeat the set of blocks
+inside of that block a certain number of times before moving on to the blocks below it.
+So if we look over here, and we grab, for example, this repeat block,
+and you see it has a number there, it also has this slot.
+This is a slot that we can put other blocks into.
+So I can take these two blocks and put them in here.
+And you see that it sort of snaps around it.
+This particular type of control block is called a C-shaped block,
+and that's because it kind of looks like a C that you can put things into.
+Let's give it a shot.
+Let's use this repeat block, and we're going to draw our circle.
+Without having to repeat these blocks 360 times.
+Okay, so I'm going to take this block here,
+and I'm going to type in 360. It's the number of times I want to repeat.
+I'm going to put the pen down before I get started, and then I'll take the pen up.
+And just to show that there's no magic behind the scenes,
+let's get a clear block here so it starts fresh, and let's give it a try.
+All right, here we go.
+We can see a nice circle coming to existence.
+And it stops when it completes the loop.
+There you go. That's what we call a control block that makes it possible for us
+to do complicated calculations or computations
+without actually having to develop a huge stack of blocks.
+We actually did it in just a few.
+So this is one way to draw a circle,
+but there is a certain downside to this particular technique.
+You see that the circle is off-center.
+It's not really in the center.
+It started at the center, and then it kind of looped below,
+and then it comes back up to the top.
+So if we're going to use this technique,
+we're going to have to do some interesting calculations
+to figure out where we are going to put the center
+whenever we run this set of blocks.
+It might be easier to actually just start the calculation at the center,
+and then we can say, here's where we want the circle to be,
+and we can also define the radius.
+Let's try a different technique.
+I'm going to take these blocks and just throw them off to the side.
+And then I'm going to start again with,
+let's just take the pin down and pin up.
+We know we need those, and the clear.
+We're going to go to control, and I'm going to grab from here,
+let's take a look, this repeat 10.
+So that's the same as the last time.
+But what we're going to do this time in motion,
+we're going to use that go to 0, 0.
+This is going to define where the particular circle starts.
+That'll be the center of the circle.
+And then this will help us define the radius, move 10 steps.
+In this case, just to make it a little bit bigger, I'm going to say 50 steps.
+And then we're going to turn a degree right here.
+Now, in order for this to work,
+well, let's try it this way first, and I'll talk it through.
+So I'll put the pin down here, the pin up there.
+Let's put the clear on top to make sure everything is cleared,
+and let's give it a shot.
+That's not quite what we expected.
+Why is that?
+I forgot to change the 10 to 360.
+Let's do that.
+All right, again.
+So that's making a nice circle.
+But the difference here is that circle's filled in,
+and that may be an effect that you want.
+But if you just want to draw the same lines,
+we're going to have to do a little bit of extra work.
+Now, think about this.
+Every time that this runs, it goes to 0, 0,
+and then it moves 10, or in this case, I think we set it to 50,
+50 steps from that direction that it's pointing,
+and that's going to make the circumference of the circle.
+And then we turn one degree,
+and then it makes that same route again and again and again
+until it makes it 360 times,
+which is why the lines are filling the interior of the circle.
+If we wanted to just simply sketch out the circumference,
+then we're going to have to take the pin
+and do a little bit more work here.
+So let's say we still want it to be 50 steps.
+So we're going to take 49.
+I'm going to grab this over here again and pull in move 10 steps.
+Then we're going to take the pin down and the pin up
+and put it on one side or the other of this last piece.
+I'm just going to change it to 1.
+So now we've got move 49 steps,
+but you see we also here have move 1 step.
+And so when I put this back in right there,
+let's get it clear.
+Let's try it out.
+You see it makes that trip up without tracing its steps
+until that very last step,
+in which case then it marks it on the screen.
+So that actually now is just marking out the circumference.
+So it's very similar to the way that we did it before,
+but the difference is we can easily change the starting place
+by just changing our x and y values.
+So here let's start at 50 and you see it moves over there.
+And we can also, of course, change the radius of the circle
+by simply changing this number in here.
+So now we're going to move 90 steps
+or we'll try 89 to keep it an even number.
+Well, not that big.
+There we go.
+Should we try it?
+Oh, I think I still have it too big.
+Let's try that again.
+89.
+There we go.
+And we need to show, bring it back.
+Should actually go back to the center anyway.
+There we go.
+So a slightly bigger circle.
+Using this technique, we can move the circle around the screen,
+selecting the center and the radius with greater ease.
+If we want to make this set of blocks fancier,
+we can also add another control block.
+This is called a hat block.
+Let's point it out right here.
+So I'm going to go to control.
+And these are the hat blocks.
+They kind of look like a hat if you use your imagination.
+So I'm going to bring this one over here.
+It says, when green flag clicked.
+And you'll note here that by putting that on top,
+because it's sitting on the top of the other blocks,
+I can kick off the sequence simply by clicking on this green flag here.
+So I don't have to click on the set of blocks itself.
+There you go.
+That's a more elegant way to starting a computation or a program.
+And sometimes you actually need it, because you may have multiple sets of blocks,
+and it's not clear to the user or even to yourself which set of blocks starts first.
+So you use the green flag as click block to identify the point of entry into your program.
+To return to our literary metaphor,
+these hat blocks signal start reading on this page and then go from there.
+OK, we've covered a number of concepts and techniques in this video.
+We learned how to draw a circle in two different ways.
+We gained insight into the D-R-Y principle.
+And I introduced the concept of flow of control and control structures,
+along with two kinds of control blocks, C-shaped blocks and hat blocks.
+So that's enough for a single video.
+In our next video, we'll put these techniques to use
+by writing a program to create a pointillist painting a la Georges Seurat.
+So look forward to seeing you next time.
+Thanks for joining me.

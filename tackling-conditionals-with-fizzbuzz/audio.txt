@@ -1,0 +1,235 @@
+Hi everybody, my name is Cliff Anderson, and I'm a librarian at Vanderbilt University.
+Welcome back to this introductory series on NetsBlocks.
+Today we're going to tackle one of the hardest problems in computer science, FizzBuzz.
+Just kidding, it's actually not that difficult.
+FizzBuzz is a children's game that requires you to evaluate and respond to changing conditions.
+Back in 2007, the developer and venture capitalist Imran Ghori wrote a blog post
+arguing that FizzBuzz makes a good interview question for computer programmers
+because so many find it difficult to solve.
+In this video, we're going to solve FizzBuzz in NetsBlocks using conditional logic,
+that is, the logic of if-then-else expressions.
+By the end of the video, you're going to be branching like a pro.
+Let's start by discussing the rules for FizzBuzz.
+The game goes like this. We start counting up from 1.
+If the number is divisible by 3, then we say Fizz rather than the number.
+If the number is divisible by 5, then we say Buzz rather than the number.
+If the number is divisible by both 3 and 5, then we say FizzBuzz rather than the number.
+If none of those conditions apply, then we just say the number itself.
+Got it?
+Let's practice with Alonzo.
+So, 1, 2, Fizz.
+4, Buzz, Fizz.
+7, 8, Fizz, Buzz.
+11, Fizz.
+13, 14, FizzBuzz.
+If you paid close attention to the way I explained the instructions,
+then you heard several conditionals.
+Conditionals take the form of, if such and such is the case, then do something else.
+For instance, if 6 is divisible without remainder by 3, then say the word Fizz.
+How do we express that kind of a conditional statement in code?
+Well, the first part asks a true or false question.
+Is 6 divisible by 3 without remainder?
+So, from our last video, we know that asking true-false questions requires the use of Booleans.
+To convert this question into Boolean logic, we need to find the right math operators to formulate the equation.
+Is the remainder of 6 divided by 3 equal to 0?
+The easiest way to pose this question is to use the modulus, or mod operator.
+So, I'm going to bring the mod operator over here from operations.
+Okay, and let's take 6 here, and 3.
+Oops, I keep clicking on it, it says not a number.
+But there we go, 6 mod 3.
+The answer should be 0, because 6 divided by 3 is 2 with a remainder of 0.
+However, if we divide it by 4, then 6 mod 4 will produce 2, because you can divide 6 by 4 once with 2 as a remainder.
+Now that we understand how the mod operator works, let's create a Boolean expression to capture the truth or falsity of our particular condition.
+We need to plug this operator into an equation that returns true if the modulus of our operation is 0,
+and false if the modulus of our operation is any other number.
+So how do we do that?
+We're going to bring over a Boolean operator, and we're going to take this particular expression and put it on the left side,
+and the right side we're going to put 0.
+And now we can ask, is 6 mod 4 equal to 0?
+Well, we know that it isn't, because it produces a 2 on the left side, and 2 is not equal to 0.
+So, indeed, it's false.
+But if we change this to a 3, 6 mod 3 evaluates to 0, and 0 is equal to 0, so it's going to return true.
+Okay, we've set up our Boolean expression to use in our conditional tests.
+Now we just need to formulate those tests themselves.
+Nextblocks offers a couple different blocks to evaluate conditional expressions.
+Today we're going to use both the if block and the if-else block.
+But let's start with the if block and come back to if-else when we discover our need for it.
+So the if block is here under control.
+Let's go over here, and let's go down to if.
+There it is.
+So I can grab this if block, and I can take this expression, and I can put it into this slot here.
+So now we've formulated a Boolean test.
+If this test is true, then whatever's inside of this C-shaped slot will execute,
+and if it's false, then it won't.
+So let's create if blocks to test for our three conditions.
+That is, 3, 5, and divisible by 3 and 5 together.
+Okay, so we've got divisible by 3 right here, so let's just duplicate that.
+And we're going to make this one, is it divisible by 5?
+In the third case, what we need to test for is whether the number is divisible by both 3 and 5.
+That is to say, it needs to pass both those tests.
+And because we have to test two things, we need an and block, as we learned last time.
+As you remember, when we use an and block, we test to see if both the left side and the right side evaluate to true.
+If both evaluate to true, then the and block evaluates to true.
+If one side or the other or both are false, then the and block evaluates to false.
+So let's duplicate these two tests.
+I'm going to duplicate this one here and move it onto one side.
+And I'm going to duplicate this test right here.
+And I'm going to move it to the other side.
+And so now we've got a test for is it divisible by 3 and divisible by 5.
+The thing is, we need a variable again, because we want to test not just specific numbers,
+but every number in our sequence.
+Do you remember how we created a variable when we were making splatter art?
+Let's go ahead again and create a public variable and plug it into each of these Boolean expressions in our conditionals.
+So again, to create a variable, we'll go over to the variable palette.
+We're going to click on create a variable.
+And now let's call it, we can call it anything we want, but let's just call it something that makes sense.
+We're going to call it count.
+So I'll click OK.
+And there is a variable count.
+And instead of the number 6, we're just going to put it in its place.
+So we're going to say, is 6 mod 3 equal to 0?
+Is, sorry, we're going to say, is count mod 3 equal to 0?
+Or is count mod 5 equal to 0?
+And in this last case, is count mod 3 and count mod 5, are they both equal to 0?
+The other thing that we need to do is to assign that variable some initial value.
+So let's go ahead and do that as well.
+I'm going to take this set block out and we'll say set.
+And we drop down to count.
+And let's just make it initially set to 1.
+So we can test it now by looking at this particular Boolean expression.
+We know that 1 mod 3 does not equal 0.
+And that 1 mod 5 does not equal 0.
+So we then know that the left and the right inputs to this operator are both false.
+And therefore the operator as a whole is also false.
+So let's take a condition and put that in here for the if.
+And drop it in there.
+OK, so we've got our three conditions set up.
+But what should happen if one of the expressions in these particular conditionals evaluates to true?
+Well, that's up to us, of course.
+We can put any code we like.
+But why don't we have Alonzo say fizz, buzz, or fizzbuzz as appropriate.
+Do you remember how we put words into Alonzo's mouth?
+Let's go back and find that block again under the looks palette.
+So the say block is here under looks.
+And let's just grab this right here.
+So we'll say say for 2 seconds.
+And then say for 2 seconds.
+And say for 2 seconds here.
+But we don't want Alonzo just to say hello.
+We need to fill this in with the content that we want.
+So if the number is divisible by 3, Alonzo should say fizz.
+If the number is divisible by 5, then Alonzo should say buzz.
+And if the number is divisible by both 3 and divisible by 5 without remainder,
+then Alonzo should say fizzbuzz.
+Shall we test this out?
+Let's take this number and we'll set it to 3.
+In that case, 3 mod 3 does equal 0.
+So Alonzo should say fizz.
+And there you go.
+But that number is not divisible by 5.
+So in this case, when we click on it, Alonzo shouldn't say anything.
+And there you go.
+Let's put everything together now.
+We just have to pull over a repeat block onto the scripting area
+and put these conditions inside.
+The repeat block will allow us to control how many numbers we want to evaluate in our sequence.
+But we also have to make sure that we increment our variable as we move along
+so that the numbers that Alonzo reports are the right ones.
+Fortunately, there's also a block for that.
+Over here, under variables, you can see that there is a block.
+Let's take a look at it right here, called change by 1.
+So that will increment our count variable every time we go through.
+Now we're going to create the loop by going over to control and grabbing this repeat.
+And so let's put these things together.
+We're running out of space here, but that's okay.
+We'll get things sorted out.
+So let's put the 3 condition up here.
+And then we'll put the 5 condition underneath it.
+And then let's put the condition here that we want.
+We're going to change the variable here by 1 every time we go through a loop.
+And we want to change this loop to 15.
+And we want to start with the number 1.
+Now the one other thing that we need is, this is only going to say fizzbuzz fizzbuzz.
+We need to actually have something for Alonzo to say, let's see here,
+when none of those conditions apply.
+So in this case, we're just going to have Alonzo say our number.
+I'll bring that over here.
+And there we go.
+Ready to try it out?
+Okay, let's give it a shot.
+So I'll click here.
+1, 2, fizz, 3.
+Wait, wait, Alonzo shouldn't say 3.
+4, buzz, that's right.
+5, wait, that should have been masked by buzz.
+So something's not working.
+What went wrong?
+The if blocks all responded as we expected to the inputs.
+So we got fizz, buzz, fizzbuzz in our numbers.
+The problem is that Alonzo said more than we wanted.
+As it happens, our logic requires our branches to be exclusive.
+Not just if then, but if then or if not, then something else.
+To capture this kind of logic in a conditional, we need an if-then-else block.
+The if-then-else block is like an if block,
+but it makes explicit what to do in the cases
+when the Boolean expression it contains evaluates to false.
+So let's reorder our sequence of blocks using if-then-else control blocks.
+And we'll see if we can get the logic right this time.
+So let's create a little bit more space for ourselves here
+just by pulling the stage over.
+And I'm going to pull out these particular conditions.
+And I'm going to pull out this variable incrementing logic down here.
+Well, this is actually that logic,
+and this is the say block that says the number.
+All right, so let's take a if-then-else.
+I'm going to bring this over here.
+And now we need to think about the logic.
+We want to start from the narrowest case.
+And the narrowest case is actually when a number is divisible
+without remainder by both 3 and 5.
+So let's start with that one.
+That's this particular case right here.
+So that'll be the first one.
+And if that happens, then we want to say fizzbuzz.
+If that doesn't happen, let's go to our next case.
+And our next case is going to be
+if it's divisible without remainder by either 3 or 5, it doesn't matter.
+So we'll do 5.
+Then we're going to say buzz.
+And if it's divisible without remainder by 3,
+then we're going to say fizz.
+And now if none of those tests apply,
+this is when we want to say the number itself.
+So if all those tests turned out to be false,
+then the last thing we do is say, well,
+then in that case, the else is going to be, say, the number itself.
+And then we need to put in this particular bit of logic
+to increment the variable each time, and we can try it again.
+I'll throw these off the stage so we don't confuse ourselves here,
+or the scripting area, I should say.
+There we go.
+And drumroll, please.
+And click.
+1, 2, fizz, 4, buzz, fizz, 7, 8, fizz, buzz, 11, fizz, 14, fizz, buzz.
+I missed one. Oh, too much dramatic emphasis.
+It works.
+Anyway, hooray for Alonzo, and hooray for you,
+since you can now pass that programming test.
+The larger lesson here is that the order of blocks
+and the order of those conditions makes a difference.
+If you want to model complex conditions,
+you need to pay careful attention to the flow of the logic.
+Don't worry if you get it wrong.
+We all make those kind of mistakes.
+If you find that your logic has gone awry,
+try walking through the branches
+and see what cases you've neglected to cover.
+As a final note,
+do you notice that our variable winds up reading 16 at the end?
+That's okay, because we're not planning to use it for anything else.
+But it's still a little untidy to leave the variable sitting around.
+Next time, we're going to learn how to use a for loop
+to eliminate the need for a separate count variable.
+But that's definitely enough for today.
+Congratulations on doing fizzbuzz.
+I hope you're well on your way, and I'll see you in our next video.

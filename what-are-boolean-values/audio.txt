@@ -1,0 +1,81 @@
+Hi, welcome back. My name is Cliff Anderson. Today we're going to be learning about truth and falsity.
+Some claims are true, like 1 plus 1 equals 2. Other claims are false, like 1 is greater than 2.
+We're going to learn how to compute with true and false values. We're also going to learn to combine
+true and false values using so-called Boolean operators. Is it true that 1 plus 1 equals 2
+and 1 is greater than 2? Stick around to find out.
+The goal today is to learn the basics of programming with true or false values
+using Boolean logic. We need to understand how to evaluate Boolean expressions in order to make
+more effective use of control blocks. I'm going to try to keep this video on the short side,
+as we'll be returning to this subject frequently during the series.
+Let's begin by pulling a true and false block onto the scripting area.
+See, actually I've got it more or less set up, but I'll bring over a false block. There we go.
+And, okay, so I can switch this back and forth to make it true or false. Those are the two options.
+And the one is just the inverse of the other. If you flip the switch, you can make true into false
+and false into true. Now, if you click on one of these blocks, you'll notice
+that you get a little pop-up window that lasts for a moment here until you move your mouse.
+And so it pops up and says false. If I click it to true, it pops up and it says true.
+What's the meaning of that pop-up? Boolean blocks constitute a special type of what is called a
+reporter block in Nets blocks. If command blocks change the state of the world, reporter blocks,
+like the name suggests, report the state of the world. A reporter block provides a peek into your
+program. The block tells you something about the program when you click on it. Or, to put it more
+technically, it reports a value. If we click on a true-false block, it reports its current state
+as either true or false. Very importantly, it doesn't change its value. If you want to change
+the value of a Boolean, you need to use a command block. A reporter block just tells you what its
+current value is. So, let's get back to Boolean values. The basic building block of Boolean logic
+is true or false. But what makes Boolean logic interesting is your ability to combine true or
+false blocks using various operators to create complex expressions. Let's begin with the simplest
+Boolean operator, the not block. As you see, if you place a not true, what do you think it's going
+to be if I click on it? False. And of course, if we say not false, then when we click on it, what do
+you expect? True. So, not true reports false, and not false reports true. How about more complex
+Boolean expressions? This brings us to blocks like or and and. Whereas the not block is a unary
+operator, that is, it takes a single input, or and are binary operators. They take two inputs and
+report a single true or false value. To understand how they work, it's helpful to look at what
+logicians call a truth table. Truth tables represent all possible combinations of input
+and output values for Boolean operators. So, let's consider the and operator. And reports true when
+both input values labeled in our chart A and B are true. If either of the inputs are false,
+then the and operator reports false. It also does when both are false. The or operator
+does more or less the opposite. As long as one of the inputs, or both of the inputs, is true,
+then the or operator reports true. Only if both inputs are false does the operator report false.
+So, for example, with the and operator, I've got true and true. So, if I click on this,
+as we expect, it's going to say true. But if it's true and false, it will say false. And,
+of course, false and false is false. Put that up here and let's take a look at the or.
+So, here we got an or. True or false is going to report true. True and true is also true.
+False or true is true. But false or false is going to be
+false. Okay. So, as I said, there are more complex operators that you can use,
+and you can build them out of these simple operators that I've shown. For example,
+I've created a NAND, or a not-and block. This block reports true if one input is true,
+or both inputs are false. And false if both inputs are true. Okay. So, if that didn't make
+you confused enough, let's just take a look. So, true, not-and, true. If I click on that,
+that's false. False, not-and, true is true. And again, the other way. True, not-and, false.
+NAND, false. True. And if they're both true, then it's false. There's also an XOR, or exclusive
+block. An XOR reports true if one input is true, and the other is false, but reports false
+if both inputs are true, or both inputs are false. So, let's take a look at that one here.
+So, here's the XOR. Okay. So, here's true or false. What do you think it's going to report?
+True. And same thing with false or true. XOR true. True. But if they're both true,
+unlike the normal OR, it will report false. And of course, if they're both false,
+it will also report false. There are other blocks here, like the NOR, and you can make more.
+If you'd like me to explore how I made these additional blocks and NETs blocks,
+let me know in the comments below, and I'd be happy to sort of walk you through creating new
+Boolean logic blocks in NETs blocks. So, let's end this video by answering the question we
+posed at the beginning. There are a couple other Boolean operators that can help us in NETs blocks
+to decide if 1 plus 1 equals 2, and 1 is greater than 2. Okay. So, let's go over to the side here,
+and you can see that I've got three. And I should have said this at the beginning,
+but those pointy edges always indicate that it's a Boolean. So, when you see this here,
+you know that it's a reporter that reports a Boolean. Okay. So, we've got the greater than,
+that's the lesser than, the greater than, and the equals. Okay. Let's try this here.
+So, I can take to represent our first question, 1 plus 1. I'll take that operator here and just
+put it in on one side. And then I'm going to take the number 2 and put it on the other side.
+Okay. And now, does 1 plus 1 equal 2? That is true. So, we've got one part of our question here.
+Is 1 greater than 2? That's false. Now, to relate them together, we just need to use the AND. So,
+now we can snap these two parts together, and we can ask the question that we asked at the beginning.
+Is 1 plus 1 equals 2, and 1 is greater than 2, true or false? And the answer is, as you would
+know, if you read the truth table, it's going to be false. So, we've combined the two comparison
+operations using an AND operator. And what we saw is what we expected to happen. We know that one
+side evaluates to true, and the other side evaluates to false. Remembering our truth table,
+we know that if one side of an AND operator is false and the other side is true,
+then the AND operator will respond or evaluate to a false. So, we've covered the basics of
+Boolean operators, and we're ready to start making more complex decisions in our code.
+Next time, we're going to combine Boolean operators with control blocks
+to create branching logic. We'll tackle a notorious problem in computer science,
+the so-called fizzbuzz problem. That's enough for now. Thanks for watching,
+and see you in the next video.

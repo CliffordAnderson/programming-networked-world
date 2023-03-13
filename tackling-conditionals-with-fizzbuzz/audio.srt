@@ -1,0 +1,940 @@
+1
+00:00:00,000 --> 00:00:04,000
+Hi everybody, my name is Cliff Anderson, and I'm a librarian at Vanderbilt University.
+
+2
+00:00:04,000 --> 00:00:08,000
+Welcome back to this introductory series on NetsBlocks.
+
+3
+00:00:08,000 --> 00:00:12,000
+Today we're going to tackle one of the hardest problems in computer science, FizzBuzz.
+
+4
+00:00:12,000 --> 00:00:15,000
+Just kidding, it's actually not that difficult.
+
+5
+00:00:15,000 --> 00:00:20,000
+FizzBuzz is a children's game that requires you to evaluate and respond to changing conditions.
+
+6
+00:00:20,000 --> 00:00:25,000
+Back in 2007, the developer and venture capitalist Imran Ghori wrote a blog post
+
+7
+00:00:25,000 --> 00:00:29,000
+arguing that FizzBuzz makes a good interview question for computer programmers
+
+8
+00:00:29,000 --> 00:00:32,000
+because so many find it difficult to solve.
+
+9
+00:00:32,000 --> 00:00:37,000
+In this video, we're going to solve FizzBuzz in NetsBlocks using conditional logic,
+
+10
+00:00:37,000 --> 00:00:41,000
+that is, the logic of if-then-else expressions.
+
+11
+00:00:41,000 --> 00:00:45,000
+By the end of the video, you're going to be branching like a pro.
+
+12
+00:00:59,000 --> 00:01:07,000
+Let's start by discussing the rules for FizzBuzz.
+
+13
+00:01:07,000 --> 00:01:11,000
+The game goes like this. We start counting up from 1.
+
+14
+00:01:11,000 --> 00:01:15,000
+If the number is divisible by 3, then we say Fizz rather than the number.
+
+15
+00:01:15,000 --> 00:01:19,000
+If the number is divisible by 5, then we say Buzz rather than the number.
+
+16
+00:01:19,000 --> 00:01:25,000
+If the number is divisible by both 3 and 5, then we say FizzBuzz rather than the number.
+
+17
+00:01:26,000 --> 00:01:30,000
+If none of those conditions apply, then we just say the number itself.
+
+18
+00:01:30,000 --> 00:01:32,000
+Got it?
+
+19
+00:01:32,000 --> 00:01:34,000
+Let's practice with Alonzo.
+
+20
+00:01:34,000 --> 00:01:40,000
+So, 1, 2, Fizz.
+
+21
+00:01:40,000 --> 00:01:44,000
+4, Buzz, Fizz.
+
+22
+00:01:44,000 --> 00:01:48,000
+7, 8, Fizz, Buzz.
+
+23
+00:01:49,000 --> 00:01:52,000
+11, Fizz.
+
+24
+00:01:52,000 --> 00:01:55,000
+13, 14, FizzBuzz.
+
+25
+00:01:55,000 --> 00:01:59,000
+If you paid close attention to the way I explained the instructions,
+
+26
+00:01:59,000 --> 00:02:02,000
+then you heard several conditionals.
+
+27
+00:02:02,000 --> 00:02:07,000
+Conditionals take the form of, if such and such is the case, then do something else.
+
+28
+00:02:07,000 --> 00:02:13,000
+For instance, if 6 is divisible without remainder by 3, then say the word Fizz.
+
+29
+00:02:13,000 --> 00:02:17,000
+How do we express that kind of a conditional statement in code?
+
+30
+00:02:17,000 --> 00:02:21,000
+Well, the first part asks a true or false question.
+
+31
+00:02:21,000 --> 00:02:24,000
+Is 6 divisible by 3 without remainder?
+
+32
+00:02:24,000 --> 00:02:30,000
+So, from our last video, we know that asking true-false questions requires the use of Booleans.
+
+33
+00:02:30,000 --> 00:02:36,000
+To convert this question into Boolean logic, we need to find the right math operators to formulate the equation.
+
+34
+00:02:36,000 --> 00:02:41,000
+Is the remainder of 6 divided by 3 equal to 0?
+
+35
+00:02:41,000 --> 00:02:47,000
+The easiest way to pose this question is to use the modulus, or mod operator.
+
+36
+00:02:47,000 --> 00:02:51,000
+So, I'm going to bring the mod operator over here from operations.
+
+37
+00:02:51,000 --> 00:02:59,000
+Okay, and let's take 6 here, and 3.
+
+38
+00:02:59,000 --> 00:03:01,000
+Oops, I keep clicking on it, it says not a number.
+
+39
+00:03:01,000 --> 00:03:03,000
+But there we go, 6 mod 3.
+
+40
+00:03:03,000 --> 00:03:09,000
+The answer should be 0, because 6 divided by 3 is 2 with a remainder of 0.
+
+41
+00:03:09,000 --> 00:03:21,000
+However, if we divide it by 4, then 6 mod 4 will produce 2, because you can divide 6 by 4 once with 2 as a remainder.
+
+42
+00:03:21,000 --> 00:03:31,000
+Now that we understand how the mod operator works, let's create a Boolean expression to capture the truth or falsity of our particular condition.
+
+43
+00:03:31,000 --> 00:03:37,000
+We need to plug this operator into an equation that returns true if the modulus of our operation is 0,
+
+44
+00:03:37,000 --> 00:03:42,000
+and false if the modulus of our operation is any other number.
+
+45
+00:03:42,000 --> 00:03:43,000
+So how do we do that?
+
+46
+00:03:43,000 --> 00:03:49,000
+We're going to bring over a Boolean operator, and we're going to take this particular expression and put it on the left side,
+
+47
+00:03:49,000 --> 00:03:52,000
+and the right side we're going to put 0.
+
+48
+00:03:52,000 --> 00:03:56,000
+And now we can ask, is 6 mod 4 equal to 0?
+
+49
+00:03:56,000 --> 00:04:00,000
+Well, we know that it isn't, because it produces a 2 on the left side, and 2 is not equal to 0.
+
+50
+00:04:00,000 --> 00:04:02,000
+So, indeed, it's false.
+
+51
+00:04:02,000 --> 00:04:12,000
+But if we change this to a 3, 6 mod 3 evaluates to 0, and 0 is equal to 0, so it's going to return true.
+
+52
+00:04:12,000 --> 00:04:16,000
+Okay, we've set up our Boolean expression to use in our conditional tests.
+
+53
+00:04:16,000 --> 00:04:20,000
+Now we just need to formulate those tests themselves.
+
+54
+00:04:20,000 --> 00:04:24,000
+Nextblocks offers a couple different blocks to evaluate conditional expressions.
+
+55
+00:04:24,000 --> 00:04:28,000
+Today we're going to use both the if block and the if-else block.
+
+56
+00:04:28,000 --> 00:04:32,000
+But let's start with the if block and come back to if-else when we discover our need for it.
+
+57
+00:04:32,000 --> 00:04:35,000
+So the if block is here under control.
+
+58
+00:04:35,000 --> 00:04:39,000
+Let's go over here, and let's go down to if.
+
+59
+00:04:39,000 --> 00:04:40,000
+There it is.
+
+60
+00:04:40,000 --> 00:04:46,000
+So I can grab this if block, and I can take this expression, and I can put it into this slot here.
+
+61
+00:04:46,000 --> 00:04:49,000
+So now we've formulated a Boolean test.
+
+62
+00:04:49,000 --> 00:04:54,000
+If this test is true, then whatever's inside of this C-shaped slot will execute,
+
+63
+00:04:54,000 --> 00:04:56,000
+and if it's false, then it won't.
+
+64
+00:04:56,000 --> 00:05:01,000
+So let's create if blocks to test for our three conditions.
+
+65
+00:05:01,000 --> 00:05:08,000
+That is, 3, 5, and divisible by 3 and 5 together.
+
+66
+00:05:08,000 --> 00:05:13,000
+Okay, so we've got divisible by 3 right here, so let's just duplicate that.
+
+67
+00:05:13,000 --> 00:05:17,000
+And we're going to make this one, is it divisible by 5?
+
+68
+00:05:17,000 --> 00:05:25,000
+In the third case, what we need to test for is whether the number is divisible by both 3 and 5.
+
+69
+00:05:25,000 --> 00:05:28,000
+That is to say, it needs to pass both those tests.
+
+70
+00:05:28,000 --> 00:05:33,000
+And because we have to test two things, we need an and block, as we learned last time.
+
+71
+00:05:33,000 --> 00:05:41,000
+As you remember, when we use an and block, we test to see if both the left side and the right side evaluate to true.
+
+72
+00:05:41,000 --> 00:05:45,000
+If both evaluate to true, then the and block evaluates to true.
+
+73
+00:05:45,000 --> 00:05:53,000
+If one side or the other or both are false, then the and block evaluates to false.
+
+74
+00:05:53,000 --> 00:05:56,000
+So let's duplicate these two tests.
+
+75
+00:05:56,000 --> 00:06:00,000
+I'm going to duplicate this one here and move it onto one side.
+
+76
+00:06:00,000 --> 00:06:04,000
+And I'm going to duplicate this test right here.
+
+77
+00:06:04,000 --> 00:06:06,000
+And I'm going to move it to the other side.
+
+78
+00:06:06,000 --> 00:06:13,000
+And so now we've got a test for is it divisible by 3 and divisible by 5.
+
+79
+00:06:13,000 --> 00:06:19,000
+The thing is, we need a variable again, because we want to test not just specific numbers,
+
+80
+00:06:19,000 --> 00:06:21,000
+but every number in our sequence.
+
+81
+00:06:21,000 --> 00:06:24,000
+Do you remember how we created a variable when we were making splatter art?
+
+82
+00:06:24,000 --> 00:06:32,000
+Let's go ahead again and create a public variable and plug it into each of these Boolean expressions in our conditionals.
+
+83
+00:06:32,000 --> 00:06:37,000
+So again, to create a variable, we'll go over to the variable palette.
+
+84
+00:06:37,000 --> 00:06:39,000
+We're going to click on create a variable.
+
+85
+00:06:39,000 --> 00:06:43,000
+And now let's call it, we can call it anything we want, but let's just call it something that makes sense.
+
+86
+00:06:43,000 --> 00:06:45,000
+We're going to call it count.
+
+87
+00:06:45,000 --> 00:06:48,000
+So I'll click OK.
+
+88
+00:06:48,000 --> 00:06:50,000
+And there is a variable count.
+
+89
+00:06:50,000 --> 00:06:53,000
+And instead of the number 6, we're just going to put it in its place.
+
+90
+00:06:53,000 --> 00:06:57,000
+So we're going to say, is 6 mod 3 equal to 0?
+
+91
+00:06:57,000 --> 00:07:04,000
+Is, sorry, we're going to say, is count mod 3 equal to 0?
+
+92
+00:07:04,000 --> 00:07:08,000
+Or is count mod 5 equal to 0?
+
+93
+00:07:08,000 --> 00:07:18,000
+And in this last case, is count mod 3 and count mod 5, are they both equal to 0?
+
+94
+00:07:18,000 --> 00:07:24,000
+The other thing that we need to do is to assign that variable some initial value.
+
+95
+00:07:24,000 --> 00:07:26,000
+So let's go ahead and do that as well.
+
+96
+00:07:26,000 --> 00:07:29,000
+I'm going to take this set block out and we'll say set.
+
+97
+00:07:29,000 --> 00:07:31,000
+And we drop down to count.
+
+98
+00:07:31,000 --> 00:07:33,000
+And let's just make it initially set to 1.
+
+99
+00:07:33,000 --> 00:07:37,000
+So we can test it now by looking at this particular Boolean expression.
+
+100
+00:07:37,000 --> 00:07:41,000
+We know that 1 mod 3 does not equal 0.
+
+101
+00:07:41,000 --> 00:07:44,000
+And that 1 mod 5 does not equal 0.
+
+102
+00:07:44,000 --> 00:07:51,000
+So we then know that the left and the right inputs to this operator are both false.
+
+103
+00:07:51,000 --> 00:07:55,000
+And therefore the operator as a whole is also false.
+
+104
+00:07:55,000 --> 00:08:01,000
+So let's take a condition and put that in here for the if.
+
+105
+00:08:01,000 --> 00:08:03,000
+And drop it in there.
+
+106
+00:08:03,000 --> 00:08:05,000
+OK, so we've got our three conditions set up.
+
+107
+00:08:05,000 --> 00:08:11,000
+But what should happen if one of the expressions in these particular conditionals evaluates to true?
+
+108
+00:08:11,000 --> 00:08:13,000
+Well, that's up to us, of course.
+
+109
+00:08:13,000 --> 00:08:15,000
+We can put any code we like.
+
+110
+00:08:15,000 --> 00:08:20,000
+But why don't we have Alonzo say fizz, buzz, or fizzbuzz as appropriate.
+
+111
+00:08:20,000 --> 00:08:23,000
+Do you remember how we put words into Alonzo's mouth?
+
+112
+00:08:23,000 --> 00:08:27,000
+Let's go back and find that block again under the looks palette.
+
+113
+00:08:27,000 --> 00:08:30,000
+So the say block is here under looks.
+
+114
+00:08:30,000 --> 00:08:32,000
+And let's just grab this right here.
+
+115
+00:08:32,000 --> 00:08:36,000
+So we'll say say for 2 seconds.
+
+116
+00:08:36,000 --> 00:08:38,000
+And then say for 2 seconds.
+
+117
+00:08:38,000 --> 00:08:40,000
+And say for 2 seconds here.
+
+118
+00:08:40,000 --> 00:08:43,000
+But we don't want Alonzo just to say hello.
+
+119
+00:08:43,000 --> 00:08:45,000
+We need to fill this in with the content that we want.
+
+120
+00:08:45,000 --> 00:08:50,000
+So if the number is divisible by 3, Alonzo should say fizz.
+
+121
+00:08:50,000 --> 00:08:54,000
+If the number is divisible by 5, then Alonzo should say buzz.
+
+122
+00:08:54,000 --> 00:09:02,000
+And if the number is divisible by both 3 and divisible by 5 without remainder,
+
+123
+00:09:02,000 --> 00:09:05,000
+then Alonzo should say fizzbuzz.
+
+124
+00:09:05,000 --> 00:09:07,000
+Shall we test this out?
+
+125
+00:09:08,000 --> 00:09:13,000
+Let's take this number and we'll set it to 3.
+
+126
+00:09:13,000 --> 00:09:16,000
+In that case, 3 mod 3 does equal 0.
+
+127
+00:09:16,000 --> 00:09:19,000
+So Alonzo should say fizz.
+
+128
+00:09:19,000 --> 00:09:20,000
+And there you go.
+
+129
+00:09:20,000 --> 00:09:23,000
+But that number is not divisible by 5.
+
+130
+00:09:23,000 --> 00:09:27,000
+So in this case, when we click on it, Alonzo shouldn't say anything.
+
+131
+00:09:27,000 --> 00:09:28,000
+And there you go.
+
+132
+00:09:28,000 --> 00:09:30,000
+Let's put everything together now.
+
+133
+00:09:30,000 --> 00:09:33,000
+We just have to pull over a repeat block onto the scripting area
+
+134
+00:09:33,000 --> 00:09:35,000
+and put these conditions inside.
+
+135
+00:09:35,000 --> 00:09:40,000
+The repeat block will allow us to control how many numbers we want to evaluate in our sequence.
+
+136
+00:09:40,000 --> 00:09:44,000
+But we also have to make sure that we increment our variable as we move along
+
+137
+00:09:44,000 --> 00:09:48,000
+so that the numbers that Alonzo reports are the right ones.
+
+138
+00:09:48,000 --> 00:09:52,000
+Fortunately, there's also a block for that.
+
+139
+00:09:52,000 --> 00:09:57,000
+Over here, under variables, you can see that there is a block.
+
+140
+00:09:57,000 --> 00:10:02,000
+Let's take a look at it right here, called change by 1.
+
+141
+00:10:02,000 --> 00:10:07,000
+So that will increment our count variable every time we go through.
+
+142
+00:10:07,000 --> 00:10:15,000
+Now we're going to create the loop by going over to control and grabbing this repeat.
+
+143
+00:10:15,000 --> 00:10:18,000
+And so let's put these things together.
+
+144
+00:10:18,000 --> 00:10:20,000
+We're running out of space here, but that's okay.
+
+145
+00:10:20,000 --> 00:10:23,000
+We'll get things sorted out.
+
+146
+00:10:23,000 --> 00:10:25,000
+So let's put the 3 condition up here.
+
+147
+00:10:25,000 --> 00:10:27,000
+And then we'll put the 5 condition underneath it.
+
+148
+00:10:27,000 --> 00:10:31,000
+And then let's put the condition here that we want.
+
+149
+00:10:31,000 --> 00:10:35,000
+We're going to change the variable here by 1 every time we go through a loop.
+
+150
+00:10:35,000 --> 00:10:38,000
+And we want to change this loop to 15.
+
+151
+00:10:38,000 --> 00:10:41,000
+And we want to start with the number 1.
+
+152
+00:10:41,000 --> 00:10:47,000
+Now the one other thing that we need is, this is only going to say fizzbuzz fizzbuzz.
+
+153
+00:10:47,000 --> 00:10:53,000
+We need to actually have something for Alonzo to say, let's see here,
+
+154
+00:10:53,000 --> 00:10:56,000
+when none of those conditions apply.
+
+155
+00:10:56,000 --> 00:10:59,000
+So in this case, we're just going to have Alonzo say our number.
+
+156
+00:10:59,000 --> 00:11:01,000
+I'll bring that over here.
+
+157
+00:11:01,000 --> 00:11:03,000
+And there we go.
+
+158
+00:11:03,000 --> 00:11:04,000
+Ready to try it out?
+
+159
+00:11:04,000 --> 00:11:06,000
+Okay, let's give it a shot.
+
+160
+00:11:06,000 --> 00:11:08,000
+So I'll click here.
+
+161
+00:11:08,000 --> 00:11:14,000
+1, 2, fizz, 3.
+
+162
+00:11:14,000 --> 00:11:17,000
+Wait, wait, Alonzo shouldn't say 3.
+
+163
+00:11:17,000 --> 00:11:20,000
+4, buzz, that's right.
+
+164
+00:11:20,000 --> 00:11:23,000
+5, wait, that should have been masked by buzz.
+
+165
+00:11:23,000 --> 00:11:25,000
+So something's not working.
+
+166
+00:11:25,000 --> 00:11:27,000
+What went wrong?
+
+167
+00:11:27,000 --> 00:11:31,000
+The if blocks all responded as we expected to the inputs.
+
+168
+00:11:31,000 --> 00:11:34,000
+So we got fizz, buzz, fizzbuzz in our numbers.
+
+169
+00:11:34,000 --> 00:11:36,000
+The problem is that Alonzo said more than we wanted.
+
+170
+00:11:36,000 --> 00:11:41,000
+As it happens, our logic requires our branches to be exclusive.
+
+171
+00:11:41,000 --> 00:11:45,000
+Not just if then, but if then or if not, then something else.
+
+172
+00:11:45,000 --> 00:11:50,000
+To capture this kind of logic in a conditional, we need an if-then-else block.
+
+173
+00:11:50,000 --> 00:11:52,000
+The if-then-else block is like an if block,
+
+174
+00:11:52,000 --> 00:11:55,000
+but it makes explicit what to do in the cases
+
+175
+00:11:55,000 --> 00:12:00,000
+when the Boolean expression it contains evaluates to false.
+
+176
+00:12:00,000 --> 00:12:06,000
+So let's reorder our sequence of blocks using if-then-else control blocks.
+
+177
+00:12:06,000 --> 00:12:08,000
+And we'll see if we can get the logic right this time.
+
+178
+00:12:08,000 --> 00:12:11,000
+So let's create a little bit more space for ourselves here
+
+179
+00:12:11,000 --> 00:12:14,000
+just by pulling the stage over.
+
+180
+00:12:14,000 --> 00:12:18,000
+And I'm going to pull out these particular conditions.
+
+181
+00:12:18,000 --> 00:12:22,000
+And I'm going to pull out this variable incrementing logic down here.
+
+182
+00:12:22,000 --> 00:12:24,000
+Well, this is actually that logic,
+
+183
+00:12:24,000 --> 00:12:27,000
+and this is the say block that says the number.
+
+184
+00:12:27,000 --> 00:12:32,000
+All right, so let's take a if-then-else.
+
+185
+00:12:32,000 --> 00:12:34,000
+I'm going to bring this over here.
+
+186
+00:12:34,000 --> 00:12:36,000
+And now we need to think about the logic.
+
+187
+00:12:36,000 --> 00:12:39,000
+We want to start from the narrowest case.
+
+188
+00:12:39,000 --> 00:12:42,000
+And the narrowest case is actually when a number is divisible
+
+189
+00:12:42,000 --> 00:12:46,000
+without remainder by both 3 and 5.
+
+190
+00:12:46,000 --> 00:12:48,000
+So let's start with that one.
+
+191
+00:12:48,000 --> 00:12:50,000
+That's this particular case right here.
+
+192
+00:12:50,000 --> 00:12:52,000
+So that'll be the first one.
+
+193
+00:12:52,000 --> 00:12:59,000
+And if that happens, then we want to say fizzbuzz.
+
+194
+00:12:59,000 --> 00:13:02,000
+If that doesn't happen, let's go to our next case.
+
+195
+00:13:02,000 --> 00:13:05,000
+And our next case is going to be
+
+196
+00:13:05,000 --> 00:13:11,000
+if it's divisible without remainder by either 3 or 5, it doesn't matter.
+
+197
+00:13:11,000 --> 00:13:13,000
+So we'll do 5.
+
+198
+00:13:13,000 --> 00:13:16,000
+Then we're going to say buzz.
+
+199
+00:13:16,000 --> 00:13:25,000
+And if it's divisible without remainder by 3,
+
+200
+00:13:25,000 --> 00:13:28,000
+then we're going to say fizz.
+
+201
+00:13:28,000 --> 00:13:31,000
+And now if none of those tests apply,
+
+202
+00:13:31,000 --> 00:13:34,000
+this is when we want to say the number itself.
+
+203
+00:13:34,000 --> 00:13:37,000
+So if all those tests turned out to be false,
+
+204
+00:13:37,000 --> 00:13:39,000
+then the last thing we do is say, well,
+
+205
+00:13:39,000 --> 00:13:44,000
+then in that case, the else is going to be, say, the number itself.
+
+206
+00:13:44,000 --> 00:13:47,000
+And then we need to put in this particular bit of logic
+
+207
+00:13:47,000 --> 00:13:52,000
+to increment the variable each time, and we can try it again.
+
+208
+00:13:52,000 --> 00:13:55,000
+I'll throw these off the stage so we don't confuse ourselves here,
+
+209
+00:13:55,000 --> 00:13:57,000
+or the scripting area, I should say.
+
+210
+00:13:57,000 --> 00:13:59,000
+There we go.
+
+211
+00:13:59,000 --> 00:14:02,000
+And drumroll, please.
+
+212
+00:14:02,000 --> 00:14:05,000
+And click.
+
+213
+00:14:05,000 --> 00:14:34,000
+1, 2, fizz, 4, buzz, fizz, 7, 8, fizz, buzz, 11, fizz, 14, fizz, buzz.
+
+214
+00:14:34,000 --> 00:14:37,000
+I missed one. Oh, too much dramatic emphasis.
+
+215
+00:14:37,000 --> 00:14:38,000
+It works.
+
+216
+00:14:38,000 --> 00:14:41,000
+Anyway, hooray for Alonzo, and hooray for you,
+
+217
+00:14:41,000 --> 00:14:44,000
+since you can now pass that programming test.
+
+218
+00:14:44,000 --> 00:14:46,000
+The larger lesson here is that the order of blocks
+
+219
+00:14:46,000 --> 00:14:49,000
+and the order of those conditions makes a difference.
+
+220
+00:14:49,000 --> 00:14:52,000
+If you want to model complex conditions,
+
+221
+00:14:52,000 --> 00:14:55,000
+you need to pay careful attention to the flow of the logic.
+
+222
+00:14:55,000 --> 00:14:57,000
+Don't worry if you get it wrong.
+
+223
+00:14:57,000 --> 00:14:59,000
+We all make those kind of mistakes.
+
+224
+00:14:59,000 --> 00:15:01,000
+If you find that your logic has gone awry,
+
+225
+00:15:01,000 --> 00:15:03,000
+try walking through the branches
+
+226
+00:15:03,000 --> 00:15:06,000
+and see what cases you've neglected to cover.
+
+227
+00:15:06,000 --> 00:15:08,000
+As a final note,
+
+228
+00:15:08,000 --> 00:15:14,000
+do you notice that our variable winds up reading 16 at the end?
+
+229
+00:15:14,000 --> 00:15:17,000
+That's okay, because we're not planning to use it for anything else.
+
+230
+00:15:17,000 --> 00:15:21,000
+But it's still a little untidy to leave the variable sitting around.
+
+231
+00:15:21,000 --> 00:15:24,000
+Next time, we're going to learn how to use a for loop
+
+232
+00:15:24,000 --> 00:15:28,000
+to eliminate the need for a separate count variable.
+
+233
+00:15:28,000 --> 00:15:30,000
+But that's definitely enough for today.
+
+234
+00:15:30,000 --> 00:15:32,000
+Congratulations on doing fizzbuzz.
+
+235
+00:15:32,000 --> 00:15:35,000
+I hope you're well on your way, and I'll see you in our next video.
+

@@ -1,0 +1,324 @@
+1
+00:00:00,000 --> 00:00:05,600
+Hi, welcome back. My name is Cliff Anderson. Today we're going to be learning about truth and falsity.
+
+2
+00:00:06,400 --> 00:00:14,080
+Some claims are true, like 1 plus 1 equals 2. Other claims are false, like 1 is greater than 2.
+
+3
+00:00:14,800 --> 00:00:20,000
+We're going to learn how to compute with true and false values. We're also going to learn to combine
+
+4
+00:00:20,000 --> 00:00:26,480
+true and false values using so-called Boolean operators. Is it true that 1 plus 1 equals 2
+
+5
+00:00:26,480 --> 00:00:30,160
+and 1 is greater than 2? Stick around to find out.
+
+6
+00:00:49,840 --> 00:00:54,640
+The goal today is to learn the basics of programming with true or false values
+
+7
+00:00:54,640 --> 00:01:00,800
+using Boolean logic. We need to understand how to evaluate Boolean expressions in order to make
+
+8
+00:01:00,800 --> 00:01:05,520
+more effective use of control blocks. I'm going to try to keep this video on the short side,
+
+9
+00:01:05,520 --> 00:01:08,880
+as we'll be returning to this subject frequently during the series.
+
+10
+00:01:08,880 --> 00:01:13,600
+Let's begin by pulling a true and false block onto the scripting area.
+
+11
+00:01:13,600 --> 00:01:18,640
+See, actually I've got it more or less set up, but I'll bring over a false block. There we go.
+
+12
+00:01:18,640 --> 00:01:26,000
+And, okay, so I can switch this back and forth to make it true or false. Those are the two options.
+
+13
+00:01:26,560 --> 00:01:31,120
+And the one is just the inverse of the other. If you flip the switch, you can make true into false
+
+14
+00:01:31,120 --> 00:01:35,520
+and false into true. Now, if you click on one of these blocks, you'll notice
+
+15
+00:01:36,080 --> 00:01:40,240
+that you get a little pop-up window that lasts for a moment here until you move your mouse.
+
+16
+00:01:40,240 --> 00:01:45,840
+And so it pops up and says false. If I click it to true, it pops up and it says true.
+
+17
+00:01:46,400 --> 00:01:52,640
+What's the meaning of that pop-up? Boolean blocks constitute a special type of what is called a
+
+18
+00:01:52,640 --> 00:01:58,640
+reporter block in Nets blocks. If command blocks change the state of the world, reporter blocks,
+
+19
+00:01:58,640 --> 00:02:04,560
+like the name suggests, report the state of the world. A reporter block provides a peek into your
+
+20
+00:02:04,560 --> 00:02:09,600
+program. The block tells you something about the program when you click on it. Or, to put it more
+
+21
+00:02:09,600 --> 00:02:16,960
+technically, it reports a value. If we click on a true-false block, it reports its current state
+
+22
+00:02:16,960 --> 00:02:22,320
+as either true or false. Very importantly, it doesn't change its value. If you want to change
+
+23
+00:02:22,320 --> 00:02:27,920
+the value of a Boolean, you need to use a command block. A reporter block just tells you what its
+
+24
+00:02:27,920 --> 00:02:35,200
+current value is. So, let's get back to Boolean values. The basic building block of Boolean logic
+
+25
+00:02:35,200 --> 00:02:40,480
+is true or false. But what makes Boolean logic interesting is your ability to combine true or
+
+26
+00:02:40,480 --> 00:02:47,840
+false blocks using various operators to create complex expressions. Let's begin with the simplest
+
+27
+00:02:47,840 --> 00:02:57,280
+Boolean operator, the not block. As you see, if you place a not true, what do you think it's going
+
+28
+00:02:57,280 --> 00:03:04,160
+to be if I click on it? False. And of course, if we say not false, then when we click on it, what do
+
+29
+00:03:04,160 --> 00:03:13,600
+you expect? True. So, not true reports false, and not false reports true. How about more complex
+
+30
+00:03:13,600 --> 00:03:20,480
+Boolean expressions? This brings us to blocks like or and and. Whereas the not block is a unary
+
+31
+00:03:20,480 --> 00:03:26,400
+operator, that is, it takes a single input, or and are binary operators. They take two inputs and
+
+32
+00:03:26,400 --> 00:03:31,360
+report a single true or false value. To understand how they work, it's helpful to look at what
+
+33
+00:03:31,360 --> 00:03:37,200
+logicians call a truth table. Truth tables represent all possible combinations of input
+
+34
+00:03:37,200 --> 00:03:44,560
+and output values for Boolean operators. So, let's consider the and operator. And reports true when
+
+35
+00:03:44,560 --> 00:03:50,800
+both input values labeled in our chart A and B are true. If either of the inputs are false,
+
+36
+00:03:51,440 --> 00:03:58,080
+then the and operator reports false. It also does when both are false. The or operator
+
+37
+00:03:58,080 --> 00:04:03,600
+does more or less the opposite. As long as one of the inputs, or both of the inputs, is true,
+
+38
+00:04:04,240 --> 00:04:11,200
+then the or operator reports true. Only if both inputs are false does the operator report false.
+
+39
+00:04:12,240 --> 00:04:18,080
+So, for example, with the and operator, I've got true and true. So, if I click on this,
+
+40
+00:04:18,080 --> 00:04:26,400
+as we expect, it's going to say true. But if it's true and false, it will say false. And,
+
+41
+00:04:26,400 --> 00:04:32,720
+of course, false and false is false. Put that up here and let's take a look at the or.
+
+42
+00:04:33,280 --> 00:04:43,360
+So, here we got an or. True or false is going to report true. True and true is also true.
+
+43
+00:04:44,160 --> 00:04:50,000
+False or true is true. But false or false is going to be
+
+44
+00:04:50,560 --> 00:04:58,480
+false. Okay. So, as I said, there are more complex operators that you can use,
+
+45
+00:04:58,480 --> 00:05:02,800
+and you can build them out of these simple operators that I've shown. For example,
+
+46
+00:05:02,800 --> 00:05:09,760
+I've created a NAND, or a not-and block. This block reports true if one input is true,
+
+47
+00:05:09,760 --> 00:05:16,080
+or both inputs are false. And false if both inputs are true. Okay. So, if that didn't make
+
+48
+00:05:16,080 --> 00:05:22,320
+you confused enough, let's just take a look. So, true, not-and, true. If I click on that,
+
+49
+00:05:22,320 --> 00:05:33,200
+that's false. False, not-and, true is true. And again, the other way. True, not-and, false.
+
+50
+00:05:33,840 --> 00:05:45,680
+NAND, false. True. And if they're both true, then it's false. There's also an XOR, or exclusive
+
+51
+00:05:46,160 --> 00:05:53,520
+block. An XOR reports true if one input is true, and the other is false, but reports false
+
+52
+00:05:53,520 --> 00:05:59,600
+if both inputs are true, or both inputs are false. So, let's take a look at that one here.
+
+53
+00:05:59,600 --> 00:06:09,120
+So, here's the XOR. Okay. So, here's true or false. What do you think it's going to report?
+
+54
+00:06:09,840 --> 00:06:17,920
+True. And same thing with false or true. XOR true. True. But if they're both true,
+
+55
+00:06:17,920 --> 00:06:23,280
+unlike the normal OR, it will report false. And of course, if they're both false,
+
+56
+00:06:23,280 --> 00:06:29,520
+it will also report false. There are other blocks here, like the NOR, and you can make more.
+
+57
+00:06:29,520 --> 00:06:33,440
+If you'd like me to explore how I made these additional blocks and NETs blocks,
+
+58
+00:06:33,440 --> 00:06:38,320
+let me know in the comments below, and I'd be happy to sort of walk you through creating new
+
+59
+00:06:38,320 --> 00:06:43,920
+Boolean logic blocks in NETs blocks. So, let's end this video by answering the question we
+
+60
+00:06:43,920 --> 00:06:48,800
+posed at the beginning. There are a couple other Boolean operators that can help us in NETs blocks
+
+61
+00:06:48,800 --> 00:06:57,200
+to decide if 1 plus 1 equals 2, and 1 is greater than 2. Okay. So, let's go over to the side here,
+
+62
+00:06:57,200 --> 00:07:00,720
+and you can see that I've got three. And I should have said this at the beginning,
+
+63
+00:07:00,720 --> 00:07:06,080
+but those pointy edges always indicate that it's a Boolean. So, when you see this here,
+
+64
+00:07:06,080 --> 00:07:12,560
+you know that it's a reporter that reports a Boolean. Okay. So, we've got the greater than,
+
+65
+00:07:13,280 --> 00:07:18,160
+that's the lesser than, the greater than, and the equals. Okay. Let's try this here.
+
+66
+00:07:18,160 --> 00:07:25,600
+So, I can take to represent our first question, 1 plus 1. I'll take that operator here and just
+
+67
+00:07:25,600 --> 00:07:30,560
+put it in on one side. And then I'm going to take the number 2 and put it on the other side.
+
+68
+00:07:30,560 --> 00:07:40,080
+Okay. And now, does 1 plus 1 equal 2? That is true. So, we've got one part of our question here.
+
+69
+00:07:40,640 --> 00:07:49,840
+Is 1 greater than 2? That's false. Now, to relate them together, we just need to use the AND. So,
+
+70
+00:07:49,840 --> 00:07:55,440
+now we can snap these two parts together, and we can ask the question that we asked at the beginning.
+
+71
+00:07:56,000 --> 00:08:04,880
+Is 1 plus 1 equals 2, and 1 is greater than 2, true or false? And the answer is, as you would
+
+72
+00:08:04,880 --> 00:08:11,520
+know, if you read the truth table, it's going to be false. So, we've combined the two comparison
+
+73
+00:08:11,520 --> 00:08:16,720
+operations using an AND operator. And what we saw is what we expected to happen. We know that one
+
+74
+00:08:16,720 --> 00:08:21,600
+side evaluates to true, and the other side evaluates to false. Remembering our truth table,
+
+75
+00:08:22,400 --> 00:08:27,680
+we know that if one side of an AND operator is false and the other side is true,
+
+76
+00:08:28,480 --> 00:08:35,040
+then the AND operator will respond or evaluate to a false. So, we've covered the basics of
+
+77
+00:08:35,040 --> 00:08:39,680
+Boolean operators, and we're ready to start making more complex decisions in our code.
+
+78
+00:08:40,320 --> 00:08:44,240
+Next time, we're going to combine Boolean operators with control blocks
+
+79
+00:08:45,040 --> 00:08:50,160
+to create branching logic. We'll tackle a notorious problem in computer science,
+
+80
+00:08:50,160 --> 00:08:54,320
+the so-called fizzbuzz problem. That's enough for now. Thanks for watching,
+
+81
+00:08:54,320 --> 00:09:04,640
+and see you in the next video.
+
