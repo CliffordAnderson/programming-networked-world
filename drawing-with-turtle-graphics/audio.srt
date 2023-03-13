@@ -1,0 +1,544 @@
+1
+00:00:00,000 --> 00:00:04,240
+Hi, my name is Cliff Anderson. I'm Associate University Librarian at
+
+2
+00:00:04,240 --> 00:00:07,880
+Vanderbilt University and a member of Vanderbilt's Computational Thinking and
+
+3
+00:00:07,880 --> 00:00:13,160
+Learning Initiative. And in this second of our series on Nets Blocks, I'm going
+
+4
+00:00:13,160 --> 00:00:18,320
+to explore how to draw geometric shapes on the screen. We're going to draw simple
+
+5
+00:00:18,320 --> 00:00:22,600
+shapes on the stage using so-called command blocks. You're going to learn
+
+6
+00:00:22,600 --> 00:00:26,720
+about turtle graphics, a novel idea for teaching kids and the young at heart how
+
+7
+00:00:26,720 --> 00:00:30,160
+to program. And you're also going to learn about the concept of state and
+
+8
+00:00:30,160 --> 00:00:33,760
+side effects, which we're going to explore in greater depth as we go along.
+
+9
+00:00:33,760 --> 00:00:40,400
+So, ready to try out your digital drawing techniques? Let's get started.
+
+10
+00:00:56,720 --> 00:01:04,320
+So, what are turtle graphics? Today is going to be all about drawing. Drawing simple
+
+11
+00:01:04,320 --> 00:01:08,600
+shapes like squares and triangles on the stage. But before we get started, I'd like
+
+12
+00:01:08,600 --> 00:01:12,760
+to share a little bit about the way that this graphical approach to computer
+
+13
+00:01:12,760 --> 00:01:18,160
+programming developed. The idea is called turtle graphics or turtle geometry.
+
+14
+00:01:18,160 --> 00:01:22,120
+Seymour Papert, a computer science educator who spent the majority of his
+
+15
+00:01:22,120 --> 00:01:27,960
+career at MIT, developed the concept of turtle graphics in the 1960s. Papert
+
+16
+00:01:27,960 --> 00:01:32,720
+aspired to create an environment for computational exploration, for learning
+
+17
+00:01:32,720 --> 00:01:37,040
+by doing, so to speak. Inspired by the educational theories of Jean Piaget,
+
+18
+00:01:37,040 --> 00:01:41,440
+Papert wanted kids to learn the principles of mathematics, not by
+
+19
+00:01:41,440 --> 00:01:46,600
+memorizing a bunch of theorems, but by extrapolating rules from the success or
+
+20
+00:01:46,600 --> 00:01:51,640
+failure of experiments they carry out. He termed this theory constructionism, and
+
+21
+00:01:51,640 --> 00:01:55,640
+went about creating a software environment to enable those experiments
+
+22
+00:01:55,640 --> 00:02:00,240
+in learning. The software language he co-developed is called Logo, and a
+
+23
+00:02:00,240 --> 00:02:06,720
+distinguishing feature of Logo is turtle graphics. This is the humble turtle that
+
+24
+00:02:06,720 --> 00:02:11,280
+we're talking about. It looks more like an arrowhead than a turtle, but just use
+
+25
+00:02:11,280 --> 00:02:15,680
+your imagination. The default sprite in Netsblocks is indeed this abstract
+
+26
+00:02:15,680 --> 00:02:20,440
+turtle, but you can also give the sprite any costume you like. If you want, you can
+
+27
+00:02:20,440 --> 00:02:24,800
+also make it look like a real turtle. Just come over here and click on this
+
+28
+00:02:24,800 --> 00:02:31,680
+right here, and you can see costumes, and sometimes it takes a moment to load.
+
+29
+00:02:31,680 --> 00:02:39,920
+We're waiting. We're still waiting. It's almost there.
+
+30
+00:02:41,000 --> 00:02:46,600
+Once it loads, you can see here that you've got lots of options to shape your
+
+31
+00:02:46,720 --> 00:02:53,280
+particular sprite. If you want, you can turn it into a beetle. You can turn
+
+32
+00:02:53,280 --> 00:02:58,600
+it into a butterfly. Lots of different options, but we're going to stick with,
+
+33
+00:02:58,600 --> 00:03:07,160
+for now, this so-called simple turtle shape. The turtle moves around the
+
+34
+00:03:07,160 --> 00:03:14,120
+stage using a Cartesian plane. The tip of the turtle, when it starts, is pointing to
+
+35
+00:03:14,120 --> 00:03:19,520
+0, 0. So when you create a new program in Netsblocks, you'll always start your
+
+36
+00:03:19,520 --> 00:03:24,960
+turtle out at 0, 0. Let's try this for ourselves. I'm going to drag this x, y
+
+37
+00:03:24,960 --> 00:03:30,760
+block over here, go to x, 0, and y, 0, and then let's try clicking on it and see
+
+38
+00:03:30,760 --> 00:03:35,240
+what happens. If I click on the button, I move back a little bit, but then when I
+
+39
+00:03:35,240 --> 00:03:40,880
+click again, nothing happened. So why isn't anything happening? Well, when I
+
+40
+00:03:40,920 --> 00:03:44,680
+click on the block, the sprite doesn't move because it's already at the center
+
+41
+00:03:44,680 --> 00:03:49,240
+of the stage at coordinate 0, 0. But if we change some of the values in the block
+
+42
+00:03:49,240 --> 00:03:54,320
+to find the boundaries of the stage, then we'll see that it indeed moves into
+
+43
+00:03:54,320 --> 00:04:01,520
+different places. So here, if I change the sprite to x, 180, y, 0, you're going to
+
+44
+00:04:01,520 --> 00:04:09,200
+expect it to move along the x-axis to the right. And if we move back to the
+
+45
+00:04:09,200 --> 00:04:15,760
+center, we can move, for example, on the y-axis to 180. Oh, it disappeared off the
+
+46
+00:04:15,760 --> 00:04:19,440
+side of the screen, but top of the screen, but no worries. Let's bring it back to
+
+47
+00:04:19,440 --> 00:04:24,520
+120. There it is. We can go to negative 120. That's going to drop us below, and
+
+48
+00:04:24,520 --> 00:04:30,240
+we'll see. If we click on that, there it goes. And of course, you can get to any
+
+49
+00:04:30,240 --> 00:04:37,000
+coordinate this way just by putting your x and y values. So you see that whenever
+
+50
+00:04:37,040 --> 00:04:42,960
+we enter a coordinate value on this Cartesian plane, the sprite will move to
+
+51
+00:04:42,960 --> 00:04:47,880
+that particular place. And using that combination of x and y values, we're able
+
+52
+00:04:47,880 --> 00:04:53,520
+to move the sprite all around the stage. But when we're drawing figures, this has
+
+53
+00:04:53,520 --> 00:04:58,600
+its limitations. Just moving the sprite around the stage gets old quickly. If we
+
+54
+00:04:58,600 --> 00:05:02,880
+want to draw shapes, we don't want to just hop around. That's not really the
+
+55
+00:05:02,880 --> 00:05:07,640
+best way to do things. There might be a way to do it, but we'll get to that later.
+
+56
+00:05:07,640 --> 00:05:12,960
+What we need is a couple of other blocks to turn these movements into actual line
+
+57
+00:05:12,960 --> 00:05:16,840
+drawings. So we're going to select from two categories of blocks in the palette
+
+58
+00:05:16,840 --> 00:05:21,240
+to make our movements more productive, namely the motion blocks and the pin
+
+59
+00:05:21,240 --> 00:05:25,800
+blocks. So where do I find those? Here's motion. We're already on it. And then
+
+60
+00:05:25,800 --> 00:05:30,080
+these green ones are the pin blocks. So the first blocks that we're going to
+
+61
+00:05:30,080 --> 00:05:36,920
+bring over are two of the motion blocks, move 10 steps and point in direction.
+
+62
+00:05:36,920 --> 00:05:41,720
+Now you notice that point in direction has here a number already in it. And if you
+
+63
+00:05:41,720 --> 00:05:46,560
+drop down, you can see that that number, 90 degrees, stands for right. And you can
+
+64
+00:05:46,560 --> 00:05:54,160
+see that 180 degrees stands for down, and zero degrees stand for up. So it's sort
+
+65
+00:05:54,160 --> 00:06:00,080
+of like the directions in a compass. And if we combine these with the move block,
+
+66
+00:06:00,080 --> 00:06:04,440
+then we can start moving the sprite in different directions around the stage
+
+67
+00:06:04,440 --> 00:06:11,360
+any number of steps. So let's just start back. Well, I'll put this at 0, 0. I'm
+
+68
+00:06:11,360 --> 00:06:18,480
+going to click on that, and it'll go to 0, 0. And then let's take this and say, okay,
+
+69
+00:06:18,480 --> 00:06:21,640
+we're going to put that point in direction there. Point in direction 0, so that's
+
+70
+00:06:21,680 --> 00:06:31,680
+pointing down. And move, let's say, 50 steps. Try that. And sprite's not moving.
+
+71
+00:06:31,680 --> 00:06:35,640
+Do you know why? We're always going back to point 0, 0, so it doesn't look like
+
+72
+00:06:35,640 --> 00:06:39,160
+there's any movement. But now we can see that when we disconnect it from going
+
+73
+00:06:39,160 --> 00:06:44,920
+back to the beginning, the sprite is moving up. All right, let's draw a square
+
+74
+00:06:44,920 --> 00:06:50,800
+with this. These two blocks provide us with what we need to walk a figure like a
+
+75
+00:06:50,800 --> 00:06:54,920
+square or a circle. But we want to see some of the product of our sprite's
+
+76
+00:06:54,920 --> 00:06:59,640
+voyage around the stage. To trace the sprite's steps, we need a different kind
+
+77
+00:06:59,640 --> 00:07:04,240
+of block. And that's, again, under this pin category. So I'm going to bring over
+
+78
+00:07:04,240 --> 00:07:14,040
+pin down and pin up. So these two blocks will tell the system to either start
+
+79
+00:07:14,040 --> 00:07:19,680
+tracing a line on the stage or to stop tracing a line on the stage. And if we
+
+80
+00:07:19,680 --> 00:07:23,680
+use them in conjunction with the move blocks, we can get the turtle to draw a
+
+81
+00:07:23,680 --> 00:07:29,320
+figure for us. Let's start simply. We're just going to create a square on the
+
+82
+00:07:29,320 --> 00:07:34,560
+center of the stage. So, okay, I'm going to place this sprite at the center of the
+
+83
+00:07:34,560 --> 00:07:38,320
+stage. And then I'm going to take these blocks, which I've already got, and I'm
+
+84
+00:07:38,320 --> 00:07:42,000
+going to duplicate them four times. You can right-click on it and get these
+
+85
+00:07:42,160 --> 00:07:52,040
+duplicates. So I'm just going to do that four times. Here we go. Okay. And now we
+
+86
+00:07:52,040 --> 00:07:57,560
+want to start moving the sprite around. Okay. So I'll put the first one up here
+
+87
+00:07:57,560 --> 00:08:03,200
+and the second one here. And we want to turn this time to make a square. Let's
+
+88
+00:08:03,200 --> 00:08:08,080
+start by turning to the right. And then we're going to move this one and we're
+
+89
+00:08:08,080 --> 00:08:17,800
+going to go down. And this one will go to the left. Let's see how that works.
+
+90
+00:08:17,800 --> 00:08:22,760
+Well, it did something, but it didn't actually draw anything. So in order to
+
+91
+00:08:22,760 --> 00:08:26,280
+see this, I'm going to pull down the stack of blocks. You see how they
+
+92
+00:08:26,280 --> 00:08:31,040
+disconnect? And I'm going to put pen down right here. And I'm going to reattach
+
+93
+00:08:31,040 --> 00:08:34,000
+them by lifting them up. You see that white line? That indicates that they'll
+
+94
+00:08:34,000 --> 00:08:39,680
+snap together when I let go. All right. So when I click this now, you see that I
+
+95
+00:08:39,680 --> 00:08:44,960
+get a nice square. I still have this pen up block. And what's the purpose of that?
+
+96
+00:08:44,960 --> 00:08:49,200
+Well, the problem is that if we add something else, for example, let's say we
+
+97
+00:08:49,200 --> 00:08:52,200
+want to draw a square and then move on to draw another figure, but we didn't
+
+98
+00:08:52,200 --> 00:08:56,000
+want the figures to be attached to one another. If I just go ahead and pull over
+
+99
+00:08:56,000 --> 00:09:01,520
+another move block, let's say another move 50 here, and I click on the stack
+
+100
+00:09:01,520 --> 00:09:08,040
+again, you see that the turtle continued moving and tracing the turtle's steps. To
+
+101
+00:09:08,040 --> 00:09:12,320
+prevent that, I can do the same experiment, but this time bring the pen
+
+102
+00:09:12,320 --> 00:09:20,840
+up there, and voila. Ah, it didn't make any change. Again, why is that? Well, it just
+
+103
+00:09:20,840 --> 00:09:24,760
+traced over itself. So we needed something else here called a clear
+
+104
+00:09:24,760 --> 00:09:30,480
+block at the beginning. And voila. Now when we run it, it made the nice square
+
+105
+00:09:30,480 --> 00:09:35,680
+and then moved graciously to the side so that we could see the square. So this
+
+106
+00:09:35,680 --> 00:09:42,280
+introduces something that we call state. When we make changes using these command
+
+107
+00:09:42,280 --> 00:09:45,600
+blocks, these blocks that have these notches that fit together that have the
+
+108
+00:09:45,600 --> 00:09:51,720
+square edges, when we use these command blocks, we're changing the state of the
+
+109
+00:09:51,720 --> 00:09:56,280
+sprite's little world. That is, our blocks have the effect of altering the
+
+110
+00:09:56,280 --> 00:10:00,800
+program's environment. For reasons that we'll get into later, these command
+
+111
+00:10:00,800 --> 00:10:04,560
+blocks actually generate what are called side effects, and we're carrying out
+
+112
+00:10:04,560 --> 00:10:08,840
+computations by clicking on these command blocks, and those computations
+
+113
+00:10:08,840 --> 00:10:14,200
+create side effects that become visible on the stage. In Net's blocks, these
+
+114
+00:10:14,200 --> 00:10:19,680
+changes persist unless we close and reopen our project. So after clicking on
+
+115
+00:10:19,680 --> 00:10:23,600
+a stack of command blocks, we have to remember where we left the state of the
+
+116
+00:10:23,600 --> 00:10:29,720
+world. If we forget, for example, to put pen up at the end of drawing, then
+
+117
+00:10:29,720 --> 00:10:34,560
+whenever we move next, the pen will be in the state of being down, and lines will
+
+118
+00:10:34,560 --> 00:10:39,440
+appear on the stage. So it's a little bit like when you start a project on your
+
+119
+00:10:39,440 --> 00:10:44,120
+desk, and you take out all your notebooks and pens and paper, and then you finish
+
+120
+00:10:44,120 --> 00:10:47,680
+your project. Ideally you want to put all that back so that when you start the
+
+121
+00:10:47,680 --> 00:10:52,320
+next project, you won't have that mess and clutter in front of you. The same
+
+122
+00:10:52,360 --> 00:10:56,360
+thing applies to programming languages. You want to be aware of the state so
+
+123
+00:10:56,360 --> 00:11:00,120
+that when you start your next series of computations, something you did in the
+
+124
+00:11:00,120 --> 00:11:04,440
+previous series of computations doesn't mess up your environment and produce an
+
+125
+00:11:04,440 --> 00:11:11,040
+unwanted side effect. Okay, let me wrap up then. We covered a lot in this video. We
+
+126
+00:11:11,040 --> 00:11:16,040
+learned about turtle graphics, we saw how a sprite moves across a coordinate plane,
+
+127
+00:11:16,040 --> 00:11:21,360
+and we learned how to draw a square. We also learned something about the concept
+
+128
+00:11:21,360 --> 00:11:26,800
+of state and side effects. So given what you've learned now, can you write a
+
+129
+00:11:26,800 --> 00:11:31,640
+program that draws a triangle on the stage? Or if that seems too easy to you,
+
+130
+00:11:31,640 --> 00:11:37,280
+how about a polygon? Try drawing some different figures, and next time we're
+
+131
+00:11:37,280 --> 00:11:41,880
+going to see how to create a circle. But the challenge with making a circle is we
+
+132
+00:11:41,880 --> 00:11:45,680
+want to do it without having to reproduce so many command blocks, because
+
+133
+00:11:45,680 --> 00:11:50,520
+as easy as they are to create, it gets tiresome to have these big series of
+
+134
+00:11:50,520 --> 00:11:55,600
+blocks. Next time we're going to learn how to shorten those stacks of blocks by
+
+135
+00:11:55,600 --> 00:12:01,440
+using control structures to keep it simpler and more compact. But that's
+
+136
+00:12:01,440 --> 00:12:07,680
+enough for today. Thanks for joining me, and see you next time. Goodbye.
+

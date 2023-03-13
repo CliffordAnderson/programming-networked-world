@@ -1,0 +1,136 @@
+Hi, my name is Cliff Anderson. I'm Associate University Librarian at
+Vanderbilt University and a member of Vanderbilt's Computational Thinking and
+Learning Initiative. And in this second of our series on Nets Blocks, I'm going
+to explore how to draw geometric shapes on the screen. We're going to draw simple
+shapes on the stage using so-called command blocks. You're going to learn
+about turtle graphics, a novel idea for teaching kids and the young at heart how
+to program. And you're also going to learn about the concept of state and
+side effects, which we're going to explore in greater depth as we go along.
+So, ready to try out your digital drawing techniques? Let's get started.
+So, what are turtle graphics? Today is going to be all about drawing. Drawing simple
+shapes like squares and triangles on the stage. But before we get started, I'd like
+to share a little bit about the way that this graphical approach to computer
+programming developed. The idea is called turtle graphics or turtle geometry.
+Seymour Papert, a computer science educator who spent the majority of his
+career at MIT, developed the concept of turtle graphics in the 1960s. Papert
+aspired to create an environment for computational exploration, for learning
+by doing, so to speak. Inspired by the educational theories of Jean Piaget,
+Papert wanted kids to learn the principles of mathematics, not by
+memorizing a bunch of theorems, but by extrapolating rules from the success or
+failure of experiments they carry out. He termed this theory constructionism, and
+went about creating a software environment to enable those experiments
+in learning. The software language he co-developed is called Logo, and a
+distinguishing feature of Logo is turtle graphics. This is the humble turtle that
+we're talking about. It looks more like an arrowhead than a turtle, but just use
+your imagination. The default sprite in Netsblocks is indeed this abstract
+turtle, but you can also give the sprite any costume you like. If you want, you can
+also make it look like a real turtle. Just come over here and click on this
+right here, and you can see costumes, and sometimes it takes a moment to load.
+We're waiting. We're still waiting. It's almost there.
+Once it loads, you can see here that you've got lots of options to shape your
+particular sprite. If you want, you can turn it into a beetle. You can turn
+it into a butterfly. Lots of different options, but we're going to stick with,
+for now, this so-called simple turtle shape. The turtle moves around the
+stage using a Cartesian plane. The tip of the turtle, when it starts, is pointing to
+0, 0. So when you create a new program in Netsblocks, you'll always start your
+turtle out at 0, 0. Let's try this for ourselves. I'm going to drag this x, y
+block over here, go to x, 0, and y, 0, and then let's try clicking on it and see
+what happens. If I click on the button, I move back a little bit, but then when I
+click again, nothing happened. So why isn't anything happening? Well, when I
+click on the block, the sprite doesn't move because it's already at the center
+of the stage at coordinate 0, 0. But if we change some of the values in the block
+to find the boundaries of the stage, then we'll see that it indeed moves into
+different places. So here, if I change the sprite to x, 180, y, 0, you're going to
+expect it to move along the x-axis to the right. And if we move back to the
+center, we can move, for example, on the y-axis to 180. Oh, it disappeared off the
+side of the screen, but top of the screen, but no worries. Let's bring it back to
+120. There it is. We can go to negative 120. That's going to drop us below, and
+we'll see. If we click on that, there it goes. And of course, you can get to any
+coordinate this way just by putting your x and y values. So you see that whenever
+we enter a coordinate value on this Cartesian plane, the sprite will move to
+that particular place. And using that combination of x and y values, we're able
+to move the sprite all around the stage. But when we're drawing figures, this has
+its limitations. Just moving the sprite around the stage gets old quickly. If we
+want to draw shapes, we don't want to just hop around. That's not really the
+best way to do things. There might be a way to do it, but we'll get to that later.
+What we need is a couple of other blocks to turn these movements into actual line
+drawings. So we're going to select from two categories of blocks in the palette
+to make our movements more productive, namely the motion blocks and the pin
+blocks. So where do I find those? Here's motion. We're already on it. And then
+these green ones are the pin blocks. So the first blocks that we're going to
+bring over are two of the motion blocks, move 10 steps and point in direction.
+Now you notice that point in direction has here a number already in it. And if you
+drop down, you can see that that number, 90 degrees, stands for right. And you can
+see that 180 degrees stands for down, and zero degrees stand for up. So it's sort
+of like the directions in a compass. And if we combine these with the move block,
+then we can start moving the sprite in different directions around the stage
+any number of steps. So let's just start back. Well, I'll put this at 0, 0. I'm
+going to click on that, and it'll go to 0, 0. And then let's take this and say, okay,
+we're going to put that point in direction there. Point in direction 0, so that's
+pointing down. And move, let's say, 50 steps. Try that. And sprite's not moving.
+Do you know why? We're always going back to point 0, 0, so it doesn't look like
+there's any movement. But now we can see that when we disconnect it from going
+back to the beginning, the sprite is moving up. All right, let's draw a square
+with this. These two blocks provide us with what we need to walk a figure like a
+square or a circle. But we want to see some of the product of our sprite's
+voyage around the stage. To trace the sprite's steps, we need a different kind
+of block. And that's, again, under this pin category. So I'm going to bring over
+pin down and pin up. So these two blocks will tell the system to either start
+tracing a line on the stage or to stop tracing a line on the stage. And if we
+use them in conjunction with the move blocks, we can get the turtle to draw a
+figure for us. Let's start simply. We're just going to create a square on the
+center of the stage. So, okay, I'm going to place this sprite at the center of the
+stage. And then I'm going to take these blocks, which I've already got, and I'm
+going to duplicate them four times. You can right-click on it and get these
+duplicates. So I'm just going to do that four times. Here we go. Okay. And now we
+want to start moving the sprite around. Okay. So I'll put the first one up here
+and the second one here. And we want to turn this time to make a square. Let's
+start by turning to the right. And then we're going to move this one and we're
+going to go down. And this one will go to the left. Let's see how that works.
+Well, it did something, but it didn't actually draw anything. So in order to
+see this, I'm going to pull down the stack of blocks. You see how they
+disconnect? And I'm going to put pen down right here. And I'm going to reattach
+them by lifting them up. You see that white line? That indicates that they'll
+snap together when I let go. All right. So when I click this now, you see that I
+get a nice square. I still have this pen up block. And what's the purpose of that?
+Well, the problem is that if we add something else, for example, let's say we
+want to draw a square and then move on to draw another figure, but we didn't
+want the figures to be attached to one another. If I just go ahead and pull over
+another move block, let's say another move 50 here, and I click on the stack
+again, you see that the turtle continued moving and tracing the turtle's steps. To
+prevent that, I can do the same experiment, but this time bring the pen
+up there, and voila. Ah, it didn't make any change. Again, why is that? Well, it just
+traced over itself. So we needed something else here called a clear
+block at the beginning. And voila. Now when we run it, it made the nice square
+and then moved graciously to the side so that we could see the square. So this
+introduces something that we call state. When we make changes using these command
+blocks, these blocks that have these notches that fit together that have the
+square edges, when we use these command blocks, we're changing the state of the
+sprite's little world. That is, our blocks have the effect of altering the
+program's environment. For reasons that we'll get into later, these command
+blocks actually generate what are called side effects, and we're carrying out
+computations by clicking on these command blocks, and those computations
+create side effects that become visible on the stage. In Net's blocks, these
+changes persist unless we close and reopen our project. So after clicking on
+a stack of command blocks, we have to remember where we left the state of the
+world. If we forget, for example, to put pen up at the end of drawing, then
+whenever we move next, the pen will be in the state of being down, and lines will
+appear on the stage. So it's a little bit like when you start a project on your
+desk, and you take out all your notebooks and pens and paper, and then you finish
+your project. Ideally you want to put all that back so that when you start the
+next project, you won't have that mess and clutter in front of you. The same
+thing applies to programming languages. You want to be aware of the state so
+that when you start your next series of computations, something you did in the
+previous series of computations doesn't mess up your environment and produce an
+unwanted side effect. Okay, let me wrap up then. We covered a lot in this video. We
+learned about turtle graphics, we saw how a sprite moves across a coordinate plane,
+and we learned how to draw a square. We also learned something about the concept
+of state and side effects. So given what you've learned now, can you write a
+program that draws a triangle on the stage? Or if that seems too easy to you,
+how about a polygon? Try drawing some different figures, and next time we're
+going to see how to create a circle. But the challenge with making a circle is we
+want to do it without having to reproduce so many command blocks, because
+as easy as they are to create, it gets tiresome to have these big series of
+blocks. Next time we're going to learn how to shorten those stacks of blocks by
+using control structures to keep it simpler and more compact. But that's
+enough for today. Thanks for joining me, and see you next time. Goodbye.
