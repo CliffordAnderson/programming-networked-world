@@ -1,0 +1,432 @@
+1
+00:00:00,000 --> 00:00:03,760
+Hello everyone, and welcome back to our series on programming for a network world.
+
+2
+00:00:04,720 --> 00:00:09,600
+Today we're going to talk about custom blocks. Have you ever looked through the palette in
+
+3
+00:00:09,600 --> 00:00:15,120
+NetsBlocks and said, hey, I wish there were a block for that, but it doesn't exist in the palette.
+
+4
+00:00:15,840 --> 00:00:22,320
+What can you do? Well, the good news is that if you can't find a block, then you can make your
+
+5
+00:00:22,320 --> 00:00:28,000
+own block. We're going to talk about how to make a custom block and why it's useful to hide the
+
+6
+00:00:28,000 --> 00:00:33,840
+complexity of your program. By encapsulating some of that complexity in a custom block,
+
+7
+00:00:34,560 --> 00:00:38,880
+you'll make your programs much more modular and easier to understand.
+
+8
+00:00:38,880 --> 00:00:42,720
+So, ready to start creating your own blocks? Let's get going.
+
+9
+00:00:50,960 --> 00:00:56,880
+Okay, today's project is going to be about the weather. What I'd like to do is combine two
+
+10
+00:00:57,520 --> 00:01:06,640
+network functions in NetsBlocks, two RPCs, one of which is going to tell us our geospatial location,
+
+11
+00:01:06,640 --> 00:01:11,680
+and the other is going to use that geospatial location to look up the weather and give us an
+
+12
+00:01:11,680 --> 00:01:18,320
+icon representing the current conditions. So, let's get started with just the basic pieces,
+
+13
+00:01:18,320 --> 00:01:24,000
+and then we'll talk about how to put them together in a custom block that takes the name of a city
+
+14
+00:01:24,000 --> 00:01:30,160
+and gives us a weather icon. Okay, so to begin, I'm going to go over here to network,
+
+15
+00:01:30,160 --> 00:01:39,120
+and I'm going to pull in two call blocks here. The first one I'm going to pull in,
+
+16
+00:01:39,120 --> 00:01:44,800
+I'm going to change to, let's see if I can find it,
+
+17
+00:01:44,800 --> 00:01:53,840
+let's call it science and then weather. Okay, and then if we drop it down here,
+
+18
+00:01:53,840 --> 00:02:00,080
+we'll see that we've got some options here. Let's go to icon, and you see that it requires a latitude
+
+19
+00:02:00,080 --> 00:02:05,440
+and longitude. Well, we can look that up in various ways, but the easiest way to do that is
+
+20
+00:02:05,440 --> 00:02:12,640
+just to use another RPC that gives us the latitude and longitude. So, in that case, I'm going to go to
+
+21
+00:02:15,760 --> 00:02:23,040
+geolocation here, and I'm going to drop this down, and I'm going to say geolocate, and this will take
+
+22
+00:02:23,040 --> 00:02:29,600
+an address and then return us our latitude and longitude. So, for example, if I put in just the
+
+23
+00:02:29,600 --> 00:02:40,080
+city of Nashville, Tennessee, and I click on this now, we'll see. Here we go. I get latitude and
+
+24
+00:02:40,080 --> 00:02:48,640
+longitude in a list of lists or table format. Okay, so if I want to pass this into the latitude
+
+25
+00:02:48,640 --> 00:02:54,320
+and longitude here, then I need to get that information out of this list of lists so that I
+
+26
+00:02:54,320 --> 00:03:02,000
+can pass latitude and longitude into the next block here. So, to do that, let's go ahead and create
+
+27
+00:03:02,000 --> 00:03:09,200
+some variables. We'll go over to variables here, and I'm going to grab some script variables,
+
+28
+00:03:09,200 --> 00:03:11,760
+and we're going to call one latitude
+
+29
+00:03:14,880 --> 00:03:16,880
+and the other longitude.
+
+30
+00:03:22,240 --> 00:03:34,720
+Okay, and now I can set these variables. Here's latitude, and let's set this one to longitude,
+
+31
+00:03:35,600 --> 00:03:40,160
+but I don't want to call the geolocation twice, so I should probably create another variable
+
+32
+00:03:40,160 --> 00:03:44,480
+called coordinates that will capture that information after I call it once.
+
+33
+00:03:45,680 --> 00:03:50,240
+So, I'm going to say coordinates, and now I'll set that coordinates here
+
+34
+00:03:53,280 --> 00:03:58,880
+to the result of this geolocation call, which is now hidden there. There we go. Let's make this a
+
+35
+00:03:59,840 --> 00:04:08,720
+little bit smaller so you can see it all. Okay, so I'm going to try now to call the geolocation for
+
+36
+00:04:08,720 --> 00:04:13,760
+Nashville, Tennessee, set it to coordinates, and then let's pull out the information from
+
+37
+00:04:13,760 --> 00:04:20,800
+that block. Now, remember, when we index into a list, we're going to want to index to the
+
+38
+00:04:20,800 --> 00:04:26,880
+particular row and then the item in that list. So, let's do that. We're going to go to
+
+39
+00:04:28,880 --> 00:04:36,080
+have to have two of these blocks, item 1 and item 2, and so the first one is going to be set to 2,
+
+40
+00:04:36,080 --> 00:04:43,840
+and then the second one to 1, and let's try that here, of coordinates, because we've already
+
+41
+00:04:43,840 --> 00:04:49,440
+captured coordinates, and then the same thing here. We'll duplicate that, except this will be
+
+42
+00:04:50,240 --> 00:04:56,080
+item 2. Now, just to test to see that we're getting the right information, let's just report
+
+43
+00:04:56,080 --> 00:05:02,400
+the information that we have so far. So, I'm going to go down and grab a report block. I can find it
+
+44
+00:05:02,400 --> 00:05:09,440
+here. Report, report, report, report. There it is, report, and I'm going to report. Let's just say I'm
+
+45
+00:05:09,440 --> 00:05:12,880
+going to report the latitude. Let's just make sure we're actually getting the information we want.
+
+46
+00:05:12,880 --> 00:05:16,480
+So, there's the latitude, and we can test the same thing with the longitude,
+
+47
+00:05:18,880 --> 00:05:24,640
+and voila. Easy to get those, you know, reversed, and then you'll end up somewhere
+
+48
+00:05:24,640 --> 00:05:30,480
+off the, you know, an ocean off of the coast of Africa somewhere. So, if that happens, you know
+
+49
+00:05:30,480 --> 00:05:38,320
+that you've got latitude and longitude reversed. Okay, so now let's drop in this report here,
+
+50
+00:05:38,320 --> 00:05:43,360
+and we're going to add latitude in the latitude slot, and longitude in the longitude slot,
+
+51
+00:05:44,160 --> 00:05:49,200
+and if, with any luck, we click on this, we should get an icon representing the current weather
+
+52
+00:05:49,200 --> 00:05:55,760
+conditions in Nashville, and there you go. It's partly cloudy. Okay, fantastic. So, we've got the
+
+53
+00:05:55,760 --> 00:06:01,920
+block working, but we don't want to necessarily ask our users to type into this particular slot
+
+54
+00:06:01,920 --> 00:06:06,880
+every time. It would be nice to have a function that is look up the weather and give us an icon
+
+55
+00:06:06,880 --> 00:06:11,920
+for a particular city without having to go through the steps of, you know, changing this here and kind
+
+56
+00:06:11,920 --> 00:06:16,560
+of figuring out what all these calls do. If we made a custom block, it would be very clear. Give the
+
+57
+00:06:16,560 --> 00:06:21,680
+name of a city, get an icon for the weather back. So, how do we do that? Well, there are two ways to
+
+58
+00:06:21,680 --> 00:06:30,160
+create a custom block in NetsBlocks. One is that you can click on custom here, and then in this
+
+59
+00:06:30,160 --> 00:06:35,120
+palette, you'll see make a block, and if you click on that, you get this option to make a block, but you
+
+60
+00:06:35,120 --> 00:06:40,720
+can also just right click here and click on make a block in the menu that pops up. So, let's go ahead
+
+61
+00:06:40,720 --> 00:06:46,080
+and click on make a block. Now, you get a lot of options here that you can use, and you can choose
+
+62
+00:06:46,160 --> 00:06:50,800
+whether it's going to be a command block, a reporter block, a predicate. In this case, we'll make it a
+
+63
+00:06:50,800 --> 00:06:57,280
+reporter, and we're going to associate it with the network palette, and that's because when you're
+
+64
+00:06:57,280 --> 00:07:01,360
+thinking about what this block does, you want to associate it with other types of blocks in terms
+
+65
+00:07:01,360 --> 00:07:07,200
+of its color that do similar things. And so, this is looking up something from the network. It's using
+
+66
+00:07:07,200 --> 00:07:13,120
+two RPCs, so it seems appropriate to put it under the network tab. So, I'll do that, and then we have
+
+67
+00:07:13,120 --> 00:07:26,240
+to give it a name. So, the name of this block will say weather icon for location, and then I can say,
+
+68
+00:07:26,240 --> 00:07:31,840
+is it for all sprites or for this sprite only? We'll just let it be for all sprites. Now, the thing is,
+
+69
+00:07:32,480 --> 00:07:37,200
+when I create this, you might say, okay, you've created this block. There's this
+
+70
+00:07:37,200 --> 00:07:42,880
+nice window here that you can use. We can take our script and just put it in here, and now we've got
+
+71
+00:07:42,880 --> 00:07:48,000
+a custom block that will accomplish the goal of looking up weather for a particular location,
+
+72
+00:07:48,640 --> 00:07:53,600
+except to say that there's no particular way. Let's see if I can just pull this down a little bit more.
+
+73
+00:07:55,200 --> 00:08:01,120
+There's no particular way to pass in information to this block. We don't have a slot yet for us to
+
+74
+00:08:01,120 --> 00:08:05,360
+enter the city. We just have weather icon for location, and if you look at what the block looks
+
+75
+00:08:05,360 --> 00:08:12,160
+like, which appears here in the palette now, it's just a solid reporter block with no place to enter
+
+76
+00:08:12,160 --> 00:08:18,080
+information. So, to remedy that, we're going to click on location, and you see that we get another pop-up
+
+77
+00:08:18,080 --> 00:08:23,360
+here, and it differentiates between title text, which is just that text that appears within the
+
+78
+00:08:23,360 --> 00:08:31,200
+block, and input name, and an input name provides a slot for you to use to pass information into that
+
+79
+00:08:31,200 --> 00:08:36,640
+custom block that can be used for computations that are contained within that block. So, if I
+
+80
+00:08:36,640 --> 00:08:41,120
+click over here, I can see, oh, I've got lots of different options to indicate what type of
+
+81
+00:08:41,120 --> 00:08:46,320
+information I'd like to come into this block. I can say it could be an object, or a list, or a number.
+
+82
+00:08:46,320 --> 00:08:52,000
+In this case, I want to use text. So, I'm going to say this block should have a location that's an input
+
+83
+00:08:52,000 --> 00:08:58,320
+that accepts text as its input, and I'll click that, and you see that it turns it
+
+84
+00:08:58,320 --> 00:09:04,720
+into what looks like a variable. So, that's going to be the parameter that people pass into this block
+
+85
+00:09:04,720 --> 00:09:10,720
+that is then used within the block to perform the calculation that the block is supposed to perform.
+
+86
+00:09:12,000 --> 00:09:18,240
+Okay, so I click on that, and now you see that I have a nice slot for the input, and so if I take
+
+87
+00:09:18,240 --> 00:09:28,160
+the input, and I say Nashville, will it work? Well, let's try it. There you go, but watch out,
+
+88
+00:09:29,040 --> 00:09:34,160
+it may not have worked for the reasons that you think. So, we still need here, we've got Nashville,
+
+89
+00:09:34,160 --> 00:09:39,040
+Tennessee kind of hardwired into our code, so it's always going to report for Nashville, Tennessee.
+
+90
+00:09:39,040 --> 00:09:45,680
+So, for example, if I looked up Los Angeles, California, it's going to tell me that it's also
+
+91
+00:09:45,680 --> 00:09:52,320
+partly cloudy there. What we need to do then is take this location block and drop it on top of
+
+92
+00:09:52,320 --> 00:09:58,400
+where Nashville, Tennessee had been. Now, whenever someone enters a new city, a city other than
+
+93
+00:09:58,400 --> 00:10:03,040
+Nashville, then the coordinates for that city will be looked up, and it will give the appropriate
+
+94
+00:10:03,040 --> 00:10:09,520
+weather conditions. So, now let's try it for Los Angeles, and dollars to donuts, Los Angeles is
+
+95
+00:10:09,520 --> 00:10:16,240
+going to be sunny. Oh, no, no, look at that, it's cloudy. It's cloudy in Los Angeles, but sunny in
+
+96
+00:10:16,240 --> 00:10:22,080
+Nashville. You never know about the weather. In any case, you can see now that you can use this
+
+97
+00:10:22,080 --> 00:10:26,640
+to look up weather in any part of the world that you'd like to look up. So, we could say like Berlin,
+
+98
+00:10:27,440 --> 00:10:38,800
+Germany, and there we go, cloudy and raining in Berlin. So, you've seen in this particular video
+
+99
+00:10:38,800 --> 00:10:45,120
+how to create a custom block. Custom blocks are wonderful ways to encapsulate information so that
+
+100
+00:10:45,760 --> 00:10:50,240
+you can use them in larger computations without getting lost in the details of what all the
+
+101
+00:10:50,240 --> 00:10:57,600
+particular blocks do. So, in this particular case, we composed two RPCs, one to find the
+
+102
+00:10:57,600 --> 00:11:03,280
+geolocation, the other to pass it to a weather service that provides us an icon that represents
+
+103
+00:11:03,280 --> 00:11:09,120
+that the weather in that location, and then we made a new block that just allows people to pass
+
+104
+00:11:09,120 --> 00:11:15,040
+in a city name and get back an icon. So, you can do this with almost anything that you want to do
+
+105
+00:11:15,040 --> 00:11:20,880
+in NetsBlocks when you want to simplify your computations and build larger programs. Typically,
+
+106
+00:11:20,880 --> 00:11:25,600
+you'll be doing that by making a lot of custom blocks and then composing those custom blocks
+
+107
+00:11:25,600 --> 00:11:31,840
+together to make units of computation. So, thanks very much for joining me in this video.
+
+108
+00:11:31,840 --> 00:11:36,320
+I look forward to seeing you in our next session. Bye-bye.
+

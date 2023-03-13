@@ -1,0 +1,242 @@
+Hi, welcome back everyone to Programming for a Network World. Today we're going to
+wrap up our sessions on textual analysis in Netsbox and we're going to do
+something fun. I don't know if you've seen the channel Translation Fails. I
+think they changed their name to Twisted Translations, but the idea is that they
+take song lyrics and then they run it through Google Translate multiple times
+and whatever comes out is what the performer sings. So we're going to make
+our own Translation Fails in this particular section and we're going to do
+that by combining two RPCs that are built into Netsbox. So are you ready to
+mess with song lyrics? Let's get started.
+Okay, so here's what we're going to do. We're going to take out from the
+Network tab over here the first RPC that we're going to use and if we drop down
+we'll see here under music that we have access to Genius. Now for those of you
+that don't know Genius, it's a site that gives you information about songs and
+song lyrics and you can see here that if you drop down you'll see that you have
+Get Artist, Get Song, Get Song Lyrics. Now all of these, if you click on them, will
+take an ID. So we need to find out what that ID is first and the way we do that
+is to search for songs. So let's just look for the song Don't Stop Believing.
+I think that's how you spell it. And we get back actually 10 that have that
+match. Let's take a look. Let's actually just go in and take a look at
+this a little more carefully by getting the first item. There we go. So item one
+and that gives us this chart here. Don't Stop Believing. This one is by The Rock.
+Oops, if I can pull this across. The Rock of Ages movie. Okay, but in any case we can
+use this version of the song Don't Stop Believing to get our ID which is the
+first item there. So let's go over and just get our library for structured data
+that we've used before just to make it clear what we're doing. So let's get
+structured data, bring it in, go to custom, and let's get the value of that. So we're
+gonna drop that in here and we'll get the ID. I can't remember if it's
+capitalized or lowercase. Okay, so we did it in caps and there it is. So that gives
+us the ID of the song and now if we want to get the lyrics all we need to do is
+call it again for the lyrics with that ID. So let's go to network here and go
+over and back down to music and to Genius and we're gonna get the song
+lyrics and then we're gonna drop this in here and there we go. Don't Stop Believing.
+That looks like the song that we're looking for. Okay, and I see this one is
+sung by two singers so I think they're indicating who's singing
+what part so that's why we're seeing the in brackets there, but that should be
+fine. Okay, now what we'd like to do is to take these lyrics and then pass them
+into Google Translate, shuffle them between languages so they kind of get
+mixed up and then have Ada present the lyrics back to us in English but in
+their kind of mixed up form. So in order to do this we need to start building a
+program that will allow us to search for the the lyrics that we want, then to
+pull out the song lyrics, to tokenize them, to split them into segments by line
+and then we're gonna pass them into Google Translate. So the other service
+that we are gonna want to use is Google Translate and let's just see how that
+works before we get started too far. So we're gonna go to language and then you
+see here is translation and translation has a couple things that we're gonna use.
+So one is get supported languages. This is just a list of the languages. I think
+there are about a hundred, 111 languages that Google Translate supports and
+here are their codes. So we'll use those codes. That'll be part of what we use so
+we'll kind of leave this out here. But also, and let me just duplicate this, we
+also can translate from language to language. So here we can put in a text
+and we could say like don't stop believing and we could translate it from
+English to say Chinese. Invalid key, please update your as your translation
+API key. Well that doesn't sound too good. Let's try this again. Let's just try
+FLR.
+Okay, there we go. I think that we were just getting an error code because CN for
+some reason isn't the code that we want but maybe I'll mention to Brian that we
+should improve that error message. Okay, so there we go.
+N'arrêtez pas de croire. Don't stop believing in French. All right, so that is
+good and actually Chinese probably is ZH but anyway we'll leave it as it is. We
+have to look it up here and find out. Yeah, there it is. ZH on T is traditional
+Chinese so let's just try that just to see if we can do it. ZH dash on T.
+There we go. Something like that. So excuse my Chinese but there you go.
+Okay, so we can translate between different languages but the idea is in
+going back and forth between these languages we'll lose some of the
+exactitude of the translation. Again, this is just a function of machine language
+transformation that it doesn't capture all the nuances perfectly especially as
+you move between languages and so that should produce some funny lyrics for us
+to work with. Okay, so let's now start putting all this together here.
+All right, so let's start with just setting up our initial... we'll start with
+a win clicked here and this is going to take up a lot of space so we'll see if I
+can kind of get everything together and let's also put in some space for
+some variables because we're going to need to use them as we go along but the
+first one we'll do doesn't need a variable because we'll just do the
+sensing that we normally do which is we're going to let Ada ask what song
+that we're interested in. What song shall I sing? Okay, and then we'll wait for the
+answer and of course the answer comes in this answer. Now here's where we're
+going to need our first variable because we want to identify the song that we're
+going to be talking about. So let's get the song ID. We'll use that as our first
+variable here and the way that we do that, as you know, is we search the songs
+and then we get this ID. So we're going to set that variable here to this but
+let me move this over here so we've got more space. Okay, so it's not just going
+to be don't stop believing. We're going to put in the answer there and we'll see
+what it comes out as. Okay, so that'll and we want to set the song ID to that.
+Okay, so that will give us the ID and now the next thing we want to get is the
+song lyrics. So same process as we had before, song lyrics. We're just going to
+set it to a variable here. So let's go over and set song lyrics to whatever
+Genius calls with that ID and so we pass in ID here. Okay, and let's just test to
+make sure that we're getting the results that we want. Let's go down and report
+the results just to make sure we're on the right path here. So we should be
+getting the song lyrics back and we click on this and again I'll say don't
+stop believing and there the song lyrics come up. So good, we're on the right path
+so far. Okay, now the only thing that's left to do is to split these into lines
+and I think it's probably easier not to make another variable to do that. We can
+just take this operator right here of split and put it into the song lyrics
+themselves right there. So let's just drop this in here and then we're going
+to split what comes back by line. So that should give us the various verses of the
+song. We can test that again just to make sure it's working. I'm gonna have to
+pick a shorter song. A song with a shorter title I should say. There we go.
+Okay, it's working. We do have some like spaces that we need to fill in so we'll
+these we should remove from our list so we'll have to think about how to do that
+in a moment. But basically we've got everything that we want so the only
+thing that we might want to do is capture the title of the song. So we
+could also just do that here by putting the song title. Let's do this in
+lowercase like we've done. Song title. All right and again with a variable here.
+Now if you remember when we when we called this to get the information from
+geniuses that we can actually just duplicate this probably. All right this
+is item one. When we call this and we say like anything I'll try I am Walrus
+this time we get the title it's the second item here. So what we'll want to
+do then is we probably shouldn't call twice it would be better not to do that
+but I think for sake of expediency I'm going to do that. So I'm just gonna
+duplicate this here and put this in here and then we're gonna get item two of
+that. I'm sorry we want item one that's still the same but what we want to
+change here is title and I think it's lowercase. Let's just see if we're
+getting the title now. So drop this back in here. Let me pull this out of the way.
+Okay okay so let's pull this out of the way and just see if we're getting the
+song title coming back. Should just actually mimic what we're putting in.
+Yeah okay so that's good it's working. All right so we've got our pieces of
+information that we need from Genius. Now we need to pass those into Google
+Translate to do the mix of translations. All right so let's throw this out of the
+way and we'll keep these pieces here but we don't need this any longer and we
+don't need this any longer. All right the first thing that we want to do is to
+create a list of the translations the languages that are supported by Google
+Translate or Azure Translate in this particular case I think we may be using.
+So I apologize for Google we may be using Azure. And so here we go let's then
+fill this in and we'll say languages. Okay I'm gonna put this over to the side.
+Okay so the languages that are supported we'll just assign to that variable there.
+So let's do that and let's call and get those languages that are supported.
+Okay so we're gonna set languages to call translation get supported languages.
+So that's gonna give us that list that we saw and then we can work with that
+list to pick languages that we want to translate into. Now this is this is the
+tricky part we're gonna use this under the variables tab we're gonna use this
+for each and just to make it clear what we're talking about we're gonna talk
+about we're gonna work on each verse at a time gonna translate that and so let's
+get the song lyrics. So for each verse in the song lyrics that's basically what
+we're gonna iterate through we're gonna translate them. So let's now do a little
+setup so the starting language that we're going to start with is going to be
+English so and then the starting translation that we're going to start
+with is is the verse. So let's do a couple variables inside here oops oops
+there we go all right script variables we'll put it right here and so we're
+gonna start with let's say the the source that's gonna be the the source
+language and that will be English to start with and then the destination
+language that's gonna be a random destination to any language that we
+choose from that list and then we want our translated text so let's add that
+whoops I didn't mean to run it there we go let's stop it so we'll say
+translation okay so that's the three variables that we're going to need for
+this now to start working on this let's begin by setting the translation to the
+verse that we're going to use so that's what's coming in that's the original
+untranslated version so that's going to be the what we start with as our
+translation and then we're gonna have to send it for translation now remember
+when I said that there are some lines that don't contain anything so one way
+we can say it's just if there is a verse if there's any verse at all then we'll
+do this if there's not we'll skip to the next line so that eliminates those gaps
+in the verses the the places that came back as just empty spaces okay now let's
+begin by setting the source because we're working with English songs to set
+the source to English all right so the source will be to begin with is going to
+be EN all right let's move this over here we're running out of space maybe if
+I can pull this down a little bit create more space for us there we go
+okay that's clearing up our scripting area a little bit okay so if there's a
+verse we're gonna say okay the starting language is going to be English and now
+we want to set the destination so let's do another variable here oops under
+variables we're going to set the destination to now what do we set the
+destination to well here's where we want to pick a random item so in order to get
+a random item let's just look at this Google Translate again I'm going to
+duplicate this and let's drop this down to that get supported languages so in
+order to get a random item we will just get a number from one to now we could
+just put in 111 but that's that's hard coding data and you know as your might
+add another language so we're gonna leave our options open so we'll say to
+the length of this so that's going to be some number that's there actually I
+shouldn't pick one two I want a random number so let's go over here so I think
+random might be over here pick random okay that's what I wanted so let's do
+pick random from one to link that so that should just gives a random number
+every time good up to the length of the list of translations that are supported
+by Azure okay and now we just want to pick one of those from this language
+translation so let's let's call that here and we're just going to use the
+item of put this in as our list put this in as the number that we want so that
+will get a random one each time let's just see how it works so now we see we
+got AM which is a language code for something I don't know OTQ YUE LZH okay
+all these languages I'm not familiar with but what we do see is that we want
+item one of it that's the code that we want so we're gonna put item one around
+this and that should just come out with the code with nothing else okay so we're
+seeing the codes there okay that's perfect now we don't need to call out
+twice because we're actually going to use this variable languages that we've
+set up here so let's pull this whoops that's actually what the length of want
+to pull this out and we want to put in length of languages and then here we
+want to pull this out and we just want to put in languages that way we're not
+calling back and forth we're just using the call that we made one time up here
+and so then we need to set the destination language to that random
+language okay so that's good now we've got our source language and we've got
+our destination language so that's awesome all we need to do now is to set
+our translation so if we've got this we will set those and then let's let's do
+the translation here under variables and set our translation did it go in let's
+there we go and set our translation to translate now what we want to translate
+is the verse here from the source
+to the destination now I think we're gonna get rid of verse and I'll talk
+about why in a moment but we're just gonna start with this translation which
+is actually already been set it's the same as the verse when it starts okay so
+we've got that ready now let's just see if we can say the translation
+all right we're gonna put it in here whoop there we go it's not gonna be
+hello it's going to be the translation and we'll just have it appear on screen
+for a moment now let me pull this over and we'll see if it works okay which
+song so they saying don't stop believing oh yeah we haven't translated it back to
+English so we're translating it into random languages that is cool each time
+a different verse into a different language but we need to remember that
+after we do that we need to set it back to its its English form okay so let's
+then duplicate this
+and put this right here we don't need this twice okay so we're gonna set
+translation here now here's the trick this source is English but if the second
+time around it's not so we're gonna need to switch those variables and let's see
+if we can do this here with variable to set it okay so we're gonna set the
+source now to the destination so basically swap those variables and then
+the destination here is going to be English so that's where we end so we
+know that that's that's hard-coded so source is first English and then we set
+the destination to a random language and we translate from the source which is
+English to that random language then we're translating back because we have
+to indicate what language it was so now we're translating from the source which
+is the random language that we chose back in English and then saying the
+translation so let's see if that works
+don't stop believing don't stop believing
+okay so it's working but if you really want to make it crazy you need to move
+between languages more than once so let's add in a repeat block and the only
+trick here is just getting the repeat block into the right place so here I go
+I'm gonna grab repeat I think we'll just do it three times so I'm gonna drop it
+in right there and this part here should work
+let's see if we go like that okay so we're going to set the destination
+gonna call the translation I'm gonna switch the source to the destination and
+then we're gonna repeat not ten times which would be a lot of calls but three
+times and then we'll come back and set it to English for our final presentation
+of what Ada would be singing if we could hear her sing all right that should
+produce the wanted effect of really scrambling the lyrics let's try it out
+all right here we go drumroll should we do I'm the walrus this time if I can
+spell it I am the walrus okay walrus song
+he's the one you are and we're all together it's close enough look how they
+run like pigs out of the guns see how they fly I'm crying cry surah to sitting
+on the ledge I'm waiting for the pain to come
+company shirt bloodied class man you're an ugly boy and you let your face grow
+for a long time choir I'm an egg an egg I'm a walrus goo goo good you well no
+one really knows what that means anyway so that's hard to translate all right so
+we'll wrap it up there this is as you see just a fun exercise showing you
+again how you can combine two RPCs to create a fun effect if you like extra
+credit I would encourage you to make a video in which you use this tool to
+create those lyrics and then sing it yourself I'd love to see it so thanks
+very much for watching and we will see you in our next unit

@@ -1,0 +1,289 @@
+Hi everyone, welcome back to Programming for a Networked World.
+Today we're going to be talking about errors.
+Now, if you've seen these videos, you know that I've made my fair share of errors
+as I'm working through programs.
+And there's a process called debugging
+that helps you to identify the source of those errors
+and then to correct them.
+So today we're going to be covering some of the debugging tools
+that are built into NetBlocks and learning how to use them.
+So, ready to squash some bugs?
+Let's get started.
+Okay.
+So, today we'll just make a simple program
+and I'm going to purposely put some errors into it.
+So here we go.
+Let me bring over...
+Well, let me talk about what this program will do first.
+This program is going to divide a number
+and then it's going to give you the quotient and the remainder.
+So the quotient is the integer part of the division
+and then the remainder is whatever is left over from the integer division.
+So to do that, let's bring over a program now.
+We'll create a program now.
+So I'm going to bring over two blocks that we need.
+We'll need the mod operator to get the remainder
+and we're going to need over here, let's see, floor here.
+Okay, and then we're going to divide.
+So let's just get these pieces in place.
+So if we get 2 divided by, well, let's say actually better, 3 divided by 2,
+this should give us the integer part, which is it goes in one time.
+And then if we do that same calculation up here,
+3 divided by 2 or 3 mod 2, we should get the remainder.
+So it's one remainder of one, which is the right answer.
+Okay, so let's build this into a custom block.
+So I'm going to make a block here and it's going to be an operator
+and we'll say, let's call it divide with quotient and remainder.
+And we'll need to put in our parameters here, so x and y, and we'll create that.
+Then let's turn those into inputs.
+Okay, x is an input and y is an input.
+There we go.
+Now let's build out here our function.
+So there we go.
+It's got stuck.
+That happens.
+Sometimes you can just grab another block like this and then drop it over.
+So that's a little bit of a bug ourselves that we have in this box,
+but maybe it would be fixed by the time you watch this video.
+But if it ever happens, that's how you solve it.
+Okay, so 3 mod 2, so we don't need the absolute values that we put in here.
+We're going to get rid of those because those be the variables that we use.
+Okay.
+Now let's imagine that we want to return this as a tuple or a list of two items.
+So to do that, we're going to make some variable inside here.
+So we're going to go to variables and we're going to create a script variable
+and we're just going to call this nums.
+So there's nums.
+Okay.
+And let's also create script variables for the quotient and the remainder.
+We could do this a little bit more simply,
+but I want to make this all explicit so we can sort of look at the steps we need
+for debugging.
+Okay.
+Now let's grab here.
+We'll start doing our math.
+So first let's do set the quotient to the floor of,
+let's get this out of the way, x and y.
+Okay.
+And then we're going to set, let's see here,
+the remainder to mod of x and y.
+And then we're going to, under control, report.
+There we go.
+We're going to report a list of the quotient and remainder.
+So we actually need to add this to the list as part of what we're doing here.
+So let's do that.
+So let's, for example, set,
+and we'll just put in here the nums to, well,
+let's just add them to the list.
+How about that?
+So we'll go down to here.
+Let's see.
+We'll use for this, just this ad.
+Okay.
+So we're going to add the quotient and we're going to add the remainder.
+And what are we adding it to?
+Well, this list that we're going to be using, which is nums.
+Okay. So that's the quotient.
+We don't need this.
+We do need the remainder.
+And that is also added to nums.
+Then we report nums.
+So we report the list that contains first the quotient, remainder.
+Okay.
+Now there are some bugs,
+both bugs that will occur at runtime.
+That is if a user enters values that we don't expect,
+and also bugs that will show up as soon as we run this at all,
+because of the way that we're working with lists.
+Let's just see what happens.
+So, okay.
+So we've got that.
+We've got this custom block.
+Let's bring it out.
+Divide.
+Okay.
+So let's divide three by two again,
+and we get an error.
+Okay.
+Inside error, expecting list, but getting number.
+This is very common.
+We've seen this before and we know in fact what it is,
+but let's pretend that we're a little unsure about why this is causing an error.
+So what would we do?
+Well,
+you've seen me just kind of go through and edit blocks and kind of figure it
+out, thinking through the problem, breaking down step by step,
+and then building up piece by piece again until it actually works,
+which is a typical way of debugging.
+But there are some tools that you can use to make that process easier.
+The first one I want to show you is the stepping tool here.
+So if you say visible stepping and you can click on that,
+you can change the rate of stepping.
+We'll look at that a little bit.
+I'm just going to put it towards the left side because it'll make it a
+little slower.
+Then I'm going to open this up here so that we can edit this.
+And I want, because I want to see what's inside here while we're stepping.
+Now,
+what stepping allows you to do is to watch the actual sequence of steps
+that take place in a way that helps you to see where the error actually
+occurs. So if we can click on this now with stepping,
+you'll see that it enters into our custom block and it's running through the
+various operations.
+And you can see each operation as it's taking place.
+And then here it breaks down here. Okay.
+And this is exactly where the error is. So it's in this block.
+So that actually helped us to narrow down where the error was in a really
+nice way. And we can say, okay, why did that occur? Well,
+I mean, we know the answer.
+It's because we haven't set nums to be a list.
+We're trying to add nums to something that is not yet a list,
+but what if we didn't know exactly what the problem was?
+There's another block that you can use that will help us to identify the
+error.
+And that is a block that we'll find over here under control.
+It's very at very much at the bottom pause all.
+And it has this like pause label here. Okay.
+So let me just stop this. So we've got the visible stepping on,
+but I'm going to actually now drop this right into where that error
+occurs. So just basically let's say right here. Okay.
+This is sometimes called a break point.
+Basically it's not stopping our program. It's just pausing our program.
+And because it pauses our program,
+it allows us to inspect the value of the variables that are you know,
+what their state is at the moment.
+And then we can see if there's something wrong with one of the variables
+that's causing the problem that we're discovering when we try this
+operation. So let's give that a shot.
+I'm going to turn stepping off and I'm just going to run this like we had
+before. So I'll start the program.
+And now you see that it looks like it's let's make sure that's right.
+Okay. So you should see that it looks like it's paused here. Okay.
+And then we can click this button to run it again and then it hits that
+error. But when you run it, let's make sure we run it. Okay.
+And you see this, that it's paused. It's paused right here.
+And now the nice thing is we can click on this and now we get this kind of
+set of variables that we can look at.
+So these are the variables that are actually being used at this moment in our
+program. And if you click on them,
+you can display their values in the window here or on the stage,
+and you can see what they are. So here we can see.
+Now what's wrong here?
+Well, we can see that all of these values are integers here.
+They're three, two, one numbers is zero quotient is zero.
+So let's get the last one here. I guess I stopped it from running.
+So let me run it again. Okay. And then the remainder. Okay.
+So these are our watchers.
+They're showing us the values of the variables at this stage in the program.
+Now, if we unpause it, we hit that error and it can help us see, okay,
+we know that the error is in this line.
+And if we look to see what we're adding quotient to,
+you can see that we're adding quotient supposedly to a list,
+but we're actually trying to add it to an integer.
+So now let's go ahead and fix this.
+Let's go over here and under variables,
+under variables, we're going to set at the very beginning of the script,
+the remainder or no,
+sorry nums to a list.
+And so let's grab list over here and we'll make it an empty list.
+Okay.
+And let's unclick these so that we hide them.
+We're going to look at them again when we run this.
+When we run this.
+Okay.
+Now let's run it again.
+We're going to hit that break point, which we did.
+Now we can look at this and we want to look in particular at nums.
+And we see now that nums is actually a list rather than an integer.
+And so if we run this through,
+we see now that nums has the two values that we expected,
+and we didn't run into any errors.
+That break point allowed us to look at the state of that variable at that
+point in time,
+and then determine that we had the wrong type of variable and change it
+from being an integer to a list.
+And that's all the problem.
+Now there are other problems in this particular function that we've written,
+but they are problems that manifest differently.
+They have to do with particular values that might be run through.
+So for example,
+we could have a divide by zero error and let's just run this through with
+maybe don't need the break point anymore.
+Now we get the result of infinity and zero.
+I'm going to hide this.
+There we go.
+So it does work,
+but we have the values infinity and zero.
+Let me just get rid of the break point because we don't need it right now.
+And with infinity and zero,
+that's because there is no way in mathematics to divide an undefined
+operation, a number by zero.
+So it gives us infinity.
+Now in this particular case,
+the way do we want to handle that is probably to check the value of the Y
+when it comes in,
+but there's other problems here that are maybe even more subtle.
+Someone could pass in a letter,
+for example,
+maybe they thought they were dealing with a variable that contained a
+number.
+And if you click that,
+you're going to get zero and zero.
+So it's still not giving you an error.
+So we want to check to make sure that the information that we're passing in
+our parameters are actually numbers.
+The way we would do that is to go back to the way that we've defined these
+inputs and to make sure that we require them to be numbers.
+That's the easiest way to avoid that type of error.
+So let's make sure that there are numbers going in and let's do it here.
+All right.
+Now let's test that.
+And still giving us an A,
+but let's try this again.
+Now we'll let us type it in because we've defined it to be a number.
+So I can't type A.
+I have to type a number,
+but we still have the problem with zero.
+So how do we test?
+How do we work with that?
+How do we get rid of that to make sure that we don't have this divide by
+zero error?
+Well,
+let's use an if statement then,
+and we'll go over here to if,
+and then we're just going to test to see this.
+We'll put all these blocks in here and we'll say if,
+and then we're going to get the,
+the value of this.
+So we want to say if Y equals zero,
+but of course it's not,
+if it's equal to,
+if it's not equal to,
+so we're going to use this Boolean operator to invert that value.
+There we go.
+So now if Y is not zero,
+then do these things.
+Otherwise do nothing in this case.
+So let's try this.
+Now it didn't report because there's no reporter here.
+We could probably put in something to report if it's not the case.
+It's not the case.
+So let's see here.
+Maybe we want to say
+divide by zero error.
+Make sure Y is a,
+is not zero.
+How about that?
+Okay.
+So let's try this again.
+Now we've got that error,
+but if we change it to a one,
+then we get the results.
+There's no single way to find and address errors.
+You have to think about the inputs that you're receiving and the ways that
+you're going to defend against those errors,
+or if you get errors,
+how you're going to show why those errors occurred.
+Okay.
+Thanks very much.
+We'll cover more topics in next blocks in our next video and see you then.

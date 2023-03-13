@@ -1,0 +1,2032 @@
+1
+00:00:00,000 --> 00:00:00,920
+Hi, everyone.
+
+2
+00:00:00,920 --> 00:00:03,720
+Welcome back to Programming for a Networked World.
+
+3
+00:00:03,720 --> 00:00:06,000
+Today, we're going to continue our exploration
+
+4
+00:00:06,000 --> 00:00:08,680
+of textual analysis in NetSplox.
+
+5
+00:00:08,680 --> 00:00:11,040
+In particular, what we're going to do today
+
+6
+00:00:11,040 --> 00:00:14,400
+is to explore frequency analysis.
+
+7
+00:00:14,400 --> 00:00:17,600
+Frequency analysis looks at the appearance
+
+8
+00:00:17,600 --> 00:00:20,560
+of letters in documents and uses that
+
+9
+00:00:20,560 --> 00:00:23,080
+to tell certain things about the documents
+
+10
+00:00:23,080 --> 00:00:24,740
+that you wouldn't otherwise know.
+
+11
+00:00:24,740 --> 00:00:28,560
+It's often a technique used in cryptography to break codes.
+
+12
+00:00:28,600 --> 00:00:30,200
+But today, we're going to be using it
+
+13
+00:00:30,200 --> 00:00:31,640
+for a different purpose.
+
+14
+00:00:31,640 --> 00:00:33,940
+We're going to try to see if we can identify
+
+15
+00:00:33,940 --> 00:00:36,360
+the language of a document without looking
+
+16
+00:00:36,360 --> 00:00:39,720
+at the document itself, just by looking at the frequency
+
+17
+00:00:39,720 --> 00:00:41,960
+at which certain letters appear.
+
+18
+00:00:41,960 --> 00:00:44,260
+All right, are you ready to explore
+
+19
+00:00:44,260 --> 00:00:47,040
+the world of international literature in NetSplox?
+
+20
+00:00:47,040 --> 00:00:48,060
+Let's get started.
+
+21
+00:00:53,840 --> 00:00:55,840
+So to do our program, we're going to have
+
+22
+00:00:55,840 --> 00:00:57,800
+to draw on several sources today.
+
+23
+00:00:57,800 --> 00:01:00,800
+One is we're going to need a list of the frequency of letters
+
+24
+00:01:00,800 --> 00:01:02,320
+in various languages.
+
+25
+00:01:02,320 --> 00:01:04,800
+And then we're going to need to connect to a source that
+
+26
+00:01:04,800 --> 00:01:06,960
+will allow us to bring down documents.
+
+27
+00:01:06,960 --> 00:01:09,400
+And then we'll have to turn those documents into letters,
+
+28
+00:01:09,400 --> 00:01:11,600
+count how frequently they appear,
+
+29
+00:01:11,600 --> 00:01:14,680
+and then compare the two sources together,
+
+30
+00:01:14,680 --> 00:01:19,220
+the list of how letters appear in languages in general,
+
+31
+00:01:19,220 --> 00:01:22,240
+and then how they appear in this document in particular.
+
+32
+00:01:22,240 --> 00:01:23,760
+And that will tell us, hopefully,
+
+33
+00:01:23,760 --> 00:01:26,200
+what language the document was written in.
+
+34
+00:01:26,200 --> 00:01:29,480
+So let's get started by just pulling in our data sources.
+
+35
+00:01:29,480 --> 00:01:31,240
+So I will go over here.
+
+36
+00:01:31,240 --> 00:01:35,640
+And I've got up on GitHub a list of data
+
+37
+00:01:35,640 --> 00:01:37,800
+showing the frequency in which letters
+
+38
+00:01:37,800 --> 00:01:39,240
+appear in various languages.
+
+39
+00:01:39,240 --> 00:01:40,960
+So you can see in the English language,
+
+40
+00:01:40,960 --> 00:01:46,240
+the letter A appears 8% of the time, 7% in French, 6%
+
+41
+00:01:46,240 --> 00:01:49,920
+in German, 11% in Spanish, and so on and so forth.
+
+42
+00:01:49,920 --> 00:01:53,320
+So that will tell us, in general,
+
+43
+00:01:53,320 --> 00:01:54,980
+what we should expect to see when
+
+44
+00:01:54,980 --> 00:01:57,300
+we're looking at a document in terms of how frequently
+
+45
+00:01:57,300 --> 00:02:00,500
+a letter appears or ought to appear in that document.
+
+46
+00:02:00,500 --> 00:02:04,020
+Of course, it all depends on the length of the document
+
+47
+00:02:04,020 --> 00:02:06,020
+and what the document's about.
+
+48
+00:02:06,020 --> 00:02:08,060
+If you have Winnie the Pooh, for example,
+
+49
+00:02:08,060 --> 00:02:10,620
+you might have a lot more W's and a lot more O's,
+
+50
+00:02:10,620 --> 00:02:13,200
+just because Winnie and Pooh are mentioned a lot.
+
+51
+00:02:13,200 --> 00:02:16,180
+So in this particular case, we wouldn't
+
+52
+00:02:16,180 --> 00:02:20,420
+know if it would match exactly with our expectation of W,
+
+53
+00:02:20,420 --> 00:02:24,540
+which appears only 2% of the time in English.
+
+54
+00:02:24,540 --> 00:02:27,100
+But it might appear more in that particular volume.
+
+55
+00:02:27,100 --> 00:02:29,660
+So the actual percentages will vary
+
+56
+00:02:29,660 --> 00:02:32,940
+depending on what volume we choose to analyze.
+
+57
+00:02:32,940 --> 00:02:35,260
+But we can expect that, roughly, they
+
+58
+00:02:35,260 --> 00:02:38,500
+will correspond to these percentages that we see here.
+
+59
+00:02:38,500 --> 00:02:40,700
+So let's get these first into Nets Blocks.
+
+60
+00:02:40,700 --> 00:02:43,220
+So the way to do that, we're going to look at this.
+
+61
+00:02:43,220 --> 00:02:46,620
+We'll turn it into the raw view, which just makes a nice CSV.
+
+62
+00:02:46,620 --> 00:02:48,420
+And we'll grab that URL.
+
+63
+00:02:48,420 --> 00:02:50,300
+And I'm going to go over to Nets Blocks.
+
+64
+00:02:50,300 --> 00:02:52,740
+And I'm going to go to the sensing block.
+
+65
+00:02:52,740 --> 00:02:56,780
+And let me bring over this URL here.
+
+66
+00:02:56,780 --> 00:02:59,780
+And then I'm going to drop that particular link in here.
+
+67
+00:02:59,780 --> 00:03:02,660
+And you see that we get back a text block showing that link.
+
+68
+00:03:02,660 --> 00:03:03,620
+So that's good so far.
+
+69
+00:03:03,620 --> 00:03:05,460
+But it's not a CSV.
+
+70
+00:03:05,460 --> 00:03:09,940
+But fortunately, there is a tool for that here
+
+71
+00:03:09,940 --> 00:03:12,220
+under Operators, Split.
+
+72
+00:03:14,980 --> 00:03:17,620
+And we can put this up here.
+
+73
+00:03:17,620 --> 00:03:19,540
+And I can drop the URL inside it.
+
+74
+00:03:19,540 --> 00:03:20,660
+There we go.
+
+75
+00:03:20,660 --> 00:03:22,500
+And the amazing thing about Split,
+
+76
+00:03:22,540 --> 00:03:24,100
+I'll just move Ada over a little bit,
+
+77
+00:03:24,100 --> 00:03:25,380
+because it's a really long URL.
+
+78
+00:03:28,060 --> 00:03:29,660
+Oh, let me zoom in a little bit better
+
+79
+00:03:29,660 --> 00:03:32,300
+so we can see this all.
+
+80
+00:03:32,300 --> 00:03:37,020
+Well, I guess I'll leave it at this zoom.
+
+81
+00:03:37,020 --> 00:03:39,820
+So you can see that it's a CSV here.
+
+82
+00:03:39,820 --> 00:03:42,420
+And we have a chance to split by something.
+
+83
+00:03:42,420 --> 00:03:43,220
+Let's see.
+
+84
+00:03:43,220 --> 00:03:46,900
+But I'm not seeing the by, which I keep moving.
+
+85
+00:03:46,900 --> 00:03:48,460
+Let's just pull it out here.
+
+86
+00:03:48,460 --> 00:03:49,700
+Well, there we go.
+
+87
+00:03:49,700 --> 00:03:50,420
+So here's the by.
+
+88
+00:03:50,420 --> 00:03:51,620
+I'm going to set it first.
+
+89
+00:03:51,620 --> 00:03:56,380
+You can set it to split by CSV, comma separated values.
+
+90
+00:03:56,380 --> 00:03:58,340
+So let me drop that in here again.
+
+91
+00:03:58,340 --> 00:04:00,020
+Now we've got the by CSV at the bottom.
+
+92
+00:04:00,020 --> 00:04:00,820
+That's good.
+
+93
+00:04:00,820 --> 00:04:02,820
+If I click on that, you see now that we
+
+94
+00:04:02,820 --> 00:04:04,580
+have this list of list formats.
+
+95
+00:04:04,580 --> 00:04:06,340
+So that was actually pretty easy to bring
+
+96
+00:04:06,340 --> 00:04:08,580
+this data into Nets Blocks.
+
+97
+00:04:08,580 --> 00:04:09,420
+OK.
+
+98
+00:04:09,420 --> 00:04:13,620
+So then our next step is we hit Escape here and get back out.
+
+99
+00:04:16,940 --> 00:04:18,700
+There we go.
+
+100
+00:04:18,700 --> 00:04:23,220
+Our next step, then, is to assign that to a variable.
+
+101
+00:04:23,220 --> 00:04:24,500
+Let's make a variable.
+
+102
+00:04:24,500 --> 00:04:26,620
+And let's call it letter frequency.
+
+103
+00:04:26,620 --> 00:04:29,820
+So I will go under Variables here, make a variable,
+
+104
+00:04:29,820 --> 00:04:34,140
+call it letter frequencies.
+
+105
+00:04:34,140 --> 00:04:35,580
+OK.
+
+106
+00:04:35,580 --> 00:04:37,340
+And we don't need to see it on the stage.
+
+107
+00:04:37,340 --> 00:04:38,780
+Let's bring it over.
+
+108
+00:04:38,780 --> 00:04:43,340
+And we'll set letter frequencies to this.
+
+109
+00:04:43,340 --> 00:04:45,380
+All right, so now we've got our letter frequencies.
+
+110
+00:04:45,380 --> 00:04:46,460
+So that's great.
+
+111
+00:04:46,500 --> 00:04:48,580
+The next step we want to do is to think
+
+112
+00:04:48,580 --> 00:04:51,020
+about where we'll actually get the volume that
+
+113
+00:04:51,020 --> 00:04:52,380
+we'll be analyzing.
+
+114
+00:04:52,380 --> 00:05:01,860
+So in this case, there's a site called Project Gutenberg.
+
+115
+00:05:04,660 --> 00:05:07,060
+There we go.
+
+116
+00:05:07,060 --> 00:05:10,060
+And if you see Project Gutenberg here,
+
+117
+00:05:10,060 --> 00:05:12,020
+we can just look at popular books.
+
+118
+00:05:12,020 --> 00:05:14,500
+There are all kinds of books that are freely available.
+
+119
+00:05:14,500 --> 00:05:17,100
+And so it'd be great to analyze one of these.
+
+120
+00:05:17,100 --> 00:05:20,540
+Now, there's fortunately a built-in RPC to Project
+
+121
+00:05:20,540 --> 00:05:22,700
+Gutenberg inside of Netsblocks.
+
+122
+00:05:22,700 --> 00:05:26,460
+So let's go over to Netsblocks again.
+
+123
+00:05:26,460 --> 00:05:29,340
+And let's look at our list of RPCs.
+
+124
+00:05:29,340 --> 00:05:31,020
+And I'll bring this over here.
+
+125
+00:05:31,020 --> 00:05:35,180
+And you can see here that under Text, I believe,
+
+126
+00:05:35,180 --> 00:05:40,340
+let's see our Language, we've got Project Gutenberg.
+
+127
+00:05:40,340 --> 00:05:41,700
+And so let's drop down.
+
+128
+00:05:41,700 --> 00:05:43,460
+And there's several things we can do here.
+
+129
+00:05:43,460 --> 00:05:46,620
+We can search, we can get info, and we can get text.
+
+130
+00:05:46,620 --> 00:05:49,540
+So we might want to search for a book.
+
+131
+00:05:49,540 --> 00:05:52,300
+Let's do a title.
+
+132
+00:05:52,300 --> 00:05:56,820
+And let's say, I said Winnie the Pooh.
+
+133
+00:05:56,820 --> 00:05:58,780
+So let's search for that, see if they're there.
+
+134
+00:05:58,780 --> 00:06:03,860
+There are a couple books now that have Winnie in the title.
+
+135
+00:06:03,860 --> 00:06:06,300
+We don't know what they are until we actually look at them.
+
+136
+00:06:06,300 --> 00:06:08,940
+So let's grab 34551.
+
+137
+00:06:08,940 --> 00:06:15,780
+And I can go to this now to get the info of 34551
+
+138
+00:06:15,780 --> 00:06:17,500
+and call that.
+
+139
+00:06:17,500 --> 00:06:21,900
+And this is which Winnie?
+
+140
+00:06:21,900 --> 00:06:23,400
+Don't know much about that, but we
+
+141
+00:06:23,400 --> 00:06:24,860
+can go with that one for now.
+
+142
+00:06:24,860 --> 00:06:26,180
+OK.
+
+143
+00:06:26,180 --> 00:06:28,500
+So that's how we get information about a book.
+
+144
+00:06:28,500 --> 00:06:30,500
+And if we actually want to get the book itself,
+
+145
+00:06:30,500 --> 00:06:32,020
+let me just duplicate this.
+
+146
+00:06:32,020 --> 00:06:35,300
+We just switch this now to get the text.
+
+147
+00:06:35,300 --> 00:06:38,700
+I'll have to enter that again, 34551.
+
+148
+00:06:38,700 --> 00:06:41,940
+And we click on that, and there's the full text.
+
+149
+00:06:41,940 --> 00:06:44,820
+OK, so that's great.
+
+150
+00:06:44,820 --> 00:06:46,460
+Now comes the interesting part.
+
+151
+00:06:46,460 --> 00:06:50,420
+How do we look at the frequency of the letters
+
+152
+00:06:50,420 --> 00:06:53,380
+inside of Project Gutenberg?
+
+153
+00:06:53,380 --> 00:06:57,540
+So this is where we're going to need to think about how
+
+154
+00:06:57,540 --> 00:07:02,620
+to bring this text into Nextbox.
+
+155
+00:07:02,620 --> 00:07:04,980
+Then we're going to split it apart by letter.
+
+156
+00:07:04,980 --> 00:07:08,640
+Then we're going to look at the letter frequencies
+
+157
+00:07:08,640 --> 00:07:11,480
+and then we'll report back that information
+
+158
+00:07:11,480 --> 00:07:14,160
+in the form of a list.
+
+159
+00:07:14,160 --> 00:07:16,720
+OK, so we'll need to make a block for that.
+
+160
+00:07:16,720 --> 00:07:18,880
+I think it's better to do that inside of a block.
+
+161
+00:07:18,880 --> 00:07:20,400
+So we're going to make a block.
+
+162
+00:07:20,400 --> 00:07:22,080
+We'll have it be a reporter.
+
+163
+00:07:22,080 --> 00:07:28,240
+We're going to call it, let's see, letter frequency.
+
+164
+00:07:32,640 --> 00:07:36,720
+OK, and let's make it an operator.
+
+165
+00:07:36,720 --> 00:07:38,320
+There we go.
+
+166
+00:07:38,560 --> 00:07:39,960
+And we'll do that.
+
+167
+00:07:39,960 --> 00:07:46,640
+OK, we'll add here an input called text.
+
+168
+00:07:46,640 --> 00:07:50,880
+And let's make that input text type.
+
+169
+00:07:50,880 --> 00:07:52,880
+Say OK.
+
+170
+00:07:52,880 --> 00:07:53,440
+There we go.
+
+171
+00:07:53,440 --> 00:07:56,320
+So now we can work with this.
+
+172
+00:07:56,320 --> 00:07:59,320
+And the question is, how do we build this block?
+
+173
+00:07:59,320 --> 00:08:03,320
+Well, let's assume that what's passed in
+
+174
+00:08:03,320 --> 00:08:05,240
+is the text of the document.
+
+175
+00:08:05,240 --> 00:08:07,040
+So we'll start from there.
+
+176
+00:08:07,040 --> 00:08:09,200
+And the first thing that we want to do
+
+177
+00:08:09,200 --> 00:08:13,680
+is get that document and split it by its letters.
+
+178
+00:08:13,680 --> 00:08:15,760
+So let's make another variable.
+
+179
+00:08:15,760 --> 00:08:17,640
+We'll start using some script variables here.
+
+180
+00:08:17,640 --> 00:08:21,520
+So let's go over to variables and let's
+
+181
+00:08:21,520 --> 00:08:23,840
+get the script variable.
+
+182
+00:08:23,840 --> 00:08:30,740
+And let's call this one just letters, OK?
+
+183
+00:08:30,740 --> 00:08:37,000
+So now let's set letters to.
+
+184
+00:08:37,000 --> 00:08:38,620
+Now here's what we need to think about.
+
+185
+00:08:38,620 --> 00:08:40,680
+We want to set letters to this document
+
+186
+00:08:40,680 --> 00:08:42,440
+but split into its individual letters.
+
+187
+00:08:42,440 --> 00:08:44,440
+So we're going to go back to that split operator
+
+188
+00:08:44,440 --> 00:08:48,360
+we used before and bring it over.
+
+189
+00:08:48,360 --> 00:08:49,480
+Here we go.
+
+190
+00:08:49,480 --> 00:08:51,600
+And this time we're going to split the text,
+
+191
+00:08:51,600 --> 00:08:54,120
+but not by CSV, but by letter.
+
+192
+00:08:54,120 --> 00:08:59,200
+OK, so now we should have all of the letters in the document.
+
+193
+00:08:59,200 --> 00:09:01,720
+But our goal is to get the frequency in which
+
+194
+00:09:01,720 --> 00:09:02,600
+those letters appear.
+
+195
+00:09:02,600 --> 00:09:06,520
+So let's make another variable for this called frequencies,
+
+196
+00:09:06,520 --> 00:09:10,160
+or just frequency.
+
+197
+00:09:10,160 --> 00:09:11,400
+There we go.
+
+198
+00:09:11,400 --> 00:09:13,320
+And that's supposed to be a list.
+
+199
+00:09:13,320 --> 00:09:14,980
+So let's start off by just making sure
+
+200
+00:09:14,980 --> 00:09:17,040
+that we set it as a list because, as we know,
+
+201
+00:09:17,040 --> 00:09:19,440
+that's a common source of error not setting
+
+202
+00:09:19,440 --> 00:09:20,880
+the variable correctly.
+
+203
+00:09:20,880 --> 00:09:23,120
+So let's say frequency here.
+
+204
+00:09:23,120 --> 00:09:25,520
+And we're just going to set it to an empty list for now.
+
+205
+00:09:25,520 --> 00:09:30,040
+So that'll be what we want to fill up with our analysis here.
+
+206
+00:09:30,040 --> 00:09:32,560
+So then the next part of what we need to do
+
+207
+00:09:32,560 --> 00:09:37,760
+is to think about how to start calculating those frequencies.
+
+208
+00:09:37,760 --> 00:09:40,720
+Well, we want a list of A to Z. So we
+
+209
+00:09:40,720 --> 00:09:42,960
+need to look for each letter A to Z, which
+
+210
+00:09:42,960 --> 00:09:47,520
+means that we need to say, let's loop from A until the letter
+
+211
+00:09:47,520 --> 00:09:50,000
+Z and then look for their occurrence.
+
+212
+00:09:50,000 --> 00:09:52,080
+In order to make a loop like that,
+
+213
+00:09:52,080 --> 00:09:56,080
+we need to get a list of letters from A to Z.
+
+214
+00:09:56,080 --> 00:10:00,400
+So we could just list it out, just put a list together
+
+215
+00:10:00,400 --> 00:10:07,840
+and just start filling in like A and then B and then C.
+
+216
+00:10:07,840 --> 00:10:11,320
+I don't really want to do that because most programmers
+
+217
+00:10:11,320 --> 00:10:14,080
+are lazy and they like to find easier, shorter ways
+
+218
+00:10:14,080 --> 00:10:14,920
+to do things.
+
+219
+00:10:14,920 --> 00:10:17,000
+So let's do a little trick to do this.
+
+220
+00:10:17,000 --> 00:10:19,540
+So we're going to make another variable here called letters.
+
+221
+00:10:23,680 --> 00:10:27,960
+And then I will bring over the set block.
+
+222
+00:10:27,960 --> 00:10:29,120
+And we'll set letters.
+
+223
+00:10:29,120 --> 00:10:30,680
+But what will we set it to?
+
+224
+00:10:30,680 --> 00:10:32,680
+Now, here's the trick.
+
+225
+00:10:32,680 --> 00:10:34,960
+We can use Unicode for this purpose.
+
+226
+00:10:34,960 --> 00:10:38,480
+And so I will bring over a map block.
+
+227
+00:10:41,520 --> 00:10:46,080
+And I'm going to go to this operator here called,
+
+228
+00:10:46,080 --> 00:10:52,800
+let's see, from, is it here?
+
+229
+00:10:52,800 --> 00:10:57,360
+Yeah, OK, so we want Unicode of as a number.
+
+230
+00:10:57,360 --> 00:11:00,640
+So we're going to map these numbers.
+
+231
+00:11:00,640 --> 00:11:02,240
+We're going to map a list of numbers.
+
+232
+00:11:02,240 --> 00:11:04,440
+And we're going to turn each of those numbers, which
+
+233
+00:11:04,440 --> 00:11:08,560
+are the Unicode equivalent of our alphanumeric characters
+
+234
+00:11:08,560 --> 00:11:10,760
+into the character itself and build a list that way.
+
+235
+00:11:10,760 --> 00:11:12,360
+So we just need over what.
+
+236
+00:11:12,360 --> 00:11:14,840
+And here's where we would go to a list.
+
+237
+00:11:14,840 --> 00:11:21,320
+And we'll just create numbers from, not from 1 to 10,
+
+238
+00:11:21,320 --> 00:11:25,160
+but from the portion of Unicode in which these lowercase
+
+239
+00:11:25,160 --> 00:11:26,520
+letters appear.
+
+240
+00:11:26,520 --> 00:11:29,760
+That happens to be just off the top of my head.
+
+241
+00:11:29,760 --> 00:11:34,440
+No, I've got it written down, 97 to 122.
+
+242
+00:11:34,440 --> 00:11:39,560
+So that now will take 97 to 122 and then convert those
+
+243
+00:11:39,560 --> 00:11:43,480
+from numbers into the alphanumeric equivalent
+
+244
+00:11:43,480 --> 00:11:45,200
+according to the Unicode chart.
+
+245
+00:11:45,200 --> 00:11:47,720
+And that means that we'll just develop our letters
+
+246
+00:11:47,720 --> 00:11:49,680
+without actually having to write it all out,
+
+247
+00:11:49,680 --> 00:11:54,080
+which saves us time and is a more fun way to do it anyway.
+
+248
+00:11:54,360 --> 00:12:00,800
+So then the next thing that we need to do is,
+
+249
+00:12:00,800 --> 00:12:02,800
+if I can get this to pull down a little bit more.
+
+250
+00:12:02,800 --> 00:12:04,240
+There we go.
+
+251
+00:12:04,240 --> 00:12:06,520
+We want to do a for each loop.
+
+252
+00:12:06,520 --> 00:12:08,020
+So we're going to take each letter,
+
+253
+00:12:08,020 --> 00:12:09,840
+and we're going to iterate over it.
+
+254
+00:12:09,840 --> 00:12:12,800
+So let's go over here to variables.
+
+255
+00:12:12,800 --> 00:12:13,720
+We're already there.
+
+256
+00:12:13,720 --> 00:12:15,280
+Grab this for each.
+
+257
+00:12:15,280 --> 00:12:16,560
+Drop it in here.
+
+258
+00:12:16,560 --> 00:12:20,920
+We're going to change this now to letter.
+
+259
+00:12:20,920 --> 00:12:24,520
+And for each letter in our list of letters,
+
+260
+00:12:24,520 --> 00:12:27,720
+so that's going to be from A to Z. So it'll be A, and then B,
+
+261
+00:12:27,720 --> 00:12:30,480
+and then C, and then D, and so forth.
+
+262
+00:12:30,480 --> 00:12:32,520
+We'll do something.
+
+263
+00:12:32,520 --> 00:12:34,040
+So how do we do this?
+
+264
+00:12:34,040 --> 00:12:36,920
+Well, we want to look for every occurrence of the letter
+
+265
+00:12:36,920 --> 00:12:38,080
+in the particular document.
+
+266
+00:12:38,080 --> 00:12:39,540
+And these are really big documents,
+
+267
+00:12:39,540 --> 00:12:41,960
+so these are really long lists of letters.
+
+268
+00:12:41,960 --> 00:12:45,640
+So we'll take a kind of approach that
+
+269
+00:12:45,640 --> 00:12:49,880
+shrinks our list each time so that at each successive pass,
+
+270
+00:12:49,880 --> 00:12:51,140
+our list is smaller.
+
+271
+00:12:51,140 --> 00:12:53,200
+And we're doing that for performance reasons.
+
+272
+00:12:53,200 --> 00:12:54,920
+So the way that we'll calculate it is,
+
+273
+00:12:54,920 --> 00:12:57,320
+we'll take the starting length of the list,
+
+274
+00:12:57,320 --> 00:12:59,640
+and then we'll subtract all the letters
+
+275
+00:12:59,640 --> 00:13:02,400
+that we're looking for in that list, so like all the A's.
+
+276
+00:13:02,400 --> 00:13:05,320
+And then we'll see what the ending length of that list is.
+
+277
+00:13:05,320 --> 00:13:08,680
+And based on the difference between the starting
+
+278
+00:13:08,680 --> 00:13:10,480
+length and the ending length, we'll
+
+279
+00:13:10,480 --> 00:13:13,560
+know how many times a particular letter appeared in that list.
+
+280
+00:13:13,560 --> 00:13:15,880
+But at the same time, we'll also be shrinking our list
+
+281
+00:13:15,880 --> 00:13:19,680
+so that we'll be making the list smaller.
+
+282
+00:13:19,680 --> 00:13:22,560
+So to do that, we need to set up some more script variables.
+
+283
+00:13:22,560 --> 00:13:26,720
+But now, inside of this particular loop here,
+
+284
+00:13:26,720 --> 00:13:27,840
+so we're going to do this.
+
+285
+00:13:27,840 --> 00:13:32,160
+We'll say starting length, and then we'll
+
+286
+00:13:32,160 --> 00:13:33,880
+make another one that's ending length.
+
+287
+00:13:41,240 --> 00:13:44,160
+And so with starting length and ending length,
+
+288
+00:13:44,160 --> 00:13:46,840
+we'll have the information we need
+
+289
+00:13:46,840 --> 00:13:48,760
+to do that kind of calculation.
+
+290
+00:13:48,760 --> 00:13:52,920
+So we'll begin by setting the starting length here
+
+291
+00:13:52,920 --> 00:13:55,320
+under variables, set the starting length.
+
+292
+00:13:57,880 --> 00:14:01,360
+And what will we set it to?
+
+293
+00:14:01,360 --> 00:14:07,800
+We'll set it to the, oh, actually, this probably,
+
+294
+00:14:07,800 --> 00:14:09,180
+we've got letters in there twice.
+
+295
+00:14:09,180 --> 00:14:10,240
+So that's a mistake.
+
+296
+00:14:10,240 --> 00:14:12,720
+Let's change this one here to document.
+
+297
+00:14:13,360 --> 00:14:16,480
+And we'll just change this one here down to document.
+
+298
+00:14:16,480 --> 00:14:17,840
+There, OK, that's clear.
+
+299
+00:14:17,840 --> 00:14:20,320
+So we're going to start this with setting
+
+300
+00:14:20,320 --> 00:14:22,680
+the length to the document, the whole document, all
+
+301
+00:14:22,680 --> 00:14:24,440
+the letters.
+
+302
+00:14:24,440 --> 00:14:29,720
+And then we'll use this higher order function here
+
+303
+00:14:29,720 --> 00:14:31,360
+called keep.
+
+304
+00:14:31,360 --> 00:14:32,960
+And what keep does is just allows
+
+305
+00:14:32,960 --> 00:14:37,160
+us to keep the information in the list that we want
+
+306
+00:14:37,160 --> 00:14:38,960
+and get rid of everything else.
+
+307
+00:14:38,960 --> 00:14:43,200
+So let's bring this over, keep.
+
+308
+00:14:43,200 --> 00:14:44,600
+And we'll set the document.
+
+309
+00:14:44,600 --> 00:14:49,640
+So this is going to mutate the list to what we actually keep.
+
+310
+00:14:49,640 --> 00:14:53,040
+So here we'll go set, drop it in here.
+
+311
+00:14:53,040 --> 00:14:59,080
+We're going to set document there to what we keep.
+
+312
+00:14:59,080 --> 00:15:02,320
+And so this requires an input, and that input
+
+313
+00:15:02,320 --> 00:15:04,920
+is going to be document.
+
+314
+00:15:04,920 --> 00:15:08,880
+And then we'll set the document to what we actually keep.
+
+315
+00:15:09,760 --> 00:15:12,400
+And then what we keep, well, you might
+
+316
+00:15:12,400 --> 00:15:13,720
+think we're going to keep the letter.
+
+317
+00:15:13,720 --> 00:15:15,960
+But actually, we want to keep every letter except
+
+318
+00:15:15,960 --> 00:15:17,680
+for the letter that we're looking for.
+
+319
+00:15:17,680 --> 00:15:22,640
+So let's bring over a not here, put it in here.
+
+320
+00:15:22,640 --> 00:15:28,360
+And then the question is, what are we not keeping?
+
+321
+00:15:28,360 --> 00:15:34,520
+We're not keeping the letter in the document
+
+322
+00:15:34,520 --> 00:15:35,760
+that this is equal to.
+
+323
+00:15:35,760 --> 00:15:37,520
+So we'll leave this slot open, and we'll
+
+324
+00:15:37,520 --> 00:15:43,240
+say, if this letter is equal to that letter,
+
+325
+00:15:43,240 --> 00:15:46,160
+if it's not equal to that letter now,
+
+326
+00:15:46,160 --> 00:15:48,320
+then we'll keep that item in the list.
+
+327
+00:15:48,320 --> 00:15:52,480
+But anything that is equal to that letter
+
+328
+00:15:52,480 --> 00:15:55,200
+will be filtered out.
+
+329
+00:15:55,200 --> 00:15:57,520
+And so now, at the end of this, we
+
+330
+00:15:57,520 --> 00:16:02,880
+need to take our length of the list of letters
+
+331
+00:16:02,880 --> 00:16:05,840
+that's in document after our second pass.
+
+332
+00:16:05,840 --> 00:16:07,920
+So that's the ending length.
+
+333
+00:16:07,920 --> 00:16:11,520
+And copy that.
+
+334
+00:16:11,520 --> 00:16:14,360
+Let's see, we'll just bring it down from here.
+
+335
+00:16:14,360 --> 00:16:16,120
+OK?
+
+336
+00:16:16,120 --> 00:16:20,360
+And now, we need to just have some kind of way
+
+337
+00:16:20,360 --> 00:16:21,480
+to collect this.
+
+338
+00:16:21,480 --> 00:16:23,760
+So I think we've got our frequency list here,
+
+339
+00:16:23,760 --> 00:16:27,320
+and we'll add that information to the frequency list.
+
+340
+00:16:27,320 --> 00:16:34,200
+So let's go to our list here of add.
+
+341
+00:16:34,200 --> 00:16:36,080
+OK?
+
+342
+00:16:36,080 --> 00:16:37,400
+Drop that in here.
+
+343
+00:16:37,400 --> 00:16:45,360
+And what we want to add now is the difference
+
+344
+00:16:45,360 --> 00:16:51,920
+between the starting length and the ending length.
+
+345
+00:16:51,920 --> 00:16:53,360
+OK.
+
+346
+00:16:53,360 --> 00:16:57,720
+And we're going to add that to frequency.
+
+347
+00:16:57,720 --> 00:16:59,800
+And then, at the end of all this,
+
+348
+00:16:59,800 --> 00:17:02,280
+we simply just want to report the frequency.
+
+349
+00:17:02,280 --> 00:17:07,000
+So that's what comes out of this particular block,
+
+350
+00:17:07,000 --> 00:17:08,160
+this function.
+
+351
+00:17:08,160 --> 00:17:11,120
+So let's go to Control.
+
+352
+00:17:11,120 --> 00:17:16,840
+And we'll report this one down here.
+
+353
+00:17:16,840 --> 00:17:18,440
+OK.
+
+354
+00:17:18,440 --> 00:17:21,640
+And I'm going to report frequency.
+
+355
+00:17:21,640 --> 00:17:22,760
+I can drag it down there.
+
+356
+00:17:22,760 --> 00:17:24,480
+There we go.
+
+357
+00:17:24,480 --> 00:17:25,880
+OK.
+
+358
+00:17:25,880 --> 00:17:28,720
+That should be what we want.
+
+359
+00:17:28,720 --> 00:17:30,480
+Now, here's the test of it.
+
+360
+00:17:30,480 --> 00:17:31,760
+Let's see if it actually works.
+
+361
+00:17:31,760 --> 00:17:33,520
+We'll bring it over.
+
+362
+00:17:33,520 --> 00:17:35,440
+Here's our letter of frequency.
+
+363
+00:17:35,440 --> 00:17:40,080
+Let's just do it with a simple, like, this is a test.
+
+364
+00:17:40,080 --> 00:17:41,760
+We won't do anything complicated there.
+
+365
+00:17:44,960 --> 00:17:51,400
+All right, so this is not quite what I expected.
+
+366
+00:17:51,400 --> 00:17:52,700
+Let's see what's going on here.
+
+367
+00:17:58,320 --> 00:17:59,200
+All right.
+
+368
+00:17:59,200 --> 00:18:02,480
+So we're splitting the document by the letter.
+
+369
+00:18:02,480 --> 00:18:05,240
+We're turning frequencies to a list.
+
+370
+00:18:05,240 --> 00:18:09,520
+We're mapping Unicode over numbers 97 to 92.
+
+371
+00:18:09,520 --> 00:18:10,880
+For each letter and letter, we're
+
+372
+00:18:10,880 --> 00:18:15,080
+getting the start and ending count.
+
+373
+00:18:15,080 --> 00:18:16,720
+Oh, oh, oh.
+
+374
+00:18:16,720 --> 00:18:19,040
+Here's our mistake right here.
+
+375
+00:18:19,040 --> 00:18:24,200
+We need to change this to length of,
+
+376
+00:18:24,200 --> 00:18:27,040
+because we're counting the number of letters
+
+377
+00:18:27,040 --> 00:18:29,960
+in this document, not actually adding the document itself.
+
+378
+00:18:29,960 --> 00:18:30,920
+So let's do that.
+
+379
+00:18:33,760 --> 00:18:36,680
+There we go.
+
+380
+00:18:36,680 --> 00:18:39,240
+And then we can do the same thing if we just duplicate.
+
+381
+00:18:39,240 --> 00:18:40,040
+Oops.
+
+382
+00:18:40,040 --> 00:18:44,440
+Duplicate that one down here.
+
+383
+00:18:44,440 --> 00:18:46,240
+There we go.
+
+384
+00:18:46,240 --> 00:18:46,760
+All right.
+
+385
+00:18:46,760 --> 00:18:47,560
+Let's try it again.
+
+386
+00:18:50,320 --> 00:18:50,880
+OK.
+
+387
+00:18:50,880 --> 00:18:51,380
+Yeah.
+
+388
+00:18:51,380 --> 00:18:52,440
+So now it's working.
+
+389
+00:18:52,440 --> 00:18:54,520
+We've got a list that goes from 1 to 26.
+
+390
+00:18:54,520 --> 00:18:57,000
+So each one of those is from A to Z.
+
+391
+00:18:57,000 --> 00:19:00,360
+And then here is the count of those numbers
+
+392
+00:19:00,360 --> 00:19:02,440
+per their frequency in the document.
+
+393
+00:19:02,440 --> 00:19:11,000
+So let's try to run this over a real text.
+
+394
+00:19:11,000 --> 00:19:11,760
+So here we go.
+
+395
+00:19:11,760 --> 00:19:13,280
+Let's bring this text over.
+
+396
+00:19:13,280 --> 00:19:14,960
+We're going to get the whole text there.
+
+397
+00:19:14,960 --> 00:19:16,880
+And we'll count the letter frequencies.
+
+398
+00:19:16,880 --> 00:19:18,800
+So it'll go out to Project Gutenberg,
+
+399
+00:19:18,800 --> 00:19:20,360
+get that particular text.
+
+400
+00:19:20,360 --> 00:19:24,480
+And then we'll do this count and see what it gives us.
+
+401
+00:19:27,000 --> 00:19:30,120
+Takes us a little while because it's
+
+402
+00:19:30,120 --> 00:19:31,600
+doing quite a few operations.
+
+403
+00:19:37,560 --> 00:19:38,920
+So we'll see.
+
+404
+00:19:38,920 --> 00:19:40,080
+There we go.
+
+405
+00:19:40,080 --> 00:19:40,760
+OK.
+
+406
+00:19:40,760 --> 00:19:43,480
+So quite a few As.
+
+407
+00:19:43,480 --> 00:19:46,120
+It's a big book.
+
+408
+00:19:46,120 --> 00:19:48,280
+So here are distributions of the letters
+
+409
+00:19:48,280 --> 00:19:50,640
+in this particular document.
+
+410
+00:19:50,640 --> 00:19:55,320
+Now, what we want to do then is to think
+
+411
+00:19:55,320 --> 00:19:58,680
+about the percentages of these letters as they appear.
+
+412
+00:19:58,680 --> 00:20:01,100
+Because that's how we're going to be able to compare them,
+
+413
+00:20:01,100 --> 00:20:05,040
+not just based on the actual absolute numbers,
+
+414
+00:20:05,040 --> 00:20:10,320
+but the percentages in which they appear in that document.
+
+415
+00:20:10,320 --> 00:20:12,360
+So let's assign these two variables.
+
+416
+00:20:12,360 --> 00:20:18,840
+So up here, we'll go to Set.
+
+417
+00:20:18,840 --> 00:20:22,520
+And I'm going to just put on some script variables here.
+
+418
+00:20:22,520 --> 00:20:24,600
+Let's see.
+
+419
+00:20:24,600 --> 00:20:31,440
+So we'll set book here.
+
+420
+00:20:31,440 --> 00:20:34,400
+And then we'll set the book down here
+
+421
+00:20:34,400 --> 00:20:38,680
+to the actual Project Gutenberg book that we grabbed.
+
+422
+00:20:38,680 --> 00:20:48,120
+And then we will set the, let's make another variable here.
+
+423
+00:20:48,160 --> 00:20:54,840
+That would be, say, book frequency, book letter
+
+424
+00:20:54,840 --> 00:20:55,340
+frequency.
+
+425
+00:21:00,400 --> 00:21:05,360
+And we'll set book letter frequency to this.
+
+426
+00:21:05,360 --> 00:21:08,120
+We'll drop the book into here.
+
+427
+00:21:08,120 --> 00:21:10,320
+OK, so far, so good.
+
+428
+00:21:10,320 --> 00:21:23,360
+And now we want to set the percentage of appearance
+
+429
+00:21:23,360 --> 00:21:30,840
+of letters, of letter frequency, just
+
+430
+00:21:30,840 --> 00:21:34,360
+to differentiate between the absolute frequency
+
+431
+00:21:34,360 --> 00:21:37,200
+and the percentage in which those letters appear.
+
+432
+00:21:37,200 --> 00:21:39,960
+So we'll do this.
+
+433
+00:21:39,960 --> 00:21:44,320
+And now let's take this letter frequency.
+
+434
+00:21:44,320 --> 00:21:46,720
+OK, how do we convert that?
+
+435
+00:21:46,720 --> 00:21:55,880
+So let's get the absolute count, so count of letters.
+
+436
+00:21:55,880 --> 00:21:57,280
+And we can get the absolute count,
+
+437
+00:21:57,280 --> 00:22:01,000
+because we've already converted this.
+
+438
+00:22:01,000 --> 00:22:02,000
+This is the text here.
+
+439
+00:22:02,000 --> 00:22:07,600
+So we just need to convert those into letters themselves.
+
+440
+00:22:07,600 --> 00:22:09,400
+So we've done that inside of our function.
+
+441
+00:22:09,400 --> 00:22:11,000
+So it's maybe a little redundant.
+
+442
+00:22:11,000 --> 00:22:12,920
+But let's just do it here again.
+
+443
+00:22:12,920 --> 00:22:16,640
+So we'll set count of letters.
+
+444
+00:22:16,640 --> 00:22:21,400
+And we'll do the length.
+
+445
+00:22:21,400 --> 00:22:23,480
+Let's see here.
+
+446
+00:22:23,480 --> 00:22:37,040
+The length of the split into letters
+
+447
+00:22:37,040 --> 00:22:43,440
+of the book split by letter.
+
+448
+00:22:43,440 --> 00:22:45,880
+OK, so that should give us that amount.
+
+449
+00:22:45,880 --> 00:22:48,880
+And now, percentage of the letter frequencies.
+
+450
+00:22:48,880 --> 00:22:50,760
+This is where we need to use a map,
+
+451
+00:22:50,760 --> 00:22:54,080
+because we want to take that number of the absolute count.
+
+452
+00:22:54,080 --> 00:22:55,760
+And for each one of our counts, we
+
+453
+00:22:55,760 --> 00:22:58,320
+want to divide it by that number.
+
+454
+00:22:58,320 --> 00:23:02,040
+So let's do this.
+
+455
+00:23:02,040 --> 00:23:06,160
+Let's go to letter sum.
+
+456
+00:23:06,160 --> 00:23:07,480
+And we're going to map here.
+
+457
+00:23:10,320 --> 00:23:12,640
+Let's take a look here.
+
+458
+00:23:12,640 --> 00:23:14,760
+We're going to map.
+
+459
+00:23:14,760 --> 00:23:22,280
+And what we're going to map is each one of those entries
+
+460
+00:23:22,280 --> 00:23:24,360
+divided by the count of letters.
+
+461
+00:23:27,240 --> 00:23:31,040
+And what we're mapping over is our book letter frequency.
+
+462
+00:23:33,600 --> 00:23:35,720
+But now, as I told you, we actually
+
+463
+00:23:35,760 --> 00:23:39,920
+want to then turn these into percentages that
+
+464
+00:23:39,920 --> 00:23:43,040
+are out of 100.
+
+465
+00:23:43,040 --> 00:23:46,640
+So in order to do that, we're going to multiply here
+
+466
+00:23:46,640 --> 00:23:51,040
+the operator discount by 100.
+
+467
+00:23:51,040 --> 00:23:52,960
+Let's put it in here.
+
+468
+00:23:52,960 --> 00:23:56,720
+And that will make it comparable with our other list.
+
+469
+00:23:56,720 --> 00:23:59,960
+OK, so let's try that.
+
+470
+00:23:59,960 --> 00:24:03,400
+And let's see how we go here.
+
+471
+00:24:03,400 --> 00:24:05,240
+Let's report something here.
+
+472
+00:24:05,240 --> 00:24:09,280
+So let's report under Control.
+
+473
+00:24:09,280 --> 00:24:15,560
+We'll report percentage letter frequency.
+
+474
+00:24:15,560 --> 00:24:16,840
+Let's do that.
+
+475
+00:24:16,840 --> 00:24:20,200
+OK, this may take a while to run, but let's see how it goes.
+
+476
+00:24:28,040 --> 00:24:30,960
+So as you see here, we're going out and calculating
+
+477
+00:24:30,960 --> 00:24:31,920
+this letter frequency.
+
+478
+00:24:31,920 --> 00:24:34,280
+We're not using that yet, but it's still
+
+479
+00:24:34,320 --> 00:24:37,000
+part of our stack that we're building up.
+
+480
+00:24:37,000 --> 00:24:40,040
+Then we're getting the particular book.
+
+481
+00:24:40,040 --> 00:24:45,000
+We are getting the letter frequencies for that book.
+
+482
+00:24:45,000 --> 00:24:47,280
+And now we get the percentages.
+
+483
+00:24:47,280 --> 00:24:52,360
+So here, you can see that here are the total percentages.
+
+484
+00:24:52,360 --> 00:24:57,400
+And if you added these up, you would get to 100.
+
+485
+00:24:57,400 --> 00:25:00,080
+OK, so now we have what we need to compare.
+
+486
+00:25:00,080 --> 00:25:02,200
+We actually now have two lists.
+
+487
+00:25:02,240 --> 00:25:06,440
+We've got a list of the actual percentages
+
+488
+00:25:06,440 --> 00:25:08,640
+of these letters' appearances in a book.
+
+489
+00:25:08,640 --> 00:25:11,880
+And then beyond that, we have the list
+
+490
+00:25:11,880 --> 00:25:16,440
+of what we expect to see out of the entire English language
+
+491
+00:25:16,440 --> 00:25:18,960
+for the frequency of letters as they appear
+
+492
+00:25:18,960 --> 00:25:21,040
+over all of English literature.
+
+493
+00:25:21,040 --> 00:25:22,880
+And we want to compare the two.
+
+494
+00:25:22,880 --> 00:25:25,040
+And by comparing them, we'll see if this book
+
+495
+00:25:25,040 --> 00:25:26,000
+was written in English.
+
+496
+00:25:26,000 --> 00:25:27,360
+This one, I think we probably already
+
+497
+00:25:27,360 --> 00:25:28,500
+know is written in English.
+
+498
+00:25:28,500 --> 00:25:31,240
+But we'll try some others that aren't.
+
+499
+00:25:31,240 --> 00:25:32,960
+So I'm going to pause here for today.
+
+500
+00:25:32,960 --> 00:25:34,600
+I think that's enough for one video.
+
+501
+00:25:34,600 --> 00:25:36,640
+And what we'll do in our next video
+
+502
+00:25:36,640 --> 00:25:39,000
+is we'll learn how to plot these results,
+
+503
+00:25:39,000 --> 00:25:41,640
+compare them with each other, and then
+
+504
+00:25:41,640 --> 00:25:45,800
+be able to determine using those plots whether a book is
+
+505
+00:25:45,800 --> 00:25:47,400
+written in a particular language.
+
+506
+00:25:47,400 --> 00:25:49,080
+So we'll come back to that next week.
+
+507
+00:25:49,080 --> 00:25:51,080
+But thank you very much for joining me this week
+
+508
+00:25:51,080 --> 00:25:53,320
+and talk to you again soon.
+

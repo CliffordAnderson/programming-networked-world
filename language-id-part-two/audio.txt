@@ -1,0 +1,384 @@
+Hi, everyone.
+Welcome back to Programming for a Networked World.
+Today, we're continuing our exploration
+of textual analysis by doing frequency analysis
+over letters in particular texts.
+So this is part two of a video.
+If you haven't seen part one, you
+should go back and view that first.
+Today, we're just going to be continuing
+with our exploration of the frequency patterns
+in various texts and comparing them to the overall frequency
+of letters in particular languages.
+And our goal today is to visualize the results.
+So ready to graph our frequencies?
+Let's get started.
+Here's where we were.
+This is where we left off last time.
+And if you remember, we are gathering the letter frequencies
+for various languages here.
+And then we're getting a particular text
+from Project Gutenberg.
+We are splitting that text up according
+to the frequency in the book, getting the letters
+and seeing how frequently they appear in the book.
+And then we're getting the count of those letters,
+and then the percentage of those letters,
+and then assigning this to that percentage of letters
+frequency variable.
+So our goal, as I said, is to be able to graph our results.
+And we need to do two things.
+We want to graph the results that we're getting here
+from this particular book.
+And we also want to graph the results that
+serve our baseline comparison from whatever language
+we think the book may be written in.
+So let's actually start with the baseline comparison.
+So I'm going to go over here to we
+have a variable that's over here, letter frequencies.
+Let's just take a look at this.
+When I click on this, I get that big chart.
+And so we need to get rid of that chart.
+And the way to do that is just we
+want to pull out a particular language.
+So let's grab, let's see here, a couple of blocks to do that.
+We're going to need this item of.
+And we're also going to need the higher order block here,
+map over.
+And so let's just take this here and put that there.
+We want item four of the list.
+And let's see how this works.
+There.
+So this pulls out, you can see here, German.
+And then here are the frequencies for A, B, C, D, E,
+and so forth in German.
+And if we switch this to number five, we've got Spanish now.
+So each time we switch this number,
+and I think probably two is going to be English.
+There we go.
+So each time we use this, we get a different language
+and its frequency of letters in that language just overall.
+Now, you notice that we do also get the language name.
+And we don't actually want that in our results
+because we need to just work with the numbers themselves.
+So we're going to use this convenient block called
+allbutfirst.
+It's a pretty common operation to divide lists
+into head or tail of the list.
+And the head is the first item in the list,
+and the tail is the rest of the items.
+So this just gets the tail of the list.
+And if we click on that, then you can see that we have a list
+here that goes from 1 to 26.
+So that's our letter frequency for English.
+So that's fantastic.
+Now we just need to assign that to a variable.
+So let's go over here.
+We'll just make a script variable,
+and we'll say baseline letter frequency.
+And there we go.
+And let's just put this.
+We need to put it after we set the letter frequency.
+So let's put a block in to set that.
+Right here is probably the best place to do it.
+Say baseline letter frequency.
+And then we'll drop this into it.
+So now we should have the frequencies
+from the actual text that we're looking at as well
+as our baseline frequencies, and we just need to graph them.
+Now, to remember, we've done this before.
+I'm going to go over to network.
+We're going to see if I get more space here.
+And we want to get this variable here or this block here.
+And let's drop down to graph.
+Let's see here.
+There's a chart service, I think, is what it's called.
+There we go.
+And the chart service, if you recall,
+has a set of default options already built in.
+We're going to want to tweak these options,
+but let's go with them for now.
+So that'll just be our starting point.
+And then let's duplicate this.
+And there we go, a little bit more space.
+Let's drop this down to just draw.
+So draw takes the lines that we want to graph here
+as well as the options.
+So we can just drop the options in there for now.
+And we have two things that we want to chart.
+We want to chart the percentage of letters frequency
+as well as the baseline letter frequency.
+So to do that, we're going to pass in a list
+with both of those there.
+So we'll bring this over here.
+We're going to open up another slot.
+And let's pull them in.
+So baseline letter frequency, we'll pull in first.
+And then the percentage of letter frequency,
+we'll in second.
+And then we're going to report this.
+Well, actually, don't want to report it, right?
+We just want to visualize it on the stage.
+So I'm going to throw this off to the side.
+And let's pull down Looks here, switch to Costume,
+because we want to actually switch to the charting service.
+And Ada will disappear.
+And our chart should appear if it worked correctly.
+Just to make this work more smoothly,
+we'll put a when clicked on top here to kick it all off.
+There we go.
+All right, so it's getting more complicated.
+Let's see if it works.
+All right, going out and getting the book,
+getting the frequencies of the letters in the book.
+And if it all works well, we should see a chart appear
+fairly soon.
+Still running, so not yet.
+There we go.
+So actually, that did pretty well.
+The only thing is we don't really
+know what this chart is showing us.
+We do know because we know the context that this
+is the percentage of the letters' appearance
+in the alphabet and also in the text that we're looking at.
+And then these are the letters themselves.
+So first letter is A, all the way to Z.
+And you can see here that actually this maps pretty well.
+So it's a good chance.
+And in fact, we've seen this before.
+So it's a good chance.
+And in fact, we haven't looked at the book.
+But it's a good chance that this book is in English
+because these values match pretty well.
+So let's go ahead and put together
+some of the items that would make this chart
+a little bit more readable.
+And again, we have a video on how
+to do this earlier in our series.
+So if you want to go back and refer to that
+as I move a little bit more quickly here, please do so.
+All right, so let's pull the, let's
+pull in a library that we want to use here.
+So I'm going to go to Libraries.
+And the library I want to do is I
+want to do Structured Data here.
+So the reason I typed in Set is because it
+has this block Set Value.
+And I want to be able to use that because it'll
+make our work a lot easier.
+So I'm going to pull that in.
+And it's under Custom now.
+And so you can see here that I can now start
+setting values by key here.
+Now, we'll need to make yet another variable here
+called Chart Options.
+And then what we'll do is we'll go back to Variables here.
+And we're going to Set Chart Options.
+Let's see, it's a lot of stuff going on now.
+But I think probably we'll just do it right here,
+just because that's where we're starting to work with the chart.
+So we're going to Set Chart Options.
+And here, let's get this out of the way,
+we'll set it to our baseline options.
+Now, we're going to adjust those.
+But we need to pass in this new chart options here into Options.
+And so our goal now is to make the adjustments we
+need in between this Set block and the Switch to Costume block.
+So first thing let's do is set a title.
+And let's actually, I'm going to duplicate this.
+Maybe the way to do this is I'm just
+going to duplicate this block right here.
+I'm going to bring it down, because that'll
+help us to see what the options are that we want to work with
+and how to describe their keys.
+So you see Title is right here.
+So we want to set the title.
+And we'll say, just say Set Title of,
+and then let's bring the Chart Options block here.
+There we go.
+So set the title of Chart Options to,
+and then we'll just say, Book versus Language.
+OK.
+And then let's duplicate this again.
+So maybe I should have kept this a little bit separate,
+easier to duplicate.
+Now I've got pieces that I don't want, but that's all right.
+We can get rid of them.
+And I'm going to duplicate it again,
+because we're going to want to set the x and y-axes.
+OK, so let's do that.
+And again, here's this Chart Options
+so we can sort of see how to call them.
+All right.
+So we've got the x label and the y label.
+So the x label here is going to be Letter of Alphabet.
+And then the y label is Percentage of Letter Frequency.
+All right.
+So let's drop that in here.
+And now the only other thing we could do
+is we could also put in individual labels
+to indicate what language we're dealing with,
+as well as what book we're looking at.
+We don't have that information yet, but we could get it.
+So for example, we could make another variable saying,
+Book Title.
+Let's just do that.
+So Book Title.
+OK, and then we might want to use this Language Name.
+Or I mean, I guess we could just call it Language.
+OK.
+So now we've got Book Title and Language.
+How do we actually assign them to things?
+Well, Book Title, we'll drop in here.
+And we're going to duplicate this call, Project Gutenberg
+block, drop it in here.
+But instead of Get Text, we're going to get Info about it.
+And then we'll type in the same ID.
+We should probably abstract the ID out
+and make it something separate here.
+So that's on our to-do list if we
+want to make this a little bit fancier.
+But let's just actually call out to this
+just to see how this works.
+So this gives us, we're working with Which Winnie.
+And we actually need the title here.
+There's a title and a short title.
+But we'll just grab the title.
+So that is Item 2.
+And that's going to give us the title.
+But it's also going to give us the key for the title, which
+we don't want.
+So we're going to want Item 2 of Item 2.
+There we go.
+Let's see how that works.
+OK, Which Winnie, the Story of a King's Daughter.
+I wonder if we do 3 if we get any.
+Oops, this one needs to be 3.
+That is better.
+Oh, that gets the author.
+OK.
+Maybe that's a better way to do it.
+OK, so let's do that.
+So we don't want to set book.
+This is the wrong variable.
+We want to set, got this down.
+OK, here we go.
+Let's go to book title.
+OK, so now we have the book title.
+So now we need to get the name of the language
+that we're going to be using.
+And you remember, we did that up here
+when we did all of it first.
+So I think what we could do then is just do the opposite.
+So we could duplicate this.
+And let's make another block under here.
+And let's just, it should be a variable here.
+OK, let's set this instead of all but first,
+we're going to set this to language title.
+And this stays.
+I can keep this stuff variable and easy to move around.
+OK, so that stays.
+But we just want item 1.
+So in this case, we just want the head
+because that will give us the title.
+And that will give us the language.
+Again, we should probably extract this information out
+so we're grabbing the same language
+so there won't be any confusion about that.
+But now we set the language, and then we set the book title.
+So we can go down here.
+And let me just pull this down and see
+if I can duplicate this block.
+There we go.
+And we'll reconnect these things.
+OK, so now what we want to set are the labels up here.
+Let's see that it requires a list, which is good
+because it's a list that are the labels that
+are what correspond to the two lists that we sent in
+that is charted.
+OK, so let's grab list here.
+And the first one I passed in was the baseline.
+So that's going to be the language.
+Let's grab that right here.
+So I'll make my way down.
+There we go.
+And then the other one that we want is the book title.
+So let's add that down here.
+All right.
+So that's good.
+Now this just needs to be, I think,
+what we say was labels, right?
+Labels.
+OK, so let's get labels in.
+Now we're passing all this information in.
+Let's get this out of the way so we're not confused by it.
+And if we've done it correctly, now we
+should have a chart that actually shows
+the language and the proper labels.
+So we'll run it again.
+It takes a moment, again, to reach out and grab
+all the data, to do all the parsing that's involved,
+and then to draw the chart.
+The chart drawing probably is the fastest part
+of this whole operation.
+So we'll give it a second to work through all those steps.
+And there we go.
+Now it's not totally perfect just
+because our labels take up probably more space than we
+want.
+But you can see that we've got everything in the right place.
+So percentage of letter frequency,
+letter of the alphabet, book versus language.
+Compare English to this book, Which
+Lady by Elizabeth Champion.
+And now you could change the language.
+And let's do that here.
+We'll try this one more time.
+Let's go over to changing the language.
+And again, it would be good to extract this out
+so we don't get confused about what language we're
+dealing with here.
+So it's these two here that we're dealing with.
+This is setting it to English by item 2 and item 2.
+This would be definitely something
+that we'd want to refine.
+But let's set it to 5, get a different language,
+and we'll see how those letter frequencies hold up.
+Because the whole goal of this was
+to see if we could find the baseline letter frequency
+compared to actual frequencies of letters in a particular text
+and then be able to tell whether that text was
+written in a particular language or not
+just by the patterns of letter usage alone.
+So now that we're comparing it with a different baseline
+from a different language, we would
+expect to see that this graph looks somewhat different.
+And the further the language is from English,
+probably the more different this graph
+would look because the patterns of letter usage
+will differ more greatly.
+All right, so now we compare it to Spanish.
+And you can see here that, in fact, we
+are seeing differences.
+There are definitely some different spikes here.
+I mean, not totally different, not radically different,
+but I think that you can see that it's not
+quite as in sync as it was in terms
+of the English comparison.
+So we'll stop there.
+But I would invite you to explore this further,
+try out other languages in our list,
+and see if you maybe, for example,
+could find another book in Project Gutenberg that's
+written in a different language and compared to English,
+or maybe try to discover what language it was in.
+So that's just a simple technique
+to explore how you would do something that's not even
+really advanced text analytics, but uses
+the abilities that are built into NIST blocks
+to grab information from a particular source, Project
+Gutenberg, to do some analysis of these patterns,
+and then to use our charting service
+to bring out their relationships.
+So thank you very much for watching today,
+and I look forward to seeing you in my next video.

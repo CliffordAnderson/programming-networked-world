@@ -1,0 +1,508 @@
+Hi, everyone.
+Welcome back to Programming for a Networked World.
+Today, we're going to continue our exploration
+of textual analysis in NetSplox.
+In particular, what we're going to do today
+is to explore frequency analysis.
+Frequency analysis looks at the appearance
+of letters in documents and uses that
+to tell certain things about the documents
+that you wouldn't otherwise know.
+It's often a technique used in cryptography to break codes.
+But today, we're going to be using it
+for a different purpose.
+We're going to try to see if we can identify
+the language of a document without looking
+at the document itself, just by looking at the frequency
+at which certain letters appear.
+All right, are you ready to explore
+the world of international literature in NetSplox?
+Let's get started.
+So to do our program, we're going to have
+to draw on several sources today.
+One is we're going to need a list of the frequency of letters
+in various languages.
+And then we're going to need to connect to a source that
+will allow us to bring down documents.
+And then we'll have to turn those documents into letters,
+count how frequently they appear,
+and then compare the two sources together,
+the list of how letters appear in languages in general,
+and then how they appear in this document in particular.
+And that will tell us, hopefully,
+what language the document was written in.
+So let's get started by just pulling in our data sources.
+So I will go over here.
+And I've got up on GitHub a list of data
+showing the frequency in which letters
+appear in various languages.
+So you can see in the English language,
+the letter A appears 8% of the time, 7% in French, 6%
+in German, 11% in Spanish, and so on and so forth.
+So that will tell us, in general,
+what we should expect to see when
+we're looking at a document in terms of how frequently
+a letter appears or ought to appear in that document.
+Of course, it all depends on the length of the document
+and what the document's about.
+If you have Winnie the Pooh, for example,
+you might have a lot more W's and a lot more O's,
+just because Winnie and Pooh are mentioned a lot.
+So in this particular case, we wouldn't
+know if it would match exactly with our expectation of W,
+which appears only 2% of the time in English.
+But it might appear more in that particular volume.
+So the actual percentages will vary
+depending on what volume we choose to analyze.
+But we can expect that, roughly, they
+will correspond to these percentages that we see here.
+So let's get these first into Nets Blocks.
+So the way to do that, we're going to look at this.
+We'll turn it into the raw view, which just makes a nice CSV.
+And we'll grab that URL.
+And I'm going to go over to Nets Blocks.
+And I'm going to go to the sensing block.
+And let me bring over this URL here.
+And then I'm going to drop that particular link in here.
+And you see that we get back a text block showing that link.
+So that's good so far.
+But it's not a CSV.
+But fortunately, there is a tool for that here
+under Operators, Split.
+And we can put this up here.
+And I can drop the URL inside it.
+There we go.
+And the amazing thing about Split,
+I'll just move Ada over a little bit,
+because it's a really long URL.
+Oh, let me zoom in a little bit better
+so we can see this all.
+Well, I guess I'll leave it at this zoom.
+So you can see that it's a CSV here.
+And we have a chance to split by something.
+Let's see.
+But I'm not seeing the by, which I keep moving.
+Let's just pull it out here.
+Well, there we go.
+So here's the by.
+I'm going to set it first.
+You can set it to split by CSV, comma separated values.
+So let me drop that in here again.
+Now we've got the by CSV at the bottom.
+That's good.
+If I click on that, you see now that we
+have this list of list formats.
+So that was actually pretty easy to bring
+this data into Nets Blocks.
+OK.
+So then our next step is we hit Escape here and get back out.
+There we go.
+Our next step, then, is to assign that to a variable.
+Let's make a variable.
+And let's call it letter frequency.
+So I will go under Variables here, make a variable,
+call it letter frequencies.
+OK.
+And we don't need to see it on the stage.
+Let's bring it over.
+And we'll set letter frequencies to this.
+All right, so now we've got our letter frequencies.
+So that's great.
+The next step we want to do is to think
+about where we'll actually get the volume that
+we'll be analyzing.
+So in this case, there's a site called Project Gutenberg.
+There we go.
+And if you see Project Gutenberg here,
+we can just look at popular books.
+There are all kinds of books that are freely available.
+And so it'd be great to analyze one of these.
+Now, there's fortunately a built-in RPC to Project
+Gutenberg inside of Netsblocks.
+So let's go over to Netsblocks again.
+And let's look at our list of RPCs.
+And I'll bring this over here.
+And you can see here that under Text, I believe,
+let's see our Language, we've got Project Gutenberg.
+And so let's drop down.
+And there's several things we can do here.
+We can search, we can get info, and we can get text.
+So we might want to search for a book.
+Let's do a title.
+And let's say, I said Winnie the Pooh.
+So let's search for that, see if they're there.
+There are a couple books now that have Winnie in the title.
+We don't know what they are until we actually look at them.
+So let's grab 34551.
+And I can go to this now to get the info of 34551
+and call that.
+And this is which Winnie?
+Don't know much about that, but we
+can go with that one for now.
+OK.
+So that's how we get information about a book.
+And if we actually want to get the book itself,
+let me just duplicate this.
+We just switch this now to get the text.
+I'll have to enter that again, 34551.
+And we click on that, and there's the full text.
+OK, so that's great.
+Now comes the interesting part.
+How do we look at the frequency of the letters
+inside of Project Gutenberg?
+So this is where we're going to need to think about how
+to bring this text into Nextbox.
+Then we're going to split it apart by letter.
+Then we're going to look at the letter frequencies
+and then we'll report back that information
+in the form of a list.
+OK, so we'll need to make a block for that.
+I think it's better to do that inside of a block.
+So we're going to make a block.
+We'll have it be a reporter.
+We're going to call it, let's see, letter frequency.
+OK, and let's make it an operator.
+There we go.
+And we'll do that.
+OK, we'll add here an input called text.
+And let's make that input text type.
+Say OK.
+There we go.
+So now we can work with this.
+And the question is, how do we build this block?
+Well, let's assume that what's passed in
+is the text of the document.
+So we'll start from there.
+And the first thing that we want to do
+is get that document and split it by its letters.
+So let's make another variable.
+We'll start using some script variables here.
+So let's go over to variables and let's
+get the script variable.
+And let's call this one just letters, OK?
+So now let's set letters to.
+Now here's what we need to think about.
+We want to set letters to this document
+but split into its individual letters.
+So we're going to go back to that split operator
+we used before and bring it over.
+Here we go.
+And this time we're going to split the text,
+but not by CSV, but by letter.
+OK, so now we should have all of the letters in the document.
+But our goal is to get the frequency in which
+those letters appear.
+So let's make another variable for this called frequencies,
+or just frequency.
+There we go.
+And that's supposed to be a list.
+So let's start off by just making sure
+that we set it as a list because, as we know,
+that's a common source of error not setting
+the variable correctly.
+So let's say frequency here.
+And we're just going to set it to an empty list for now.
+So that'll be what we want to fill up with our analysis here.
+So then the next part of what we need to do
+is to think about how to start calculating those frequencies.
+Well, we want a list of A to Z. So we
+need to look for each letter A to Z, which
+means that we need to say, let's loop from A until the letter
+Z and then look for their occurrence.
+In order to make a loop like that,
+we need to get a list of letters from A to Z.
+So we could just list it out, just put a list together
+and just start filling in like A and then B and then C.
+I don't really want to do that because most programmers
+are lazy and they like to find easier, shorter ways
+to do things.
+So let's do a little trick to do this.
+So we're going to make another variable here called letters.
+And then I will bring over the set block.
+And we'll set letters.
+But what will we set it to?
+Now, here's the trick.
+We can use Unicode for this purpose.
+And so I will bring over a map block.
+And I'm going to go to this operator here called,
+let's see, from, is it here?
+Yeah, OK, so we want Unicode of as a number.
+So we're going to map these numbers.
+We're going to map a list of numbers.
+And we're going to turn each of those numbers, which
+are the Unicode equivalent of our alphanumeric characters
+into the character itself and build a list that way.
+So we just need over what.
+And here's where we would go to a list.
+And we'll just create numbers from, not from 1 to 10,
+but from the portion of Unicode in which these lowercase
+letters appear.
+That happens to be just off the top of my head.
+No, I've got it written down, 97 to 122.
+So that now will take 97 to 122 and then convert those
+from numbers into the alphanumeric equivalent
+according to the Unicode chart.
+And that means that we'll just develop our letters
+without actually having to write it all out,
+which saves us time and is a more fun way to do it anyway.
+So then the next thing that we need to do is,
+if I can get this to pull down a little bit more.
+There we go.
+We want to do a for each loop.
+So we're going to take each letter,
+and we're going to iterate over it.
+So let's go over here to variables.
+We're already there.
+Grab this for each.
+Drop it in here.
+We're going to change this now to letter.
+And for each letter in our list of letters,
+so that's going to be from A to Z. So it'll be A, and then B,
+and then C, and then D, and so forth.
+We'll do something.
+So how do we do this?
+Well, we want to look for every occurrence of the letter
+in the particular document.
+And these are really big documents,
+so these are really long lists of letters.
+So we'll take a kind of approach that
+shrinks our list each time so that at each successive pass,
+our list is smaller.
+And we're doing that for performance reasons.
+So the way that we'll calculate it is,
+we'll take the starting length of the list,
+and then we'll subtract all the letters
+that we're looking for in that list, so like all the A's.
+And then we'll see what the ending length of that list is.
+And based on the difference between the starting
+length and the ending length, we'll
+know how many times a particular letter appeared in that list.
+But at the same time, we'll also be shrinking our list
+so that we'll be making the list smaller.
+So to do that, we need to set up some more script variables.
+But now, inside of this particular loop here,
+so we're going to do this.
+We'll say starting length, and then we'll
+make another one that's ending length.
+And so with starting length and ending length,
+we'll have the information we need
+to do that kind of calculation.
+So we'll begin by setting the starting length here
+under variables, set the starting length.
+And what will we set it to?
+We'll set it to the, oh, actually, this probably,
+we've got letters in there twice.
+So that's a mistake.
+Let's change this one here to document.
+And we'll just change this one here down to document.
+There, OK, that's clear.
+So we're going to start this with setting
+the length to the document, the whole document, all
+the letters.
+And then we'll use this higher order function here
+called keep.
+And what keep does is just allows
+us to keep the information in the list that we want
+and get rid of everything else.
+So let's bring this over, keep.
+And we'll set the document.
+So this is going to mutate the list to what we actually keep.
+So here we'll go set, drop it in here.
+We're going to set document there to what we keep.
+And so this requires an input, and that input
+is going to be document.
+And then we'll set the document to what we actually keep.
+And then what we keep, well, you might
+think we're going to keep the letter.
+But actually, we want to keep every letter except
+for the letter that we're looking for.
+So let's bring over a not here, put it in here.
+And then the question is, what are we not keeping?
+We're not keeping the letter in the document
+that this is equal to.
+So we'll leave this slot open, and we'll
+say, if this letter is equal to that letter,
+if it's not equal to that letter now,
+then we'll keep that item in the list.
+But anything that is equal to that letter
+will be filtered out.
+And so now, at the end of this, we
+need to take our length of the list of letters
+that's in document after our second pass.
+So that's the ending length.
+And copy that.
+Let's see, we'll just bring it down from here.
+OK?
+And now, we need to just have some kind of way
+to collect this.
+So I think we've got our frequency list here,
+and we'll add that information to the frequency list.
+So let's go to our list here of add.
+OK?
+Drop that in here.
+And what we want to add now is the difference
+between the starting length and the ending length.
+OK.
+And we're going to add that to frequency.
+And then, at the end of all this,
+we simply just want to report the frequency.
+So that's what comes out of this particular block,
+this function.
+So let's go to Control.
+And we'll report this one down here.
+OK.
+And I'm going to report frequency.
+I can drag it down there.
+There we go.
+OK.
+That should be what we want.
+Now, here's the test of it.
+Let's see if it actually works.
+We'll bring it over.
+Here's our letter of frequency.
+Let's just do it with a simple, like, this is a test.
+We won't do anything complicated there.
+All right, so this is not quite what I expected.
+Let's see what's going on here.
+All right.
+So we're splitting the document by the letter.
+We're turning frequencies to a list.
+We're mapping Unicode over numbers 97 to 92.
+For each letter and letter, we're
+getting the start and ending count.
+Oh, oh, oh.
+Here's our mistake right here.
+We need to change this to length of,
+because we're counting the number of letters
+in this document, not actually adding the document itself.
+So let's do that.
+There we go.
+And then we can do the same thing if we just duplicate.
+Oops.
+Duplicate that one down here.
+There we go.
+All right.
+Let's try it again.
+OK.
+Yeah.
+So now it's working.
+We've got a list that goes from 1 to 26.
+So each one of those is from A to Z.
+And then here is the count of those numbers
+per their frequency in the document.
+So let's try to run this over a real text.
+So here we go.
+Let's bring this text over.
+We're going to get the whole text there.
+And we'll count the letter frequencies.
+So it'll go out to Project Gutenberg,
+get that particular text.
+And then we'll do this count and see what it gives us.
+Takes us a little while because it's
+doing quite a few operations.
+So we'll see.
+There we go.
+OK.
+So quite a few As.
+It's a big book.
+So here are distributions of the letters
+in this particular document.
+Now, what we want to do then is to think
+about the percentages of these letters as they appear.
+Because that's how we're going to be able to compare them,
+not just based on the actual absolute numbers,
+but the percentages in which they appear in that document.
+So let's assign these two variables.
+So up here, we'll go to Set.
+And I'm going to just put on some script variables here.
+Let's see.
+So we'll set book here.
+And then we'll set the book down here
+to the actual Project Gutenberg book that we grabbed.
+And then we will set the, let's make another variable here.
+That would be, say, book frequency, book letter
+frequency.
+And we'll set book letter frequency to this.
+We'll drop the book into here.
+OK, so far, so good.
+And now we want to set the percentage of appearance
+of letters, of letter frequency, just
+to differentiate between the absolute frequency
+and the percentage in which those letters appear.
+So we'll do this.
+And now let's take this letter frequency.
+OK, how do we convert that?
+So let's get the absolute count, so count of letters.
+And we can get the absolute count,
+because we've already converted this.
+This is the text here.
+So we just need to convert those into letters themselves.
+So we've done that inside of our function.
+So it's maybe a little redundant.
+But let's just do it here again.
+So we'll set count of letters.
+And we'll do the length.
+Let's see here.
+The length of the split into letters
+of the book split by letter.
+OK, so that should give us that amount.
+And now, percentage of the letter frequencies.
+This is where we need to use a map,
+because we want to take that number of the absolute count.
+And for each one of our counts, we
+want to divide it by that number.
+So let's do this.
+Let's go to letter sum.
+And we're going to map here.
+Let's take a look here.
+We're going to map.
+And what we're going to map is each one of those entries
+divided by the count of letters.
+And what we're mapping over is our book letter frequency.
+But now, as I told you, we actually
+want to then turn these into percentages that
+are out of 100.
+So in order to do that, we're going to multiply here
+the operator discount by 100.
+Let's put it in here.
+And that will make it comparable with our other list.
+OK, so let's try that.
+And let's see how we go here.
+Let's report something here.
+So let's report under Control.
+We'll report percentage letter frequency.
+Let's do that.
+OK, this may take a while to run, but let's see how it goes.
+So as you see here, we're going out and calculating
+this letter frequency.
+We're not using that yet, but it's still
+part of our stack that we're building up.
+Then we're getting the particular book.
+We are getting the letter frequencies for that book.
+And now we get the percentages.
+So here, you can see that here are the total percentages.
+And if you added these up, you would get to 100.
+OK, so now we have what we need to compare.
+We actually now have two lists.
+We've got a list of the actual percentages
+of these letters' appearances in a book.
+And then beyond that, we have the list
+of what we expect to see out of the entire English language
+for the frequency of letters as they appear
+over all of English literature.
+And we want to compare the two.
+And by comparing them, we'll see if this book
+was written in English.
+This one, I think we probably already
+know is written in English.
+But we'll try some others that aren't.
+So I'm going to pause here for today.
+I think that's enough for one video.
+And what we'll do in our next video
+is we'll learn how to plot these results,
+compare them with each other, and then
+be able to determine using those plots whether a book is
+written in a particular language.
+So we'll come back to that next week.
+But thank you very much for joining me this week
+and talk to you again soon.

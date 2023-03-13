@@ -1,0 +1,968 @@
+1
+00:00:00,000 --> 00:00:04,440
+Hi, welcome back everyone to Programming for a Network World. Today we're going to
+
+2
+00:00:04,440 --> 00:00:08,800
+wrap up our sessions on textual analysis in Netsbox and we're going to do
+
+3
+00:00:08,800 --> 00:00:13,000
+something fun. I don't know if you've seen the channel Translation Fails. I
+
+4
+00:00:13,000 --> 00:00:17,000
+think they changed their name to Twisted Translations, but the idea is that they
+
+5
+00:00:17,000 --> 00:00:20,520
+take song lyrics and then they run it through Google Translate multiple times
+
+6
+00:00:20,520 --> 00:00:25,800
+and whatever comes out is what the performer sings. So we're going to make
+
+7
+00:00:25,800 --> 00:00:30,240
+our own Translation Fails in this particular section and we're going to do
+
+8
+00:00:30,240 --> 00:00:35,640
+that by combining two RPCs that are built into Netsbox. So are you ready to
+
+9
+00:00:35,640 --> 00:00:40,560
+mess with song lyrics? Let's get started.
+
+10
+00:00:43,640 --> 00:00:47,640
+Okay, so here's what we're going to do. We're going to take out from the
+
+11
+00:00:47,640 --> 00:00:55,160
+Network tab over here the first RPC that we're going to use and if we drop down
+
+12
+00:00:55,160 --> 00:01:02,240
+we'll see here under music that we have access to Genius. Now for those of you
+
+13
+00:01:02,240 --> 00:01:06,960
+that don't know Genius, it's a site that gives you information about songs and
+
+14
+00:01:06,960 --> 00:01:12,040
+song lyrics and you can see here that if you drop down you'll see that you have
+
+15
+00:01:12,040 --> 00:01:16,920
+Get Artist, Get Song, Get Song Lyrics. Now all of these, if you click on them, will
+
+16
+00:01:16,920 --> 00:01:21,000
+take an ID. So we need to find out what that ID is first and the way we do that
+
+17
+00:01:21,000 --> 00:01:30,160
+is to search for songs. So let's just look for the song Don't Stop Believing.
+
+18
+00:01:30,160 --> 00:01:38,160
+I think that's how you spell it. And we get back actually 10 that have that
+
+19
+00:01:38,160 --> 00:01:44,480
+match. Let's take a look. Let's actually just go in and take a look at
+
+20
+00:01:44,480 --> 00:01:51,080
+this a little more carefully by getting the first item. There we go. So item one
+
+21
+00:01:51,080 --> 00:02:00,000
+and that gives us this chart here. Don't Stop Believing. This one is by The Rock.
+
+22
+00:02:00,000 --> 00:02:08,000
+Oops, if I can pull this across. The Rock of Ages movie. Okay, but in any case we can
+
+23
+00:02:08,000 --> 00:02:13,400
+use this version of the song Don't Stop Believing to get our ID which is the
+
+24
+00:02:13,400 --> 00:02:19,800
+first item there. So let's go over and just get our library for structured data
+
+25
+00:02:19,800 --> 00:02:23,920
+that we've used before just to make it clear what we're doing. So let's get
+
+26
+00:02:23,920 --> 00:02:31,280
+structured data, bring it in, go to custom, and let's get the value of that. So we're
+
+27
+00:02:31,280 --> 00:02:35,000
+gonna drop that in here and we'll get the ID. I can't remember if it's
+
+28
+00:02:35,000 --> 00:02:39,720
+capitalized or lowercase. Okay, so we did it in caps and there it is. So that gives
+
+29
+00:02:39,720 --> 00:02:44,280
+us the ID of the song and now if we want to get the lyrics all we need to do is
+
+30
+00:02:44,280 --> 00:02:49,200
+call it again for the lyrics with that ID. So let's go to network here and go
+
+31
+00:02:49,200 --> 00:02:56,200
+over and back down to music and to Genius and we're gonna get the song
+
+32
+00:02:56,200 --> 00:03:03,000
+lyrics and then we're gonna drop this in here and there we go. Don't Stop Believing.
+
+33
+00:03:03,040 --> 00:03:09,880
+That looks like the song that we're looking for. Okay, and I see this one is
+
+34
+00:03:09,880 --> 00:03:14,520
+sung by two singers so I think they're indicating who's singing
+
+35
+00:03:14,520 --> 00:03:18,440
+what part so that's why we're seeing the in brackets there, but that should be
+
+36
+00:03:18,440 --> 00:03:27,720
+fine. Okay, now what we'd like to do is to take these lyrics and then pass them
+
+37
+00:03:27,720 --> 00:03:31,520
+into Google Translate, shuffle them between languages so they kind of get
+
+38
+00:03:31,520 --> 00:03:37,280
+mixed up and then have Ada present the lyrics back to us in English but in
+
+39
+00:03:37,280 --> 00:03:42,720
+their kind of mixed up form. So in order to do this we need to start building a
+
+40
+00:03:42,720 --> 00:03:49,640
+program that will allow us to search for the the lyrics that we want, then to
+
+41
+00:03:49,640 --> 00:03:54,400
+pull out the song lyrics, to tokenize them, to split them into segments by line
+
+42
+00:03:54,400 --> 00:03:59,800
+and then we're gonna pass them into Google Translate. So the other service
+
+43
+00:03:59,800 --> 00:04:03,160
+that we are gonna want to use is Google Translate and let's just see how that
+
+44
+00:04:03,160 --> 00:04:09,600
+works before we get started too far. So we're gonna go to language and then you
+
+45
+00:04:09,600 --> 00:04:14,720
+see here is translation and translation has a couple things that we're gonna use.
+
+46
+00:04:14,720 --> 00:04:18,440
+So one is get supported languages. This is just a list of the languages. I think
+
+47
+00:04:18,440 --> 00:04:22,240
+there are about a hundred, 111 languages that Google Translate supports and
+
+48
+00:04:22,240 --> 00:04:26,140
+here are their codes. So we'll use those codes. That'll be part of what we use so
+
+49
+00:04:26,140 --> 00:04:33,580
+we'll kind of leave this out here. But also, and let me just duplicate this, we
+
+50
+00:04:33,580 --> 00:04:39,340
+also can translate from language to language. So here we can put in a text
+
+51
+00:04:39,340 --> 00:04:45,660
+and we could say like don't stop believing and we could translate it from
+
+52
+00:04:45,660 --> 00:04:55,940
+English to say Chinese. Invalid key, please update your as your translation
+
+53
+00:04:55,940 --> 00:05:04,660
+API key. Well that doesn't sound too good. Let's try this again. Let's just try
+
+54
+00:05:04,660 --> 00:05:07,220
+FLR.
+
+55
+00:05:14,220 --> 00:05:19,020
+Okay, there we go. I think that we were just getting an error code because CN for
+
+56
+00:05:19,020 --> 00:05:23,540
+some reason isn't the code that we want but maybe I'll mention to Brian that we
+
+57
+00:05:23,540 --> 00:05:27,500
+should improve that error message. Okay, so there we go.
+
+58
+00:05:27,500 --> 00:05:35,900
+N'arrêtez pas de croire. Don't stop believing in French. All right, so that is
+
+59
+00:05:35,900 --> 00:05:44,380
+good and actually Chinese probably is ZH but anyway we'll leave it as it is. We
+
+60
+00:05:44,380 --> 00:05:52,780
+have to look it up here and find out. Yeah, there it is. ZH on T is traditional
+
+61
+00:05:52,780 --> 00:06:03,740
+Chinese so let's just try that just to see if we can do it. ZH dash on T.
+
+62
+00:06:03,740 --> 00:06:16,340
+There we go. Something like that. So excuse my Chinese but there you go.
+
+63
+00:06:16,340 --> 00:06:21,700
+Okay, so we can translate between different languages but the idea is in
+
+64
+00:06:21,700 --> 00:06:26,260
+going back and forth between these languages we'll lose some of the
+
+65
+00:06:26,260 --> 00:06:32,540
+exactitude of the translation. Again, this is just a function of machine language
+
+66
+00:06:32,540 --> 00:06:37,300
+transformation that it doesn't capture all the nuances perfectly especially as
+
+67
+00:06:37,300 --> 00:06:41,460
+you move between languages and so that should produce some funny lyrics for us
+
+68
+00:06:41,460 --> 00:06:49,180
+to work with. Okay, so let's now start putting all this together here.
+
+69
+00:06:49,180 --> 00:07:00,300
+All right, so let's start with just setting up our initial... we'll start with
+
+70
+00:07:00,300 --> 00:07:04,660
+a win clicked here and this is going to take up a lot of space so we'll see if I
+
+71
+00:07:04,660 --> 00:07:09,380
+can kind of get everything together and let's also put in some space for
+
+72
+00:07:09,380 --> 00:07:14,340
+some variables because we're going to need to use them as we go along but the
+
+73
+00:07:14,340 --> 00:07:16,700
+first one we'll do doesn't need a variable because we'll just do the
+
+74
+00:07:16,700 --> 00:07:21,420
+sensing that we normally do which is we're going to let Ada ask what song
+
+75
+00:07:21,420 --> 00:07:29,500
+that we're interested in. What song shall I sing? Okay, and then we'll wait for the
+
+76
+00:07:29,500 --> 00:07:34,060
+answer and of course the answer comes in this answer. Now here's where we're
+
+77
+00:07:34,060 --> 00:07:38,220
+going to need our first variable because we want to identify the song that we're
+
+78
+00:07:38,220 --> 00:07:44,580
+going to be talking about. So let's get the song ID. We'll use that as our first
+
+79
+00:07:44,660 --> 00:07:50,820
+variable here and the way that we do that, as you know, is we search the songs
+
+80
+00:07:50,820 --> 00:08:01,460
+and then we get this ID. So we're going to set that variable here to this but
+
+81
+00:08:01,460 --> 00:08:06,980
+let me move this over here so we've got more space. Okay, so it's not just going
+
+82
+00:08:06,980 --> 00:08:11,820
+to be don't stop believing. We're going to put in the answer there and we'll see
+
+83
+00:08:11,820 --> 00:08:16,980
+what it comes out as. Okay, so that'll and we want to set the song ID to that.
+
+84
+00:08:16,980 --> 00:08:22,260
+Okay, so that will give us the ID and now the next thing we want to get is the
+
+85
+00:08:22,260 --> 00:08:29,700
+song lyrics. So same process as we had before, song lyrics. We're just going to
+
+86
+00:08:29,700 --> 00:08:35,140
+set it to a variable here. So let's go over and set song lyrics to whatever
+
+87
+00:08:35,140 --> 00:08:43,580
+Genius calls with that ID and so we pass in ID here. Okay, and let's just test to
+
+88
+00:08:43,580 --> 00:08:48,620
+make sure that we're getting the results that we want. Let's go down and report
+
+89
+00:08:48,620 --> 00:08:51,460
+the results just to make sure we're on the right path here. So we should be
+
+90
+00:08:51,460 --> 00:08:56,460
+getting the song lyrics back and we click on this and again I'll say don't
+
+91
+00:08:56,460 --> 00:09:03,380
+stop believing and there the song lyrics come up. So good, we're on the right path
+
+92
+00:09:03,380 --> 00:09:09,100
+so far. Okay, now the only thing that's left to do is to split these into lines
+
+93
+00:09:09,100 --> 00:09:13,740
+and I think it's probably easier not to make another variable to do that. We can
+
+94
+00:09:13,740 --> 00:09:19,340
+just take this operator right here of split and put it into the song lyrics
+
+95
+00:09:19,340 --> 00:09:23,740
+themselves right there. So let's just drop this in here and then we're going
+
+96
+00:09:23,740 --> 00:09:30,180
+to split what comes back by line. So that should give us the various verses of the
+
+97
+00:09:30,180 --> 00:09:36,820
+song. We can test that again just to make sure it's working. I'm gonna have to
+
+98
+00:09:36,820 --> 00:09:42,140
+pick a shorter song. A song with a shorter title I should say. There we go.
+
+99
+00:09:42,140 --> 00:09:48,380
+Okay, it's working. We do have some like spaces that we need to fill in so we'll
+
+100
+00:09:48,380 --> 00:09:52,660
+these we should remove from our list so we'll have to think about how to do that
+
+101
+00:09:52,660 --> 00:09:57,260
+in a moment. But basically we've got everything that we want so the only
+
+102
+00:09:57,260 --> 00:10:02,340
+thing that we might want to do is capture the title of the song. So we
+
+103
+00:10:02,340 --> 00:10:13,060
+could also just do that here by putting the song title. Let's do this in
+
+104
+00:10:13,060 --> 00:10:22,300
+lowercase like we've done. Song title. All right and again with a variable here.
+
+105
+00:10:22,420 --> 00:10:28,020
+Now if you remember when we when we called this to get the information from
+
+106
+00:10:28,020 --> 00:10:34,820
+geniuses that we can actually just duplicate this probably. All right this
+
+107
+00:10:34,820 --> 00:10:40,740
+is item one. When we call this and we say like anything I'll try I am Walrus
+
+108
+00:10:40,740 --> 00:10:49,260
+this time we get the title it's the second item here. So what we'll want to
+
+109
+00:10:49,260 --> 00:10:53,980
+do then is we probably shouldn't call twice it would be better not to do that
+
+110
+00:10:53,980 --> 00:10:57,660
+but I think for sake of expediency I'm going to do that. So I'm just gonna
+
+111
+00:10:57,660 --> 00:11:04,340
+duplicate this here and put this in here and then we're gonna get item two of
+
+112
+00:11:04,340 --> 00:11:08,940
+that. I'm sorry we want item one that's still the same but what we want to
+
+113
+00:11:08,940 --> 00:11:13,340
+change here is title and I think it's lowercase. Let's just see if we're
+
+114
+00:11:13,340 --> 00:11:20,500
+getting the title now. So drop this back in here. Let me pull this out of the way.
+
+115
+00:11:20,500 --> 00:11:25,140
+Okay okay so let's pull this out of the way and just see if we're getting the
+
+116
+00:11:25,140 --> 00:11:33,260
+song title coming back. Should just actually mimic what we're putting in.
+
+117
+00:11:33,260 --> 00:11:38,220
+Yeah okay so that's good it's working. All right so we've got our pieces of
+
+118
+00:11:38,220 --> 00:11:43,980
+information that we need from Genius. Now we need to pass those into Google
+
+119
+00:11:43,980 --> 00:11:49,020
+Translate to do the mix of translations. All right so let's throw this out of the
+
+120
+00:11:49,020 --> 00:11:55,100
+way and we'll keep these pieces here but we don't need this any longer and we
+
+121
+00:11:55,100 --> 00:11:59,580
+don't need this any longer. All right the first thing that we want to do is to
+
+122
+00:11:59,580 --> 00:12:05,420
+create a list of the translations the languages that are supported by Google
+
+123
+00:12:05,420 --> 00:12:09,180
+Translate or Azure Translate in this particular case I think we may be using.
+
+124
+00:12:09,180 --> 00:12:18,140
+So I apologize for Google we may be using Azure. And so here we go let's then
+
+125
+00:12:18,140 --> 00:12:25,020
+fill this in and we'll say languages. Okay I'm gonna put this over to the side.
+
+126
+00:12:25,020 --> 00:12:30,500
+Okay so the languages that are supported we'll just assign to that variable there.
+
+127
+00:12:30,500 --> 00:12:39,780
+So let's do that and let's call and get those languages that are supported.
+
+128
+00:12:39,780 --> 00:12:46,580
+Okay so we're gonna set languages to call translation get supported languages.
+
+129
+00:12:46,580 --> 00:12:54,380
+So that's gonna give us that list that we saw and then we can work with that
+
+130
+00:12:54,380 --> 00:12:58,980
+list to pick languages that we want to translate into. Now this is this is the
+
+131
+00:12:58,980 --> 00:13:05,540
+tricky part we're gonna use this under the variables tab we're gonna use this
+
+132
+00:13:05,540 --> 00:13:09,140
+for each and just to make it clear what we're talking about we're gonna talk
+
+133
+00:13:09,140 --> 00:13:14,580
+about we're gonna work on each verse at a time gonna translate that and so let's
+
+134
+00:13:14,580 --> 00:13:19,500
+get the song lyrics. So for each verse in the song lyrics that's basically what
+
+135
+00:13:19,500 --> 00:13:27,420
+we're gonna iterate through we're gonna translate them. So let's now do a little
+
+136
+00:13:27,420 --> 00:13:31,540
+setup so the starting language that we're going to start with is going to be
+
+137
+00:13:31,540 --> 00:13:35,420
+English so and then the starting translation that we're going to start
+
+138
+00:13:35,420 --> 00:13:44,540
+with is is the verse. So let's do a couple variables inside here oops oops
+
+139
+00:13:44,540 --> 00:13:52,580
+there we go all right script variables we'll put it right here and so we're
+
+140
+00:13:52,580 --> 00:14:02,980
+gonna start with let's say the the source that's gonna be the the source
+
+141
+00:14:02,980 --> 00:14:07,740
+language and that will be English to start with and then the destination
+
+142
+00:14:07,740 --> 00:14:11,900
+language that's gonna be a random destination to any language that we
+
+143
+00:14:11,900 --> 00:14:18,540
+choose from that list and then we want our translated text so let's add that
+
+144
+00:14:18,540 --> 00:14:26,580
+whoops I didn't mean to run it there we go let's stop it so we'll say
+
+145
+00:14:29,220 --> 00:14:34,180
+translation okay so that's the three variables that we're going to need for
+
+146
+00:14:34,180 --> 00:14:43,460
+this now to start working on this let's begin by setting the translation to the
+
+147
+00:14:43,460 --> 00:14:48,340
+verse that we're going to use so that's what's coming in that's the original
+
+148
+00:14:48,980 --> 00:14:52,540
+untranslated version so that's going to be the what we start with as our
+
+149
+00:14:52,540 --> 00:14:58,220
+translation and then we're gonna have to send it for translation now remember
+
+150
+00:14:58,220 --> 00:15:04,420
+when I said that there are some lines that don't contain anything so one way
+
+151
+00:15:04,420 --> 00:15:09,020
+we can say it's just if there is a verse if there's any verse at all then we'll
+
+152
+00:15:09,020 --> 00:15:14,500
+do this if there's not we'll skip to the next line so that eliminates those gaps
+
+153
+00:15:14,620 --> 00:15:21,940
+in the verses the the places that came back as just empty spaces okay now let's
+
+154
+00:15:21,940 --> 00:15:29,980
+begin by setting the source because we're working with English songs to set
+
+155
+00:15:29,980 --> 00:15:35,860
+the source to English all right so the source will be to begin with is going to
+
+156
+00:15:35,860 --> 00:15:43,940
+be EN all right let's move this over here we're running out of space maybe if
+
+157
+00:15:43,940 --> 00:15:51,220
+I can pull this down a little bit create more space for us there we go
+
+158
+00:15:51,940 --> 00:15:58,460
+okay that's clearing up our scripting area a little bit okay so if there's a
+
+159
+00:15:58,460 --> 00:16:03,620
+verse we're gonna say okay the starting language is going to be English and now
+
+160
+00:16:03,620 --> 00:16:09,540
+we want to set the destination so let's do another variable here oops under
+
+161
+00:16:09,540 --> 00:16:23,660
+variables we're going to set the destination to now what do we set the
+
+162
+00:16:23,660 --> 00:16:29,100
+destination to well here's where we want to pick a random item so in order to get
+
+163
+00:16:29,100 --> 00:16:31,820
+a random item let's just look at this Google Translate again I'm going to
+
+164
+00:16:32,020 --> 00:16:40,740
+duplicate this and let's drop this down to that get supported languages so in
+
+165
+00:16:40,740 --> 00:16:46,300
+order to get a random item we will just get a number from one to now we could
+
+166
+00:16:46,300 --> 00:16:52,100
+just put in 111 but that's that's hard coding data and you know as your might
+
+167
+00:16:52,100 --> 00:16:55,860
+add another language so we're gonna leave our options open so we'll say to
+
+168
+00:16:55,860 --> 00:17:03,340
+the length of this so that's going to be some number that's there actually I
+
+169
+00:17:03,340 --> 00:17:07,860
+shouldn't pick one two I want a random number so let's go over here so I think
+
+170
+00:17:07,860 --> 00:17:15,740
+random might be over here pick random okay that's what I wanted so let's do
+
+171
+00:17:15,740 --> 00:17:19,220
+pick random from one to link that so that should just gives a random number
+
+172
+00:17:19,220 --> 00:17:25,020
+every time good up to the length of the list of translations that are supported
+
+173
+00:17:25,020 --> 00:17:31,700
+by Azure okay and now we just want to pick one of those from this language
+
+174
+00:17:31,700 --> 00:17:39,820
+translation so let's let's call that here and we're just going to use the
+
+175
+00:17:39,820 --> 00:17:48,300
+item of put this in as our list put this in as the number that we want so that
+
+176
+00:17:48,300 --> 00:17:52,260
+will get a random one each time let's just see how it works so now we see we
+
+177
+00:17:52,260 --> 00:18:00,300
+got AM which is a language code for something I don't know OTQ YUE LZH okay
+
+178
+00:18:00,300 --> 00:18:03,580
+all these languages I'm not familiar with but what we do see is that we want
+
+179
+00:18:03,580 --> 00:18:06,980
+item one of it that's the code that we want so we're gonna put item one around
+
+180
+00:18:06,980 --> 00:18:11,940
+this and that should just come out with the code with nothing else okay so we're
+
+181
+00:18:11,940 --> 00:18:16,540
+seeing the codes there okay that's perfect now we don't need to call out
+
+182
+00:18:16,540 --> 00:18:21,520
+twice because we're actually going to use this variable languages that we've
+
+183
+00:18:21,520 --> 00:18:27,360
+set up here so let's pull this whoops that's actually what the length of want
+
+184
+00:18:27,360 --> 00:18:36,280
+to pull this out and we want to put in length of languages and then here we
+
+185
+00:18:36,280 --> 00:18:40,520
+want to pull this out and we just want to put in languages that way we're not
+
+186
+00:18:40,520 --> 00:18:44,800
+calling back and forth we're just using the call that we made one time up here
+
+187
+00:18:44,800 --> 00:18:49,600
+and so then we need to set the destination language to that random
+
+188
+00:18:49,600 --> 00:18:53,360
+language okay so that's good now we've got our source language and we've got
+
+189
+00:18:53,360 --> 00:18:58,840
+our destination language so that's awesome all we need to do now is to set
+
+190
+00:18:58,840 --> 00:19:08,440
+our translation so if we've got this we will set those and then let's let's do
+
+191
+00:19:08,440 --> 00:19:17,760
+the translation here under variables and set our translation did it go in let's
+
+192
+00:19:18,400 --> 00:19:28,200
+there we go and set our translation to translate now what we want to translate
+
+193
+00:19:28,200 --> 00:19:37,680
+is the verse here from the source
+
+194
+00:19:37,680 --> 00:19:51,600
+to the destination now I think we're gonna get rid of verse and I'll talk
+
+195
+00:19:51,600 --> 00:19:54,640
+about why in a moment but we're just gonna start with this translation which
+
+196
+00:19:54,640 --> 00:20:01,640
+is actually already been set it's the same as the verse when it starts okay so
+
+197
+00:20:01,640 --> 00:20:12,080
+we've got that ready now let's just see if we can say the translation
+
+198
+00:20:14,640 --> 00:20:23,280
+all right we're gonna put it in here whoop there we go it's not gonna be
+
+199
+00:20:23,280 --> 00:20:28,000
+hello it's going to be the translation and we'll just have it appear on screen
+
+200
+00:20:28,120 --> 00:20:34,840
+for a moment now let me pull this over and we'll see if it works okay which
+
+201
+00:20:34,840 --> 00:20:46,400
+song so they saying don't stop believing oh yeah we haven't translated it back to
+
+202
+00:20:46,400 --> 00:20:51,400
+English so we're translating it into random languages that is cool each time
+
+203
+00:20:51,400 --> 00:20:55,280
+a different verse into a different language but we need to remember that
+
+204
+00:20:55,280 --> 00:21:03,240
+after we do that we need to set it back to its its English form okay so let's
+
+205
+00:21:03,240 --> 00:21:10,840
+then duplicate this
+
+206
+00:21:12,680 --> 00:21:20,200
+and put this right here we don't need this twice okay so we're gonna set
+
+207
+00:21:20,200 --> 00:21:28,760
+translation here now here's the trick this source is English but if the second
+
+208
+00:21:28,760 --> 00:21:35,960
+time around it's not so we're gonna need to switch those variables and let's see
+
+209
+00:21:35,960 --> 00:21:45,400
+if we can do this here with variable to set it okay so we're gonna set the
+
+210
+00:21:45,520 --> 00:21:53,840
+source now to the destination so basically swap those variables and then
+
+211
+00:21:53,840 --> 00:21:59,480
+the destination here is going to be English so that's where we end so we
+
+212
+00:21:59,480 --> 00:22:04,920
+know that that's that's hard-coded so source is first English and then we set
+
+213
+00:22:04,920 --> 00:22:09,080
+the destination to a random language and we translate from the source which is
+
+214
+00:22:09,080 --> 00:22:13,200
+English to that random language then we're translating back because we have
+
+215
+00:22:13,200 --> 00:22:17,760
+to indicate what language it was so now we're translating from the source which
+
+216
+00:22:17,760 --> 00:22:20,520
+is the random language that we chose back in English and then saying the
+
+217
+00:22:20,520 --> 00:22:24,920
+translation so let's see if that works
+
+218
+00:22:24,920 --> 00:22:32,680
+don't stop believing don't stop believing
+
+219
+00:22:33,080 --> 00:22:38,960
+okay so it's working but if you really want to make it crazy you need to move
+
+220
+00:22:39,320 --> 00:22:44,720
+between languages more than once so let's add in a repeat block and the only
+
+221
+00:22:44,720 --> 00:22:49,440
+trick here is just getting the repeat block into the right place so here I go
+
+222
+00:22:49,440 --> 00:22:54,920
+I'm gonna grab repeat I think we'll just do it three times so I'm gonna drop it
+
+223
+00:22:54,920 --> 00:23:04,000
+in right there and this part here should work
+
+224
+00:23:05,000 --> 00:23:10,680
+let's see if we go like that okay so we're going to set the destination
+
+225
+00:23:10,680 --> 00:23:14,720
+gonna call the translation I'm gonna switch the source to the destination and
+
+226
+00:23:14,720 --> 00:23:19,240
+then we're gonna repeat not ten times which would be a lot of calls but three
+
+227
+00:23:19,240 --> 00:23:27,240
+times and then we'll come back and set it to English for our final presentation
+
+228
+00:23:27,240 --> 00:23:33,120
+of what Ada would be singing if we could hear her sing all right that should
+
+229
+00:23:33,120 --> 00:23:37,920
+produce the wanted effect of really scrambling the lyrics let's try it out
+
+230
+00:23:37,920 --> 00:23:45,200
+all right here we go drumroll should we do I'm the walrus this time if I can
+
+231
+00:23:45,200 --> 00:23:52,640
+spell it I am the walrus okay walrus song
+
+232
+00:23:53,240 --> 00:23:58,520
+he's the one you are and we're all together it's close enough look how they
+
+233
+00:23:58,520 --> 00:24:09,000
+run like pigs out of the guns see how they fly I'm crying cry surah to sitting
+
+234
+00:24:09,000 --> 00:24:15,880
+on the ledge I'm waiting for the pain to come
+
+235
+00:24:16,440 --> 00:24:22,960
+company shirt bloodied class man you're an ugly boy and you let your face grow
+
+236
+00:24:22,960 --> 00:24:35,640
+for a long time choir I'm an egg an egg I'm a walrus goo goo good you well no
+
+237
+00:24:35,640 --> 00:24:40,240
+one really knows what that means anyway so that's hard to translate all right so
+
+238
+00:24:40,240 --> 00:24:44,280
+we'll wrap it up there this is as you see just a fun exercise showing you
+
+239
+00:24:44,280 --> 00:24:49,240
+again how you can combine two RPCs to create a fun effect if you like extra
+
+240
+00:24:49,240 --> 00:24:53,360
+credit I would encourage you to make a video in which you use this tool to
+
+241
+00:24:53,360 --> 00:24:57,360
+create those lyrics and then sing it yourself I'd love to see it so thanks
+
+242
+00:24:57,360 --> 00:25:02,200
+very much for watching and we will see you in our next unit
+

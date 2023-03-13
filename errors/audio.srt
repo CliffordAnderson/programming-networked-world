@@ -1,0 +1,1156 @@
+1
+00:00:00,000 --> 00:00:04,000
+Hi everyone, welcome back to Programming for a Networked World.
+
+2
+00:00:04,000 --> 00:00:07,000
+Today we're going to be talking about errors.
+
+3
+00:00:07,000 --> 00:00:11,000
+Now, if you've seen these videos, you know that I've made my fair share of errors
+
+4
+00:00:11,000 --> 00:00:13,000
+as I'm working through programs.
+
+5
+00:00:13,000 --> 00:00:15,000
+And there's a process called debugging
+
+6
+00:00:15,000 --> 00:00:18,000
+that helps you to identify the source of those errors
+
+7
+00:00:18,000 --> 00:00:19,000
+and then to correct them.
+
+8
+00:00:19,000 --> 00:00:22,000
+So today we're going to be covering some of the debugging tools
+
+9
+00:00:22,000 --> 00:00:25,000
+that are built into NetBlocks and learning how to use them.
+
+10
+00:00:25,000 --> 00:00:27,000
+So, ready to squash some bugs?
+
+11
+00:00:27,000 --> 00:00:29,000
+Let's get started.
+
+12
+00:00:30,000 --> 00:00:35,000
+Okay.
+
+13
+00:00:35,000 --> 00:00:38,000
+So, today we'll just make a simple program
+
+14
+00:00:38,000 --> 00:00:41,000
+and I'm going to purposely put some errors into it.
+
+15
+00:00:41,000 --> 00:00:42,000
+So here we go.
+
+16
+00:00:42,000 --> 00:00:44,000
+Let me bring over...
+
+17
+00:00:44,000 --> 00:00:47,000
+Well, let me talk about what this program will do first.
+
+18
+00:00:47,000 --> 00:00:49,000
+This program is going to divide a number
+
+19
+00:00:49,000 --> 00:00:52,000
+and then it's going to give you the quotient and the remainder.
+
+20
+00:00:52,000 --> 00:00:54,000
+So the quotient is the integer part of the division
+
+21
+00:00:54,000 --> 00:01:00,000
+and then the remainder is whatever is left over from the integer division.
+
+22
+00:01:00,000 --> 00:01:04,000
+So to do that, let's bring over a program now.
+
+23
+00:01:04,000 --> 00:01:06,000
+We'll create a program now.
+
+24
+00:01:06,000 --> 00:01:09,000
+So I'm going to bring over two blocks that we need.
+
+25
+00:01:09,000 --> 00:01:12,000
+We'll need the mod operator to get the remainder
+
+26
+00:01:12,000 --> 00:01:20,000
+and we're going to need over here, let's see, floor here.
+
+27
+00:01:20,000 --> 00:01:22,000
+Okay, and then we're going to divide.
+
+28
+00:01:22,000 --> 00:01:24,000
+So let's just get these pieces in place.
+
+29
+00:01:24,000 --> 00:01:33,000
+So if we get 2 divided by, well, let's say actually better, 3 divided by 2,
+
+30
+00:01:33,000 --> 00:01:37,000
+this should give us the integer part, which is it goes in one time.
+
+31
+00:01:37,000 --> 00:01:39,000
+And then if we do that same calculation up here,
+
+32
+00:01:39,000 --> 00:01:45,000
+3 divided by 2 or 3 mod 2, we should get the remainder.
+
+33
+00:01:45,000 --> 00:01:48,000
+So it's one remainder of one, which is the right answer.
+
+34
+00:01:48,000 --> 00:01:51,000
+Okay, so let's build this into a custom block.
+
+35
+00:01:51,000 --> 00:01:56,000
+So I'm going to make a block here and it's going to be an operator
+
+36
+00:01:56,000 --> 00:02:10,000
+and we'll say, let's call it divide with quotient and remainder.
+
+37
+00:02:10,000 --> 00:02:18,000
+And we'll need to put in our parameters here, so x and y, and we'll create that.
+
+38
+00:02:18,000 --> 00:02:22,000
+Then let's turn those into inputs.
+
+39
+00:02:22,000 --> 00:02:25,000
+Okay, x is an input and y is an input.
+
+40
+00:02:25,000 --> 00:02:26,000
+There we go.
+
+41
+00:02:26,000 --> 00:02:35,000
+Now let's build out here our function.
+
+42
+00:02:35,000 --> 00:02:36,000
+So there we go.
+
+43
+00:02:36,000 --> 00:02:37,000
+It's got stuck.
+
+44
+00:02:37,000 --> 00:02:38,000
+That happens.
+
+45
+00:02:38,000 --> 00:02:41,000
+Sometimes you can just grab another block like this and then drop it over.
+
+46
+00:02:41,000 --> 00:02:45,000
+So that's a little bit of a bug ourselves that we have in this box,
+
+47
+00:02:45,000 --> 00:02:48,000
+but maybe it would be fixed by the time you watch this video.
+
+48
+00:02:48,000 --> 00:02:50,000
+But if it ever happens, that's how you solve it.
+
+49
+00:02:50,000 --> 00:02:55,000
+Okay, so 3 mod 2, so we don't need the absolute values that we put in here.
+
+50
+00:02:55,000 --> 00:03:01,000
+We're going to get rid of those because those be the variables that we use.
+
+51
+00:03:01,000 --> 00:03:02,000
+Okay.
+
+52
+00:03:02,000 --> 00:03:08,000
+Now let's imagine that we want to return this as a tuple or a list of two items.
+
+53
+00:03:08,000 --> 00:03:13,000
+So to do that, we're going to make some variable inside here.
+
+54
+00:03:13,000 --> 00:03:18,000
+So we're going to go to variables and we're going to create a script variable
+
+55
+00:03:18,000 --> 00:03:21,000
+and we're just going to call this nums.
+
+56
+00:03:21,000 --> 00:03:24,000
+So there's nums.
+
+57
+00:03:24,000 --> 00:03:25,000
+Okay.
+
+58
+00:03:25,000 --> 00:03:35,000
+And let's also create script variables for the quotient and the remainder.
+
+59
+00:03:35,000 --> 00:03:37,000
+We could do this a little bit more simply,
+
+60
+00:03:37,000 --> 00:03:41,000
+but I want to make this all explicit so we can sort of look at the steps we need
+
+61
+00:03:41,000 --> 00:03:42,000
+for debugging.
+
+62
+00:03:42,000 --> 00:03:43,000
+Okay.
+
+63
+00:03:43,000 --> 00:03:47,000
+Now let's grab here.
+
+64
+00:03:47,000 --> 00:03:50,000
+We'll start doing our math.
+
+65
+00:03:50,000 --> 00:04:00,000
+So first let's do set the quotient to the floor of,
+
+66
+00:04:00,000 --> 00:04:03,000
+let's get this out of the way, x and y.
+
+67
+00:04:03,000 --> 00:04:04,000
+Okay.
+
+68
+00:04:04,000 --> 00:04:07,000
+And then we're going to set, let's see here,
+
+69
+00:04:07,000 --> 00:04:17,000
+the remainder to mod of x and y.
+
+70
+00:04:17,000 --> 00:04:26,000
+And then we're going to, under control, report.
+
+71
+00:04:26,000 --> 00:04:28,000
+There we go.
+
+72
+00:04:28,000 --> 00:04:34,000
+We're going to report a list of the quotient and remainder.
+
+73
+00:04:34,000 --> 00:04:36,000
+So we actually need to add this to the list as part of what we're doing here.
+
+74
+00:04:36,000 --> 00:04:38,000
+So let's do that.
+
+75
+00:04:38,000 --> 00:04:45,000
+So let's, for example, set,
+
+76
+00:04:45,000 --> 00:04:54,000
+and we'll just put in here the nums to, well,
+
+77
+00:04:54,000 --> 00:04:55,000
+let's just add them to the list.
+
+78
+00:04:55,000 --> 00:04:57,000
+How about that?
+
+79
+00:04:57,000 --> 00:05:03,000
+So we'll go down to here.
+
+80
+00:05:03,000 --> 00:05:05,000
+Let's see.
+
+81
+00:05:05,000 --> 00:05:09,000
+We'll use for this, just this ad.
+
+82
+00:05:09,000 --> 00:05:10,000
+Okay.
+
+83
+00:05:10,000 --> 00:05:20,000
+So we're going to add the quotient and we're going to add the remainder.
+
+84
+00:05:20,000 --> 00:05:21,000
+And what are we adding it to?
+
+85
+00:05:21,000 --> 00:05:25,000
+Well, this list that we're going to be using, which is nums.
+
+86
+00:05:25,000 --> 00:05:28,000
+Okay. So that's the quotient.
+
+87
+00:05:28,000 --> 00:05:30,000
+We don't need this.
+
+88
+00:05:30,000 --> 00:05:33,000
+We do need the remainder.
+
+89
+00:05:33,000 --> 00:05:37,000
+And that is also added to nums.
+
+90
+00:05:37,000 --> 00:05:40,000
+Then we report nums.
+
+91
+00:05:40,000 --> 00:05:44,000
+So we report the list that contains first the quotient, remainder.
+
+92
+00:05:44,000 --> 00:05:46,000
+Okay.
+
+93
+00:05:46,000 --> 00:05:49,000
+Now there are some bugs,
+
+94
+00:05:49,000 --> 00:05:51,000
+both bugs that will occur at runtime.
+
+95
+00:05:51,000 --> 00:05:54,000
+That is if a user enters values that we don't expect,
+
+96
+00:05:54,000 --> 00:06:00,000
+and also bugs that will show up as soon as we run this at all,
+
+97
+00:06:00,000 --> 00:06:04,000
+because of the way that we're working with lists.
+
+98
+00:06:04,000 --> 00:06:06,000
+Let's just see what happens.
+
+99
+00:06:06,000 --> 00:06:07,000
+So, okay.
+
+100
+00:06:07,000 --> 00:06:08,000
+So we've got that.
+
+101
+00:06:08,000 --> 00:06:09,000
+We've got this custom block.
+
+102
+00:06:09,000 --> 00:06:10,000
+Let's bring it out.
+
+103
+00:06:10,000 --> 00:06:11,000
+Divide.
+
+104
+00:06:11,000 --> 00:06:12,000
+Okay.
+
+105
+00:06:12,000 --> 00:06:15,000
+So let's divide three by two again,
+
+106
+00:06:15,000 --> 00:06:18,000
+and we get an error.
+
+107
+00:06:18,000 --> 00:06:19,000
+Okay.
+
+108
+00:06:19,000 --> 00:06:21,000
+Inside error, expecting list, but getting number.
+
+109
+00:06:21,000 --> 00:06:22,000
+This is very common.
+
+110
+00:06:22,000 --> 00:06:25,000
+We've seen this before and we know in fact what it is,
+
+111
+00:06:25,000 --> 00:06:30,000
+but let's pretend that we're a little unsure about why this is causing an error.
+
+112
+00:06:30,000 --> 00:06:32,000
+So what would we do?
+
+113
+00:06:32,000 --> 00:06:33,000
+Well,
+
+114
+00:06:33,000 --> 00:06:36,000
+you've seen me just kind of go through and edit blocks and kind of figure it
+
+115
+00:06:36,000 --> 00:06:38,000
+out, thinking through the problem, breaking down step by step,
+
+116
+00:06:38,000 --> 00:06:42,000
+and then building up piece by piece again until it actually works,
+
+117
+00:06:42,000 --> 00:06:44,000
+which is a typical way of debugging.
+
+118
+00:06:44,000 --> 00:06:48,000
+But there are some tools that you can use to make that process easier.
+
+119
+00:06:48,000 --> 00:06:51,000
+The first one I want to show you is the stepping tool here.
+
+120
+00:06:51,000 --> 00:06:54,000
+So if you say visible stepping and you can click on that,
+
+121
+00:06:54,000 --> 00:06:56,000
+you can change the rate of stepping.
+
+122
+00:06:56,000 --> 00:06:57,000
+We'll look at that a little bit.
+
+123
+00:06:57,000 --> 00:07:00,000
+I'm just going to put it towards the left side because it'll make it a
+
+124
+00:07:00,000 --> 00:07:01,000
+little slower.
+
+125
+00:07:01,000 --> 00:07:05,000
+Then I'm going to open this up here so that we can edit this.
+
+126
+00:07:05,000 --> 00:07:08,000
+And I want, because I want to see what's inside here while we're stepping.
+
+127
+00:07:08,000 --> 00:07:09,000
+Now,
+
+128
+00:07:09,000 --> 00:07:14,000
+what stepping allows you to do is to watch the actual sequence of steps
+
+129
+00:07:14,000 --> 00:07:18,000
+that take place in a way that helps you to see where the error actually
+
+130
+00:07:18,000 --> 00:07:22,000
+occurs. So if we can click on this now with stepping,
+
+131
+00:07:22,000 --> 00:07:27,000
+you'll see that it enters into our custom block and it's running through the
+
+132
+00:07:27,000 --> 00:07:28,000
+various operations.
+
+133
+00:07:28,000 --> 00:07:31,000
+And you can see each operation as it's taking place.
+
+134
+00:07:31,000 --> 00:07:36,000
+And then here it breaks down here. Okay.
+
+135
+00:07:36,000 --> 00:07:39,000
+And this is exactly where the error is. So it's in this block.
+
+136
+00:07:39,000 --> 00:07:42,000
+So that actually helped us to narrow down where the error was in a really
+
+137
+00:07:42,000 --> 00:07:47,000
+nice way. And we can say, okay, why did that occur? Well,
+
+138
+00:07:47,000 --> 00:07:50,000
+I mean, we know the answer.
+
+139
+00:07:50,000 --> 00:07:53,000
+It's because we haven't set nums to be a list.
+
+140
+00:07:53,000 --> 00:07:57,000
+We're trying to add nums to something that is not yet a list,
+
+141
+00:07:57,000 --> 00:08:00,000
+but what if we didn't know exactly what the problem was?
+
+142
+00:08:00,000 --> 00:08:04,000
+There's another block that you can use that will help us to identify the
+
+143
+00:08:04,000 --> 00:08:05,000
+error.
+
+144
+00:08:05,000 --> 00:08:09,000
+And that is a block that we'll find over here under control.
+
+145
+00:08:09,000 --> 00:08:13,000
+It's very at very much at the bottom pause all.
+
+146
+00:08:13,000 --> 00:08:17,000
+And it has this like pause label here. Okay.
+
+147
+00:08:17,000 --> 00:08:22,000
+So let me just stop this. So we've got the visible stepping on,
+
+148
+00:08:23,000 --> 00:08:28,000
+but I'm going to actually now drop this right into where that error
+
+149
+00:08:28,000 --> 00:08:33,000
+occurs. So just basically let's say right here. Okay.
+
+150
+00:08:33,000 --> 00:08:35,000
+This is sometimes called a break point.
+
+151
+00:08:36,000 --> 00:08:40,000
+Basically it's not stopping our program. It's just pausing our program.
+
+152
+00:08:40,000 --> 00:08:42,000
+And because it pauses our program,
+
+153
+00:08:42,000 --> 00:08:46,000
+it allows us to inspect the value of the variables that are you know,
+
+154
+00:08:46,000 --> 00:08:48,000
+what their state is at the moment.
+
+155
+00:08:48,000 --> 00:08:51,000
+And then we can see if there's something wrong with one of the variables
+
+156
+00:08:51,000 --> 00:08:54,000
+that's causing the problem that we're discovering when we try this
+
+157
+00:08:54,000 --> 00:08:58,000
+operation. So let's give that a shot.
+
+158
+00:08:58,000 --> 00:09:02,000
+I'm going to turn stepping off and I'm just going to run this like we had
+
+159
+00:09:02,000 --> 00:09:05,000
+before. So I'll start the program.
+
+160
+00:09:08,000 --> 00:09:13,000
+And now you see that it looks like it's let's make sure that's right.
+
+161
+00:09:15,000 --> 00:09:18,000
+Okay. So you should see that it looks like it's paused here. Okay.
+
+162
+00:09:18,000 --> 00:09:21,000
+And then we can click this button to run it again and then it hits that
+
+163
+00:09:21,000 --> 00:09:26,000
+error. But when you run it, let's make sure we run it. Okay.
+
+164
+00:09:26,000 --> 00:09:29,000
+And you see this, that it's paused. It's paused right here.
+
+165
+00:09:29,000 --> 00:09:34,000
+And now the nice thing is we can click on this and now we get this kind of
+
+166
+00:09:34,000 --> 00:09:36,000
+set of variables that we can look at.
+
+167
+00:09:36,000 --> 00:09:40,000
+So these are the variables that are actually being used at this moment in our
+
+168
+00:09:40,000 --> 00:09:43,000
+program. And if you click on them,
+
+169
+00:09:43,000 --> 00:09:48,000
+you can display their values in the window here or on the stage,
+
+170
+00:09:48,000 --> 00:09:53,000
+and you can see what they are. So here we can see.
+
+171
+00:09:53,000 --> 00:09:58,000
+Now what's wrong here?
+
+172
+00:09:58,000 --> 00:10:03,000
+Well, we can see that all of these values are integers here.
+
+173
+00:10:03,000 --> 00:10:07,000
+They're three, two, one numbers is zero quotient is zero.
+
+174
+00:10:07,000 --> 00:10:11,000
+So let's get the last one here. I guess I stopped it from running.
+
+175
+00:10:11,000 --> 00:10:15,000
+So let me run it again. Okay. And then the remainder. Okay.
+
+176
+00:10:15,000 --> 00:10:16,000
+So these are our watchers.
+
+177
+00:10:16,000 --> 00:10:20,000
+They're showing us the values of the variables at this stage in the program.
+
+178
+00:10:21,000 --> 00:10:26,000
+Now, if we unpause it, we hit that error and it can help us see, okay,
+
+179
+00:10:26,000 --> 00:10:28,000
+we know that the error is in this line.
+
+180
+00:10:28,000 --> 00:10:31,000
+And if we look to see what we're adding quotient to,
+
+181
+00:10:31,000 --> 00:10:35,000
+you can see that we're adding quotient supposedly to a list,
+
+182
+00:10:35,000 --> 00:10:38,000
+but we're actually trying to add it to an integer.
+
+183
+00:10:38,000 --> 00:10:41,000
+So now let's go ahead and fix this.
+
+184
+00:10:41,000 --> 00:10:45,000
+Let's go over here and under variables,
+
+185
+00:10:45,000 --> 00:10:48,000
+under variables, we're going to set at the very beginning of the script,
+
+186
+00:10:48,000 --> 00:10:52,000
+the remainder or no,
+
+187
+00:10:52,000 --> 00:10:54,000
+sorry nums to a list.
+
+188
+00:10:54,000 --> 00:10:58,000
+And so let's grab list over here and we'll make it an empty list.
+
+189
+00:10:58,000 --> 00:11:01,000
+Okay.
+
+190
+00:11:01,000 --> 00:11:08,000
+And let's unclick these so that we hide them.
+
+191
+00:11:08,000 --> 00:11:13,000
+We're going to look at them again when we run this.
+
+192
+00:11:13,000 --> 00:11:21,000
+When we run this.
+
+193
+00:11:21,000 --> 00:11:22,000
+Okay.
+
+194
+00:11:22,000 --> 00:11:27,000
+Now let's run it again.
+
+195
+00:11:27,000 --> 00:11:32,000
+We're going to hit that break point, which we did.
+
+196
+00:11:32,000 --> 00:11:36,000
+Now we can look at this and we want to look in particular at nums.
+
+197
+00:11:36,000 --> 00:11:42,000
+And we see now that nums is actually a list rather than an integer.
+
+198
+00:11:42,000 --> 00:11:46,000
+And so if we run this through,
+
+199
+00:11:46,000 --> 00:11:51,000
+we see now that nums has the two values that we expected,
+
+200
+00:11:51,000 --> 00:11:53,000
+and we didn't run into any errors.
+
+201
+00:11:53,000 --> 00:11:57,000
+That break point allowed us to look at the state of that variable at that
+
+202
+00:11:57,000 --> 00:11:58,000
+point in time,
+
+203
+00:11:58,000 --> 00:12:03,000
+and then determine that we had the wrong type of variable and change it
+
+204
+00:12:03,000 --> 00:12:06,000
+from being an integer to a list.
+
+205
+00:12:06,000 --> 00:12:08,000
+And that's all the problem.
+
+206
+00:12:08,000 --> 00:12:13,000
+Now there are other problems in this particular function that we've written,
+
+207
+00:12:13,000 --> 00:12:16,000
+but they are problems that manifest differently.
+
+208
+00:12:16,000 --> 00:12:19,000
+They have to do with particular values that might be run through.
+
+209
+00:12:19,000 --> 00:12:20,000
+So for example,
+
+210
+00:12:20,000 --> 00:12:25,000
+we could have a divide by zero error and let's just run this through with
+
+211
+00:12:25,000 --> 00:12:27,000
+maybe don't need the break point anymore.
+
+212
+00:12:27,000 --> 00:12:31,000
+Now we get the result of infinity and zero.
+
+213
+00:12:31,000 --> 00:12:34,000
+I'm going to hide this.
+
+214
+00:12:34,000 --> 00:12:36,000
+There we go.
+
+215
+00:12:36,000 --> 00:12:40,000
+So it does work,
+
+216
+00:12:40,000 --> 00:12:43,000
+but we have the values infinity and zero.
+
+217
+00:12:43,000 --> 00:12:47,000
+Let me just get rid of the break point because we don't need it right now.
+
+218
+00:12:47,000 --> 00:12:49,000
+And with infinity and zero,
+
+219
+00:12:49,000 --> 00:12:55,000
+that's because there is no way in mathematics to divide an undefined
+
+220
+00:12:55,000 --> 00:12:57,000
+operation, a number by zero.
+
+221
+00:12:57,000 --> 00:13:00,000
+So it gives us infinity.
+
+222
+00:13:00,000 --> 00:13:02,000
+Now in this particular case,
+
+223
+00:13:02,000 --> 00:13:08,000
+the way do we want to handle that is probably to check the value of the Y
+
+224
+00:13:08,000 --> 00:13:10,000
+when it comes in,
+
+225
+00:13:10,000 --> 00:13:14,000
+but there's other problems here that are maybe even more subtle.
+
+226
+00:13:14,000 --> 00:13:15,000
+Someone could pass in a letter,
+
+227
+00:13:15,000 --> 00:13:16,000
+for example,
+
+228
+00:13:16,000 --> 00:13:18,000
+maybe they thought they were dealing with a variable that contained a
+
+229
+00:13:18,000 --> 00:13:19,000
+number.
+
+230
+00:13:19,000 --> 00:13:20,000
+And if you click that,
+
+231
+00:13:20,000 --> 00:13:21,000
+you're going to get zero and zero.
+
+232
+00:13:21,000 --> 00:13:23,000
+So it's still not giving you an error.
+
+233
+00:13:23,000 --> 00:13:28,000
+So we want to check to make sure that the information that we're passing in
+
+234
+00:13:28,000 --> 00:13:29,000
+our parameters are actually numbers.
+
+235
+00:13:29,000 --> 00:13:33,000
+The way we would do that is to go back to the way that we've defined these
+
+236
+00:13:33,000 --> 00:13:37,000
+inputs and to make sure that we require them to be numbers.
+
+237
+00:13:37,000 --> 00:13:39,000
+That's the easiest way to avoid that type of error.
+
+238
+00:13:39,000 --> 00:13:44,000
+So let's make sure that there are numbers going in and let's do it here.
+
+239
+00:13:44,000 --> 00:13:47,000
+All right.
+
+240
+00:13:47,000 --> 00:13:50,000
+Now let's test that.
+
+241
+00:13:51,000 --> 00:13:54,000
+And still giving us an A,
+
+242
+00:13:54,000 --> 00:13:56,000
+but let's try this again.
+
+243
+00:13:56,000 --> 00:14:00,000
+Now we'll let us type it in because we've defined it to be a number.
+
+244
+00:14:00,000 --> 00:14:01,000
+So I can't type A.
+
+245
+00:14:01,000 --> 00:14:02,000
+I have to type a number,
+
+246
+00:14:02,000 --> 00:14:04,000
+but we still have the problem with zero.
+
+247
+00:14:04,000 --> 00:14:05,000
+So how do we test?
+
+248
+00:14:05,000 --> 00:14:07,000
+How do we work with that?
+
+249
+00:14:07,000 --> 00:14:11,000
+How do we get rid of that to make sure that we don't have this divide by
+
+250
+00:14:11,000 --> 00:14:12,000
+zero error?
+
+251
+00:14:12,000 --> 00:14:13,000
+Well,
+
+252
+00:14:13,000 --> 00:14:14,000
+let's use an if statement then,
+
+253
+00:14:15,000 --> 00:14:17,000
+and we'll go over here to if,
+
+254
+00:14:19,000 --> 00:14:24,000
+and then we're just going to test to see this.
+
+255
+00:14:26,000 --> 00:14:30,000
+We'll put all these blocks in here and we'll say if,
+
+256
+00:14:30,000 --> 00:14:32,000
+and then we're going to get the,
+
+257
+00:14:36,000 --> 00:14:38,000
+the value of this.
+
+258
+00:14:38,000 --> 00:14:43,000
+So we want to say if Y equals zero,
+
+259
+00:14:43,000 --> 00:14:44,000
+but of course it's not,
+
+260
+00:14:44,000 --> 00:14:45,000
+if it's equal to,
+
+261
+00:14:45,000 --> 00:14:46,000
+if it's not equal to,
+
+262
+00:14:46,000 --> 00:14:50,000
+so we're going to use this Boolean operator to invert that value.
+
+263
+00:14:50,000 --> 00:14:52,000
+There we go.
+
+264
+00:14:52,000 --> 00:14:54,000
+So now if Y is not zero,
+
+265
+00:14:54,000 --> 00:14:55,000
+then do these things.
+
+266
+00:14:55,000 --> 00:14:57,000
+Otherwise do nothing in this case.
+
+267
+00:14:57,000 --> 00:14:58,000
+So let's try this.
+
+268
+00:14:58,000 --> 00:15:03,000
+Now it didn't report because there's no reporter here.
+
+269
+00:15:03,000 --> 00:15:08,000
+We could probably put in something to report if it's not the case.
+
+270
+00:15:08,000 --> 00:15:09,000
+It's not the case.
+
+271
+00:15:09,000 --> 00:15:12,000
+So let's see here.
+
+272
+00:15:12,000 --> 00:15:15,000
+Maybe we want to say
+
+273
+00:15:20,000 --> 00:15:25,000
+divide by zero error.
+
+274
+00:15:25,000 --> 00:15:30,000
+Make sure Y is a,
+
+275
+00:15:30,000 --> 00:15:33,000
+is not zero.
+
+276
+00:15:33,000 --> 00:15:34,000
+How about that?
+
+277
+00:15:38,000 --> 00:15:40,000
+Okay.
+
+278
+00:15:40,000 --> 00:15:43,000
+So let's try this again.
+
+279
+00:15:43,000 --> 00:15:46,000
+Now we've got that error,
+
+280
+00:15:46,000 --> 00:15:49,000
+but if we change it to a one,
+
+281
+00:15:49,000 --> 00:15:51,000
+then we get the results.
+
+282
+00:15:51,000 --> 00:15:54,000
+There's no single way to find and address errors.
+
+283
+00:15:54,000 --> 00:15:57,000
+You have to think about the inputs that you're receiving and the ways that
+
+284
+00:15:57,000 --> 00:15:59,000
+you're going to defend against those errors,
+
+285
+00:15:59,000 --> 00:16:01,000
+or if you get errors,
+
+286
+00:16:01,000 --> 00:16:04,000
+how you're going to show why those errors occurred.
+
+287
+00:16:04,000 --> 00:16:05,000
+Okay.
+
+288
+00:16:05,000 --> 00:16:06,000
+Thanks very much.
+
+289
+00:16:06,000 --> 00:16:11,000
+We'll cover more topics in next blocks in our next video and see you then.
+
