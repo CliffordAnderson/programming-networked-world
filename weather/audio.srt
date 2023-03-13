@@ -1,0 +1,1168 @@
+1
+00:00:00,000 --> 00:00:00,720
+Hi, everyone.
+
+2
+00:00:00,720 --> 00:00:03,280
+Welcome back to Programming for a Network World.
+
+3
+00:00:03,280 --> 00:00:06,600
+Today, we're going to continue our exercise with mapping.
+
+4
+00:00:06,600 --> 00:00:10,100
+We're going to explore now how to put a map on the stage,
+
+5
+00:00:10,100 --> 00:00:12,720
+and then from there, how to display the weather
+
+6
+00:00:12,720 --> 00:00:15,960
+condition for any part of the country you're interested in.
+
+7
+00:00:15,960 --> 00:00:19,880
+All right, so ready to find some icons to display the weather?
+
+8
+00:00:19,880 --> 00:00:20,600
+Let's get going.
+
+9
+00:00:20,600 --> 00:00:30,200
+So let's get started by just creating a map again
+
+10
+00:00:30,200 --> 00:00:31,160
+like we did before.
+
+11
+00:00:31,160 --> 00:00:35,600
+So I'm going to go over to our RPC here under Network,
+
+12
+00:00:35,600 --> 00:00:38,760
+and I'm going to bring out this call block.
+
+13
+00:00:38,760 --> 00:00:41,640
+I'm going to switch it down to Google Maps,
+
+14
+00:00:41,640 --> 00:00:45,240
+and I'm going to then get map.
+
+15
+00:00:45,240 --> 00:00:47,200
+And let's do the latitude and longitude
+
+16
+00:00:47,200 --> 00:00:48,880
+just for where I am again.
+
+17
+00:00:48,880 --> 00:00:51,080
+So as you remember, the way that we do that,
+
+18
+00:00:51,080 --> 00:00:55,320
+we can go over here to Sensing, and we can drop down
+
+19
+00:00:55,320 --> 00:01:03,600
+to My Latitude, drop it in here, My Longitude over here,
+
+20
+00:01:03,600 --> 00:01:08,640
+then the Height there.
+
+21
+00:01:08,640 --> 00:01:10,240
+Let's try that again.
+
+22
+00:01:10,240 --> 00:01:16,760
+The Height there, and the Width, the Stage.
+
+23
+00:01:16,760 --> 00:01:17,640
+There we go.
+
+24
+00:01:17,680 --> 00:01:21,360
+This one is over here, so we'll just throw it away.
+
+25
+00:01:21,360 --> 00:01:25,120
+And we'll set a zoom of, let's just say, 11.
+
+26
+00:01:25,120 --> 00:01:27,040
+Get some of the surrounding area.
+
+27
+00:01:27,040 --> 00:01:30,480
+Now, remember, we need to go over to Looks,
+
+28
+00:01:30,480 --> 00:01:35,120
+switch to Costume, and we're going to drop this in there.
+
+29
+00:01:35,120 --> 00:01:39,160
+OK, so now I'm just going to give a little more space here.
+
+30
+00:01:39,160 --> 00:01:40,440
+OK, let's try this out.
+
+31
+00:01:44,600 --> 00:01:46,640
+And there's our map.
+
+32
+00:01:46,640 --> 00:01:48,400
+If I went a little bit too quickly there,
+
+33
+00:01:48,400 --> 00:01:49,880
+go back and review the other video,
+
+34
+00:01:49,880 --> 00:01:52,840
+because that's where we covered how to create these maps.
+
+35
+00:01:52,840 --> 00:01:55,840
+OK, so now that we've got a map, our goal today
+
+36
+00:01:55,840 --> 00:01:58,400
+is for us to be able to click on any part of this map
+
+37
+00:01:58,400 --> 00:02:00,240
+and then get an icon representing
+
+38
+00:02:00,240 --> 00:02:03,840
+the current weather conditions in that part of the map.
+
+39
+00:02:03,840 --> 00:02:05,680
+So if you think about what we need to do,
+
+40
+00:02:05,680 --> 00:02:09,160
+we need to trap a position using our xy-coordinate
+
+41
+00:02:09,160 --> 00:02:10,900
+of the stage.
+
+42
+00:02:10,900 --> 00:02:14,400
+And then we need to convert that xy-coordinate
+
+43
+00:02:14,400 --> 00:02:16,840
+into a latitude and longitude that we
+
+44
+00:02:16,840 --> 00:02:19,360
+can pass to some kind of weather RPC.
+
+45
+00:02:19,360 --> 00:02:21,520
+Hopefully, that exists.
+
+46
+00:02:21,520 --> 00:02:24,400
+It actually does in Nets Blocks.
+
+47
+00:02:24,400 --> 00:02:28,320
+And then we'll find an icon to represent the weather.
+
+48
+00:02:28,320 --> 00:02:30,440
+If that sounds complicated, it might
+
+49
+00:02:30,440 --> 00:02:32,760
+be using other programming languages.
+
+50
+00:02:32,760 --> 00:02:35,740
+But fortunately, there are tools within Nets Blocks
+
+51
+00:02:35,740 --> 00:02:38,320
+to make that process much easier.
+
+52
+00:02:38,320 --> 00:02:43,960
+So let's begin by thinking about how to get the xy-coordinates.
+
+53
+00:02:43,960 --> 00:02:51,000
+So let's try going to our RPCs to see if there's
+
+54
+00:02:51,000 --> 00:02:52,640
+anything that can help us here.
+
+55
+00:02:52,640 --> 00:02:54,760
+So I'm going to go down here.
+
+56
+00:02:54,760 --> 00:02:58,840
+And let's go back to Google Maps.
+
+57
+00:02:58,840 --> 00:03:00,120
+All right.
+
+58
+00:03:00,120 --> 00:03:02,400
+And let's look at our list of options again.
+
+59
+00:03:02,400 --> 00:03:04,920
+Now, when you look at the list of options, you see here,
+
+60
+00:03:04,920 --> 00:03:08,960
+get latitude from y and get longitude from x.
+
+61
+00:03:08,960 --> 00:03:10,920
+So that's exactly what we need.
+
+62
+00:03:10,920 --> 00:03:13,160
+We need to be able to click on an xy position
+
+63
+00:03:13,160 --> 00:03:16,720
+and then translate that into the latitude and longitude
+
+64
+00:03:16,720 --> 00:03:18,720
+of the map that we're looking at.
+
+65
+00:03:18,720 --> 00:03:20,360
+So let's just go ahead and try that out.
+
+66
+00:03:20,360 --> 00:03:24,400
+We're going to get latitude from x or latitude from y.
+
+67
+00:03:24,400 --> 00:03:27,480
+And I'll duplicate this here.
+
+68
+00:03:27,480 --> 00:03:31,480
+And get longitude from x.
+
+69
+00:03:31,480 --> 00:03:34,440
+So here is their x and y positions.
+
+70
+00:03:34,440 --> 00:03:38,120
+Now, we can give the information about where our x and y
+
+71
+00:03:38,120 --> 00:03:41,040
+is by going to the sensing block here
+
+72
+00:03:41,040 --> 00:03:43,000
+and saying mouse x and mouse y.
+
+73
+00:03:43,000 --> 00:03:47,440
+So let's just say mouse x and mouse y.
+
+74
+00:03:47,440 --> 00:03:49,480
+Now, we can click on it.
+
+75
+00:03:49,480 --> 00:03:50,560
+Oops.
+
+76
+00:03:50,560 --> 00:03:51,520
+Here.
+
+77
+00:03:51,520 --> 00:03:52,400
+Let's try that.
+
+78
+00:03:52,400 --> 00:03:53,760
+There we go.
+
+79
+00:03:53,760 --> 00:03:57,000
+And you see that it is now giving us those positions.
+
+80
+00:03:57,000 --> 00:03:58,640
+They're not the positions that we want,
+
+81
+00:03:58,640 --> 00:04:01,560
+because it's trapping where our mouse is actually
+
+82
+00:04:01,560 --> 00:04:04,040
+in the scripting area rather than on the stage.
+
+83
+00:04:04,040 --> 00:04:05,760
+But we'll get to that in a second.
+
+84
+00:04:05,760 --> 00:04:06,520
+So that's great.
+
+85
+00:04:06,520 --> 00:04:08,680
+That's actually the information that we need to pass
+
+86
+00:04:08,680 --> 00:04:10,360
+in to get our weather icon.
+
+87
+00:04:10,360 --> 00:04:12,960
+But how do we get the icon itself?
+
+88
+00:04:12,960 --> 00:04:17,680
+So let's go back to look at our list of RPCs here.
+
+89
+00:04:17,680 --> 00:04:20,280
+I'll bring this over again.
+
+90
+00:04:20,280 --> 00:04:22,200
+And let's drop this down.
+
+91
+00:04:22,200 --> 00:04:25,520
+And there's a section called Science here
+
+92
+00:04:25,520 --> 00:04:27,520
+that has a lot of information that
+
+93
+00:04:27,520 --> 00:04:31,960
+has to do with various different types of measurements,
+
+94
+00:04:31,960 --> 00:04:33,080
+historical trends.
+
+95
+00:04:33,080 --> 00:04:35,840
+We've looked at these before when we were doing our chart
+
+96
+00:04:35,840 --> 00:04:36,720
+RPC.
+
+97
+00:04:36,720 --> 00:04:39,360
+But if you look down here, you see under Science,
+
+98
+00:04:39,360 --> 00:04:41,920
+you also see Weather.
+
+99
+00:04:41,920 --> 00:04:44,560
+And so if we look now at what's possible for weather,
+
+100
+00:04:44,560 --> 00:04:46,100
+we see we've got a number of options.
+
+101
+00:04:46,100 --> 00:04:49,120
+We've got a description, humidity icon, temperature,
+
+102
+00:04:49,120 --> 00:04:50,400
+wind angle, speed.
+
+103
+00:04:50,400 --> 00:04:52,160
+So let's go for Icon.
+
+104
+00:04:52,160 --> 00:04:54,960
+And you see it does come with a latitude and longitude.
+
+105
+00:04:54,960 --> 00:04:57,080
+So now we can drop these blocks in here.
+
+106
+00:04:57,080 --> 00:04:58,960
+This is the latitude.
+
+107
+00:04:58,960 --> 00:05:00,520
+So let's drop that in there.
+
+108
+00:05:00,520 --> 00:05:03,120
+And this is the longitude.
+
+109
+00:05:03,120 --> 00:05:08,320
+And if we click on it, we get a cloudy icon.
+
+110
+00:05:08,320 --> 00:05:10,440
+Now, it's a little bit hard to tell what is cloudy,
+
+111
+00:05:10,440 --> 00:05:14,880
+because, again, we're trapping a XY position that's
+
+112
+00:05:14,880 --> 00:05:17,680
+on the stage, on the scripting area, excuse me,
+
+113
+00:05:17,680 --> 00:05:19,000
+rather than the stage.
+
+114
+00:05:19,000 --> 00:05:20,680
+And so we actually need to now look
+
+115
+00:05:20,680 --> 00:05:24,240
+to see where on the map that's on the stage
+
+116
+00:05:24,240 --> 00:05:26,280
+we can get a weather icon.
+
+117
+00:05:26,280 --> 00:05:28,560
+So let's think about how to do that.
+
+118
+00:05:28,560 --> 00:05:30,200
+Here, I think it's a little bit tricky.
+
+119
+00:05:30,200 --> 00:05:31,680
+We need to think about when you're
+
+120
+00:05:31,680 --> 00:05:34,360
+interacting with this map, a user will be on the map
+
+121
+00:05:34,360 --> 00:05:36,880
+and then click at some point in the map like this.
+
+122
+00:05:36,880 --> 00:05:39,280
+And then we want to trap that click,
+
+123
+00:05:39,280 --> 00:05:42,600
+then pass in the XY position of the place
+
+124
+00:05:42,600 --> 00:05:44,600
+that the person clicked on the map.
+
+125
+00:05:44,600 --> 00:05:46,200
+And then we want to translate that
+
+126
+00:05:46,200 --> 00:05:48,760
+into the corresponding icon for the current weather
+
+127
+00:05:48,760 --> 00:05:50,280
+conditions.
+
+128
+00:05:50,280 --> 00:05:52,800
+So I think the best way to do this
+
+129
+00:05:52,800 --> 00:05:56,640
+is to split between we're working right now
+
+130
+00:05:56,640 --> 00:05:58,160
+on the scripting area, but I think
+
+131
+00:05:58,160 --> 00:06:02,360
+we should split our project into using a stage and a sprite.
+
+132
+00:06:02,360 --> 00:06:04,920
+And so what I'm going to do is take this
+
+133
+00:06:04,920 --> 00:06:09,600
+that we've done here, this initial mapping setup,
+
+134
+00:06:09,600 --> 00:06:11,640
+and I'm going to move it over to the stage.
+
+135
+00:06:11,640 --> 00:06:13,400
+So I can just move it like this.
+
+136
+00:06:13,400 --> 00:06:14,960
+And it actually duplicates.
+
+137
+00:06:14,960 --> 00:06:16,700
+You can see that I still got a copy here,
+
+138
+00:06:16,700 --> 00:06:18,520
+but I'm going to throw that away.
+
+139
+00:06:18,520 --> 00:06:20,320
+And that's because if I go to the stage,
+
+140
+00:06:20,320 --> 00:06:22,560
+you'll see now that I've got a copy there.
+
+141
+00:06:22,560 --> 00:06:24,080
+So that's good.
+
+142
+00:06:24,080 --> 00:06:26,360
+And let's go up here and just kind of get
+
+143
+00:06:26,360 --> 00:06:28,880
+a when green flag clicked.
+
+144
+00:06:28,880 --> 00:06:31,760
+So we'll do that over here.
+
+145
+00:06:31,760 --> 00:06:34,320
+There we go, to start the project.
+
+146
+00:06:34,320 --> 00:06:36,560
+And now we want to trap here.
+
+147
+00:06:36,560 --> 00:06:38,400
+Anyone who clicks on the stage, we
+
+148
+00:06:38,400 --> 00:06:39,960
+want to kind of trap that event.
+
+149
+00:06:39,960 --> 00:06:41,920
+So you know when we're talking about events
+
+150
+00:06:41,920 --> 00:06:45,680
+that one way to capture them is to use a broadcast block.
+
+151
+00:06:45,680 --> 00:06:47,560
+So we're going to do this.
+
+152
+00:06:47,560 --> 00:06:51,040
+We're going to go over to when I am clicked.
+
+153
+00:06:51,040 --> 00:06:52,400
+So this is an event.
+
+154
+00:06:52,400 --> 00:06:54,080
+And then we're going to broadcast
+
+155
+00:06:54,080 --> 00:06:55,440
+that that event has occurred.
+
+156
+00:06:55,440 --> 00:06:57,480
+That way, we'll be able to capture that event
+
+157
+00:06:57,480 --> 00:07:02,200
+in our sprite, which is where we'll do our icons for the weather
+
+158
+00:07:02,200 --> 00:07:03,360
+conditions.
+
+159
+00:07:03,440 --> 00:07:08,120
+OK, so we'll just make this a very simple broadcast.
+
+160
+00:07:08,120 --> 00:07:09,320
+So I'll do that here.
+
+161
+00:07:09,320 --> 00:07:10,800
+And I'm going to say new.
+
+162
+00:07:10,800 --> 00:07:17,840
+And let's just call it look up weather, say.
+
+163
+00:07:17,840 --> 00:07:21,920
+So when this is clicked, it will look up the weather.
+
+164
+00:07:21,920 --> 00:07:25,120
+But we have nothing yet that will handle that broadcast.
+
+165
+00:07:25,120 --> 00:07:28,880
+So there's nothing here in our sprite
+
+166
+00:07:28,880 --> 00:07:30,680
+that will actually handle that.
+
+167
+00:07:30,720 --> 00:07:34,640
+So now we need to think, OK, when I receive this message,
+
+168
+00:07:34,640 --> 00:07:35,280
+what do I do?
+
+169
+00:07:35,280 --> 00:07:37,400
+So first of all, let's just start off with when I receive.
+
+170
+00:07:37,400 --> 00:07:39,760
+And if we drop down here, we can say look up weather.
+
+171
+00:07:39,760 --> 00:07:42,160
+So when I receive look up weather,
+
+172
+00:07:42,160 --> 00:07:43,920
+then I need to do something.
+
+173
+00:07:43,920 --> 00:07:50,120
+Now, we need to move to the xy position where the mouse is.
+
+174
+00:07:50,120 --> 00:07:52,440
+So let's do that.
+
+175
+00:07:52,440 --> 00:07:55,120
+Let's go to motion.
+
+176
+00:07:55,120 --> 00:07:58,600
+And we'll move to here.
+
+177
+00:07:58,600 --> 00:08:03,520
+Go to the xy position of the mouse.
+
+178
+00:08:03,520 --> 00:08:04,800
+So let's do that here.
+
+179
+00:08:09,320 --> 00:08:10,960
+Let's see, xy, there we go.
+
+180
+00:08:10,960 --> 00:08:18,480
+Mouse x and mouse y.
+
+181
+00:08:18,480 --> 00:08:22,320
+And then we're going to display the weather.
+
+182
+00:08:22,320 --> 00:08:26,560
+So same way that we need to get it onto the stage,
+
+183
+00:08:26,560 --> 00:08:28,180
+we're going to switch to that costume.
+
+184
+00:08:28,260 --> 00:08:31,220
+But this is now the sprites costume, not the stage.
+
+185
+00:08:31,220 --> 00:08:32,500
+And so let's do that.
+
+186
+00:08:32,500 --> 00:08:35,060
+We're going to go to looks.
+
+187
+00:08:35,060 --> 00:08:37,860
+Switch to costume here.
+
+188
+00:08:37,860 --> 00:08:41,940
+We're going to drop this into there.
+
+189
+00:08:41,940 --> 00:08:45,780
+Now, we've got our mouse x and mouse y.
+
+190
+00:08:45,780 --> 00:08:48,580
+So that's good.
+
+191
+00:08:48,580 --> 00:08:51,340
+OK, now the only thing that we need to do
+
+192
+00:08:51,340 --> 00:08:55,820
+is to draw that icon on this part of the stage.
+
+193
+00:08:55,820 --> 00:08:57,820
+The easiest way to do that is to use some
+
+194
+00:08:57,820 --> 00:09:00,220
+of the tools that come with Pen.
+
+195
+00:09:00,220 --> 00:09:05,380
+So here, we're going to go to stamp.
+
+196
+00:09:08,780 --> 00:09:12,580
+And all right, we'll stamp that particular icon
+
+197
+00:09:12,580 --> 00:09:14,780
+at that position on the stage.
+
+198
+00:09:14,780 --> 00:09:18,180
+So let's give it an initial try and see how it works.
+
+199
+00:09:18,180 --> 00:09:19,500
+So we start it.
+
+200
+00:09:19,500 --> 00:09:21,620
+I'm going to click here.
+
+201
+00:09:21,620 --> 00:09:23,380
+Let's see, are we handling the event yet?
+
+202
+00:09:25,820 --> 00:09:26,820
+OK, there we go.
+
+203
+00:09:26,820 --> 00:09:27,300
+Let's see.
+
+204
+00:09:32,620 --> 00:09:36,500
+Now, click there, click there, click there.
+
+205
+00:09:36,500 --> 00:09:39,620
+OK, so that's not working yet.
+
+206
+00:09:39,620 --> 00:09:47,620
+Let's go and see what is going on with our program here.
+
+207
+00:09:47,620 --> 00:09:52,620
+OK, when I receive lookup weather, go to X, Y, Z.
+
+208
+00:09:53,060 --> 00:09:57,300
+OK, when I receive lookup weather, go to X, Y position,
+
+209
+00:09:57,300 --> 00:10:00,500
+switch to costume.
+
+210
+00:10:00,500 --> 00:10:03,220
+Let's just make sure this is working here.
+
+211
+00:10:03,220 --> 00:10:05,220
+Yep, that looks good.
+
+212
+00:10:05,220 --> 00:10:12,140
+And then stamp, so there we go.
+
+213
+00:10:12,140 --> 00:10:17,060
+OK, so let me start this from scratch.
+
+214
+00:10:17,060 --> 00:10:18,820
+Now, you notice when I start from scratch,
+
+215
+00:10:18,820 --> 00:10:22,300
+I'm still leaving those icons on the stage.
+
+216
+00:10:22,300 --> 00:10:24,140
+So we actually want to remove them whenever
+
+217
+00:10:24,140 --> 00:10:25,300
+we hit the green flag click.
+
+218
+00:10:25,300 --> 00:10:27,460
+So let's do a little bit of setup here.
+
+219
+00:10:27,460 --> 00:10:32,620
+So let's go over to the stage here.
+
+220
+00:10:32,620 --> 00:10:34,180
+And when we first start up, we're
+
+221
+00:10:34,180 --> 00:10:37,140
+just going to hit Clear, OK?
+
+222
+00:10:37,140 --> 00:10:40,300
+So here, we'll just say, when green flag is clicked,
+
+223
+00:10:40,300 --> 00:10:42,540
+clear the stage, so just get rid of any of the icons
+
+224
+00:10:42,540 --> 00:10:44,220
+that had been there before.
+
+225
+00:10:44,220 --> 00:10:47,060
+And then we'll start from scratch.
+
+226
+00:10:47,060 --> 00:10:49,940
+And the other thing is, I think we want to also, well,
+
+227
+00:10:49,940 --> 00:10:52,060
+let's try it.
+
+228
+00:10:52,060 --> 00:10:53,380
+OK, so we're going to start it.
+
+229
+00:10:59,740 --> 00:11:00,460
+And there we go.
+
+230
+00:11:00,460 --> 00:11:02,820
+We're able to click and see the conditions around us.
+
+231
+00:11:02,820 --> 00:11:03,820
+But there's one problem.
+
+232
+00:11:03,820 --> 00:11:06,420
+You notice when we started here, we still
+
+233
+00:11:06,420 --> 00:11:08,380
+had one icon that was left over.
+
+234
+00:11:08,380 --> 00:11:11,780
+And that's because the sprite is still showing on the stage.
+
+235
+00:11:11,780 --> 00:11:14,100
+So one way to do that is to set it up
+
+236
+00:11:14,100 --> 00:11:18,220
+so that when we run this, we show the sprite,
+
+237
+00:11:18,220 --> 00:11:19,380
+and then we hide the sprite.
+
+238
+00:11:19,380 --> 00:11:21,260
+So let's do that here.
+
+239
+00:11:21,260 --> 00:11:24,260
+And let's go over to Show and to Hide.
+
+240
+00:11:24,260 --> 00:11:28,500
+And this will mean that we first show the sprite, we stamp,
+
+241
+00:11:28,500 --> 00:11:31,700
+and that leaves this permanent imprint of where
+
+242
+00:11:31,700 --> 00:11:33,900
+the sprite is on the stage.
+
+243
+00:11:33,900 --> 00:11:36,020
+And then we hide the sprite again
+
+244
+00:11:36,020 --> 00:11:38,220
+so we don't have that problem of a lingering weather
+
+245
+00:11:38,220 --> 00:11:42,220
+condition that persists past the beginning of the program.
+
+246
+00:11:42,220 --> 00:11:45,020
+All right, so let's try that one more time.
+
+247
+00:11:45,020 --> 00:11:48,420
+Can I click Stop, and then we'll hit Run.
+
+248
+00:11:48,420 --> 00:11:51,580
+And this first time, I guess it's still left there.
+
+249
+00:11:51,580 --> 00:11:54,260
+So let's try it again now because it should be hidden.
+
+250
+00:11:54,260 --> 00:11:56,420
+So I'm going to click this, Run.
+
+251
+00:11:56,420 --> 00:11:58,660
+You see things are gone now.
+
+252
+00:11:58,660 --> 00:12:00,380
+The sprites aren't showing because we've
+
+253
+00:12:00,380 --> 00:12:02,340
+hidden them right here.
+
+254
+00:12:02,340 --> 00:12:03,960
+And now we can test this out again.
+
+255
+00:12:03,960 --> 00:12:05,380
+So this should be the full program.
+
+256
+00:12:05,380 --> 00:12:07,780
+Let's just bring this out all the way.
+
+257
+00:12:07,780 --> 00:12:09,940
+And let's see how things are in Nashville today.
+
+258
+00:12:09,940 --> 00:12:14,140
+So downtown Nashville is cloudy.
+
+259
+00:12:14,140 --> 00:12:17,260
+Up by Vanderbilt, probably also cloudy.
+
+260
+00:12:17,260 --> 00:12:18,340
+Yep.
+
+261
+00:12:18,340 --> 00:12:21,180
+We could set our initial starting point.
+
+262
+00:12:21,180 --> 00:12:23,140
+Let's just go to the stage here, and let's
+
+263
+00:12:23,140 --> 00:12:24,260
+zoom out a little bit more.
+
+264
+00:12:24,260 --> 00:12:28,140
+Let's try, like, I don't know.
+
+265
+00:12:28,140 --> 00:12:30,740
+How about five?
+
+266
+00:12:30,740 --> 00:12:32,820
+And we'll click on that.
+
+267
+00:12:32,820 --> 00:12:36,060
+We'll get the new map.
+
+268
+00:12:36,060 --> 00:12:38,020
+Give it a second for the map to show.
+
+269
+00:12:38,020 --> 00:12:38,500
+There we go.
+
+270
+00:12:38,500 --> 00:12:41,280
+Now we're getting a much broader geographic area.
+
+271
+00:12:41,280 --> 00:12:42,480
+So let's try the same thing.
+
+272
+00:12:42,480 --> 00:12:43,940
+We'll look at various cities around.
+
+273
+00:12:43,940 --> 00:12:45,740
+So Nashville, again, should be cloudy.
+
+274
+00:12:45,740 --> 00:12:49,380
+But how is Indianapolis?
+
+275
+00:12:49,380 --> 00:12:51,620
+Partly cloudy, I guess, is what that means.
+
+276
+00:12:51,620 --> 00:12:54,140
+Washington, DC, cloudy at once.
+
+277
+00:12:54,140 --> 00:12:55,540
+Cloudy day all around.
+
+278
+00:12:55,540 --> 00:12:56,540
+How about Georgia?
+
+279
+00:12:56,540 --> 00:12:57,180
+Same thing.
+
+280
+00:12:57,180 --> 00:12:58,860
+How about Louisiana?
+
+281
+00:12:58,860 --> 00:13:00,540
+Wow, same thing.
+
+282
+00:13:00,540 --> 00:13:04,860
+All right, it's sunny as you head out to the Midwest.
+
+283
+00:13:04,860 --> 00:13:07,220
+OK, so that's it for today.
+
+284
+00:13:07,220 --> 00:13:10,940
+So just to recap, what you saw was that we can create a map.
+
+285
+00:13:10,940 --> 00:13:14,600
+And then by trapping the interaction with the map,
+
+286
+00:13:14,600 --> 00:13:17,400
+where we clicked with our mouse XY coordinates,
+
+287
+00:13:17,400 --> 00:13:20,280
+we can translate that into latitude and longitude
+
+288
+00:13:20,280 --> 00:13:23,060
+and pass that to another RPC that then gives us
+
+289
+00:13:23,060 --> 00:13:25,880
+information about the weather conditions
+
+290
+00:13:25,880 --> 00:13:28,920
+in that particular region of the map.
+
+291
+00:13:28,920 --> 00:13:30,560
+We'll continue with mapping next time.
+
+292
+00:13:30,560 --> 00:13:34,480
+So I look forward to seeing you in our next video.
+

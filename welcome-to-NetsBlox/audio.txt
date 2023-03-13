@@ -1,0 +1,33 @@
+Hi everybody, my name is Cliff Anderson. I'm a librarian at Vanderbilt University
+and a member of Vanderbilt's Computational Thinking and Learning Initiative.
+This short video is a preface to my introduction to programming with Netsblocks.
+Netsblocks is a visual programming language that makes it easy and fun to learn to program,
+and Netsblocks allows you to do pretty advanced things like peer-to-peer networking and making
+remote procedure calls. This series will start with the basics of programming in Netsblocks
+and step-by-step, video-by-video, teach you what you need to write some really advanced code.
+Just like you see in the preface to a book, I'd like to start by giving credit to the people and
+organizations on whose work I'm building. To begin with, I'd like to thank the developers
+of the Snap programming language. Snap is a block-based programming language developed
+at the University of California, Berkeley that borrows from the visual vocabulary of Scratch
+but draws inspiration from the semantics of Scheme. The primary developers of Snap are Jens
+Munich and Brian Harvey. Netsblocks builds on Snap, extending its functionality. If you want
+to check out Snap for yourself, visit snap.berkeley.edu. A lot of what I teach in this course will
+work in Snap as well as in Netsblocks. If I'm doing something that only works in Netsblocks,
+I'll make sure to flag that for you. Second, I'd also like to thank the developers of the Beauty
+and Joy of Computing curriculum. The Beauty and Joy of Computing teaches the fundamentals of
+computer science at both the high school and college level with an emphasis, as the name
+suggests, on aesthetics and playfulness. I'd encourage you to check out the curriculum online
+at bjc.berkeley.edu and especially to watch Dan Garcia's TEDxBerkeley talk on the origins and
+principles of the BJC. I myself have taught the Beauty and Joy of Computing to undergraduates
+at the School of Engineering at Vanderbilt University. If you want, you can check out my
+curriculum online on github.com. What I teach during this video series is not a
+one-to-one port of that course, but it certainly draws inspiration both from the BJC and from my
+experience teaching undergraduates at Vanderbilt. Finally, I'd like to thank my colleagues at
+Vanderbilt who have developed Netsblocks, most particularly Akos Ledeshi, professor of computer
+engineering at Vanderbilt University and principal investigator of Netsblocks, as well as Brian Broll,
+research scientist at Vanderbilt and lead architect of the Netsblocks software. Last but not least,
+I'd like to credit the use of Alonzo, the friendly sprite modeled on Gobo from scratch.
+The difference is in the tail. Do you see how Alonzo has a forked tail? We'll get to why there
+is that difference later in this course. For now, let me thank the creators of Gobo and Alonzo for
+making this cute sprite to accompany us on our programming journey. Ready to learn how to program?
+Check out the next video in this series and let's get started together.

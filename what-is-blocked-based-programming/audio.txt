@@ -1,0 +1,149 @@
+Hey everybody, my name is Cliff Anderson, and I'm a librarian at Vanderbilt University.
+I'm also a member of a research group called the Computational Thinking and Learning Initiative.
+In this series, I'm going to introduce you to the fundamentals of programming using a
+state-of-the-art tool developed at Vanderbilt University called NetsBlocks.
+NetsBlocks makes it easy to get started by cutting down the number of mistakes you can
+make.
+And by reducing the chance for error, it will help you focus on the important stuff.
+So ready to get started with block-based programming?
+Stick around.
+This series is about learning to code using a development environment called NetsBlocks.
+If you're new to programming, the choice about where to begin can be overwhelming.
+There are so many options to consider, from C to JavaScript to Python and beyond.
+These languages are very different, but they all share one thing in common, namely they
+are text-based languages.
+That is, you write code by typing out instructions on the screen.
+Typing out instructions serves most expert programmers well.
+You can express a lot of complex ideas in very terse statements and expressions.
+Most software engineers aim to write more like Gertrude Stein than Henry James.
+That is, they aspire to conciseness over verbosity, although they can be elliptical at times.
+But textual programming languages prove challenging for newcomers.
+How do you know what commands to type when you're first getting started?
+We're all familiar with the idea of writer's block.
+That is, the panic of seeing a white page that you need to fill up with words.
+What should I write?
+The same kind of thing happens when you're programming in textual languages.
+If I want to draw a circle on the screen, what commands do I need to type in?
+If you're learning a programming language like Python or JavaScript, you'll need to
+look up those commands in the documentation, or more likely Google it and then copy and
+paste your solution.
+And what happens if something goes wrong?
+Like maybe you dropped a parenthesis when copying your code into your text editor.
+Well, your code editor will try to highlight your mistake, just like a Word doc.
+A code editor may not always be able to pinpoint your mistake as easily.
+It basically just says, hey, something happened by the time I reached this line, and now I
+don't know how to go further.
+Your experience may vary by language, but tracking down a syntax error can take a surprising
+amount of time.
+And how do professional programmers fix these syntax errors?
+Well, they Google the problem, checking out sites like Stack Overflow to read how other
+programmers have fixed the issue before them.
+So here I've got a JavaScript window in front of me.
+This is a cool site called Repl.it that allows you to program in many different languages.
+And so I'm just going to start off here and, you know, to begin with, what do I have to
+type?
+All right.
+I'm going to write a program here that's going to say hello to me in JavaScript.
+So here we go.
+Let's just write this out.
+So I'm going to have to say function hello.
+We're going to give it a parameter called name.
+Then I'm going to put in a curly brace, and then I'm going to console.log, say hello comma.
+And then after the quotation mark, I'm going to put a plus symbol, and then I'm going to
+put the name that gets passed in with a semicolon.
+And then I drop down a line, and let's call that function, so we're going to say hello
+clip.
+And my name is in quotation marks, and then I put a semicolon at the end, and let's run
+it.
+And sure enough, it says hello clip.
+So it worked.
+But hey, look what happens if I just take off this ending parenthesis.
+Get like a bunch of red marks here.
+There's some squiggly lines.
+Let's see what they say.
+So this particular line here says TypeScript, comma is expected.
+Not sure if I needed a comma there.
+Here it says another comma is expected, but that's actually a period.
+Another comma seems to be expected.
+So a lot of commas seem to be expected.
+It says declaration of statement expected.
+I'm not even sure what that is.
+So you can see there are a lot of errors, but it's not entirely clear how you're supposed
+to fix those errors.
+Now we could go into Google and see this, but it's, as you know, I just dropped a paren.
+And everything's back, and if I run this again, hello clip.
+It works fine.
+The point is, it takes some experience to learn how to read errors, and it's easy to
+make errors, which is kind of a bad combination, because when you're a beginner, you make a
+lot of errors, and then you don't know how to fix them.
+So let's switch over now to NetsBlocks.
+The purpose of a blocks-based programming language is to lower the barrier to entry,
+and to make it easier to program without having to Google everything.
+Here's the interface for the NetsBlocks programming environment that we'll be exploring during
+this series.
+As you see, there are these nice sets of blocks along the side, and each of the blocks in
+this palette represents a unit of computation.
+You program in NetsBlocks by selecting blocks and then snapping them together with other
+blocks in the coding area.
+That's this area right here.
+We'll see the results of the computation either in the coding area or on the stage.
+This is what we call the stage.
+The guiding metaphor for NetsBlocks is Lego bricks.
+NetsBlocks is designed to help you to program without running into those indecipherable
+error messages.
+In general, if the blocks snap together, your program will work, although it may not always
+produce the results that you expect.
+The cool thing about NetsBlocks and other block-based programming languages is that
+you can play around with stacking these blocks just by moving them onto the scripting area
+and building bigger and bigger blocks.
+So if you ever have programmer's blocks, just try dragging some new things on and seeing
+what they do.
+You see, they stack right there, and then you can test them out just by clicking on
+them.
+I'm going to end this short video with another example of Hello World.
+We're going to ask our mascot, Alonzo, to help us out a lot during this series.
+So this time we're going to recreate our Hello World program in NetsBlocks.
+And we'll do this by exploring the palette and finding the different blocks that we need
+to get Alonzo to say hello to us.
+So the first thing that we need is this Say Hello block.
+Here's Alonzo, and we want him to say hello to us.
+So if we click Say Hello, Alonzo says hello.
+But we don't quite yet have our name, right?
+So the next thing is, how will Alonzo know our name?
+So let's go here to Sensing, and let's grab Ask What Is Your Name? and wait.
+And then there's another block that has the answer.
+So let's try this.
+Ask What Is Your Name?
+A little box pops up, and we can input box, and we can put in my name here.
+Oh, it didn't say hello to me.
+Why is that?
+Well, here's the answer.
+Cliff, we need to put it into our computation.
+We haven't done that yet.
+So how do we do that?
+Well, OK.
+So let's take a look here.
+Maybe we need another operator.
+And we're just going to do this, called Join.
+And you see it says Hello World.
+But I'm going to put my name in, and then we're going to drop this right inside that
+slot.
+OK, let's try it again.
+So here we go.
+Alonzo says, what's your name?
+I put in Cliff, and it says, hello, Cliff.
+So that's a short example of a block-based program.
+We're going to get into really deep and complex examples.
+A lot of people say, like, block-based programming is just a beginner's programming language.
+It's like programming with training wheels on.
+But you're going to see throughout this course that that's definitely not the case.
+In fact, block-based programming allows you to get into much more complex ideas and concepts
+than you would have in many other programming languages, or that you would be able to reach
+in other programming languages without a lot of experience.
+But the thing is, it makes it friendly and accessible and fun to program.
+And that's the most important thing.
+We're here to have fun as we learn.
+So I invite you to stick around for the series on block-based programming.
+And let's see how far we and Alonzo can take you on this journey.
+Thanks for joining me, and see you next time.
+♪♪♪

@@ -1,0 +1,292 @@
+Hi, everyone.
+Welcome back to Programming for a Network World.
+Today, we're going to continue our exercise with mapping.
+We're going to explore now how to put a map on the stage,
+and then from there, how to display the weather
+condition for any part of the country you're interested in.
+All right, so ready to find some icons to display the weather?
+Let's get going.
+So let's get started by just creating a map again
+like we did before.
+So I'm going to go over to our RPC here under Network,
+and I'm going to bring out this call block.
+I'm going to switch it down to Google Maps,
+and I'm going to then get map.
+And let's do the latitude and longitude
+just for where I am again.
+So as you remember, the way that we do that,
+we can go over here to Sensing, and we can drop down
+to My Latitude, drop it in here, My Longitude over here,
+then the Height there.
+Let's try that again.
+The Height there, and the Width, the Stage.
+There we go.
+This one is over here, so we'll just throw it away.
+And we'll set a zoom of, let's just say, 11.
+Get some of the surrounding area.
+Now, remember, we need to go over to Looks,
+switch to Costume, and we're going to drop this in there.
+OK, so now I'm just going to give a little more space here.
+OK, let's try this out.
+And there's our map.
+If I went a little bit too quickly there,
+go back and review the other video,
+because that's where we covered how to create these maps.
+OK, so now that we've got a map, our goal today
+is for us to be able to click on any part of this map
+and then get an icon representing
+the current weather conditions in that part of the map.
+So if you think about what we need to do,
+we need to trap a position using our xy-coordinate
+of the stage.
+And then we need to convert that xy-coordinate
+into a latitude and longitude that we
+can pass to some kind of weather RPC.
+Hopefully, that exists.
+It actually does in Nets Blocks.
+And then we'll find an icon to represent the weather.
+If that sounds complicated, it might
+be using other programming languages.
+But fortunately, there are tools within Nets Blocks
+to make that process much easier.
+So let's begin by thinking about how to get the xy-coordinates.
+So let's try going to our RPCs to see if there's
+anything that can help us here.
+So I'm going to go down here.
+And let's go back to Google Maps.
+All right.
+And let's look at our list of options again.
+Now, when you look at the list of options, you see here,
+get latitude from y and get longitude from x.
+So that's exactly what we need.
+We need to be able to click on an xy position
+and then translate that into the latitude and longitude
+of the map that we're looking at.
+So let's just go ahead and try that out.
+We're going to get latitude from x or latitude from y.
+And I'll duplicate this here.
+And get longitude from x.
+So here is their x and y positions.
+Now, we can give the information about where our x and y
+is by going to the sensing block here
+and saying mouse x and mouse y.
+So let's just say mouse x and mouse y.
+Now, we can click on it.
+Oops.
+Here.
+Let's try that.
+There we go.
+And you see that it is now giving us those positions.
+They're not the positions that we want,
+because it's trapping where our mouse is actually
+in the scripting area rather than on the stage.
+But we'll get to that in a second.
+So that's great.
+That's actually the information that we need to pass
+in to get our weather icon.
+But how do we get the icon itself?
+So let's go back to look at our list of RPCs here.
+I'll bring this over again.
+And let's drop this down.
+And there's a section called Science here
+that has a lot of information that
+has to do with various different types of measurements,
+historical trends.
+We've looked at these before when we were doing our chart
+RPC.
+But if you look down here, you see under Science,
+you also see Weather.
+And so if we look now at what's possible for weather,
+we see we've got a number of options.
+We've got a description, humidity icon, temperature,
+wind angle, speed.
+So let's go for Icon.
+And you see it does come with a latitude and longitude.
+So now we can drop these blocks in here.
+This is the latitude.
+So let's drop that in there.
+And this is the longitude.
+And if we click on it, we get a cloudy icon.
+Now, it's a little bit hard to tell what is cloudy,
+because, again, we're trapping a XY position that's
+on the stage, on the scripting area, excuse me,
+rather than the stage.
+And so we actually need to now look
+to see where on the map that's on the stage
+we can get a weather icon.
+So let's think about how to do that.
+Here, I think it's a little bit tricky.
+We need to think about when you're
+interacting with this map, a user will be on the map
+and then click at some point in the map like this.
+And then we want to trap that click,
+then pass in the XY position of the place
+that the person clicked on the map.
+And then we want to translate that
+into the corresponding icon for the current weather
+conditions.
+So I think the best way to do this
+is to split between we're working right now
+on the scripting area, but I think
+we should split our project into using a stage and a sprite.
+And so what I'm going to do is take this
+that we've done here, this initial mapping setup,
+and I'm going to move it over to the stage.
+So I can just move it like this.
+And it actually duplicates.
+You can see that I still got a copy here,
+but I'm going to throw that away.
+And that's because if I go to the stage,
+you'll see now that I've got a copy there.
+So that's good.
+And let's go up here and just kind of get
+a when green flag clicked.
+So we'll do that over here.
+There we go, to start the project.
+And now we want to trap here.
+Anyone who clicks on the stage, we
+want to kind of trap that event.
+So you know when we're talking about events
+that one way to capture them is to use a broadcast block.
+So we're going to do this.
+We're going to go over to when I am clicked.
+So this is an event.
+And then we're going to broadcast
+that that event has occurred.
+That way, we'll be able to capture that event
+in our sprite, which is where we'll do our icons for the weather
+conditions.
+OK, so we'll just make this a very simple broadcast.
+So I'll do that here.
+And I'm going to say new.
+And let's just call it look up weather, say.
+So when this is clicked, it will look up the weather.
+But we have nothing yet that will handle that broadcast.
+So there's nothing here in our sprite
+that will actually handle that.
+So now we need to think, OK, when I receive this message,
+what do I do?
+So first of all, let's just start off with when I receive.
+And if we drop down here, we can say look up weather.
+So when I receive look up weather,
+then I need to do something.
+Now, we need to move to the xy position where the mouse is.
+So let's do that.
+Let's go to motion.
+And we'll move to here.
+Go to the xy position of the mouse.
+So let's do that here.
+Let's see, xy, there we go.
+Mouse x and mouse y.
+And then we're going to display the weather.
+So same way that we need to get it onto the stage,
+we're going to switch to that costume.
+But this is now the sprites costume, not the stage.
+And so let's do that.
+We're going to go to looks.
+Switch to costume here.
+We're going to drop this into there.
+Now, we've got our mouse x and mouse y.
+So that's good.
+OK, now the only thing that we need to do
+is to draw that icon on this part of the stage.
+The easiest way to do that is to use some
+of the tools that come with Pen.
+So here, we're going to go to stamp.
+And all right, we'll stamp that particular icon
+at that position on the stage.
+So let's give it an initial try and see how it works.
+So we start it.
+I'm going to click here.
+Let's see, are we handling the event yet?
+OK, there we go.
+Let's see.
+Now, click there, click there, click there.
+OK, so that's not working yet.
+Let's go and see what is going on with our program here.
+OK, when I receive lookup weather, go to X, Y, Z.
+OK, when I receive lookup weather, go to X, Y position,
+switch to costume.
+Let's just make sure this is working here.
+Yep, that looks good.
+And then stamp, so there we go.
+OK, so let me start this from scratch.
+Now, you notice when I start from scratch,
+I'm still leaving those icons on the stage.
+So we actually want to remove them whenever
+we hit the green flag click.
+So let's do a little bit of setup here.
+So let's go over to the stage here.
+And when we first start up, we're
+just going to hit Clear, OK?
+So here, we'll just say, when green flag is clicked,
+clear the stage, so just get rid of any of the icons
+that had been there before.
+And then we'll start from scratch.
+And the other thing is, I think we want to also, well,
+let's try it.
+OK, so we're going to start it.
+And there we go.
+We're able to click and see the conditions around us.
+But there's one problem.
+You notice when we started here, we still
+had one icon that was left over.
+And that's because the sprite is still showing on the stage.
+So one way to do that is to set it up
+so that when we run this, we show the sprite,
+and then we hide the sprite.
+So let's do that here.
+And let's go over to Show and to Hide.
+And this will mean that we first show the sprite, we stamp,
+and that leaves this permanent imprint of where
+the sprite is on the stage.
+And then we hide the sprite again
+so we don't have that problem of a lingering weather
+condition that persists past the beginning of the program.
+All right, so let's try that one more time.
+Can I click Stop, and then we'll hit Run.
+And this first time, I guess it's still left there.
+So let's try it again now because it should be hidden.
+So I'm going to click this, Run.
+You see things are gone now.
+The sprites aren't showing because we've
+hidden them right here.
+And now we can test this out again.
+So this should be the full program.
+Let's just bring this out all the way.
+And let's see how things are in Nashville today.
+So downtown Nashville is cloudy.
+Up by Vanderbilt, probably also cloudy.
+Yep.
+We could set our initial starting point.
+Let's just go to the stage here, and let's
+zoom out a little bit more.
+Let's try, like, I don't know.
+How about five?
+And we'll click on that.
+We'll get the new map.
+Give it a second for the map to show.
+There we go.
+Now we're getting a much broader geographic area.
+So let's try the same thing.
+We'll look at various cities around.
+So Nashville, again, should be cloudy.
+But how is Indianapolis?
+Partly cloudy, I guess, is what that means.
+Washington, DC, cloudy at once.
+Cloudy day all around.
+How about Georgia?
+Same thing.
+How about Louisiana?
+Wow, same thing.
+All right, it's sunny as you head out to the Midwest.
+OK, so that's it for today.
+So just to recap, what you saw was that we can create a map.
+And then by trapping the interaction with the map,
+where we clicked with our mouse XY coordinates,
+we can translate that into latitude and longitude
+and pass that to another RPC that then gives us
+information about the weather conditions
+in that particular region of the map.
+We'll continue with mapping next time.
+So I look forward to seeing you in our next video.
