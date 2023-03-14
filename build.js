@@ -74,15 +74,15 @@ const indexHtml = `<!DOCTYPE html>
   </head>
   <body>
     <div class="container">
-      <div class="edit-order">
-        <button onclick="window.location.href='https://github.com/CliffordAnderson/programming-networked-world/edit/main/order.txt'">Edit order</button>
-      </div>
       <div class="search-box">
         <input type="text" id="searchInput" placeholder="Search keyword..." />
         <button id="searchButton">Search</button>
       </div>
+      <div class="edit-order">
+        <button onclick="window.location.href='https://github.com/CliffordAnderson/programming-networked-world/edit/main/order.txt'">Edit order</button>
+      </div>
       <div id="searchResults"></div>
-      ${htmlContents}
+       ${htmlContents}
     </div>
     <script>
       ${searchScript}
