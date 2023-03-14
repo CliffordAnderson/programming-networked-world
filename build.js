@@ -74,7 +74,7 @@ const indexHtml = `<!DOCTYPE html>
   </head>
   <body>
     <div class="container">
-      <div style="right: 10px;position: absolute">
+      <div class="edit-order"> 
         <a href="https://github.com/CliffordAnderson/programming-networked-world/edit/main/order.txt">Click to edit order</a>
       </div>
       <div class="search-box">
@@ -82,7 +82,7 @@ const indexHtml = `<!DOCTYPE html>
         <button id="searchButton">Search</button>
       </div>
       <div id="searchResults"></div>
-       ${htmlContents}
+      ${htmlContents}
     </div>
     <script>
       ${searchScript}
