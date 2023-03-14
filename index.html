@@ -4,22 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Lesson Transcriptions</title>
-    <style>
-      .highlight {
-        background-color: yellow;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div style="right: 10px;position: absolute">
-      <a href="https://github.com/CliffordAnderson/programming-networked-world/edit/main/order.txt">Click to edit order</a>
-    </div>
-    <div>
-      <input type="text" id="searchInput" placeholder="Search keyword..." />
-      <button id="searchButton">Search</button>
+    <div class="container">
+      <div style="right: 10px;position: absolute">
+        <a href="https://github.com/CliffordAnderson/programming-networked-world/edit/main/order.txt">Click to edit order</a>
+      </div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search keyword..." />
+        <button id="searchButton">Search</button>
+      </div>
       <div id="searchResults"></div>
-    </div>
-    
+       
     <h2>1. broadcast</h2>
     <p>Hi.
 Welcome back to Programming for a Network World.
@@ -8360,6 +8357,7 @@ All right, that's it for today.
 I look forward to seeing you in our next video.
 </p>
   
+    </div>
     <script>
       
 function searchKeyword(keyword) {
