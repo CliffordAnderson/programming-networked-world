@@ -70,28 +70,27 @@ const indexHtml = `<!DOCTYPE html>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Lesson Transcriptions</title>
-    <style>
-      .highlight {
-        background-color: yellow;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div style="right: 10px;position: absolute">
-      <a href="https://github.com/CliffordAnderson/programming-networked-world/edit/main/order.txt">Click to edit order</a>
-    </div>
-    <div>
-      <input type="text" id="searchInput" placeholder="Search keyword..." />
-      <button id="searchButton">Search</button>
+    <div class="container">
+      <div style="right: 10px;position: absolute">
+        <a href="https://github.com/CliffordAnderson/programming-networked-world/edit/main/order.txt">Click to edit order</a>
+      </div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search keyword..." />
+        <button id="searchButton">Search</button>
+      </div>
       <div id="searchResults"></div>
+       ${htmlContents}
     </div>
-    ${htmlContents}
     <script>
       ${searchScript}
     </script>
   </body>
 </html>
 `;
+
 
 const outFile = path.join(__dirname, 'index.html');
 fs.writeFileSync(outFile, indexHtml);
