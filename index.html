@@ -6,6 +6,9 @@
 		<title>Lesson Transcriptions</title>
 	</head>
 	<body>
+  <div style="right: 10px;position: absolute">
+    <a href="https://github.com/CliffordAnderson/programming-networked-world/edit/main/order.txt">Click to edit order</a>
+  </div>
 		
     <h2>1. broadcast</h2>
     <p>Hi.
@@ -1038,7 +1041,223 @@ Bye.
 </p>
   
 
-    <h2>4. custom-blocks</h2>
+    <h2>4. creating-circles-with-control-blocks</h2>
+    <p>Hey everybody, welcome back to this introductory series on Nest Blocks.
+I'm Cliff Anderson, a librarian at Vanderbilt University,
+and a member of our Computational Thinking and Learning Initiative.
+In our last video, we learned to draw simple shapes on the stage.
+In this video, I'm going to show you how to draw a circle.
+What makes creating a circle that different from a square?
+Stick around to find out.
+So
+our goal today is to ask our turtle to draw a circle on the stage.
+What's the most straightforward way to draw a circle?
+Well, we could move a step, turn a degree, then move another step, turn a degree,
+and so on and so on until we reach 360 degrees.
+So what blocks do we need to carry out that method?
+Let's go take a look.
+All right, so I'm going to bring over here from the motion palette over here.
+I'm going to grab, let's see, turn.
+That'll help us to turn a degree.
+And this is going to help us move.
+So I'll snap that together.
+So we want to say turn one degree, and then we want to move one step.
+And as you remember from last time, we'll take our pen here.
+We're going to say pen down, so we'll do that, and pen up.
+Okay, that's great.
+Let's take over.
+Oh, our sprite has disappeared.
+If this ever happens, right click on this and just click show.
+There's the sprite.
+Let's bring it down to the middle.
+Okay, so pen down, turn one degree, move one step, pen up.
+Click on this.
+We should be able to see, if you look carefully right here, a single dot.
+So all we have to do is make 360 of those dots, and we'll be done, right?
+So we could do what we did last time and just replicate these blocks.
+We could right click on this here and say duplicate, and we could duplicate that 360 times.
+But as I guess you could imagine, that would be a pretty dull way to make a program.
+We'd end up with like a huge stack of blocks on the screen that would actually go off the bottom.
+So we're not going to do it that way.
+Fortunately, there is another way to do this.
+And programmers have developed an acronym for avoiding that kind of repetition,
+where you just copy blocks over and over again.
+It's called the DRY principle, or the Do Not Repeat Yourself principle.
+The DRY principle basically says that you should find a way of reducing repetition
+whenever possible in your program.
+If you discover yourself duplicating a set of blocks over and over again,
+then you should try another solution.
+In this case, what we need is a control block.
+So the set of control blocks are colored yellow in NetsBlocks.
+Let's take a look over here.
+Let's go up and you can see.
+I guess that's yellow.
+Maybe like a kind of yellowish brown.
+In any case, those are the control blocks.
+So these control blocks affect what we call flow of control in a program.
+The idea is pretty simple.
+Think about reading a book.
+If you read a book in English, the text reads from left to right across the page.
+But if you're reading manga, then you need to read from right to left.
+In Chinese, you may find books laid out in various formats,
+from left to right across the page,
+or perhaps in columns from top to bottom, and then from right to left.
+And if you try to read a page in a way differently than the publisher intended,
+the individual words on the page will not make sense.
+A similar idea applies to programming languages.
+In NetsBlocks, you need to read programs from top to bottom.
+So we start at the top of the set of blocks, and then we work our way down the stack.
+But we can use control structures to alter that straightforward flow.
+For example, if we want to repeat a set of blocks over and over again,
+then we can use a repeat block to repeat the set of blocks
+inside of that block a certain number of times before moving on to the blocks below it.
+So if we look over here, and we grab, for example, this repeat block,
+and you see it has a number there, it also has this slot.
+This is a slot that we can put other blocks into.
+So I can take these two blocks and put them in here.
+And you see that it sort of snaps around it.
+This particular type of control block is called a C-shaped block,
+and that's because it kind of looks like a C that you can put things into.
+Let's give it a shot.
+Let's use this repeat block, and we're going to draw our circle.
+Without having to repeat these blocks 360 times.
+Okay, so I'm going to take this block here,
+and I'm going to type in 360. It's the number of times I want to repeat.
+I'm going to put the pen down before I get started, and then I'll take the pen up.
+And just to show that there's no magic behind the scenes,
+let's get a clear block here so it starts fresh, and let's give it a try.
+All right, here we go.
+We can see a nice circle coming to existence.
+And it stops when it completes the loop.
+There you go. That's what we call a control block that makes it possible for us
+to do complicated calculations or computations
+without actually having to develop a huge stack of blocks.
+We actually did it in just a few.
+So this is one way to draw a circle,
+but there is a certain downside to this particular technique.
+You see that the circle is off-center.
+It's not really in the center.
+It started at the center, and then it kind of looped below,
+and then it comes back up to the top.
+So if we're going to use this technique,
+we're going to have to do some interesting calculations
+to figure out where we are going to put the center
+whenever we run this set of blocks.
+It might be easier to actually just start the calculation at the center,
+and then we can say, here's where we want the circle to be,
+and we can also define the radius.
+Let's try a different technique.
+I'm going to take these blocks and just throw them off to the side.
+And then I'm going to start again with,
+let's just take the pin down and pin up.
+We know we need those, and the clear.
+We're going to go to control, and I'm going to grab from here,
+let's take a look, this repeat 10.
+So that's the same as the last time.
+But what we're going to do this time in motion,
+we're going to use that go to 0, 0.
+This is going to define where the particular circle starts.
+That'll be the center of the circle.
+And then this will help us define the radius, move 10 steps.
+In this case, just to make it a little bit bigger, I'm going to say 50 steps.
+And then we're going to turn a degree right here.
+Now, in order for this to work,
+well, let's try it this way first, and I'll talk it through.
+So I'll put the pin down here, the pin up there.
+Let's put the clear on top to make sure everything is cleared,
+and let's give it a shot.
+That's not quite what we expected.
+Why is that?
+I forgot to change the 10 to 360.
+Let's do that.
+All right, again.
+So that's making a nice circle.
+But the difference here is that circle's filled in,
+and that may be an effect that you want.
+But if you just want to draw the same lines,
+we're going to have to do a little bit of extra work.
+Now, think about this.
+Every time that this runs, it goes to 0, 0,
+and then it moves 10, or in this case, I think we set it to 50,
+50 steps from that direction that it's pointing,
+and that's going to make the circumference of the circle.
+And then we turn one degree,
+and then it makes that same route again and again and again
+until it makes it 360 times,
+which is why the lines are filling the interior of the circle.
+If we wanted to just simply sketch out the circumference,
+then we're going to have to take the pin
+and do a little bit more work here.
+So let's say we still want it to be 50 steps.
+So we're going to take 49.
+I'm going to grab this over here again and pull in move 10 steps.
+Then we're going to take the pin down and the pin up
+and put it on one side or the other of this last piece.
+I'm just going to change it to 1.
+So now we've got move 49 steps,
+but you see we also here have move 1 step.
+And so when I put this back in right there,
+let's get it clear.
+Let's try it out.
+You see it makes that trip up without tracing its steps
+until that very last step,
+in which case then it marks it on the screen.
+So that actually now is just marking out the circumference.
+So it's very similar to the way that we did it before,
+but the difference is we can easily change the starting place
+by just changing our x and y values.
+So here let's start at 50 and you see it moves over there.
+And we can also, of course, change the radius of the circle
+by simply changing this number in here.
+So now we're going to move 90 steps
+or we'll try 89 to keep it an even number.
+Well, not that big.
+There we go.
+Should we try it?
+Oh, I think I still have it too big.
+Let's try that again.
+89.
+There we go.
+And we need to show, bring it back.
+Should actually go back to the center anyway.
+There we go.
+So a slightly bigger circle.
+Using this technique, we can move the circle around the screen,
+selecting the center and the radius with greater ease.
+If we want to make this set of blocks fancier,
+we can also add another control block.
+This is called a hat block.
+Let's point it out right here.
+So I'm going to go to control.
+And these are the hat blocks.
+They kind of look like a hat if you use your imagination.
+So I'm going to bring this one over here.
+It says, when green flag clicked.
+And you'll note here that by putting that on top,
+because it's sitting on the top of the other blocks,
+I can kick off the sequence simply by clicking on this green flag here.
+So I don't have to click on the set of blocks itself.
+There you go.
+That's a more elegant way to starting a computation or a program.
+And sometimes you actually need it, because you may have multiple sets of blocks,
+and it's not clear to the user or even to yourself which set of blocks starts first.
+So you use the green flag as click block to identify the point of entry into your program.
+To return to our literary metaphor,
+these hat blocks signal start reading on this page and then go from there.
+OK, we've covered a number of concepts and techniques in this video.
+We learned how to draw a circle in two different ways.
+We gained insight into the D-R-Y principle.
+And I introduced the concept of flow of control and control structures,
+along with two kinds of control blocks, C-shaped blocks and hat blocks.
+So that's enough for a single video.
+In our next video, we'll put these techniques to use
+by writing a program to create a pointillist painting a la Georges Seurat.
+So look forward to seeing you next time.
+Thanks for joining me.
+</p>
+  
+
+    <h2>5. custom-blocks</h2>
     <p>Hello everyone, and welcome back to our series on programming for a network world.
 Today we're going to talk about custom blocks. Have you ever looked through the palette in
 NetsBlocks and said, hey, I wish there were a block for that, but it doesn't exist in the palette.
@@ -1150,7 +1369,7 @@ I look forward to seeing you in our next session. Bye-bye.
 </p>
   
 
-    <h2>5. distributed-hello-world</h2>
+    <h2>6. distributed-hello-world</h2>
     <p>Hi, everyone.
 Welcome back to Programming for a Network World.
 Today, we're going to begin our exploration of peer-to-peer
@@ -1290,7 +1509,147 @@ So thanks, everybody, and we'll see you in our next video.
 </p>
   
 
-    <h2>6. errors</h2>
+    <h2>7. drawing-with-turtle-graphics</h2>
+    <p>Hi, my name is Cliff Anderson. I'm Associate University Librarian at
+Vanderbilt University and a member of Vanderbilt's Computational Thinking and
+Learning Initiative. And in this second of our series on Nets Blocks, I'm going
+to explore how to draw geometric shapes on the screen. We're going to draw simple
+shapes on the stage using so-called command blocks. You're going to learn
+about turtle graphics, a novel idea for teaching kids and the young at heart how
+to program. And you're also going to learn about the concept of state and
+side effects, which we're going to explore in greater depth as we go along.
+So, ready to try out your digital drawing techniques? Let's get started.
+So, what are turtle graphics? Today is going to be all about drawing. Drawing simple
+shapes like squares and triangles on the stage. But before we get started, I'd like
+to share a little bit about the way that this graphical approach to computer
+programming developed. The idea is called turtle graphics or turtle geometry.
+Seymour Papert, a computer science educator who spent the majority of his
+career at MIT, developed the concept of turtle graphics in the 1960s. Papert
+aspired to create an environment for computational exploration, for learning
+by doing, so to speak. Inspired by the educational theories of Jean Piaget,
+Papert wanted kids to learn the principles of mathematics, not by
+memorizing a bunch of theorems, but by extrapolating rules from the success or
+failure of experiments they carry out. He termed this theory constructionism, and
+went about creating a software environment to enable those experiments
+in learning. The software language he co-developed is called Logo, and a
+distinguishing feature of Logo is turtle graphics. This is the humble turtle that
+we're talking about. It looks more like an arrowhead than a turtle, but just use
+your imagination. The default sprite in Netsblocks is indeed this abstract
+turtle, but you can also give the sprite any costume you like. If you want, you can
+also make it look like a real turtle. Just come over here and click on this
+right here, and you can see costumes, and sometimes it takes a moment to load.
+We're waiting. We're still waiting. It's almost there.
+Once it loads, you can see here that you've got lots of options to shape your
+particular sprite. If you want, you can turn it into a beetle. You can turn
+it into a butterfly. Lots of different options, but we're going to stick with,
+for now, this so-called simple turtle shape. The turtle moves around the
+stage using a Cartesian plane. The tip of the turtle, when it starts, is pointing to
+0, 0. So when you create a new program in Netsblocks, you'll always start your
+turtle out at 0, 0. Let's try this for ourselves. I'm going to drag this x, y
+block over here, go to x, 0, and y, 0, and then let's try clicking on it and see
+what happens. If I click on the button, I move back a little bit, but then when I
+click again, nothing happened. So why isn't anything happening? Well, when I
+click on the block, the sprite doesn't move because it's already at the center
+of the stage at coordinate 0, 0. But if we change some of the values in the block
+to find the boundaries of the stage, then we'll see that it indeed moves into
+different places. So here, if I change the sprite to x, 180, y, 0, you're going to
+expect it to move along the x-axis to the right. And if we move back to the
+center, we can move, for example, on the y-axis to 180. Oh, it disappeared off the
+side of the screen, but top of the screen, but no worries. Let's bring it back to
+120. There it is. We can go to negative 120. That's going to drop us below, and
+we'll see. If we click on that, there it goes. And of course, you can get to any
+coordinate this way just by putting your x and y values. So you see that whenever
+we enter a coordinate value on this Cartesian plane, the sprite will move to
+that particular place. And using that combination of x and y values, we're able
+to move the sprite all around the stage. But when we're drawing figures, this has
+its limitations. Just moving the sprite around the stage gets old quickly. If we
+want to draw shapes, we don't want to just hop around. That's not really the
+best way to do things. There might be a way to do it, but we'll get to that later.
+What we need is a couple of other blocks to turn these movements into actual line
+drawings. So we're going to select from two categories of blocks in the palette
+to make our movements more productive, namely the motion blocks and the pin
+blocks. So where do I find those? Here's motion. We're already on it. And then
+these green ones are the pin blocks. So the first blocks that we're going to
+bring over are two of the motion blocks, move 10 steps and point in direction.
+Now you notice that point in direction has here a number already in it. And if you
+drop down, you can see that that number, 90 degrees, stands for right. And you can
+see that 180 degrees stands for down, and zero degrees stand for up. So it's sort
+of like the directions in a compass. And if we combine these with the move block,
+then we can start moving the sprite in different directions around the stage
+any number of steps. So let's just start back. Well, I'll put this at 0, 0. I'm
+going to click on that, and it'll go to 0, 0. And then let's take this and say, okay,
+we're going to put that point in direction there. Point in direction 0, so that's
+pointing down. And move, let's say, 50 steps. Try that. And sprite's not moving.
+Do you know why? We're always going back to point 0, 0, so it doesn't look like
+there's any movement. But now we can see that when we disconnect it from going
+back to the beginning, the sprite is moving up. All right, let's draw a square
+with this. These two blocks provide us with what we need to walk a figure like a
+square or a circle. But we want to see some of the product of our sprite's
+voyage around the stage. To trace the sprite's steps, we need a different kind
+of block. And that's, again, under this pin category. So I'm going to bring over
+pin down and pin up. So these two blocks will tell the system to either start
+tracing a line on the stage or to stop tracing a line on the stage. And if we
+use them in conjunction with the move blocks, we can get the turtle to draw a
+figure for us. Let's start simply. We're just going to create a square on the
+center of the stage. So, okay, I'm going to place this sprite at the center of the
+stage. And then I'm going to take these blocks, which I've already got, and I'm
+going to duplicate them four times. You can right-click on it and get these
+duplicates. So I'm just going to do that four times. Here we go. Okay. And now we
+want to start moving the sprite around. Okay. So I'll put the first one up here
+and the second one here. And we want to turn this time to make a square. Let's
+start by turning to the right. And then we're going to move this one and we're
+going to go down. And this one will go to the left. Let's see how that works.
+Well, it did something, but it didn't actually draw anything. So in order to
+see this, I'm going to pull down the stack of blocks. You see how they
+disconnect? And I'm going to put pen down right here. And I'm going to reattach
+them by lifting them up. You see that white line? That indicates that they'll
+snap together when I let go. All right. So when I click this now, you see that I
+get a nice square. I still have this pen up block. And what's the purpose of that?
+Well, the problem is that if we add something else, for example, let's say we
+want to draw a square and then move on to draw another figure, but we didn't
+want the figures to be attached to one another. If I just go ahead and pull over
+another move block, let's say another move 50 here, and I click on the stack
+again, you see that the turtle continued moving and tracing the turtle's steps. To
+prevent that, I can do the same experiment, but this time bring the pen
+up there, and voila. Ah, it didn't make any change. Again, why is that? Well, it just
+traced over itself. So we needed something else here called a clear
+block at the beginning. And voila. Now when we run it, it made the nice square
+and then moved graciously to the side so that we could see the square. So this
+introduces something that we call state. When we make changes using these command
+blocks, these blocks that have these notches that fit together that have the
+square edges, when we use these command blocks, we're changing the state of the
+sprite's little world. That is, our blocks have the effect of altering the
+program's environment. For reasons that we'll get into later, these command
+blocks actually generate what are called side effects, and we're carrying out
+computations by clicking on these command blocks, and those computations
+create side effects that become visible on the stage. In Net's blocks, these
+changes persist unless we close and reopen our project. So after clicking on
+a stack of command blocks, we have to remember where we left the state of the
+world. If we forget, for example, to put pen up at the end of drawing, then
+whenever we move next, the pen will be in the state of being down, and lines will
+appear on the stage. So it's a little bit like when you start a project on your
+desk, and you take out all your notebooks and pens and paper, and then you finish
+your project. Ideally you want to put all that back so that when you start the
+next project, you won't have that mess and clutter in front of you. The same
+thing applies to programming languages. You want to be aware of the state so
+that when you start your next series of computations, something you did in the
+previous series of computations doesn't mess up your environment and produce an
+unwanted side effect. Okay, let me wrap up then. We covered a lot in this video. We
+learned about turtle graphics, we saw how a sprite moves across a coordinate plane,
+and we learned how to draw a square. We also learned something about the concept
+of state and side effects. So given what you've learned now, can you write a
+program that draws a triangle on the stage? Or if that seems too easy to you,
+how about a polygon? Try drawing some different figures, and next time we're
+going to see how to create a circle. But the challenge with making a circle is we
+want to do it without having to reproduce so many command blocks, because
+as easy as they are to create, it gets tiresome to have these big series of
+blocks. Next time we're going to learn how to shorten those stacks of blocks by
+using control structures to keep it simpler and more compact. But that's
+enough for today. Thanks for joining me, and see you next time. Goodbye.
+</p>
+  
+
+    <h2>8. errors</h2>
     <p>Hi everyone, welcome back to Programming for a Networked World.
 Today we're going to be talking about errors.
 Now, if you've seen these videos, you know that I've made my fair share of errors
@@ -1583,7 +1942,99 @@ We'll cover more topics in next blocks in our next video and see you then.
 </p>
   
 
-    <h2>7. grader</h2>
+    <h2>9. events</h2>
+    <p>Hello, everyone. Welcome back to our series on programming for a networked world.
+Today, we're going to be talking about events.
+So, events take place in the world all around us,
+and we oftentimes have to respond to those events in appropriate ways.
+For example, if someone's walking down the street and calls out,
+Hey, Cliff!
+Then my response should be,
+Hey, how are you?
+If I just walk on by and I don't respond,
+that's also a type of event, but not a very friendly one.
+So, when events occur,
+our computer code also needs to respond to the user in such appropriate ways.
+That means, as programmers,
+we have to respond to those events by capturing them
+and then setting a setup box up to respond to them appropriately.
+We're going to learn how to do that in this video.
+So, ready to trap events and respond to them appropriately?
+Let's get started.
+Okay, today our plan is actually very simple.
+We're going to make a program that draws on the screen when we hold our mouse down.
+To do that, we need to be able to capture the mouse down event.
+So, I'm going to go over here to Control,
+and then I'm going to pull over this hat block that has a space for a Boolean,
+and there is a built-in mouse down detector
+that will return a Boolean whenever the mouse is down or up.
+And so, if the mouse is down, then this hat block will execute.
+So, we just need to then put in code to respond to the event of the mouse being down.
+Since we want to draw, let's put in code to draw on the screen.
+So, we'll put in firstPinDown.
+And now, I think we should also switch our costume,
+so Ada will become a turtle again. It's easier to draw with.
+And then we want to have the mouse go to the location on the screen where our pointer currently is.
+And so, for that, we're going to go to x, y,
+but we have to sense where the x and y are of our mouse.
+So, it'll be mouseX and mouseY.
+Now, you notice that the line disappeared on the screen here, and why is that?
+Well, because my event is already wired up.
+So, when I let go of the mouse, or when I clicked on it,
+it went off to the side somewhere on the stage,
+went off the stage onto the side of the screen where you can't see it.
+So, we'll have to handle that in a moment.
+But for now, let's just finish up this event,
+and then when the event is over, we want to put the pin up, like this,
+and now we've got a tool to help us draw on the screen.
+You can see here that we can start drawing lines using this event,
+just by capturing our mouse down button.
+But as I said, we probably want to make it a little bit easier for people to get started,
+so we can also capture the event of the when green flag is clicked.
+And we've actually already seen this in other of our programs,
+we just haven't called it out as an event.
+So, let me bring when green flag clicked is over,
+and now we put in some starter code that helps us to get a line properly for our drawings.
+So, we should probably put in under pin that will clear the stage,
+and we'll set the pin color to red, say,
+and we'll set the pin size to make it a little bit bigger,
+so that it's a little bit more striking.
+There we go, that's three, that's good.
+And we also might want to just start right at the beginning of the,
+right in the center of the stage,
+so that we don't start awkwardly off to the side by having to click on when mouse is down.
+So now you can see, when we do that, we start at the center of the stage,
+and I can draw, oh, that's not a very good triangle.
+Maybe we should add another event that allows me to erase what I've done so far,
+and then start over again without having to click on the green flag.
+Because if I do that, you'll see that there's a line that goes up,
+and then disappears when I go off the screen,
+because it's trapping my event of clicking on the green flag.
+So maybe we should add one more event that responds to a click of the space key.
+Now you notice in this particular hat block,
+we can drop down and see that it can respond to any key.
+The space key is just a convenient one, because it's big and easy to locate.
+So now, when we hit the space key, what we're going to do is we're going to clear,
+and then we'll go back to the centers.
+So let's do that, too, like this.
+Okay, ready to try it?
+So we hit the green flag.
+Let's say I draw something like that.
+I'm not really happy with that triangle,
+so rather than going up in here and clicking again,
+I'm just going to hit the space key, and there I can do that again.
+So that's a quick introduction to events,
+but you can combine events with something called messages
+to create much more complex effects in your program.
+So in our next video, we'll go deeper with events,
+and we'll also introduce the concept of messaging.
+But for now, you've learned how to trap events,
+and then add blocks to handle them when they occur.
+All right, so I'll see you in our next video.
+</p>
+  
+
+    <h2>10. grader</h2>
     <p>Hello everyone, Brian here. So today I'm going to show you how we can get started doing the assignments for our course.
 So first of all, we're going to click the link that we can find in the assignment description, and it'll pull up Netsbox as shown here.
 Now this might look like your standard Netsbox setup, except you might notice if you look in the top center, a little bit off to the right, we have this extensions button.
@@ -1621,7 +2072,7 @@ Awesome. See you in the next video.
 </p>
   
 
-    <h2>8. language-games</h2>
+    <h2>11. language-games</h2>
     <p>Hi, welcome back everyone to Programming for a Network World. Today we're going to
 wrap up our sessions on textual analysis in Netsbox and we're going to do
 something fun. I don't know if you've seen the channel Translation Fails. I
@@ -1867,7 +2318,7 @@ very much for watching and we will see you in our next unit
 </p>
   
 
-    <h2>9. language-id-part-one</h2>
+    <h2>12. language-id-part-one</h2>
     <p>Hi, everyone.
 Welcome back to Programming for a Networked World.
 Today, we're going to continue our exploration
@@ -2379,7 +2830,7 @@ and talk to you again soon.
 </p>
   
 
-    <h2>10. language-id-part-two</h2>
+    <h2>13. language-id-part-two</h2>
     <p>Hi, everyone.
 Welcome back to Programming for a Networked World.
 Today, we're continuing our exploration
@@ -2767,7 +3218,399 @@ and I look forward to seeing you in my next video.
 </p>
   
 
-    <h2>11. map-keep-combine</h2>
+    <h2>14. lets-make-splatter-art</h2>
+    <p>Hi everybody, welcome back. My name is Cliff Anderson, and I'm a librarian at Vanderbilt University.
+This time around, we're going to use NetsBlocks to draw a painting.
+We're going to create circles of various sizes on the stage,
+trying to achieve something that resembles a work of contemporary art.
+Along the way, I'm going to introduce you to the concept of variables,
+which allow you to label and then to make use of data more efficiently in your programs.
+We're going to also learn a few tips and tricks of the NetsBlocks environment.
+So, let's summon our inner abstract expressionist and get started.
+Our goal today is to create a painting composed of many circles.
+The history of making images with tiny dots goes back a long way,
+stretching all the way back to the post-impressionist painters like Georges Seurat.
+Seurat developed a technique called pointillism
+to represent scenes by combining colored circles of paint on a canvas.
+As you likely know, the fundamental element in computer graphics is called a pixel.
+A pixel is a single dot on your computer screen.
+Computers create graphical images by relating pixels on a two-dimensional matrix.
+The more pixels you have at your disposal, the better the resolution of your image.
+If your pixels become dense enough on the screen,
+you can no longer make them out and the pixels effectively disappear from view.
+That's what computer manufacturers mean when they talk about so-called retina devices.
+To be clear, we're not going to create an image working directly with pixels this time around.
+There are ways that you can manipulate pixels in Netsblocks,
+and I'll discuss those in a subsequent video.
+For now, we're going to simulate the experience of drawing with pixels
+by using circles and combining them on the stage to generate a work of art.
+Last time, we explored two different ways of making a circle.
+But why not? Let's simplify by making a circle in yet another way.
+Alright, so what do we need to do?
+Let's start again with our control block here.
+I'm going to bring over this repeat block,
+and I'll change the slot to be 360.
+And then I'm going to take a motion block,
+and we'll take this turn one degree here.
+And then we'll have a move block, and this will make the radius,
+and I'm going to change that to 30.
+Now here's a slight difference from what we did last time.
+I'm going to take the pen, and I'm going to put the pen down right here.
+Then I'm going to take the pen up right there,
+and then I'm going to take another move block right here,
+and then I'm going to put that as negative 30.
+So instead of setting the x and y coordinates explicitly,
+we're just going to say move 30 in one direction,
+and then move 30 back in the other direction,
+but the second time around, as you're moving back,
+don't trace the movement.
+Alright, let's give it a shot, see if it works.
+Here we go.
+Circle.
+It's making a circle.
+So I'm going to let you in on a secret.
+When we go sketching a circle, depending on how we do it,
+we're either creating a 360 degree polygon,
+or we're simply putting up dots that are spaced out
+along the circumference at intervals that are too small for us to see.
+But in neither case are we actually creating a true circle.
+That's an illusion created by the fact that the pixels are so close together
+on the screen that our eyes can't pick up the difference.
+But if we made this circle bigger, we'd notice a difference.
+Let's try expanding the radius of our circle now
+to see how the circumference of our shape changes as it expands.
+Alright, so in that case, I'm going to take this,
+I'm going to set the radius to like 60, let's say,
+and then have to have an equal number back,
+and let's run this.
+Oh, let's clear the screen just so we make sure
+that nothing's going on in the background.
+Whoa!
+The problem is it needs to be negative 60 steps back.
+Okay, so let's clear the screen and run this again,
+and we need to show...
+There we go, let's bring it back right to the center.
+Okay, let's try that again.
+So it still looks like a circle,
+but maybe you can notice it's a little rougher on the edges.
+Let's move that even bigger to like 120,
+and this time negative 120.
+Try that.
+And now I think you can see that you can definitely pick up
+on sort of the fuzziness here as the lines that we're drawing
+have white spaces in between.
+Let's go to even higher resolution here.
+Let's say 200 and then negative 200.
+Okay, so you can see now, I mean, it's a nice effect,
+but it's not drawing a perfect circle.
+You can see now that it has lines going out,
+and in that case, if we want to fill those lines in
+to make it look like a perfect circle,
+we'd actually have to reduce the number of degrees
+that we used to make that circle.
+So we'd have to probably move it to like 0.5 degrees
+and then double this number of 360 to 720.
+Let's see if that works.
+Better, right?
+In any case, it makes a difference as you expand the radius
+how many times you need to mark that outer circumference with dots
+in order to keep the representation of a circle.
+And, in fact, we can move the other direction.
+We can put points down on the circumference
+at intervals of 2 degrees
+and still achieve the smooth effect that we want
+as long as we keep the radius of the circle relatively small.
+So let's try this in the other direction now.
+I'm going to say let's move 180 times around,
+but this time we're going to move with 2 degrees each time.
+And I will make this, let's say, 30 and negative 30.
+Take a look.
+And you can see that the circle looks just like a circle.
+So what's the advantage of doing it that way?
+Well, the advantage of that technique
+is that our program will execute faster
+if we require fewer computational steps to create circles.
+It's kind of fun to see the turtle busily drawing the circumference
+when you're only creating one circle,
+but it gets to be a drag when you're creating many circles,
+as we hope to do.
+So by reducing the number of computational steps,
+we speed up the drawing of the circle.
+In this case, we can effectively cut the time in half.
+Here are a couple other tricks and tips
+to make your computations cleaner and faster.
+Sometimes you want to hide the turtle
+rather than show that busy little sprite at work.
+If that's the case, you can drag over this hide block.
+Take a look over here, and you can see under Looks,
+there is a hide block right here.
+And if I put that at the top, here's the turtle right now.
+If I click it, the turtle disappears,
+but the drawing still appears.
+The sprite is still at its coordinate position,
+but it's no longer visible.
+If you want to see the sprite again,
+click the corresponding show block.
+Right here, put this at the end,
+and if we click it now,
+I'll just pull it off so we don't run it again,
+you can see that the sprite reappeared to view.
+Another nice trick is to use Turbo Mode
+to speed up your computations.
+Turbo Mode allows NetZblocks to take shortcuts
+when updating the stage.
+You can see that turning it on
+makes a huge difference when drawing shapes.
+When it's on, the green flag becomes a lightning bolt.
+And just look at the difference.
+Here, and I'm going to take,
+it's right down here, let's see, Turbo Mode, there it is.
+I'm going to click on it,
+and let's just, there's the lightning bolt,
+and let's try it out.
+Well, did it do anything? It did.
+Let's move it over here, we can see.
+It just does it instantaneously.
+Much faster.
+Okay, so let's begin developing our program.
+We're going to draw circles of various random shapes,
+sizes, and colors on the screen.
+There's a block in the palette under Operators
+that allows us to generate random numbers.
+We can use that block to set the high and low end
+of the random numbers using the input slots
+that the block provides.
+So we'll take a look over here, and we say,
+pick random from 1 to 10,
+and so I can set this to anything I like.
+Let's just do this right now from, you know,
+I guess, let's say from 10 to 30.
+And you see when I click on it,
+each time it's going to give me a different random number
+that's within that range.
+Here is where we're going to need to introduce
+the concept of a variable.
+A variable is basically a label that we create for a value.
+It's like an alias or a codename for a value.
+When we create a variable, we can use it
+to refer back to that computation
+or any computation that produces a value.
+That's actually kind of a deep point
+that we're going to come back to later.
+For now, what a variable allows us to do
+is to store a value, and if we want to,
+to update that value as our code runs along.
+So in this following example,
+we're going to use a variable to store
+the radius of the circle.
+By making the variable bigger or smaller,
+we'll be able to control the circle size
+and make different size circles on the screen.
+The reason I need a variable is
+I want it to be the same for moving the pen
+this number of steps forward
+and then this number of steps back
+to control the radius size.
+So I have to use the same random number each time.
+I don't want that to change as the loop goes around.
+So in that case, what I'm going to do
+is I will create our first variable.
+So I'm going to go over here,
+and I'm going to click on Make a Variable.
+In this case, what we want to do is create a radius variable.
+I'm going to call it radius.
+You can call it anything you like,
+but it's typical to call it something that's meaningful.
+So radius.
+And now,
+let's go over here to
+set it.
+And you'll see that radius appears as a variable.
+It's got a checkbox here,
+which means that it shows up on our stage.
+We don't really want it to show up on the stage,
+so I'm going to unclick that checkbox,
+and you see it disappears.
+But when I drop down here,
+it shows that there is a variable called radius
+that we can assign.
+And I'm going to assign it to this random number.
+So, now,
+when I bring this in here,
+I can say, set the radius to a random size
+between 10 and 30.
+Now, the trick is I need to use it here
+because these two numbers have to be the same.
+So what can I do?
+Well, I can grab radius off the side here,
+and I'm going to move it into that slot.
+So now it's going to be Move Radius Steps,
+which will be the value of the outcome
+of the random number generator
+that we've put inside of the block.
+Now, to go the opposite way,
+we'll have to do a little bit of math,
+and we're just going to take an operator here,
+and we're going to multiply that by negative 1.
+So you can see here,
+put a negative 1,
+and then I'm going to carry that same variable over,
+radius,
+and there you go.
+So we're going to Move Radius Steps,
+negative 1 times radius steps,
+which will be the inverse
+of the number of steps that we moved,
+without changing that number
+until we've done our full loop.
+All right, ready to see it go?
+Let's move this off here,
+put it back here so we can see,
+and let's run.
+OK, there's one size, there's another, there's another.
+You can see that each time I click it,
+I'm getting a different size circle.
+And we can make it bigger,
+just to get that sense of what's happening.
+There we go.
+Sometimes when you get up to 60, though,
+you can see the quasi-pixelation that's taking place.
+So we don't really want to go that high in our drawing.
+Let's stay with 30 as our highest number.
+To create the illusion of painting,
+we also want to assign
+the location of the circle
+close to the previous circle.
+This will help us to maintain
+that kind of flow that you get in a painting,
+which does make it look like it was
+seamlessly coming out of someone's paintbrush.
+What we're going to do
+is bring over a motion block,
+and we're going to say here,
+move 10 steps, let's say,
+and
+we'll also
+maybe just put it off at an angle.
+So we don't want to just say
+10 steps or 15 degrees every time,
+that would be a little bit boring.
+What we want to do then is
+pick a random number again.
+So some number
+between, let's say,
+5 and 5 degrees
+we'll turn, so that'll be turning
+left or right, and
+let's move
+again some random number
+between 1 and 10.
+Now, in order to have more
+than one circle appear on the screen,
+we need yet another control block.
+Let's go over to our controls and bring this down,
+and
+let's take a look at what we want.
+The one that I suggest we use,
+if I can find it here, is
+the forever block. This basically means
+just continue doing this loop forever
+until we hit that red stop button.
+So I'm going to take that
+and let's move
+all this inside here.
+So now you can see we have two control structures,
+one encompassing the other,
+and we're going to put that hide and clear on the top,
+and
+let's see what happens.
+Oh, it went right off the screen.
+OK. That's because
+we need one more piece here.
+We need a block to tell it if it hits
+the side of the screen to
+bounce back towards the middle, and fortunately
+there is a block that does exactly that
+under motion. It's
+if on edge, bounce.
+So we're going to take that and put it right under our move, and that should
+help us to prevent that from happening
+again, and let's right click
+on this and show
+our turtle. We'll put it right back here,
+and we're going to give it another shot.
+And you can see now
+that it's moving around.
+Let's change our radius to
+between 1 and 20, just
+to get a little bit more of a fine detail
+on the points that we're putting on.
+There, it's
+beginning to look a little bit
+more like an artist's brush,
+but we can actually make it
+even smaller, and I think that would increase
+the detail. Let's go to
+between 1 and 10.
+All right.
+Now that's beginning to look like something,
+right? The last piece of detail
+that we want here is we don't want to just
+paint with the same color. We want to
+be able to change colors as we go along.
+So in order to do that,
+let's go over here to
+pen, and we can see that we have
+change color
+by
+10,
+and let's take that down here.
+And again, we don't necessarily want
+to change it by 10 every
+time. We might want to just
+change it by a little bit
+on one direction or the other
+of the scale. So, okay,
+we're going to go over and grab that random again,
+which is under operator. Let's put random
+in here,
+and let's change it by
+negative 1 and 1. Just kind of, every time
+we go through, we'll just subtly change it,
+which should give, again, that illusion of continuity.
+Try it again.
+And now, it's beginning to look like
+a proper splatter painting,
+some kind of abstract expressionist.
+Well, I did promise you that
+we would do some painting.
+In the end, I think our painting looks a little bit
+more like Lee Krasner
+than George Seurat, but
+it's actually quite a nice effect, don't you think?
+So, if only we could get Alonzo
+to sign it for us, perhaps we could go
+in the market and sell it.
+Wow, we covered a lot of ground once again
+in this video. We built our most complicated
+program so far, combining
+two control blocks, the forever block
+and the repeat block, along with
+random blocks. We learned how
+to create variables to store and to update
+values, and we also picked up a few
+tips and tricks of the NetsBlock
+environment to speed up our computations
+and to make them look more attractive.
+And then we made some art in the process.
+So, that's a wrap for this video.
+Thanks for watching, and look forward
+to having you with me next time.
+Bye!
+</p>
+  
+
+    <h2>15. map-keep-combine</h2>
     <p>Hi everyone. Welcome back to Programming for a Networked World.
 Today, we're going to talk about another way of processing lists.
 Sometimes you come across very long lists,
@@ -2888,7 +3731,7 @@ and I'll see you in the next video.
 </p>
   
 
-    <h2>12. mapping</h2>
+    <h2>16. mapping</h2>
     <p>Hi.
 Welcome back to Programming for Network World.
 Today's topic is mapping.
@@ -3122,7 +3965,7 @@ And I'll see you in the next video.
 </p>
   
 
-    <h2>13. message-passing</h2>
+    <h2>17. message-passing</h2>
     <p>Welcome back to Programming for a Network World. Today, we're going to be
 building a texting application. We're going to be learning about something
 called message passing in Netsblocks, and our goal today is to send a text message
@@ -3304,7 +4147,7 @@ look forward to seeing you next time.
 </p>
   
 
-    <h2>14. movie-lists</h2>
+    <h2>18. movie-lists</h2>
     <p>Hi everyone, welcome back to our series on programming for a networked world.
 In this video, we're going to the movies. Well, to the movie database at least. Our project is
 going to query this online database to find films with particular words in the titles.
@@ -3425,7 +4268,7 @@ and I'll see you in my next video.
 </p>
   
 
-    <h2>15. ner-for-people</h2>
+    <h2>19. ner-for-people</h2>
     <p>Hi, everyone.
 Welcome back to Programming for a Networked World.
 In today's session, we're going to continue
@@ -3787,7 +4630,7 @@ Bye bye.
 </p>
   
 
-    <h2>16. recursion</h2>
+    <h2>20. recursion</h2>
     <p>All right.
 Welcome back, everyone, to Programming for a Network
 World.
@@ -4052,7 +4895,7 @@ And I will see you in our next video.
 </p>
   
 
-    <h2>17. running-dog</h2>
+    <h2>21. running-dog</h2>
     <p>Welcome back, everyone, to Programming for a Network
 World.
 Today, we're going to be continuing
@@ -4362,7 +5205,7 @@ And we look forward to seeing you in our next video.
 </p>
   
 
-    <h2>18. scrolling-map</h2>
+    <h2>22. scrolling-map</h2>
     <p>Hi, everyone.
 Welcome back to Programming for a Networked World.
 In today's episode, we're going to be continuing
@@ -4795,7 +5638,7 @@ And look forward to seeing you then.
 </p>
   
 
-    <h2>19. shared-whiteboard</h2>
+    <h2>23. shared-whiteboard</h2>
     <p>Hi, everyone.
 Welcome back to Programming for a Networked World.
 We're going to continue our exploration of networking
@@ -5288,7 +6131,7 @@ And we'll see you in our next video.
 </p>
   
 
-    <h2>20. simple-lists</h2>
+    <h2>24. simple-lists</h2>
     <p>Hi everyone. Welcome back to our series on programming for a networked world.
 Today we're talking about lists. We all have experience making lists.
 Every day I add items to my list of things to do.
@@ -5402,7 +6245,7 @@ to that to-do list. Thanks very much, and see you next time.
 </p>
   
 
-    <h2>21. structured-data</h2>
+    <h2>25. structured-data</h2>
     <p>Hi everyone. Welcome back to Programming for a Network World. Today we're going to
 be talking about a way to make it easier to work with lists. So sometimes you get
 really long lists of lists and they become difficult to manage. You're saying
@@ -5506,7 +6349,246 @@ video.
 </p>
   
 
-    <h2>22. twitter-filter</h2>
+    <h2>26. tackling-conditionals-with-fizzbuzz</h2>
+    <p>Hi everybody, my name is Cliff Anderson, and I'm a librarian at Vanderbilt University.
+Welcome back to this introductory series on NetsBlocks.
+Today we're going to tackle one of the hardest problems in computer science, FizzBuzz.
+Just kidding, it's actually not that difficult.
+FizzBuzz is a children's game that requires you to evaluate and respond to changing conditions.
+Back in 2007, the developer and venture capitalist Imran Ghori wrote a blog post
+arguing that FizzBuzz makes a good interview question for computer programmers
+because so many find it difficult to solve.
+In this video, we're going to solve FizzBuzz in NetsBlocks using conditional logic,
+that is, the logic of if-then-else expressions.
+By the end of the video, you're going to be branching like a pro.
+Let's start by discussing the rules for FizzBuzz.
+The game goes like this. We start counting up from 1.
+If the number is divisible by 3, then we say Fizz rather than the number.
+If the number is divisible by 5, then we say Buzz rather than the number.
+If the number is divisible by both 3 and 5, then we say FizzBuzz rather than the number.
+If none of those conditions apply, then we just say the number itself.
+Got it?
+Let's practice with Alonzo.
+So, 1, 2, Fizz.
+4, Buzz, Fizz.
+7, 8, Fizz, Buzz.
+11, Fizz.
+13, 14, FizzBuzz.
+If you paid close attention to the way I explained the instructions,
+then you heard several conditionals.
+Conditionals take the form of, if such and such is the case, then do something else.
+For instance, if 6 is divisible without remainder by 3, then say the word Fizz.
+How do we express that kind of a conditional statement in code?
+Well, the first part asks a true or false question.
+Is 6 divisible by 3 without remainder?
+So, from our last video, we know that asking true-false questions requires the use of Booleans.
+To convert this question into Boolean logic, we need to find the right math operators to formulate the equation.
+Is the remainder of 6 divided by 3 equal to 0?
+The easiest way to pose this question is to use the modulus, or mod operator.
+So, I'm going to bring the mod operator over here from operations.
+Okay, and let's take 6 here, and 3.
+Oops, I keep clicking on it, it says not a number.
+But there we go, 6 mod 3.
+The answer should be 0, because 6 divided by 3 is 2 with a remainder of 0.
+However, if we divide it by 4, then 6 mod 4 will produce 2, because you can divide 6 by 4 once with 2 as a remainder.
+Now that we understand how the mod operator works, let's create a Boolean expression to capture the truth or falsity of our particular condition.
+We need to plug this operator into an equation that returns true if the modulus of our operation is 0,
+and false if the modulus of our operation is any other number.
+So how do we do that?
+We're going to bring over a Boolean operator, and we're going to take this particular expression and put it on the left side,
+and the right side we're going to put 0.
+And now we can ask, is 6 mod 4 equal to 0?
+Well, we know that it isn't, because it produces a 2 on the left side, and 2 is not equal to 0.
+So, indeed, it's false.
+But if we change this to a 3, 6 mod 3 evaluates to 0, and 0 is equal to 0, so it's going to return true.
+Okay, we've set up our Boolean expression to use in our conditional tests.
+Now we just need to formulate those tests themselves.
+Nextblocks offers a couple different blocks to evaluate conditional expressions.
+Today we're going to use both the if block and the if-else block.
+But let's start with the if block and come back to if-else when we discover our need for it.
+So the if block is here under control.
+Let's go over here, and let's go down to if.
+There it is.
+So I can grab this if block, and I can take this expression, and I can put it into this slot here.
+So now we've formulated a Boolean test.
+If this test is true, then whatever's inside of this C-shaped slot will execute,
+and if it's false, then it won't.
+So let's create if blocks to test for our three conditions.
+That is, 3, 5, and divisible by 3 and 5 together.
+Okay, so we've got divisible by 3 right here, so let's just duplicate that.
+And we're going to make this one, is it divisible by 5?
+In the third case, what we need to test for is whether the number is divisible by both 3 and 5.
+That is to say, it needs to pass both those tests.
+And because we have to test two things, we need an and block, as we learned last time.
+As you remember, when we use an and block, we test to see if both the left side and the right side evaluate to true.
+If both evaluate to true, then the and block evaluates to true.
+If one side or the other or both are false, then the and block evaluates to false.
+So let's duplicate these two tests.
+I'm going to duplicate this one here and move it onto one side.
+And I'm going to duplicate this test right here.
+And I'm going to move it to the other side.
+And so now we've got a test for is it divisible by 3 and divisible by 5.
+The thing is, we need a variable again, because we want to test not just specific numbers,
+but every number in our sequence.
+Do you remember how we created a variable when we were making splatter art?
+Let's go ahead again and create a public variable and plug it into each of these Boolean expressions in our conditionals.
+So again, to create a variable, we'll go over to the variable palette.
+We're going to click on create a variable.
+And now let's call it, we can call it anything we want, but let's just call it something that makes sense.
+We're going to call it count.
+So I'll click OK.
+And there is a variable count.
+And instead of the number 6, we're just going to put it in its place.
+So we're going to say, is 6 mod 3 equal to 0?
+Is, sorry, we're going to say, is count mod 3 equal to 0?
+Or is count mod 5 equal to 0?
+And in this last case, is count mod 3 and count mod 5, are they both equal to 0?
+The other thing that we need to do is to assign that variable some initial value.
+So let's go ahead and do that as well.
+I'm going to take this set block out and we'll say set.
+And we drop down to count.
+And let's just make it initially set to 1.
+So we can test it now by looking at this particular Boolean expression.
+We know that 1 mod 3 does not equal 0.
+And that 1 mod 5 does not equal 0.
+So we then know that the left and the right inputs to this operator are both false.
+And therefore the operator as a whole is also false.
+So let's take a condition and put that in here for the if.
+And drop it in there.
+OK, so we've got our three conditions set up.
+But what should happen if one of the expressions in these particular conditionals evaluates to true?
+Well, that's up to us, of course.
+We can put any code we like.
+But why don't we have Alonzo say fizz, buzz, or fizzbuzz as appropriate.
+Do you remember how we put words into Alonzo's mouth?
+Let's go back and find that block again under the looks palette.
+So the say block is here under looks.
+And let's just grab this right here.
+So we'll say say for 2 seconds.
+And then say for 2 seconds.
+And say for 2 seconds here.
+But we don't want Alonzo just to say hello.
+We need to fill this in with the content that we want.
+So if the number is divisible by 3, Alonzo should say fizz.
+If the number is divisible by 5, then Alonzo should say buzz.
+And if the number is divisible by both 3 and divisible by 5 without remainder,
+then Alonzo should say fizzbuzz.
+Shall we test this out?
+Let's take this number and we'll set it to 3.
+In that case, 3 mod 3 does equal 0.
+So Alonzo should say fizz.
+And there you go.
+But that number is not divisible by 5.
+So in this case, when we click on it, Alonzo shouldn't say anything.
+And there you go.
+Let's put everything together now.
+We just have to pull over a repeat block onto the scripting area
+and put these conditions inside.
+The repeat block will allow us to control how many numbers we want to evaluate in our sequence.
+But we also have to make sure that we increment our variable as we move along
+so that the numbers that Alonzo reports are the right ones.
+Fortunately, there's also a block for that.
+Over here, under variables, you can see that there is a block.
+Let's take a look at it right here, called change by 1.
+So that will increment our count variable every time we go through.
+Now we're going to create the loop by going over to control and grabbing this repeat.
+And so let's put these things together.
+We're running out of space here, but that's okay.
+We'll get things sorted out.
+So let's put the 3 condition up here.
+And then we'll put the 5 condition underneath it.
+And then let's put the condition here that we want.
+We're going to change the variable here by 1 every time we go through a loop.
+And we want to change this loop to 15.
+And we want to start with the number 1.
+Now the one other thing that we need is, this is only going to say fizzbuzz fizzbuzz.
+We need to actually have something for Alonzo to say, let's see here,
+when none of those conditions apply.
+So in this case, we're just going to have Alonzo say our number.
+I'll bring that over here.
+And there we go.
+Ready to try it out?
+Okay, let's give it a shot.
+So I'll click here.
+1, 2, fizz, 3.
+Wait, wait, Alonzo shouldn't say 3.
+4, buzz, that's right.
+5, wait, that should have been masked by buzz.
+So something's not working.
+What went wrong?
+The if blocks all responded as we expected to the inputs.
+So we got fizz, buzz, fizzbuzz in our numbers.
+The problem is that Alonzo said more than we wanted.
+As it happens, our logic requires our branches to be exclusive.
+Not just if then, but if then or if not, then something else.
+To capture this kind of logic in a conditional, we need an if-then-else block.
+The if-then-else block is like an if block,
+but it makes explicit what to do in the cases
+when the Boolean expression it contains evaluates to false.
+So let's reorder our sequence of blocks using if-then-else control blocks.
+And we'll see if we can get the logic right this time.
+So let's create a little bit more space for ourselves here
+just by pulling the stage over.
+And I'm going to pull out these particular conditions.
+And I'm going to pull out this variable incrementing logic down here.
+Well, this is actually that logic,
+and this is the say block that says the number.
+All right, so let's take a if-then-else.
+I'm going to bring this over here.
+And now we need to think about the logic.
+We want to start from the narrowest case.
+And the narrowest case is actually when a number is divisible
+without remainder by both 3 and 5.
+So let's start with that one.
+That's this particular case right here.
+So that'll be the first one.
+And if that happens, then we want to say fizzbuzz.
+If that doesn't happen, let's go to our next case.
+And our next case is going to be
+if it's divisible without remainder by either 3 or 5, it doesn't matter.
+So we'll do 5.
+Then we're going to say buzz.
+And if it's divisible without remainder by 3,
+then we're going to say fizz.
+And now if none of those tests apply,
+this is when we want to say the number itself.
+So if all those tests turned out to be false,
+then the last thing we do is say, well,
+then in that case, the else is going to be, say, the number itself.
+And then we need to put in this particular bit of logic
+to increment the variable each time, and we can try it again.
+I'll throw these off the stage so we don't confuse ourselves here,
+or the scripting area, I should say.
+There we go.
+And drumroll, please.
+And click.
+1, 2, fizz, 4, buzz, fizz, 7, 8, fizz, buzz, 11, fizz, 14, fizz, buzz.
+I missed one. Oh, too much dramatic emphasis.
+It works.
+Anyway, hooray for Alonzo, and hooray for you,
+since you can now pass that programming test.
+The larger lesson here is that the order of blocks
+and the order of those conditions makes a difference.
+If you want to model complex conditions,
+you need to pay careful attention to the flow of the logic.
+Don't worry if you get it wrong.
+We all make those kind of mistakes.
+If you find that your logic has gone awry,
+try walking through the branches
+and see what cases you've neglected to cover.
+As a final note,
+do you notice that our variable winds up reading 16 at the end?
+That's okay, because we're not planning to use it for anything else.
+But it's still a little untidy to leave the variable sitting around.
+Next time, we're going to learn how to use a for loop
+to eliminate the need for a separate count variable.
+But that's definitely enough for today.
+Congratulations on doing fizzbuzz.
+I hope you're well on your way, and I'll see you in our next video.
+</p>
+  
+
+    <h2>27. twitter-filter</h2>
     <p>Welcome back, everyone, to Programming for a Network
 World.
 We're going to be continuing our exploration
@@ -6043,7 +7125,7 @@ I look forward to seeing you in our next video.
 </p>
   
 
-    <h2>23. two-dimensional-lists</h2>
+    <h2>28. two-dimensional-lists</h2>
     <p>Hi everyone, welcome back to our series on programming for a networked world.
 In this video, we are covering two-dimensional lists.
 The term two-dimensional list is a formal way of talking about a very common data structure
@@ -6221,7 +7303,7 @@ See you in the next video.
 </p>
   
 
-    <h2>24. variable-scope</h2>
+    <h2>29. variable-scope</h2>
     <p>Hi everyone. Welcome back to our series on programming for a networked world.
 Today's topic is variable scope. What is scope?
 We use the term scope in ordinary language to talk about what is relevant to an undertaking
@@ -6469,7 +7551,7 @@ I look forward to seeing you again in our next video.
 </p>
   
 
-    <h2>25. weather</h2>
+    <h2>30. weather</h2>
     <p>Hi, everyone.
 Welcome back to Programming for a Network World.
 Today, we're going to continue our exercise with mapping.
@@ -6765,7 +7847,7 @@ So I look forward to seeing you in our next video.
 </p>
   
 
-    <h2>26. welcome-to-NetsBlox</h2>
+    <h2>31. welcome-to-NetsBlox</h2>
     <p>Hi everybody, my name is Cliff Anderson. I'm a librarian at Vanderbilt University
 and a member of Vanderbilt's Computational Thinking and Learning Initiative.
 This short video is a preface to my introduction to programming with Netsblocks.
@@ -6802,7 +7884,92 @@ Check out the next video in this series and let's get started together.
 </p>
   
 
-    <h2>27. what-is-blocked-based-programming</h2>
+    <h2>32. what-are-boolean-values</h2>
+    <p>Hi, welcome back. My name is Cliff Anderson. Today we're going to be learning about truth and falsity.
+Some claims are true, like 1 plus 1 equals 2. Other claims are false, like 1 is greater than 2.
+We're going to learn how to compute with true and false values. We're also going to learn to combine
+true and false values using so-called Boolean operators. Is it true that 1 plus 1 equals 2
+and 1 is greater than 2? Stick around to find out.
+The goal today is to learn the basics of programming with true or false values
+using Boolean logic. We need to understand how to evaluate Boolean expressions in order to make
+more effective use of control blocks. I'm going to try to keep this video on the short side,
+as we'll be returning to this subject frequently during the series.
+Let's begin by pulling a true and false block onto the scripting area.
+See, actually I've got it more or less set up, but I'll bring over a false block. There we go.
+And, okay, so I can switch this back and forth to make it true or false. Those are the two options.
+And the one is just the inverse of the other. If you flip the switch, you can make true into false
+and false into true. Now, if you click on one of these blocks, you'll notice
+that you get a little pop-up window that lasts for a moment here until you move your mouse.
+And so it pops up and says false. If I click it to true, it pops up and it says true.
+What's the meaning of that pop-up? Boolean blocks constitute a special type of what is called a
+reporter block in Nets blocks. If command blocks change the state of the world, reporter blocks,
+like the name suggests, report the state of the world. A reporter block provides a peek into your
+program. The block tells you something about the program when you click on it. Or, to put it more
+technically, it reports a value. If we click on a true-false block, it reports its current state
+as either true or false. Very importantly, it doesn't change its value. If you want to change
+the value of a Boolean, you need to use a command block. A reporter block just tells you what its
+current value is. So, let's get back to Boolean values. The basic building block of Boolean logic
+is true or false. But what makes Boolean logic interesting is your ability to combine true or
+false blocks using various operators to create complex expressions. Let's begin with the simplest
+Boolean operator, the not block. As you see, if you place a not true, what do you think it's going
+to be if I click on it? False. And of course, if we say not false, then when we click on it, what do
+you expect? True. So, not true reports false, and not false reports true. How about more complex
+Boolean expressions? This brings us to blocks like or and and. Whereas the not block is a unary
+operator, that is, it takes a single input, or and are binary operators. They take two inputs and
+report a single true or false value. To understand how they work, it's helpful to look at what
+logicians call a truth table. Truth tables represent all possible combinations of input
+and output values for Boolean operators. So, let's consider the and operator. And reports true when
+both input values labeled in our chart A and B are true. If either of the inputs are false,
+then the and operator reports false. It also does when both are false. The or operator
+does more or less the opposite. As long as one of the inputs, or both of the inputs, is true,
+then the or operator reports true. Only if both inputs are false does the operator report false.
+So, for example, with the and operator, I've got true and true. So, if I click on this,
+as we expect, it's going to say true. But if it's true and false, it will say false. And,
+of course, false and false is false. Put that up here and let's take a look at the or.
+So, here we got an or. True or false is going to report true. True and true is also true.
+False or true is true. But false or false is going to be
+false. Okay. So, as I said, there are more complex operators that you can use,
+and you can build them out of these simple operators that I've shown. For example,
+I've created a NAND, or a not-and block. This block reports true if one input is true,
+or both inputs are false. And false if both inputs are true. Okay. So, if that didn't make
+you confused enough, let's just take a look. So, true, not-and, true. If I click on that,
+that's false. False, not-and, true is true. And again, the other way. True, not-and, false.
+NAND, false. True. And if they're both true, then it's false. There's also an XOR, or exclusive
+block. An XOR reports true if one input is true, and the other is false, but reports false
+if both inputs are true, or both inputs are false. So, let's take a look at that one here.
+So, here's the XOR. Okay. So, here's true or false. What do you think it's going to report?
+True. And same thing with false or true. XOR true. True. But if they're both true,
+unlike the normal OR, it will report false. And of course, if they're both false,
+it will also report false. There are other blocks here, like the NOR, and you can make more.
+If you'd like me to explore how I made these additional blocks and NETs blocks,
+let me know in the comments below, and I'd be happy to sort of walk you through creating new
+Boolean logic blocks in NETs blocks. So, let's end this video by answering the question we
+posed at the beginning. There are a couple other Boolean operators that can help us in NETs blocks
+to decide if 1 plus 1 equals 2, and 1 is greater than 2. Okay. So, let's go over to the side here,
+and you can see that I've got three. And I should have said this at the beginning,
+but those pointy edges always indicate that it's a Boolean. So, when you see this here,
+you know that it's a reporter that reports a Boolean. Okay. So, we've got the greater than,
+that's the lesser than, the greater than, and the equals. Okay. Let's try this here.
+So, I can take to represent our first question, 1 plus 1. I'll take that operator here and just
+put it in on one side. And then I'm going to take the number 2 and put it on the other side.
+Okay. And now, does 1 plus 1 equal 2? That is true. So, we've got one part of our question here.
+Is 1 greater than 2? That's false. Now, to relate them together, we just need to use the AND. So,
+now we can snap these two parts together, and we can ask the question that we asked at the beginning.
+Is 1 plus 1 equals 2, and 1 is greater than 2, true or false? And the answer is, as you would
+know, if you read the truth table, it's going to be false. So, we've combined the two comparison
+operations using an AND operator. And what we saw is what we expected to happen. We know that one
+side evaluates to true, and the other side evaluates to false. Remembering our truth table,
+we know that if one side of an AND operator is false and the other side is true,
+then the AND operator will respond or evaluate to a false. So, we've covered the basics of
+Boolean operators, and we're ready to start making more complex decisions in our code.
+Next time, we're going to combine Boolean operators with control blocks
+to create branching logic. We'll tackle a notorious problem in computer science,
+the so-called fizzbuzz problem. That's enough for now. Thanks for watching,
+and see you in the next video.
+</p>
+  
+
+    <h2>33. what-is-block-based-programming</h2>
     <p>Hey everybody, my name is Cliff Anderson, and I'm a librarian at Vanderbilt University.
 I'm also a member of a research group called the Computational Thinking and Learning Initiative.
 In this series, I'm going to introduce you to the fundamentals of programming using a
@@ -6955,7 +8122,7 @@ Thanks for joining me, and see you next time.
 </p>
   
 
-    <h2>28. zip</h2>
+    <h2>34. zip</h2>
     <p>Welcome back to Programming for a Networked World.
 Today we're going to be continuing our exploration of the chart RPC.
 But I'm going to let you in on a little secret.
