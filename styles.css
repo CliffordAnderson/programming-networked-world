@@ -74,3 +74,10 @@ a:hover {
 #searchResults {
   margin-top: 20px;
 }
+
+.edit-order {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 14px;
+}
