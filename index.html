@@ -4,15 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Lesson Transcriptions</title>
+    <style>
+      .highlight {
+        background-color: yellow;
+      }
+    </style>
   </head>
   <body>
     <div style="right: 10px;position: absolute">
       <a href="https://github.com/CliffordAnderson/programming-networked-world/edit/main/order.txt">Click to edit order</a>
     </div>
     <div>
-    	<input type="text" id="searchInput" placeholder="Search keyword..." />
-    	<button id="searchButton">Search</button>
-    	<div id="searchResults"></div>
+      <input type="text" id="searchInput" placeholder="Search keyword..." />
+      <button id="searchButton">Search</button>
+      <div id="searchResults"></div>
     </div>
     
     <h2>1. broadcast</h2>
@@ -8376,12 +8381,31 @@ function searchKeyword(keyword) {
   return searchResultIndices;
 }
 
+function wrapKeywordWithHighlightSpan(keyword) {
+  const bodyHtml = document.body.innerHTML;
+  const highlightSpanStart = '<span class="highlight" id="highlight-';
+  const highlightSpanEnd = '</span>';
+  const regex = new RegExp('('+keyword+')', 'gi');
+  let count = 0;
+
+  document.body.innerHTML = bodyHtml.replace(regex, function(match) {
+    count++;
+    return highlightSpanStart + count + '">' + match + highlightSpanEnd;
+  });
+
+  return count;
+}
+
 document.getElementById('searchButton').addEventListener('click', function () {
   const keyword = document.getElementById('searchInput').value;
-  const results = searchKeyword(keyword);
+  const count = wrapKeywordWithHighlightSpan(keyword);
   const resultContainer = document.getElementById('searchResults');
 
-  resultContainer.innerHTML = 'Found ' + results.length + ' occurrence(s) of "' + keyword + '" at the following index/indices: ' + results.join(', ');
+  let resultHTML = 'Found ' + count + ' occurrence(s) of "' + keyword + '":';
+  for (let i = 1; i <= count; i++) {
+    resultHTML += ' <a href="#highlight-' + i + '">' + i + '</a>';
+  }
+  resultContainer.innerHTML = resultHTML;
 });
 
     </script>
