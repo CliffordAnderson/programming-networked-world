@@ -97,3 +97,10 @@ a:hover {
 .edit-order button:hover {
   background-color: #0056b3;
 }
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
+}
