@@ -28,9 +28,9 @@ const indexHtml = `<!DOCTYPE html>
 			<a href="https://github.com/CliffordAnderson/programming-networked-world/edit/main/order.txt">Click to edit order</a>
 		</div>
 		<div>
-		  <input type="text" id="searchInput" placeholder="Search keyword..." />
-		  <button id="searchButton">Search</button>
-		  <div id="searchResults"></div>
+			<input type="text" id="searchInput" placeholder="Search keyword..." />
+			<button id="searchButton">Search</button>
+			<div id="searchResults"></div>
 		</div>
 		${htmlContents}
 		<script>
@@ -58,13 +58,12 @@ const indexHtml = `<!DOCTYPE html>
 				const results = searchKeyword(keyword);
 				const resultContainer = document.getElementById('searchResults');
 				
-				resultContainer.innerHTML = `Found ${results.length} occurrence(s) of "${keyword}" at the following index/indices: ${results.join(', ')}`;
+				resultContainer.innerHTML = \`Found \${results.length} occurrence(s) of "\${keyword}" at the following index/indices: \${results.join(', ')}\`;
 			});
 		</script>
 	</body>
 </html>
 `;
-
 
 const outFile = path.join(__dirname, 'index.html');
 fs.writeFileSync(outFile, indexHtml);
