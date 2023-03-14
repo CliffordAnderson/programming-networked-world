@@ -78,16 +78,18 @@ const indexHtml = `<!DOCTYPE html>
         <input type="text" id="searchInput" placeholder="Search keyword..." />
         <button id="searchButton">Search</button>
       </div>
-      <div class="edit-order">
-        <button onclick="window.location.href='https://github.com/CliffordAnderson/programming-networked-world/edit/main/order.txt'">Edit order</button>
+      <div class="buttons-container">
+        <div class="edit-order">
+          <button onclick="window.location.href='https://github.com/CliffordAnderson/programming-networked-world/edit/main/order.txt'">Edit order</button>
+        </div>
       </div>
       <div id="searchResults"></div>
-       ${htmlContents}
+      ${htmlContents}
     </div>
     <script>
       ${searchScript}
     </script>
-  </body>
+  </bod
 </html>
 `;
 
