@@ -71,5 +71,37 @@ document.getElementById('searchButton').addEventListener('click', function () {
 });
 `;
 
+const indexHtml = `<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Lesson Transcriptions</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+  <div class="container">
+    <div class="button-row">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search keyword..." />
+        <button id="searchButton">Search</button>
+      </div>
+      <div class="edit-order">
+        <button onclick="window.location.href='https://github.com/CliffordAnderson/programming-networked-world/edit/main/order.txt'">Edit order</button>
+      </div>
+    </div>
+    <div id="searchResults"></div>
+    ${htmlContents}
+  </div>
+  <script>
+    ${searchScript}
+  </script>
+</body>
+</html>
+`;
+
+const outFile = path.join(__dirname, 'index.html');
+fs.write
+
 const outFile = path.join(__dirname, 'index.html');
 fs.writeFileSync(outFile, indexHtml);

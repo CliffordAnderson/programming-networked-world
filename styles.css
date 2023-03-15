@@ -41,15 +41,18 @@ a:hover {
   background-color: yellow;
 }
 
-.search-box {
+.button-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   margin-bottom: 20px;
 }
 
+.search-box,
+.edit-order {
+  margin-right: 1rem;
+}
+
 #searchInput {
-  flex: 1;
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -77,9 +80,6 @@ a:hover {
 }
 
 .edit-order {
-  position: absolute;
-  bottom: -40px;
-  right: 0;
   font-size: 14px;
 }
 
@@ -97,11 +97,4 @@ a:hover {
 
 .edit-order button:hover {
   background-color: #0056b3;
-}
-
-.buttons-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-top: 10px;
 }
