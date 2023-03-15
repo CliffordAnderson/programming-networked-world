@@ -79,7 +79,7 @@ const indexHtml = `<!DOCTYPE html>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Lesson Transcriptions</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css"/>
   </head>
   <body>
   <div class="container">
