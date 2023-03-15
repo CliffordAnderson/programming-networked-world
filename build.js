@@ -102,6 +102,3 @@ const indexHtml = `<!DOCTYPE html>
 
 const outFile = path.join(__dirname, 'index.html');
 fs.write
-
-const outFile = path.join(__dirname, 'index.html');
-fs.writeFileSync(outFile, indexHtml);
