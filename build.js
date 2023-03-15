@@ -41,30 +41,32 @@ function searchKeyword(keyword) {
   return searchResults;
 }
 
-function wrapKeywordWithHighlightSpan(keyword) {
+function wrapKeywordWithHighlightSpan(keyword, searchResults) {
   const highlightSpanStart = '<span class="highlight" id="highlight-';
   const highlightSpanEnd = '</span>';
   const regex = new RegExp('('+keyword+')', 'gi');
-  let count = 0;
 
-  document.querySelectorAll('p').forEach((paragraph) => {
+  searchResults.forEach((result, i) => {
+    const h2 = document.getElementById(result.id);
+    const paragraph = h2.nextElementSibling;
+    let count = 0;
+
     paragraph.innerHTML = paragraph.innerHTML.replace(regex, function(match) {
       count++;
-      return highlightSpanStart + count + '">' + match + highlightSpanEnd;
+      return highlightSpanStart + i + '-' + count + '">' + match + highlightSpanEnd;
     });
   });
-
-  return count;
 }
 
 document.getElementById('searchButton').addEventListener('click', function () {
   const keyword = document.getElementById('searchInput').value;
-  const totalOccurrences = wrapKeywordWithHighlightSpan(keyword);
   const searchResults = searchKeyword(keyword);
-  const resultContainer = document.getElementById('searchResults');
+  wrapKeywordWithHighlightSpan(keyword, searchResults);
 
-  let resultHTML = 'Found ' + totalOccurrences + ' occurrence(s) of "' + keyword + '":';
-  searchResults.forEach((result) => {
+  const resultContainer = document.getElementById('searchResults');
+  let resultHTML = 'Found ' + searchResults.length + ' transcripts with occurrences of "' + keyword + '":';
+
+  searchResults.forEach((result, i) => {
     resultHTML += '<br><a href="#' + result.id + '">' + result.title + '</a> - ' + result.count + ' occurrence(s)';
   });
   resultContainer.innerHTML = resultHTML;
