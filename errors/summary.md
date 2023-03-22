@@ -1,36 +1,15 @@
-Hi everyone, welcome back to Programming for a Networked World. In
-today\'s session, we discussed **debugging** and how to identify and fix
-errors in our programs. We started by creating a simple program in
-NetBlocks that takes two numbers as inputs and returns their
-**quotient** and **remainder** after division. Along the way, we
-introduced some errors to demonstrate the debugging process. We explored
-the use of **visible stepping** and **break points** to help us narrow
-down the source of errors and inspect the state of variables.
+# Errors
 
-We found that our program had a bug related to the use of lists. To
-solve this, we created a **watcher** for our variables and realized that
-one of them should have been initialized as a list instead of an
-integer. Fixing this issue resolved the error. We also discussed
-handling other potential errors, such as dividing by zero and input
-validation to ensure the parameters received are numbers. To handle
-these, we used **if statements** and provided appropriate error messages
-for users.
+Hi everyone, in the upcoming video, we'll be discussing the important topic of *debugging*. We'll create a simple program to perform division and calculate the quotient and remainder. However, we'll intentionally introduce errors into the program and then demonstrate how to use some of the built-in debugging tools in NetBlocks to identify and correct these errors. Get ready to squash some bugs!
 
-In conclusion, debugging is an essential skill in programming, and
-various tools can help you identify and fix errors. There is no single
-way to address errors, and it\'s crucial to think about the inputs your
-program receives and how to handle different scenarios. Thanks for
-joining us today, and we look forward to covering more topics in our
-next video.
+In the video, we'll explore the *visible stepping* tool that allows us to watch the sequence of steps in our program, helping us identify where errors occur. We'll also introduce the concept of a *breakpoint* using the *pause all* block, which pauses the program execution and enables us to inspect the values of variables at a specific point in time. This will be invaluable in identifying and solving issues related to variable types and values.
 
-Top 5 Programming Concepts Discussed:
+Finally, we'll address the potential issues arising from invalid user input and demonstrate how to use conditional statements to prevent errors such as division by zero. We'll also show how to ensure that the input parameters are of the correct type by defining them as numbers. By the end of the video, you'll have a better understanding of debugging and error handling techniques in programming.
+
+## Top 5 programming concepts discussed in this lesson:
 
 1.  Debugging
-
 2.  Visible Stepping
-
 3.  Break Points
-
 4.  Watchers
-
 5.  Input Validation
