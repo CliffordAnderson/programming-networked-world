@@ -684,7 +684,7 @@ time we see them. Okay, today, just to review, you learned about message passing
 
 172
 00:15:17,900 --> 00:15:23,260
-Nest Blocks. We learned how to use a room and to set up roles, and then we learned
+NetsBlox. We learned how to use a room and to set up roles, and then we learned
 
 173
 00:15:23,260 --> 00:15:28,460

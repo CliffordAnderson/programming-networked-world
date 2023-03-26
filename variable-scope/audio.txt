@@ -228,7 +228,7 @@ This can come in handy if you want to keep track of the name,
 for example, of a player or of the high score in a game.
 OK.
 So that's it for today.
-We've learned about four different types of variables in Nest Blocks,
+We've learned about four different types of variables in NetsBlox,
 global variables, sprite variables, script variables, and block variables.
 Which should you use for your project?
 Well, circumstances vary.

@@ -12,7 +12,7 @@ Today, we're going to begin our exploration of peer-to-peer
 
 4
 00:00:06,040 --> 00:00:08,000
-networking in Nest Blocks.
+networking in NetsBlox.
 
 5
 00:00:08,000 --> 00:00:10,960
@@ -20,7 +20,7 @@ In particular, we're going to learn to pass a message
 
 6
 00:00:10,960 --> 00:00:13,960
-from one Nest Blocks program to another.
+from one NetsBlox program to another.
 
 7
 00:00:13,960 --> 00:00:15,620
@@ -56,7 +56,7 @@ to help us get started with some of the core concepts
 
 15
 00:00:34,600 --> 00:00:36,920
-we need to write this program in Nest Blocks.
+we need to write this program in NetsBlox.
 
 16
 00:00:36,920 --> 00:00:38,320
@@ -132,7 +132,7 @@ So we're just using the built-in message type
 
 34
 00:01:18,520 --> 00:01:22,680
-provided by Nest Blocks, which has a single field, MSG.
+provided by NetsBlox, which has a single field, MSG.
 
 35
 00:01:22,680 --> 00:01:27,080
@@ -148,7 +148,7 @@ want to send this message to.
 
 38
 00:01:32,080 --> 00:01:34,640
-So Nest Blocks introduces this concept
+So NetsBlox introduces this concept
 
 39
 00:01:34,640 --> 00:01:41,120

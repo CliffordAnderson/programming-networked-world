@@ -1,4 +1,4 @@
-Hey everybody, welcome back to this introductory series on Nest Blocks.
+Hey everybody, welcome back to this introductory series on NetsBlox.
 I'm Cliff Anderson, a librarian at Vanderbilt University,
 and a member of our Computational Thinking and Learning Initiative.
 In our last video, we learned to draw simple shapes on the stage.

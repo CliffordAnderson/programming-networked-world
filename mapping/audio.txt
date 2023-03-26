@@ -10,7 +10,7 @@ and to locate various topics or places of interest
 in the world on those maps.
 Ready to get mapping?
 Let's get started.
-OK, so like any other service in Nest Blocks, mapping is an RPC.
+OK, so like any other service in NetsBlox, mapping is an RPC.
 So if we go over to our Network tab
 and we click on the Call block here, we can drop down
 and we can see that there is a entry for Google Maps.
@@ -29,7 +29,7 @@ We'll get to width, height, and zoom in a moment.
 But how do we know our latitude and longitude?
 Well, we could look it up online.
 But fortunately, there's also a block
-for that within Nest Blocks.
+for that within NetsBlox.
 We'll go down here.
 And you'll see here that there is
 My Latitude and My Longitude.

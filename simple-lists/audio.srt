@@ -396,7 +396,7 @@ in the program changes. So keeping track of information using lists is an
 
 100
 00:07:16,240 --> 00:07:21,520
-extremely common task in Nest Blocks. Practically every application you write
+extremely common task in NetsBlox. Practically every application you write
 
 101
 00:07:21,520 --> 00:07:25,520
@@ -428,7 +428,7 @@ But that's it for today. If you want to do something for extra credit,
 
 108
 00:07:48,800 --> 00:07:52,640
-then try building your own to-do list in Nest Blocks.
+then try building your own to-do list in NetsBlox.
 
 109
 00:07:52,640 --> 00:07:56,640

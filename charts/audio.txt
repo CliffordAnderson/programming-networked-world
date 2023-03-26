@@ -6,7 +6,7 @@ In this episode, we're going to be looking at data and ways
 to visualize data.
 It's very common, for example, when you access a data set
 that you want to get a visual representation of it.
-And fortunately, there's an RPC for that in Nest Blocks.
+And fortunately, there's an RPC for that in NetsBlox.
 So ready to visualize some data?
 Let's get going.
 All right.
@@ -23,7 +23,7 @@ which allows you to get kind of an average for the atmosphere
 as a whole.
 So we have an RPC that reaches out and gets
 that historical data, and then brings it back to us
-in list form in Nest Blocks.
+in list form in NetsBlox.
 So let's start there.
 We're going to go over to the Network tab here,
 and we're going to go to our call block.
@@ -36,7 +36,7 @@ or the raw CO2.
 We're going to go with the trend.
 And I believe the start year is 1958,
 so we'll put that in as the beginning year.
-And then the last year that's available to us in Nest Blocks
+And then the last year that's available to us in NetsBlox
 is 2019.
 So we'll use that as our delimiters,
 and then we can call this.
@@ -48,7 +48,7 @@ looks like.
 So in order to do that, we're going
 to use the GNU plot charting service.
 This is a free and open source library for plotting data,
-and it's available to us again in Nest Blocks.
+and it's available to us again in NetsBlox.
 So if I bring this over here and I drop down to Chart,
 you'll see that it brings me a block that has two options.
 One is to draw, and the other is default options.

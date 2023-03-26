@@ -2120,7 +2120,7 @@ And that's all thanks to the natural language processing
 
 531
 00:26:04,100 --> 00:26:06,340
-that's built into Nest Blocks.
+that's built into NetsBlox.
 
 532
 00:26:06,340 --> 00:26:09,340

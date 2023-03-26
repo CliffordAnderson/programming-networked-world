@@ -528,6 +528,6 @@ set our sensitivity level as 99, we only had one item redacted.
 So you can see that our sensitivity
 to what's coming through our filter, we can easily adjust.
 And that's all thanks to the natural language processing
-that's built into Nest Blocks.
+that's built into NetsBlox.
 So that's the end of our segment for today.
 I look forward to seeing you in our next video.

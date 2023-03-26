@@ -169,7 +169,7 @@ that Cliff is saying, hello, comma, Brian, exclamation point. And now we see the
 second message as well, Cliff asking how I am today. And unfortunately, right now
 we can't send messages back, so we'll just have to maybe let them know next
 time we see them. Okay, today, just to review, you learned about message passing in
-Nest Blocks. We learned how to use a room and to set up roles, and then we learned
+NetsBlox. We learned how to use a room and to set up roles, and then we learned
 how to use messages to communicate between those roles. We also learned how
 to use message types to set up complex messages that we can then use to send
 lots of interesting bits of information that we couldn't fit into single fields.

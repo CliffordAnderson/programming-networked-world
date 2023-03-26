@@ -1,9 +1,9 @@
 Hi, everyone.
 Welcome back to Programming for a Network World.
 Today, we're going to begin our exploration of peer-to-peer
-networking in Nest Blocks.
+networking in NetsBlox.
 In particular, we're going to learn to pass a message
-from one Nest Blocks program to another.
+from one NetsBlox program to another.
 So what we're going to be building today
 is something called Distributed Hello World.
 It's very traditional when you're
@@ -12,7 +12,7 @@ to write a Hello World program, but we're
 going to do it in a fun way.
 I'm going to turn it over to Brian
 to help us get started with some of the core concepts
-we need to write this program in Nest Blocks.
+we need to write this program in NetsBlox.
 All right, Brian, take it away.
 All right, thank you, Cliff.
 So as Cliff mentioned, we're going
@@ -31,11 +31,11 @@ So if we select this first dropdown,
 there's this Message option, and this is the type of message
 that we're sending.
 So we're just using the built-in message type
-provided by Nest Blocks, which has a single field, MSG.
+provided by NetsBlox, which has a single field, MSG.
 Now, we can enter Hello World into this field.
 Now, we just need to figure out who we
 want to send this message to.
-So Nest Blocks introduces this concept
+So NetsBlox introduces this concept
 of a room, which is composed of multiple roles, which
 are basically individual subprojects
 within this larger distributed application.

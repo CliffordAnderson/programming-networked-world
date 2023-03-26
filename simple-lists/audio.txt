@@ -97,7 +97,7 @@ So with the combination of these four blocks,
 you can make lists contain any type of information you want,
 and you can keep it updated in real time as information
 in the program changes. So keeping track of information using lists is an
-extremely common task in Nest Blocks. Practically every application you write
+extremely common task in NetsBlox. Practically every application you write
 will involve the use of lists. Many times it will involve the use of
 multiple lists. In this video, we saw how to create a
 one-dimensional list and mutate it by adding, deleting,
@@ -105,6 +105,6 @@ inserting, and changing items. But lists can do more than store your
 to-do items. In the next video, we'll explore how to
 use two-dimensional lists to store and explore tabular information.
 But that's it for today. If you want to do something for extra credit,
-then try building your own to-do list in Nest Blocks.
+then try building your own to-do list in NetsBlox.
 And don't forget to add watch the next video in this series
 to that to-do list. Thanks very much, and see you next time.

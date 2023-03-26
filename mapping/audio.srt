@@ -48,7 +48,7 @@ Let's get started.
 
 13
 00:00:36,020 --> 00:00:41,500
-OK, so like any other service in Nest Blocks, mapping is an RPC.
+OK, so like any other service in NetsBlox, mapping is an RPC.
 
 14
 00:00:41,500 --> 00:00:45,540
@@ -124,7 +124,7 @@ But fortunately, there's also a block
 
 32
 00:01:34,320 --> 00:01:36,460
-for that within Nest Blocks.
+for that within NetsBlox.
 
 33
 00:01:36,460 --> 00:01:37,580

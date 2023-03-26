@@ -920,7 +920,7 @@ So that's it for today.
 
 231
 00:13:23,000 --> 00:13:27,000
-We've learned about four different types of variables in Nest Blocks,
+We've learned about four different types of variables in NetsBlox,
 
 232
 00:13:27,000 --> 00:13:33,000

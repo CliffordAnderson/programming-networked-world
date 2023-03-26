@@ -32,7 +32,7 @@ that you want to get a visual representation of it.
 
 9
 00:00:21,520 --> 00:00:25,120
-And fortunately, there's an RPC for that in Nest Blocks.
+And fortunately, there's an RPC for that in NetsBlox.
 
 10
 00:00:25,120 --> 00:00:28,080
@@ -100,7 +100,7 @@ that historical data, and then brings it back to us
 
 26
 00:01:10,960 --> 00:01:12,560
-in list form in Nest Blocks.
+in list form in NetsBlox.
 
 27
 00:01:12,560 --> 00:01:14,280
@@ -152,7 +152,7 @@ so we'll put that in as the beginning year.
 
 39
 00:01:46,360 --> 00:01:50,760
-And then the last year that's available to us in Nest Blocks
+And then the last year that's available to us in NetsBlox
 
 40
 00:01:50,760 --> 00:01:52,800
@@ -200,7 +200,7 @@ This is a free and open source library for plotting data,
 
 51
 00:02:26,880 --> 00:02:29,360
-and it's available to us again in Nest Blocks.
+and it's available to us again in NetsBlox.
 
 52
 00:02:29,360 --> 00:02:34,200
