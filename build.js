@@ -1,22 +1,22 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 // Get the ordering
-const ordering = fs.readFileSync(path.join(__dirname, 'order.txt'), 'utf8')
-  .split('\n')
-  .map(line => line.trim())
-  .filter(line => !!line && !line.startsWith('#'));
+const ordering = fs.readFileSync(path.join(__dirname, "order.txt"), "utf8")
+  .split("\n")
+  .map((line) => line.trim())
+  .filter((line) => !!line && !line.startsWith("#"));
 
 const htmlContents = ordering.map((dirname, i) => {
-  const textPath = path.join(__dirname, dirname, 'audio.txt');
-  const text = fs.readFileSync(textPath, 'utf8');
-  const id = dirname.toLowerCase().replace(/ /g, '-');
+  const textPath = path.join(__dirname, dirname, "audio.txt");
+  const text = fs.readFileSync(textPath, "utf8");
+  const id = dirname.toLowerCase().replace(/ /g, "-");
 
   return `
-    <h2 id="${id}">${i+1}. ${dirname}</h2>
+    <h2 id="${id}">${i + 1}. ${dirname}</h2>
     <p>${text}</p>
   `;
-}).join('\n');
+}).join("\n");
 
 const searchScript = `
 function searchKeyword(keyword) {
@@ -102,5 +102,5 @@ const indexHtml = `<!DOCTYPE html>
 </html>
 `;
 
-const outFile = path.join(__dirname, 'index.html');
-fs.write
+const outFile = path.join(__dirname, "index.html");
+fs.writeFileSync(outFile, indexHtml);
