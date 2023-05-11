@@ -1,5 +1,4 @@
 welcome-to-NetsBlox
-what-are-boolean-values
 what-is-block-based-programming
 drawing-with-turtle-graphics
 creating-circles-with-control-blocks
@@ -21,11 +20,11 @@ simple-lists
 errors
 movie-lists
 
+two-dimensional-lists
+charts
 zip
 map-keep-combine
-two-dimensional-lists
 structured-data
-charts
 
 distributed-hello-world
 message-passing
@@ -34,7 +33,6 @@ shared-whiteboard
 chat-server
 
 ner-for-people
-twitter-filter
 language-id-part-one
 language-id-part-two
 language-games
