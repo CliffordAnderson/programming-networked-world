@@ -56,92 +56,7 @@ Check out the next video in this series and let's get started together.
 </p>
   
 
-    <h2 id="what-are-boolean-values">2. what-are-boolean-values</h2>
-    <p>Hi, welcome back. My name is Cliff Anderson. Today we're going to be learning about truth and falsity.
-Some claims are true, like 1 plus 1 equals 2. Other claims are false, like 1 is greater than 2.
-We're going to learn how to compute with true and false values. We're also going to learn to combine
-true and false values using so-called Boolean operators. Is it true that 1 plus 1 equals 2
-and 1 is greater than 2? Stick around to find out.
-The goal today is to learn the basics of programming with true or false values
-using Boolean logic. We need to understand how to evaluate Boolean expressions in order to make
-more effective use of control blocks. I'm going to try to keep this video on the short side,
-as we'll be returning to this subject frequently during the series.
-Let's begin by pulling a true and false block onto the scripting area.
-See, actually I've got it more or less set up, but I'll bring over a false block. There we go.
-And, okay, so I can switch this back and forth to make it true or false. Those are the two options.
-And the one is just the inverse of the other. If you flip the switch, you can make true into false
-and false into true. Now, if you click on one of these blocks, you'll notice
-that you get a little pop-up window that lasts for a moment here until you move your mouse.
-And so it pops up and says false. If I click it to true, it pops up and it says true.
-What's the meaning of that pop-up? Boolean blocks constitute a special type of what is called a
-reporter block in Nets blocks. If command blocks change the state of the world, reporter blocks,
-like the name suggests, report the state of the world. A reporter block provides a peek into your
-program. The block tells you something about the program when you click on it. Or, to put it more
-technically, it reports a value. If we click on a true-false block, it reports its current state
-as either true or false. Very importantly, it doesn't change its value. If you want to change
-the value of a Boolean, you need to use a command block. A reporter block just tells you what its
-current value is. So, let's get back to Boolean values. The basic building block of Boolean logic
-is true or false. But what makes Boolean logic interesting is your ability to combine true or
-false blocks using various operators to create complex expressions. Let's begin with the simplest
-Boolean operator, the not block. As you see, if you place a not true, what do you think it's going
-to be if I click on it? False. And of course, if we say not false, then when we click on it, what do
-you expect? True. So, not true reports false, and not false reports true. How about more complex
-Boolean expressions? This brings us to blocks like or and and. Whereas the not block is a unary
-operator, that is, it takes a single input, or and are binary operators. They take two inputs and
-report a single true or false value. To understand how they work, it's helpful to look at what
-logicians call a truth table. Truth tables represent all possible combinations of input
-and output values for Boolean operators. So, let's consider the and operator. And reports true when
-both input values labeled in our chart A and B are true. If either of the inputs are false,
-then the and operator reports false. It also does when both are false. The or operator
-does more or less the opposite. As long as one of the inputs, or both of the inputs, is true,
-then the or operator reports true. Only if both inputs are false does the operator report false.
-So, for example, with the and operator, I've got true and true. So, if I click on this,
-as we expect, it's going to say true. But if it's true and false, it will say false. And,
-of course, false and false is false. Put that up here and let's take a look at the or.
-So, here we got an or. True or false is going to report true. True and true is also true.
-False or true is true. But false or false is going to be
-false. Okay. So, as I said, there are more complex operators that you can use,
-and you can build them out of these simple operators that I've shown. For example,
-I've created a NAND, or a not-and block. This block reports true if one input is true,
-or both inputs are false. And false if both inputs are true. Okay. So, if that didn't make
-you confused enough, let's just take a look. So, true, not-and, true. If I click on that,
-that's false. False, not-and, true is true. And again, the other way. True, not-and, false.
-NAND, false. True. And if they're both true, then it's false. There's also an XOR, or exclusive
-block. An XOR reports true if one input is true, and the other is false, but reports false
-if both inputs are true, or both inputs are false. So, let's take a look at that one here.
-So, here's the XOR. Okay. So, here's true or false. What do you think it's going to report?
-True. And same thing with false or true. XOR true. True. But if they're both true,
-unlike the normal OR, it will report false. And of course, if they're both false,
-it will also report false. There are other blocks here, like the NOR, and you can make more.
-If you'd like me to explore how I made these additional blocks and NETs blocks,
-let me know in the comments below, and I'd be happy to sort of walk you through creating new
-Boolean logic blocks in NETs blocks. So, let's end this video by answering the question we
-posed at the beginning. There are a couple other Boolean operators that can help us in NETs blocks
-to decide if 1 plus 1 equals 2, and 1 is greater than 2. Okay. So, let's go over to the side here,
-and you can see that I've got three. And I should have said this at the beginning,
-but those pointy edges always indicate that it's a Boolean. So, when you see this here,
-you know that it's a reporter that reports a Boolean. Okay. So, we've got the greater than,
-that's the lesser than, the greater than, and the equals. Okay. Let's try this here.
-So, I can take to represent our first question, 1 plus 1. I'll take that operator here and just
-put it in on one side. And then I'm going to take the number 2 and put it on the other side.
-Okay. And now, does 1 plus 1 equal 2? That is true. So, we've got one part of our question here.
-Is 1 greater than 2? That's false. Now, to relate them together, we just need to use the AND. So,
-now we can snap these two parts together, and we can ask the question that we asked at the beginning.
-Is 1 plus 1 equals 2, and 1 is greater than 2, true or false? And the answer is, as you would
-know, if you read the truth table, it's going to be false. So, we've combined the two comparison
-operations using an AND operator. And what we saw is what we expected to happen. We know that one
-side evaluates to true, and the other side evaluates to false. Remembering our truth table,
-we know that if one side of an AND operator is false and the other side is true,
-then the AND operator will respond or evaluate to a false. So, we've covered the basics of
-Boolean operators, and we're ready to start making more complex decisions in our code.
-Next time, we're going to combine Boolean operators with control blocks
-to create branching logic. We'll tackle a notorious problem in computer science,
-the so-called fizzbuzz problem. That's enough for now. Thanks for watching,
-and see you in the next video.
-</p>
-  
-
-    <h2 id="what-is-block-based-programming">3. what-is-block-based-programming</h2>
+    <h2 id="what-is-block-based-programming">2. what-is-block-based-programming</h2>
     <p>Hey everybody, my name is Cliff Anderson, and I'm a librarian at Vanderbilt University.
 I'm also a member of a research group called the Computational Thinking and Learning Initiative.
 In this series, I'm going to introduce you to the fundamentals of programming using a
@@ -294,7 +209,7 @@ Thanks for joining me, and see you next time.
 </p>
   
 
-    <h2 id="drawing-with-turtle-graphics">4. drawing-with-turtle-graphics</h2>
+    <h2 id="drawing-with-turtle-graphics">3. drawing-with-turtle-graphics</h2>
     <p>Hi, my name is Cliff Anderson. I'm Associate University Librarian at
 Vanderbilt University and a member of Vanderbilt's Computational Thinking and
 Learning Initiative. And in this second of our series on Nets Blocks, I'm going
@@ -434,7 +349,7 @@ enough for today. Thanks for joining me, and see you next time. Goodbye.
 </p>
   
 
-    <h2 id="creating-circles-with-control-blocks">5. creating-circles-with-control-blocks</h2>
+    <h2 id="creating-circles-with-control-blocks">4. creating-circles-with-control-blocks</h2>
     <p>Hey everybody, welcome back to this introductory series on NetsBlox.
 I'm Cliff Anderson, a librarian at Vanderbilt University,
 and a member of our Computational Thinking and Learning Initiative.
@@ -650,7 +565,7 @@ Thanks for joining me.
 </p>
   
 
-    <h2 id="what-are-boolean-values">6. what-are-boolean-values</h2>
+    <h2 id="what-are-boolean-values">5. what-are-boolean-values</h2>
     <p>Hi, welcome back. My name is Cliff Anderson. Today we're going to be learning about truth and falsity.
 Some claims are true, like 1 plus 1 equals 2. Other claims are false, like 1 is greater than 2.
 We're going to learn how to compute with true and false values. We're also going to learn to combine
@@ -735,7 +650,7 @@ and see you in the next video.
 </p>
   
 
-    <h2 id="tackling-conditionals-with-fizzbuzz">7. tackling-conditionals-with-fizzbuzz</h2>
+    <h2 id="tackling-conditionals-with-fizzbuzz">6. tackling-conditionals-with-fizzbuzz</h2>
     <p>Hi everybody, my name is Cliff Anderson, and I'm a librarian at Vanderbilt University.
 Welcome back to this introductory series on NetsBlocks.
 Today we're going to tackle one of the hardest problems in computer science, FizzBuzz.
@@ -974,7 +889,7 @@ I hope you're well on your way, and I'll see you in our next video.
 </p>
   
 
-    <h2 id="lets-make-splatter-art">8. lets-make-splatter-art</h2>
+    <h2 id="lets-make-splatter-art">7. lets-make-splatter-art</h2>
     <p>Hi everybody, welcome back. My name is Cliff Anderson, and I'm a librarian at Vanderbilt University.
 This time around, we're going to use NetsBlocks to draw a painting.
 We're going to create circles of various sizes on the stage,
@@ -1366,7 +1281,7 @@ Bye!
 </p>
   
 
-    <h2 id="custom-blocks">9. custom-blocks</h2>
+    <h2 id="custom-blocks">8. custom-blocks</h2>
     <p>Hello everyone, and welcome back to our series on programming for a network world.
 Today we're going to talk about custom blocks. Have you ever looked through the palette in
 NetsBlocks and said, hey, I wish there were a block for that, but it doesn't exist in the palette.
@@ -1478,7 +1393,7 @@ I look forward to seeing you in our next session. Bye-bye.
 </p>
   
 
-    <h2 id="grader">10. grader</h2>
+    <h2 id="grader">9. grader</h2>
     <p>Hello everyone, Brian here. So today I'm going to show you how we can get started doing the assignments for our course.
 So first of all, we're going to click the link that we can find in the assignment description, and it'll pull up Netsbox as shown here.
 Now this might look like your standard Netsbox setup, except you might notice if you look in the top center, a little bit off to the right, we have this extensions button.
@@ -1516,7 +1431,7 @@ Awesome. See you in the next video.
 </p>
   
 
-    <h2 id="recursion">11. recursion</h2>
+    <h2 id="recursion">10. recursion</h2>
     <p>All right.
 Welcome back, everyone, to Programming for a Network
 World.
@@ -1781,7 +1696,7 @@ And I will see you in our next video.
 </p>
   
 
-    <h2 id="events">12. events</h2>
+    <h2 id="events">11. events</h2>
     <p>Hello, everyone. Welcome back to our series on programming for a networked world.
 Today, we're going to be talking about events.
 So, events take place in the world all around us,
@@ -1873,7 +1788,7 @@ All right, so I'll see you in our next video.
 </p>
   
 
-    <h2 id="broadcast">13. broadcast</h2>
+    <h2 id="broadcast">12. broadcast</h2>
     <p>Hi.
 Welcome back to Programming for a Network World.
 Today, we're going to be talking about the broadcast block.
@@ -2182,7 +2097,7 @@ Thank you.
 </p>
   
 
-    <h2 id="mapping">14. mapping</h2>
+    <h2 id="mapping">13. mapping</h2>
     <p>Hi.
 Welcome back to Programming for Network World.
 Today's topic is mapping.
@@ -2416,7 +2331,7 @@ And I'll see you in the next video.
 </p>
   
 
-    <h2 id="weather">15. weather</h2>
+    <h2 id="weather">14. weather</h2>
     <p>Hi, everyone.
 Welcome back to Programming for a Network World.
 Today, we're going to continue our exercise with mapping.
@@ -2712,7 +2627,7 @@ So I look forward to seeing you in our next video.
 </p>
   
 
-    <h2 id="scrolling-map">16. scrolling-map</h2>
+    <h2 id="scrolling-map">15. scrolling-map</h2>
     <p>Hi, everyone.
 Welcome back to Programming for a Networked World.
 In today's episode, we're going to be continuing
@@ -3145,7 +3060,7 @@ And look forward to seeing you then.
 </p>
   
 
-    <h2 id="variable-scope">17. variable-scope</h2>
+    <h2 id="variable-scope">16. variable-scope</h2>
     <p>Hi everyone. Welcome back to our series on programming for a networked world.
 Today's topic is variable scope. What is scope?
 We use the term scope in ordinary language to talk about what is relevant to an undertaking
@@ -3393,7 +3308,7 @@ I look forward to seeing you again in our next video.
 </p>
   
 
-    <h2 id="simple-lists">18. simple-lists</h2>
+    <h2 id="simple-lists">17. simple-lists</h2>
     <p>Hi everyone. Welcome back to our series on programming for a networked world.
 Today we're talking about lists. We all have experience making lists.
 Every day I add items to my list of things to do.
@@ -3507,7 +3422,7 @@ to that to-do list. Thanks very much, and see you next time.
 </p>
   
 
-    <h2 id="errors">19. errors</h2>
+    <h2 id="errors">18. errors</h2>
     <p>Hi everyone, welcome back to Programming for a Networked World.
 Today we're going to be talking about errors.
 Now, if you've seen these videos, you know that I've made my fair share of errors
@@ -3800,7 +3715,7 @@ We'll cover more topics in next blocks in our next video and see you then.
 </p>
   
 
-    <h2 id="movie-lists">20. movie-lists</h2>
+    <h2 id="movie-lists">19. movie-lists</h2>
     <p>Hi everyone, welcome back to our series on programming for a networked world.
 In this video, we're going to the movies. Well, to the movie database at least. Our project is
 going to query this online database to find films with particular words in the titles.
@@ -3921,7 +3836,360 @@ and I'll see you in my next video.
 </p>
   
 
-    <h2 id="zip">21. zip</h2>
+    <h2 id="two-dimensional-lists">20. two-dimensional-lists</h2>
+    <p>Hi everyone, welcome back to our series on programming for a networked world.
+In this video, we are covering two-dimensional lists.
+The term two-dimensional list is a formal way of talking about a very common data structure
+that we may alternatively call a list of lists, a matrix, a table, or a spreadsheet.
+Keeping track of data using columns and rows proves efficient in many scenarios.
+Netsblocks also optimizes the display of two-dimensional lists to make it easier for you to read and
+edit them.
+Ready to expand your knowledge of lists into the second dimension?
+Let's get started.
+What is a two-dimensional list?
+In the last video, we talked about one-dimensional lists.
+As you recall, a one-dimensional list is just an ordered sequence of items.
+So my grocery list is a one-dimensional list.
+I need to buy eggs, milk, tea, and so on.
+But I also mentioned that lists can hold data beyond strings and numbers.
+A list can contain sprites, for instance, or blocks.
+But what happens if you put a list inside of a list?
+Now you have a two-dimensional list.
+How might a list of lists prove valuable in a program?
+Let's imagine a scenario where you are programming for people who are speaking different languages,
+and you wanted Ada to interact with them in their own languages.
+You might want to keep a table of equivalent phrases from those different languages.
+So for instance, I might want to create a list of greetings to use in my program.
+My English greeting would be Hello, my Dutch greeting would be Guten Tag, my German greeting
+would be Guten Tag, and my Chinese greeting might be Ni Hao.
+And I would want to put all those greetings into a list.
+And just so we had an equivalent way to say goodbye, I'd want to do the same for saying
+goodbye in Chinese, Dutch, French, German, etc.
+So how can we keep all that information together?
+The answer is simple.
+We just have to put both lists inside of a list.
+And that will make a two-dimensional list.
+And then we'll see, as we do that, that it forms what looks like a table in NetsBlocks.
+So let's get started and see how that works.
+So I'm going to grab a list here and bring it over.
+And now I'm going to put on this list a series of languages we want to use.
+So let's say Chinese, and Dutch, and French, and German, and English, let's not forget
+English.
+OK, so that's a good list.
+And then let's put the greetings that we want for each of these.
+So I'm going to open up slots now for each one of these languages to put in the way that
+we would like to greet people.
+So let's say in Chinese, that's Ni Hao.
+And then in Dutch, Guten Tag.
+And in German, oh, it's in French, Bonjour.
+And in German, Guten Tag.
+And in English, hello.
+Now let's do the same thing with another list where we say our goodbyes.
+OK, whoops, keep clicking on it when I don't mean to, just when I get those arrows.
+OK, so Chinese, that would be Zai Jian.
+And in Dutch, we'll say Tot Ziens.
+And in French, Au Revoir.
+And in German, let's say Tschüss.
+Oops, there we go.
+And in English, finally, we'll just say, goodbye.
+OK, so now we have these three lists, but we want to put them together so that they're
+just a single data structure.
+And here's where the cool thing happens with a two-dimensional list.
+So I'm going to take a list, and I'm going to open three slots.
+And I'm going to move the first list into the first slot, the second list into the second
+slot, and I'm going to move the third list into the third slot here.
+Now this is a two-dimensional list.
+You can see that it's a list of lists.
+And when I click on it, it displays like a table.
+So you can see here that this is the column with the Chinese greetings and the Dutch greetings,
+the French greetings, the German greetings, and the English greetings.
+Now if you want to extract any information from this, how would you do that?
+OK, so you would use the same item of, and then you would drop this list of lists into
+it.
+But now what is item one going to get us?
+And here's where we have to learn to think about how lists of lists are composed.
+So if we ask for item one of this list, it's going to return us the first list.
+There we go, Chinese, Dutch, French, and German.
+So if we actually wanted to get item one of that list, then we'd put item one around
+this again like this, item one of, like that.
+And then we get Chinese, OK?
+And so if we wanted to, for example, have bonjour, then we'd have to go to, can you
+guess it, item two, so that's the second list right here, and then we want to get item three
+from that list.
+And there's bonjour.
+So when you're thinking about it, make sure when you're indexing into these lists that
+you index first into the lists that you want, and then subsequently into the item in the
+list that's returned.
+So thinking about this, you think about the list that you want first, and then the item
+in that list.
+And if you have more deeply nested lists, it's the same process.
+You keep drilling down to the list that you want until you finally are able to pull out
+an item from the list that you extract.
+Now that we've seen how to do this, let's go ahead and build the program that we had
+in mind.
+So the program that I want to do is, I want to have Ada here greet us in our own language.
+How should we do that?
+So I'm going to start a program with when clicked, it's always a good starting point,
+and then I'm going to create some variables.
+Let's create script variables here, and I'm going to name the first one language, and
+then I'm going to name the second one language selection.
+Now that I have those variables, I want to set the languages, or the, I guess I'll call
+this languages just to be clear.
+I'm going to set the languages to our list of lists.
+And then I want Ada to ask us what language we prefer her to speak in.
+So I'll bring this down here for this ask block, and I'm going to say, what language
+do you speak?
+I guess we have to start off with English because there is no neutral language obviously.
+So we'll start with English, and then we'll say, what language do you speak?
+And remember that the answer will come in the form of this answer block.
+Okay.
+Then we want to set the language here.
+We want to set the language selection, and here's what we have to think about.
+We want to set it to the index of the response in the first list.
+So we know the first list contains all the languages that we have.
+So we have a block down here that says the index of, so we want to look up where this
+answer block appears, where this answer appears in our first list.
+And so we need to know that, but we also have to extract that first list.
+We can't just give it the list of lists.
+We need to get the first list in the list of lists like this.
+So now we're going to be asking, okay, for the language that you responded, what language
+is that in our list of lists?
+So basically, what column is it?
+And then by identifying that column, we'll know in the future where to draw the equivalent
+language forms for Ada's responses.
+So we'll now just do the second part.
+Let's just do a simple hello, goodbye.
+So Ada will say hello, and then Ada will say goodbye.
+So I'll go to looks, and I'm going to bring over this hello block, and we'll use it twice.
+But the first time, we're going to index into the list here, and I'm going to get item,
+and I'm going to use language selection, because that's what we assigned here.
+So we want item, language selection, and that's going to give us the index that we need of,
+and we know that this particular row has all of the hellos, forms of saying hello in different
+languages, so we want that with our languages.
+And then we can duplicate this block, put it here, and we know the third row has all
+the forms of goodbye.
+So now I can drop this into here, and into here, and let's see if it works.
+So I'll click on this, and Ada says, what language do you speak?
+Let's start off with saying that we speak Chinese.
+Aha.
+I've got a mistake here.
+Let's see what's going on.
+Index of answer in item one of languages, oh, right, this should be languages, not language
+selection.
+There we go.
+All right.
+So let's try that again.
+Got to use the right list.
+Click on this, and we're going to say Chinese, and then Ada responds, ni hao, zai jian.
+Let's try it again with, let's say German.
+So we'll say German, speak German, guten tag, and tschuess.
+Okay, just to test that it works with English too, let's try English, hello, goodbye.
+Okay, just one more thing I'd like to show you.
+So if you want to change your representation of a list of lists from a table like this
+one into an actual list of lists representation, you can click on this and say list view, and
+then your view will look like this.
+You'll see that it's actually composed now of a list of lists.
+You see the three lists within another list.
+Most people prefer to see it as a table, but when you get multiply embedded lists, multidimensional
+lists, three or four dimensions, then you'll need to look at that list of lists view.
+The tricky thing when retrieving items from lists of lists is that you work from the outermost
+list towards the innermost list, but your item of list block winds up getting stacked
+in reverse order.
+So the outermost block will give you the result from the innermost list, and so you kind of
+need to think backwards from the inside out.
+It's actually not different from any other stack of blocks and nets blocks which give
+you values that you can then compute in other expressions.
+And don't worry if you get mixed up from time to time about what list you're working with.
+So do professional programmers.
+Just try varying that index of, and you'll see eventually you'll get to the right item
+in your list.
+All right, so let's wrap up this video here.
+In this video, you learned how to create two-dimensional lists in nets blocks and to explore those
+lists in both tabular and list form.
+You also learned how to index into two-dimensional lists to retrieve items of information.
+And you built a program that demonstrates the utility of making lists of lists for tasks
+like internationalization.
+In the next video, we'll experiment with the call block to make lists and tables.
+See you in the next video.
+</p>
+  
+
+    <h2 id="charts">21. charts</h2>
+    <p>Hello, everyone.
+Welcome back to Programming for a Network World.
+Today, we're going to continue our exploration
+of remote procedure calls, or RPCs.
+In this episode, we're going to be looking at data and ways
+to visualize data.
+It's very common, for example, when you access a data set
+that you want to get a visual representation of it.
+And fortunately, there's an RPC for that in NetsBlox.
+So ready to visualize some data?
+Let's get going.
+All right.
+So to begin, let's get the data itself.
+So the data set that we're going to be using
+is a data set collected at the Manaloa Observatory in Hawaii.
+This data set tracks the level of carbon dioxide
+in the atmosphere.
+And the reason that Manaloa is so useful
+is that it's on an extinct mountaintop,
+and the levels of carbon monoxide
+are really unaffected by the environment around it,
+which allows you to get kind of an average for the atmosphere
+as a whole.
+So we have an RPC that reaches out and gets
+that historical data, and then brings it back to us
+in list form in NetsBlox.
+So let's start there.
+We're going to go over to the Network tab here,
+and we're going to go to our call block.
+And we're going to drop down this call block,
+and we're going to go here to Climate.
+And then under Climate, you'll see Manaloa carbon dioxide
+data.
+And as you see here, we can get either the trend
+or the raw CO2.
+We're going to go with the trend.
+And I believe the start year is 1958,
+so we'll put that in as the beginning year.
+And then the last year that's available to us in NetsBlox
+is 2019.
+So we'll use that as our delimiters,
+and then we can call this.
+And you see that it provides a nice table form of the data
+with the year, and the month, and then the recorded level.
+OK, so that's great, but it's not easy necessarily
+by just looking at this to see what the trend actually
+looks like.
+So in order to do that, we're going
+to use the GNU plot charting service.
+This is a free and open source library for plotting data,
+and it's available to us again in NetsBlox.
+So if I bring this over here and I drop down to Chart,
+you'll see that it brings me a block that has two options.
+One is to draw, and the other is default options.
+So we can just use it with the default options
+and then call with our own data set
+and just see how it looks at first.
+So I'll bring this in here to Lines.
+And then for the options, you still
+need to pass something in or do.
+Maybe it works without it.
+I think it actually worked without it.
+So there you go.
+If you don't need to change the options,
+you can just let it go.
+So let's look at this.
+In this particular chart, you see
+that it's actually too small to look at.
+How do we visualize this better?
+Well, we do that trick of going up to Looks
+and using Switch to Costume.
+So Switch to Costume will change the costume
+of the sprite on the stage, in this case,
+from Ada to the chart itself.
+So we can drop that in.
+Here we go.
+And we can make that call.
+And there you can see that already we
+got a nice plot of the data.
+And unfortunately, as it shows, from 1958 until 2020,
+we've increased our carbon dioxide level
+in the atmosphere substantially.
+Can't do much about that in this particular video.
+But we can at least, I think, maybe
+label what we're seeing a little bit better.
+So to do that, we need to dive back into those options.
+So I'm going to bring over another block here.
+And we're going to call out to chart.
+Oops.
+See if I can actually bring it over this time.
+There we go.
+I'm going to go to chart.
+But this time, I'm going to look at the default options.
+And if I click on that, you see that it brings me back
+another list here in table form.
+And it has some possibilities for us
+to fill in information, like we can give a title.
+And we could perhaps add something
+to the y label or the y-axis.
+But how do we do that?
+We can't just type it in here and have it stick.
+We need to first assign this default information
+to a variable.
+And then we'll change that information.
+And then we'll send it back in.
+So let's do that by first setting a variable.
+Going to go here.
+And we're going to set a variable.
+Let's actually create one called chart options.
+There we go.
+And we'll drop down chart options in here.
+We'll put that in.
+And now we have that captured in a variable, which
+allows us, of course, to change those options.
+Now, since this particular list is in that key value format
+that we talked about in an earlier video,
+the easiest way to change it would be to go up here
+and to open our library and look for the structured data
+library.
+Here we go.
+And as you remember, structured data
+allows us to make changes based on a key.
+Then we can change the value.
+So that should appear down here.
+And that allows us to bring over this block set value.
+And we'll bring it over a couple of times here.
+And so we'll go over and we'll get our chart option,
+because that's what we want to be setting.
+And that's the list that we're working with.
+Let's bring over another chart option here.
+OK, whoops, in the wrong slot.
+There we go.
+And the first thing that we want to change is title.
+Or title doesn't have any information right now.
+So we want to change our title to something.
+And we'll say CO2 in the atmosphere.
+OK, we'll get that as the title.
+Then the other thing that we want to change
+is the y-axis here.
+So there's the x-label and there's the y-label.
+So we'll change this one down here to y-label.
+And the y-label, we're going to label as parts per million,
+PPM.
+Oops, there we go, parts per million.
+OK, now if I run this, you see that our chart option now
+has CO2 in the atmosphere.
+And it should have a label, PPM, under the y-label.
+And now we can simply apply those as our new options
+and call the chart again.
+So those options are captured in this variable here.
+And if we run this, and we turn off this
+so we can see it a little bit better, if we run this,
+now the chart has a title and it has a y-axis label.
+All right, and if we want to just put everything together,
+so it's one nice unit, we can do that.
+Bring this down here.
+There we go, connect it.
+All right, and let's put a block on top of it
+when Greenfly clicked.
+And we'll click it.
+And it ran.
+So again, it went out with an RPC to fetch the data set.
+And then it went out to find the default options.
+We changed some of those options.
+And then we called the GNU plot with our new options
+and the data.
+And we got this visualization.
+All right, and we did that in just a handful of blocks.
+So that wraps it up.
+Thank you very much again for joining me.
+And I look forward to seeing you in my next video.
+</p>
+  
+
+    <h2 id="zip">22. zip</h2>
     <p>Welcome back to Programming for a Networked World.
 Today we're going to be continuing our exploration of the chart RPC.
 But I'm going to let you in on a little secret.
@@ -4150,7 +4418,7 @@ I look forward to seeing you in our next video.
 </p>
   
 
-    <h2 id="map-keep-combine">22. map-keep-combine</h2>
+    <h2 id="map-keep-combine">23. map-keep-combine</h2>
     <p>Hi everyone. Welcome back to Programming for a Networked World.
 Today, we're going to talk about another way of processing lists.
 Sometimes you come across very long lists,
@@ -4271,184 +4539,6 @@ and I'll see you in the next video.
 </p>
   
 
-    <h2 id="two-dimensional-lists">23. two-dimensional-lists</h2>
-    <p>Hi everyone, welcome back to our series on programming for a networked world.
-In this video, we are covering two-dimensional lists.
-The term two-dimensional list is a formal way of talking about a very common data structure
-that we may alternatively call a list of lists, a matrix, a table, or a spreadsheet.
-Keeping track of data using columns and rows proves efficient in many scenarios.
-Netsblocks also optimizes the display of two-dimensional lists to make it easier for you to read and
-edit them.
-Ready to expand your knowledge of lists into the second dimension?
-Let's get started.
-What is a two-dimensional list?
-In the last video, we talked about one-dimensional lists.
-As you recall, a one-dimensional list is just an ordered sequence of items.
-So my grocery list is a one-dimensional list.
-I need to buy eggs, milk, tea, and so on.
-But I also mentioned that lists can hold data beyond strings and numbers.
-A list can contain sprites, for instance, or blocks.
-But what happens if you put a list inside of a list?
-Now you have a two-dimensional list.
-How might a list of lists prove valuable in a program?
-Let's imagine a scenario where you are programming for people who are speaking different languages,
-and you wanted Ada to interact with them in their own languages.
-You might want to keep a table of equivalent phrases from those different languages.
-So for instance, I might want to create a list of greetings to use in my program.
-My English greeting would be Hello, my Dutch greeting would be Guten Tag, my German greeting
-would be Guten Tag, and my Chinese greeting might be Ni Hao.
-And I would want to put all those greetings into a list.
-And just so we had an equivalent way to say goodbye, I'd want to do the same for saying
-goodbye in Chinese, Dutch, French, German, etc.
-So how can we keep all that information together?
-The answer is simple.
-We just have to put both lists inside of a list.
-And that will make a two-dimensional list.
-And then we'll see, as we do that, that it forms what looks like a table in NetsBlocks.
-So let's get started and see how that works.
-So I'm going to grab a list here and bring it over.
-And now I'm going to put on this list a series of languages we want to use.
-So let's say Chinese, and Dutch, and French, and German, and English, let's not forget
-English.
-OK, so that's a good list.
-And then let's put the greetings that we want for each of these.
-So I'm going to open up slots now for each one of these languages to put in the way that
-we would like to greet people.
-So let's say in Chinese, that's Ni Hao.
-And then in Dutch, Guten Tag.
-And in German, oh, it's in French, Bonjour.
-And in German, Guten Tag.
-And in English, hello.
-Now let's do the same thing with another list where we say our goodbyes.
-OK, whoops, keep clicking on it when I don't mean to, just when I get those arrows.
-OK, so Chinese, that would be Zai Jian.
-And in Dutch, we'll say Tot Ziens.
-And in French, Au Revoir.
-And in German, let's say Tschüss.
-Oops, there we go.
-And in English, finally, we'll just say, goodbye.
-OK, so now we have these three lists, but we want to put them together so that they're
-just a single data structure.
-And here's where the cool thing happens with a two-dimensional list.
-So I'm going to take a list, and I'm going to open three slots.
-And I'm going to move the first list into the first slot, the second list into the second
-slot, and I'm going to move the third list into the third slot here.
-Now this is a two-dimensional list.
-You can see that it's a list of lists.
-And when I click on it, it displays like a table.
-So you can see here that this is the column with the Chinese greetings and the Dutch greetings,
-the French greetings, the German greetings, and the English greetings.
-Now if you want to extract any information from this, how would you do that?
-OK, so you would use the same item of, and then you would drop this list of lists into
-it.
-But now what is item one going to get us?
-And here's where we have to learn to think about how lists of lists are composed.
-So if we ask for item one of this list, it's going to return us the first list.
-There we go, Chinese, Dutch, French, and German.
-So if we actually wanted to get item one of that list, then we'd put item one around
-this again like this, item one of, like that.
-And then we get Chinese, OK?
-And so if we wanted to, for example, have bonjour, then we'd have to go to, can you
-guess it, item two, so that's the second list right here, and then we want to get item three
-from that list.
-And there's bonjour.
-So when you're thinking about it, make sure when you're indexing into these lists that
-you index first into the lists that you want, and then subsequently into the item in the
-list that's returned.
-So thinking about this, you think about the list that you want first, and then the item
-in that list.
-And if you have more deeply nested lists, it's the same process.
-You keep drilling down to the list that you want until you finally are able to pull out
-an item from the list that you extract.
-Now that we've seen how to do this, let's go ahead and build the program that we had
-in mind.
-So the program that I want to do is, I want to have Ada here greet us in our own language.
-How should we do that?
-So I'm going to start a program with when clicked, it's always a good starting point,
-and then I'm going to create some variables.
-Let's create script variables here, and I'm going to name the first one language, and
-then I'm going to name the second one language selection.
-Now that I have those variables, I want to set the languages, or the, I guess I'll call
-this languages just to be clear.
-I'm going to set the languages to our list of lists.
-And then I want Ada to ask us what language we prefer her to speak in.
-So I'll bring this down here for this ask block, and I'm going to say, what language
-do you speak?
-I guess we have to start off with English because there is no neutral language obviously.
-So we'll start with English, and then we'll say, what language do you speak?
-And remember that the answer will come in the form of this answer block.
-Okay.
-Then we want to set the language here.
-We want to set the language selection, and here's what we have to think about.
-We want to set it to the index of the response in the first list.
-So we know the first list contains all the languages that we have.
-So we have a block down here that says the index of, so we want to look up where this
-answer block appears, where this answer appears in our first list.
-And so we need to know that, but we also have to extract that first list.
-We can't just give it the list of lists.
-We need to get the first list in the list of lists like this.
-So now we're going to be asking, okay, for the language that you responded, what language
-is that in our list of lists?
-So basically, what column is it?
-And then by identifying that column, we'll know in the future where to draw the equivalent
-language forms for Ada's responses.
-So we'll now just do the second part.
-Let's just do a simple hello, goodbye.
-So Ada will say hello, and then Ada will say goodbye.
-So I'll go to looks, and I'm going to bring over this hello block, and we'll use it twice.
-But the first time, we're going to index into the list here, and I'm going to get item,
-and I'm going to use language selection, because that's what we assigned here.
-So we want item, language selection, and that's going to give us the index that we need of,
-and we know that this particular row has all of the hellos, forms of saying hello in different
-languages, so we want that with our languages.
-And then we can duplicate this block, put it here, and we know the third row has all
-the forms of goodbye.
-So now I can drop this into here, and into here, and let's see if it works.
-So I'll click on this, and Ada says, what language do you speak?
-Let's start off with saying that we speak Chinese.
-Aha.
-I've got a mistake here.
-Let's see what's going on.
-Index of answer in item one of languages, oh, right, this should be languages, not language
-selection.
-There we go.
-All right.
-So let's try that again.
-Got to use the right list.
-Click on this, and we're going to say Chinese, and then Ada responds, ni hao, zai jian.
-Let's try it again with, let's say German.
-So we'll say German, speak German, guten tag, and tschuess.
-Okay, just to test that it works with English too, let's try English, hello, goodbye.
-Okay, just one more thing I'd like to show you.
-So if you want to change your representation of a list of lists from a table like this
-one into an actual list of lists representation, you can click on this and say list view, and
-then your view will look like this.
-You'll see that it's actually composed now of a list of lists.
-You see the three lists within another list.
-Most people prefer to see it as a table, but when you get multiply embedded lists, multidimensional
-lists, three or four dimensions, then you'll need to look at that list of lists view.
-The tricky thing when retrieving items from lists of lists is that you work from the outermost
-list towards the innermost list, but your item of list block winds up getting stacked
-in reverse order.
-So the outermost block will give you the result from the innermost list, and so you kind of
-need to think backwards from the inside out.
-It's actually not different from any other stack of blocks and nets blocks which give
-you values that you can then compute in other expressions.
-And don't worry if you get mixed up from time to time about what list you're working with.
-So do professional programmers.
-Just try varying that index of, and you'll see eventually you'll get to the right item
-in your list.
-All right, so let's wrap up this video here.
-In this video, you learned how to create two-dimensional lists in nets blocks and to explore those
-lists in both tabular and list form.
-You also learned how to index into two-dimensional lists to retrieve items of information.
-And you built a program that demonstrates the utility of making lists of lists for tasks
-like internationalization.
-In the next video, we'll experiment with the call block to make lists and tables.
-See you in the next video.
-</p>
-  
-
     <h2 id="structured-data">24. structured-data</h2>
     <p>Hi everyone. Welcome back to Programming for a Network World. Today we're going to
 be talking about a way to make it easier to work with lists. So sometimes you get
@@ -4553,182 +4643,7 @@ video.
 </p>
   
 
-    <h2 id="charts">25. charts</h2>
-    <p>Hello, everyone.
-Welcome back to Programming for a Network World.
-Today, we're going to continue our exploration
-of remote procedure calls, or RPCs.
-In this episode, we're going to be looking at data and ways
-to visualize data.
-It's very common, for example, when you access a data set
-that you want to get a visual representation of it.
-And fortunately, there's an RPC for that in NetsBlox.
-So ready to visualize some data?
-Let's get going.
-All right.
-So to begin, let's get the data itself.
-So the data set that we're going to be using
-is a data set collected at the Manaloa Observatory in Hawaii.
-This data set tracks the level of carbon dioxide
-in the atmosphere.
-And the reason that Manaloa is so useful
-is that it's on an extinct mountaintop,
-and the levels of carbon monoxide
-are really unaffected by the environment around it,
-which allows you to get kind of an average for the atmosphere
-as a whole.
-So we have an RPC that reaches out and gets
-that historical data, and then brings it back to us
-in list form in NetsBlox.
-So let's start there.
-We're going to go over to the Network tab here,
-and we're going to go to our call block.
-And we're going to drop down this call block,
-and we're going to go here to Climate.
-And then under Climate, you'll see Manaloa carbon dioxide
-data.
-And as you see here, we can get either the trend
-or the raw CO2.
-We're going to go with the trend.
-And I believe the start year is 1958,
-so we'll put that in as the beginning year.
-And then the last year that's available to us in NetsBlox
-is 2019.
-So we'll use that as our delimiters,
-and then we can call this.
-And you see that it provides a nice table form of the data
-with the year, and the month, and then the recorded level.
-OK, so that's great, but it's not easy necessarily
-by just looking at this to see what the trend actually
-looks like.
-So in order to do that, we're going
-to use the GNU plot charting service.
-This is a free and open source library for plotting data,
-and it's available to us again in NetsBlox.
-So if I bring this over here and I drop down to Chart,
-you'll see that it brings me a block that has two options.
-One is to draw, and the other is default options.
-So we can just use it with the default options
-and then call with our own data set
-and just see how it looks at first.
-So I'll bring this in here to Lines.
-And then for the options, you still
-need to pass something in or do.
-Maybe it works without it.
-I think it actually worked without it.
-So there you go.
-If you don't need to change the options,
-you can just let it go.
-So let's look at this.
-In this particular chart, you see
-that it's actually too small to look at.
-How do we visualize this better?
-Well, we do that trick of going up to Looks
-and using Switch to Costume.
-So Switch to Costume will change the costume
-of the sprite on the stage, in this case,
-from Ada to the chart itself.
-So we can drop that in.
-Here we go.
-And we can make that call.
-And there you can see that already we
-got a nice plot of the data.
-And unfortunately, as it shows, from 1958 until 2020,
-we've increased our carbon dioxide level
-in the atmosphere substantially.
-Can't do much about that in this particular video.
-But we can at least, I think, maybe
-label what we're seeing a little bit better.
-So to do that, we need to dive back into those options.
-So I'm going to bring over another block here.
-And we're going to call out to chart.
-Oops.
-See if I can actually bring it over this time.
-There we go.
-I'm going to go to chart.
-But this time, I'm going to look at the default options.
-And if I click on that, you see that it brings me back
-another list here in table form.
-And it has some possibilities for us
-to fill in information, like we can give a title.
-And we could perhaps add something
-to the y label or the y-axis.
-But how do we do that?
-We can't just type it in here and have it stick.
-We need to first assign this default information
-to a variable.
-And then we'll change that information.
-And then we'll send it back in.
-So let's do that by first setting a variable.
-Going to go here.
-And we're going to set a variable.
-Let's actually create one called chart options.
-There we go.
-And we'll drop down chart options in here.
-We'll put that in.
-And now we have that captured in a variable, which
-allows us, of course, to change those options.
-Now, since this particular list is in that key value format
-that we talked about in an earlier video,
-the easiest way to change it would be to go up here
-and to open our library and look for the structured data
-library.
-Here we go.
-And as you remember, structured data
-allows us to make changes based on a key.
-Then we can change the value.
-So that should appear down here.
-And that allows us to bring over this block set value.
-And we'll bring it over a couple of times here.
-And so we'll go over and we'll get our chart option,
-because that's what we want to be setting.
-And that's the list that we're working with.
-Let's bring over another chart option here.
-OK, whoops, in the wrong slot.
-There we go.
-And the first thing that we want to change is title.
-Or title doesn't have any information right now.
-So we want to change our title to something.
-And we'll say CO2 in the atmosphere.
-OK, we'll get that as the title.
-Then the other thing that we want to change
-is the y-axis here.
-So there's the x-label and there's the y-label.
-So we'll change this one down here to y-label.
-And the y-label, we're going to label as parts per million,
-PPM.
-Oops, there we go, parts per million.
-OK, now if I run this, you see that our chart option now
-has CO2 in the atmosphere.
-And it should have a label, PPM, under the y-label.
-And now we can simply apply those as our new options
-and call the chart again.
-So those options are captured in this variable here.
-And if we run this, and we turn off this
-so we can see it a little bit better, if we run this,
-now the chart has a title and it has a y-axis label.
-All right, and if we want to just put everything together,
-so it's one nice unit, we can do that.
-Bring this down here.
-There we go, connect it.
-All right, and let's put a block on top of it
-when Greenfly clicked.
-And we'll click it.
-And it ran.
-So again, it went out with an RPC to fetch the data set.
-And then it went out to find the default options.
-We changed some of those options.
-And then we called the GNU plot with our new options
-and the data.
-And we got this visualization.
-All right, and we did that in just a handful of blocks.
-So that wraps it up.
-Thank you very much again for joining me.
-And I look forward to seeing you in my next video.
-</p>
-  
-
-    <h2 id="distributed-hello-world">26. distributed-hello-world</h2>
+    <h2 id="distributed-hello-world">25. distributed-hello-world</h2>
     <p>Hi, everyone.
 Welcome back to Programming for a Network World.
 Today, we're going to begin our exploration of peer-to-peer
@@ -4868,7 +4783,7 @@ So thanks, everybody, and we'll see you in our next video.
 </p>
   
 
-    <h2 id="message-passing">27. message-passing</h2>
+    <h2 id="message-passing">26. message-passing</h2>
     <p>Welcome back to Programming for a Network World. Today, we're going to be
 building a texting application. We're going to be learning about something
 called message passing in Netsblocks, and our goal today is to send a text message
@@ -5050,7 +4965,7 @@ look forward to seeing you next time.
 </p>
   
 
-    <h2 id="running-dog">28. running-dog</h2>
+    <h2 id="running-dog">27. running-dog</h2>
     <p>Welcome back, everyone, to Programming for a Network
 World.
 Today, we're going to be continuing
@@ -5360,7 +5275,7 @@ And we look forward to seeing you in our next video.
 </p>
   
 
-    <h2 id="shared-whiteboard">29. shared-whiteboard</h2>
+    <h2 id="shared-whiteboard">28. shared-whiteboard</h2>
     <p>Hi, everyone.
 Welcome back to Programming for a Networked World.
 We're going to continue our exploration of networking
@@ -5853,7 +5768,7 @@ And we'll see you in our next video.
 </p>
   
 
-    <h2 id="chat-server">30. chat-server</h2>
+    <h2 id="chat-server">29. chat-server</h2>
     <p>Hi, everyone.
 Welcome back to Programming for a Networked World.
 Today, we're going to continue our exploration of networking
@@ -6400,7 +6315,7 @@ Bye.
 </p>
   
 
-    <h2 id="ner-for-people">31. ner-for-people</h2>
+    <h2 id="ner-for-people">30. ner-for-people</h2>
     <p>Hi, everyone.
 Welcome back to Programming for a Networked World.
 In today's session, we're going to continue
@@ -6762,544 +6677,7 @@ Bye bye.
 </p>
   
 
-    <h2 id="twitter-filter">32. twitter-filter</h2>
-    <p>Welcome back, everyone, to Programming for a Network
-World.
-We're going to be continuing our exploration
-of textual analysis.
-But this week, we're going to explore
-how to get a feed from Twitter and then
-to screen out any bad words that might be in that feed.
-So ready to develop your own parental filter in NetBlocks?
-Let's get going.
-OK, so here's our project.
-As I said, we're going to reach out and get tweets from Twitter
-on a particular topic.
-And then we're going to develop a filter for those tweets that
-will examine any tweets that have insulting, negative,
-foul language, however you want to put it.
-And we're going to try to filter those out.
-And we're also going to develop a kind of sensitivity
-level that you can select to decide how carefully you want
-it to be filtered out or whether you
-might be willing to risk a few bad words coming through.
-So let's get started by just bringing over our network tools
-here.
-So I'm going to go over to the call cloud variables.
-That's not what I want.
-I want Twitter, which is down here at the bottom.
-OK.
-And let's just see how this works.
-So we're going to do a search.
-And you see here that there's a keyword and account.
-So let's start.
-I'm going to choose a kind of homegrown example here.
-I thought kind of what I should use
-to illustrate this, some kind of contested topic.
-And I thought, OK, well, we just released
-a new logo at Vanderbilt. Some people really love the logo.
-Some people really don't like the logo.
-So we're going to look for Vanderbilt logo
-and see what people are tweeting about the logo.
-So here we go.
-I'm sure that everybody listening to this
-after they see it will have their own opinion.
-Send a tweet about it and get included in this list.
-OK, so Vanderbilt logo.
-And let's just get a count of 20.
-And you see here that what comes back are tweets.
-And good to see Vanderbilt golf.
-Well, you have to kind of pull this out.
-Vanderbilt introduces a new logo.
-So the old logo was unique.
-Does Vanderbilt have a new logo?
-So a lot of this is kind of neutral.
-But probably some people in there have some negative takes.
-And hopefully, people have positive takes, too.
-Now, you notice when you look at this
-that the tweets are coming through,
-but there's some metadata that's included on the front end.
-And we don't really want that because we
-want to send just the content of the tweet
-to our natural language processing toolkit.
-And so what we need to do first is work with these tweets
-to split them up a little bit and take off that metadata
-and also take off the handle of the person that
-is sending the tweet and just get
-the content of the tweet itself.
-So let's start by doing that.
-In order to do that, we're going to create some variables.
-And so I'm going to bring over some script variables
-that we'll start using.
-And let's just set this one to get tweets.
-And then we'll set tweets over here to call tweets.
-So that'll get our tweets.
-So that's good.
-And then let's get the next one where
-we tokenize those tweets and we split them by word.
-And so that will help us then to be
-able to filter out the parts of the tweet
-that we don't want to send for NLP examination.
-So we'll call this tokens.
-And here I'm going to set tokens.
-Maybe I'll move the stage over a little bit
-so we can see this better.
-I'll set tokens here to let's get this operator here split.
-We're going to split tokens.
-But we actually need to map this,
-I guess, because we're dealing not just one set,
-but a whole bunch of tokens.
-So let's get our map block out there.
-And so we're going to map this split here.
-And we'll put nothing in there.
-And we're going to do it by word.
-Oops, this is the wrong place.
-This needs to go in here.
-And the list goes over here.
-Now, let's start seeing if we're making
-the progress we'd like.
-So what we'll need to do is go to Control here and find
-our report block.
-And we'll just report those tokens,
-make sure that we're getting back what we expect.
-So let's run this.
-And no, indeed, we're not.
-So, oh, I put in tokens.
-This needs to be tweets.
-There we go.
-All right, let's see if this works now.
-OK, so you can see now that everything that's
-considered a word, and that could be the beginning
-of the parentheses here.
-And these are the handles all sorted out.
-It's pretty uniform.
-So we can see that all we really need to do,
-then, is we want to get rid of 1, 2, 3, 4, 5, 6,
-the first six columns.
-And so how do we get rid of those columns?
-Well, we can take another map.
-And we could just say that we want column 7
-to the end of that list.
-So we'll just drop the first six by mapping
-that we want only the content.
-So I'm going to call these contents.
-And so here's how we'll do this.
-We're going to set contents to a map.
-Let's get this over here.
-And in the map, we're going to say item.
-Let's see, let's take, yeah, item here.
-Now, we don't want 1, or we can't just say 8 or whatever,
-because we actually need more than one item.
-So we can drop in here more than one.
-So we want items number 7.
-And then to 10, well, the thing is,
-we don't know where the list actually ends.
-So we're going to grab length of list.
-And the nice thing about this map
-is these empty slots that we leave
-are going to be filled in with the items from the list.
-So we'll know, for example, if there are particular tweets
-that are longer than others, that we'll
-go all the way to the end and capture all the content.
-So then we're going to use here tokens as what we map over.
-Let's see if this works by returning the contents now.
-And you can see now that we have a smaller list of lists.
-And it's just listing the content.
-It's actually now removed those first seven of our columns
-so that we just have the content,
-which is what we wanted.
-So we're making progress here.
-But now we need to compose it back together with a join.
-OK, so how do we do that?
-We're going to use our combine block.
-And let's make another variable here.
-So maybe we'll call this combined.
-OK, so let's then set combined here.
-And as I say, we'll go out and get our combine block.
-Now, combine, as we know, it's a little bit different
-in its style.
-It's going to take this list.
-And then it's going to create all the elements in the list
-will be joined together using some kind of operator.
-And the operator needs to have two slots.
-It's basically a slot for how it's
-going to operate with each element in the list.
-And then we'll continue to process the list.
-So it's two slots rather than just one.
-So let's go over here.
-And the two slots that we want are going to be under join.
-And we want to join things with a space in between.
-So that's what we're going to do.
-If I can find join here.
-All right, so I'm going to do it like this.
-And we're going to join, leave an empty slot there,
-put a space in the middle.
-And then we'll put another slot there.
-OK, so that's how we're going to combine it.
-Now, the thing is, it's the same problem
-we had before, which is we don't want to just combine
-one row this way.
-We want to combine all the rows this way.
-So we need to have a map.
-And this could be a little confusing.
-Sometimes when you use two of these higher order functions
-together, it looks a little complicated.
-But it's the same principle.
-We're just going to apply this to every row.
-And that should take every single row
-that has each of those columns, no matter
-how many columns there are, and combine it into a single string
-or just a textual element.
-So we just need to map this now over words,
-or I guess in this case, combined.
-And then we want to report combined.
-So let's see here if that works for us.
-And it did not yet.
-So where did we go wrong here?
-Oh, oh, oh, oh.
-I'm getting ahead of myself.
-It's the second time I've done it.
-We want to do it over contents.
-The data should be flowing from top to bottom.
-So each time that we create a new variable,
-that goes in as the input.
-And then it's set to another variable that's,
-in a sense, the output.
-So let's try that again.
-OK, and there we go.
-So now, those are the tweets.
-But they're the tweets without the metadata.
-They're the tweets without the indication
-of how much they've been retweeted
-and without the indication of who sent them.
-There could be scenarios in which you
-want to keep that information and then put it back
-into a table and just have the columns maybe
-have three parts, metadata, who sent the tweet,
-and the content of the tweet.
-But for this project, we don't actually need that.
-So I'm just going to stay with this
-to keep it on the simple side.
-So that's the list processing that we
-have to do to get our tweets.
-Now, the next stage here is we want
-to think about how to go through each of these tweets
-and then examine to see whether they contain language that
-should be filtered out.
-So the way we're going to do that is,
-let's go back over to the network.
-And we'll bring another call block over.
-And let's just see how this works.
-We're going to go back to the service
-here under Language, Parallel Dots.
-And you can see here that we've got getAbuse,
-getEmotion, getIntent.
-We're going to go with getAbuse.
-And let's just test this.
-I like the new logo.
-So this should not be abusive.
-Let's call that.
-And you can see here that it gives a very low probability
-that that's abusive, basically almost none.
-There's also an indication of whether it's hate speech.
-And then there's a high probability that it's neither.
-Now, if I change this and I maybe said, I detest,
-now, is it abuse?
-It's just an opinion, really.
-But it should register higher on an abuse scale.
-Only a little bit.
-So let's see.
-I detest the new logo.
-Didn't really count as abuse.
-But how about, I detest the designers of the logo.
-Again, pretty low.
-So you see that it'll pass a lot of things through.
-I feel bad typing all this stuff.
-That's a lot closer to abusive.
-So you see here, I hate next blocks.
-I hope you don't feel that way.
-But if you did, we'd just screen you out.
-So there you go.
-That's abusive, according to our natural language processing
-unit.
-So here's the thing.
-We're going to use that.
-And we're going to plug this in to the tool
-here that we've built, this set of blocks.
-And we're just going to process each of these tweets.
-And then we're going to respond appropriately.
-So let's take a, under variables here,
-we're going to take this block called forEach.
-Let's go ahead and grab it.
-There we go.
-Pull this off.
-And so we're going to put in the forEach here
-that for each item in, let's say, content, actually
-combined, sorry, there we go, for each item in combined.
-And we could make this a little bit clearer
-by calling it forEachTweetInCombined.
-Let's do something.
-And what we want to do is use an if else.
-So we will call parallelDots and ask if it's abusive.
-And then if it is, we'll register that it is.
-If not, we'll pass it through.
-So we want to, let's just take this here
-and see if we can set a threshold for being abusive.
-So if parallelDots comes back and says
-the threshold is less than a certain amount,
-let's say 0.05, then we'll say that it's not abusive.
-If it's higher than that, then we'll say that it is.
-Maybe let's just try 0.5 for now.
-So now we'll just put in here, just for a moment,
-something to kind of stub in what we want to do.
-So I'm going to say, I don't really
-need the report block anymore.
-Get that out of there.
-So we want to say not abusive or abusive.
-Actually, it's this tweet here that goes in.
-So that's going to contain each line.
-We're going to call parallelDots.
-We're going to get that information.
-And then we're going to see if it meets the threshold.
-And if it does, then it will fall into the abusive.
-If it goes under, it'll be not abusive.
-Now, we can just run this.
-And let's just run it for maybe three tweets
-just to check out what it says, because we
-want to build this into a larger program.
-But I just want to test it to see if it works.
-And non-abusive, non-abusive, non-abusive.
-Let's just take a look to see, for example,
-what is actually coming back in terms of what
-parallelDots is telling us.
-So one way we could do that is we
-could do the call above here.
-So we could just set another variable.
-Let's do abuse score.
-So it gives more insight into actually
-what the scores are that are coming back.
-And then let's, for each tweet, we want to set that here first.
-Let's get the variable set.
-Oops.
-OK.
-And this should be inside the forEach.
-OK.
-So we're going to set this abuse score
-to calling for this tweet.
-And then, oh, I think here's the problem.
-We need to actually drill into that abuse score a little bit
-in order to get the actual number.
-We're not actually getting to the right number,
-which is why this is not working.
-OK.
-So that's probably what our mistake is right here.
-So remember, when we call parallelDots and we say,
-let's just give it the word abuse,
-then it has a score here.
-So we need to actually get this score.
-And what we're passing in is this list of lists.
-And that's why it's not working.
-So let's go over here to get that structured data library.
-OK.
-So we're going to get the structured data library.
-And let's go down and start pulling pieces out of this.
-So here, I think what we want to get is abusive.
-And then let's pass in this tweet.
-And then we should get a score.
-And that's giving us an actual score.
-So that's what we needed.
-And that's fine.
-So let's bring this back in here.
-And that will give us the score.
-And there's our tweet that goes in.
-And then we can say, if the abuse score is less than 0.1,
-say not abusive otherwise.
-So now we can test it again.
-Let's bring this over here so it's
-a little bit easier to read.
-And let's give it another shot.
-Not abusive.
-Not abusive.
-Again, abusive.
-OK.
-So now we know abusive.
-OK.
-So we've set a threshold.
-And you can see that it's flagging
-certain of our tweets as abusive and others as non-abusive.
-So now, in principle, we've got everything working.
-What we need to do is just turn this
-into something that's got a better user interface.
-So what we want to do now is let's start by, well,
-always good to start by putting a hat block at the top.
-So we'll do that.
-And then let's ask a question at the beginning.
-I think that we may want to switch Ada out
-for a different costume here.
-Let's just go to our turtle.
-And that will be, I think, easier to use.
-OK.
-So now we want to ask a question.
-So that is going to be under Sensing right here.
-And the question we want to ask is, what topic on Twitter
-would you like to search?
-OK.
-And then we'll wait.
-Now, so here, we're going to take the answer
-and plug it in there.
-So that will allow folks to put in whatever topic
-they'd like to have.
-And then we also want, later on, to ask
-for the level of sensitivity here.
-So after we get through looking up
-the contents of that topic on Twitter
-and doing the list processing, then
-we want to think about what level of sensitivity.
-What is the sensitivity?
-What level of sensitivity do you want?
-And we'll set a score between 1 to 100.
-OK.
-Now, here, we're going to use the answer again,
-because now it's going to be set to the answer for this question.
-And when we set this abusive score here,
-let's set the value of that abusive score.
-It comes back with a number that's up to 1,
-so like 0.99 or something at the highest level.
-So if we want to think about the sensitivity level,
-then we need to take that answer, 1 to 100,
-and just divide it the same way by 100.
-Here we go.
-And now we can use this here to set our level.
-So that will set the level.
-Excuse me.
-And then we'll be able to see, for example,
-based on our answer, we'll let people
-set their own sort of comfort level
-with seeing texts come through.
-Now, the last thing that we want to do
-is just write on the screen.
-And we've seen this before in the Sentimental Writer,
-but I want to take the time to actually go through
-and do it this time.
-So let's just start here by clearing the screen.
-So we'll put a clear up at the top.
-And then let's set a pen color.
-This is all just to make sure that we can write in a nice way.
-So we'll set the default pen color to a nice blue.
-Then I think that what we'll do is we'll put
-the pen in the right place.
-So let's go, and you kind of have to experiment with this
-just to kind of figure out where you want to start.
-On our screen, I think negative 220 and then the y value of 150
-should put us in the right place.
-We can sort of test where that would be just
-by dropping this down here.
-You can see that it puts us up in this corner.
-Maybe it's a little bit too far over,
-so let's say negative 210, something like that.
-That looks good.
-So that's where we'll start writing, and with the color
-blue.
-So that's good.
-Now, we need to do the writing part, which is actually
-down here.
-So we'll take out these stubs that we put in, the say blocks.
-And so this one is going to be if something's not abusive.
-So basically, what we want to do is write the item to the screen,
-and we can do that with pen here.
-Let's go down to write.
-And we're going to make it size 10,
-because even at that size, the whole tweet
-won't fit on screen.
-There are some libraries that you
-can use that we can provide to wrap the writing on the screen,
-but we're not going to go that far in this
-because our goal here is not to show you
-how to build those kind of libraries.
-It's just to help you to see what
-the tweets are that are coming through
-and what ones are getting filtered out.
-So what we want to write, though,
-is the tweet, content of the tweet.
-So there we go.
-And that's good.
-Now, the only thing that we need to do is just make sure
-that we're in the right place here.
-So at the end of our writing, we want to go back to,
-let's see, set x.
-x is going to be stable, because x is always
-going to be just starting on this left-hand side.
-So I think we said that was negative 210, right?
-And then the y value is going to change.
-So we're going to take this change block here.
-We're going to change the y value every time.
-And since we want to be going down on the screen,
-we're not going to change it positively.
-That would move it up.
-We're going to change it negatively to move it down.
-So that's good.
-And we can use basically the set of blocks
-here with a little tweak for the abusive part.
-The tweak is we're going to change the pen color
-so that we're writing in a different color
-to indicate that we've filtered something out.
-And we're also not going to pass through the tweet,
-because that would kind of defeat the purpose.
-We're just going to write in redacted.
-Put censored.
-You could put not shown, whatever you like to say.
-So redacted.
-And let's change the pen color.
-So let's go over here, change the pen color,
-and let's put it in maybe a lighter red, something
-like that.
-And then we need to set the pen color back.
-And let me duplicate this up here.
-Oh, I got the whole thing.
-That's more than I needed, but it's all right.
-So let's drag this down and set the pen color back.
-I think that should be it.
-Shall we give it a shot?
-Let's try this.
-So I'm going to get the screen a little bit bigger
-so we can see what's going on here.
-We don't need to watch the code as much.
-And let's hit that green flag.
-So what topic would you like to search on Twitter?
-And we're going to go for the Vanderbilt logo.
-And what's sensitivity?
-Let's just go for, like, 30.
-We're going to be pretty sensitive.
-So we've got some positive ones, and then we've
-got some ones that were redacted.
-And you can see that the positive ones are
-indeed positive.
-Good to see Vanderbilt golf coaches and players
-wearing the correct logo.
-New logo didn't catch up.
-Introduce a new logo.
-Fans see the beauty.
-Logo battle, who you got.
-So there were two comments that were taken out
-based on our sensitivity level.
-So if we run this again and we set a very low sensitivity
-level, let's just set it at a 1, we
-should see probably even more redactions.
-Oh, I need to put Vanderbilt logo here.
-And then let's set a 1.
-We got one more redaction.
-And then if we ran this again and we
-set our sensitivity level as 99, we only had one item redacted.
-So you can see that our sensitivity
-to what's coming through our filter, we can easily adjust.
-And that's all thanks to the natural language processing
-that's built into NetsBlox.
-So that's the end of our segment for today.
-I look forward to seeing you in our next video.
-</p>
-  
-
-    <h2 id="language-id-part-one">33. language-id-part-one</h2>
+    <h2 id="language-id-part-one">31. language-id-part-one</h2>
     <p>Hi, everyone.
 Welcome back to Programming for a Networked World.
 Today, we're going to continue our exploration
@@ -7811,7 +7189,7 @@ and talk to you again soon.
 </p>
   
 
-    <h2 id="language-id-part-two">34. language-id-part-two</h2>
+    <h2 id="language-id-part-two">32. language-id-part-two</h2>
     <p>Hi, everyone.
 Welcome back to Programming for a Networked World.
 Today, we're continuing our exploration
@@ -8199,7 +7577,7 @@ and I look forward to seeing you in my next video.
 </p>
   
 
-    <h2 id="language-games">35. language-games</h2>
+    <h2 id="language-games">33. language-games</h2>
     <p>Hi, welcome back everyone to Programming for a Network World. Today we're going to
 wrap up our sessions on textual analysis in Netsbox and we're going to do
 something fun. I don't know if you've seen the channel Translation Fails. I
