@@ -13,7 +13,7 @@ const htmlContents = ordering.map((dirname, i) => {
   const id = dirname.toLowerCase().replace(/ /g, "-");
 
   return `
-    <h2 id="${id}">${i + 1}. ${dirname}</h2>
+    <h2 id="${id}" data-index="${i + 1}">${i + 1}. ${dirname}</h2>
     <p>${text}</p>
   `;
 }).join("\n");
@@ -33,11 +33,12 @@ function searchKeyword(keyword) {
         id: h2.id,
         title: h2.innerText,
         count: matchCount,
+        index: +h2.getAttribute('data-index'),
       });
     }
   });
 
-  searchResults.sort((a, b) => b.count - a.count);
+  searchResults.sort((a, b) => a.index < b.index ? -1 : 1);
   return searchResults;
 }
 
