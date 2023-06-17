@@ -1,0 +1,206 @@
+Hi, everyone. Welcome back to Programming for a Network World.
+Today, we're going to explore the basics of the NetsBlox interface.
+Our goal today is to help you to get oriented in NetsBlox,
+so that you'll know where all the pieces
+are as we continue our programming journey.
+We'll explore how to write a simple program in
+NetsBlox and look at the different components of
+NetsBlox so that you'll know your way around as we go through this course.
+Are you ready to find out how to program in NetsBlox? Let's get started.
+Let's begin with just how to get to NetsBlox.
+If you type NetsBlox into a browser,
+www.netsblocks.org, you'll get to this page.
+To get to the NetsBlox programming environment,
+you can click Try Now.
+That URL is editor.netsblocks.org.
+That will bring you to this page where we'll do all of our programming.
+Now, one of the things that you'll want to do is to
+create your own account in NetsBlox.
+An account allows you to keep your programs in one place,
+they'll keep them private to you,
+but you can also share out your programs with others.
+To do that, we'll click here on this Cloud icon,
+and you can see that I'm already logged in.
+But if I were logged out,
+I would have another option here,
+and that is to sign up.
+You can sign up here,
+just put in this information,
+and then click OK.
+You'll have to agree to the terms of service,
+and then you can log in with your username and password,
+just like any normal site.
+Let's try it again. There we go.
+Now, I'm logged in under my name.
+That's the first thing that you want to do is to create an account on
+NetsBlox as you go through this course
+to keep all of your exercises in one place.
+Now, let's just talk about
+the various parts of the NetsBlox interface.
+Up here, we have the toolbar that we've already used,
+and there are several important features up
+there that we'll get to in a little while.
+Then over here, we have the palette.
+This is where you have the three main types
+of blocks that we're going to be using,
+namely command blocks.
+Those have this notch right here.
+Then reporter blocks, for example,
+they have the rounded edges like these.
+These are reporter blocks.
+Reporter blocks differ from command blocks because
+command blocks do things in the NetsBlox environment,
+whereas reporter blocks report things about the environment.
+That distinction will become clear as we go forward in this course.
+The third type of block here is with this pointy arrows.
+This is a special type of reporter called a Boolean,
+and it always reports true or false.
+Again, we'll learn more about Booleans
+later in this particular unit.
+These are your blocks,
+and that will be the functionality that we'll use.
+What we'll do is we're going to pull these blocks
+out onto the scripting area.
+This is what this is right here.
+This is where we do our scripting or write our programs.
+You can see we'll just create a simple program.
+We're going to go to the Network tab here,
+and I'm going to bring out this call block.
+You can see because it has the rounded edges that it is a reporter.
+I'll drop down and you'll see
+that there's lots of different choices here.
+Now, these are what are called RPCs, Remote Procedure Calls.
+That is, they can get data from all over
+the web and bring it back to your NetBlocks program.
+We're going to be exploring RPCs in depth in this course
+because it's one of the themes of programming in a network world.
+But you may see as we go on that this menu
+changes over the period of the course,
+and it may actually change in your own environment.
+That's simply because we're adding new RPCs all the time,
+and sometimes we reorganize them to
+just collect them and make them a little bit more clear.
+I'm going to go down to GeoData and to weather and click on that,
+and you'll see that now I've got this RPC.
+It's a little bit different. It has a dropdown here.
+I want to drop that down and you see that I've got several options.
+I could get, for example,
+the humidity, I can get icons representing the weather in a particular area.
+What I want to do is get the temperature.
+Now, two more spaces for blocks open up.
+This is really one of the ways that you'll program in Nest Blocks.
+When you have these particular spaces to fill in blocks,
+then you'll look for other blocks that you want to use to fill them.
+Now, in this particular one,
+to get the temperature of where I'm located,
+I want the latitude and longitude.
+I can look that up in some service,
+and it would tell me maybe on
+Google Maps what my latitude and longitude is.
+But I can also go over to sensing,
+and I can find a block over here called my latitude and my longitude.
+Again, I can bring these into the scripting area just like so,
+and I can then bring them right into these slots.
+Make sure you drop it in the right slot like that.
+To test this, I simply click on it,
+and you see here that there's a pop-up saying
+that the editor wants to know my location.
+Now again, in order for this to work,
+you have to allow that,
+and I've got that turned off in the Mac,
+so let's make sure it's turned on,
+and I'm going to go to location settings here.
+This is Mac specific,
+but let's get this done for this browser,
+and let's see if I can do that.
+There we go. That should have it done,
+and let's try it again.
+This time, it came back with 67.9 degrees Fahrenheit.
+We are using Fahrenheit in this particular service.
+You see that you may have some setup to do in your own browser simply to allow
+the browser to fetch that information for you based on your location,
+and that can differ between browsers.
+But in any case, once you have that setup in Nest Blocks,
+it will always return the temperature that it is right now,
+67.9 where I am, it's a nice day.
+Now, let's build a little program around that,
+and I'll introduce as we build a program
+to other parts of the Nest Block programming environment.
+The first is the stage.
+This is where in some sense your programs will show their results.
+The stage is an important area where you can draw,
+you can have what are called sprites or turtles,
+and the stage is in some sense where the action happens in your program.
+You can see here I've got this default little arrow, that's a turtle.
+We'll learn about turtle graphics coming up in a little bit.
+But this is also something important.
+This is your sprite corral.
+This is where your sprites for your program will be contained.
+Now, sprites are how you organize your programs.
+This code, for example, is inside of a particular sprite,
+this sprite right here.
+If I click on the stage, you'll see that the scripting area becomes blank,
+and that's because I can also write programs that are specific to the stage.
+But we're going to be writing here in this sprite,
+and you may have many sprites,
+and they may contain different types of code.
+So you'll need to know where you're writing your code
+and what sprite is going to be responding to the commands
+that you use inside of your code.
+So here, we'll just use this particular sprite.
+That's the default sprite that looks like the arrow,
+and you can see that it will respond,
+but we need to use something other than a reporter to do that.
+So this is just reporting this information.
+This is why there's that pop-up.
+But in order for the sprite to do something,
+we need to use the command block.
+And so the simplest command we can use is let's go under looks here,
+and I'm going to take this C block out,
+and let's drop this whole thing into say.
+Now, what I can do is click on this,
+and you'll see that it will fetch the information,
+and then it will have the sprite say 67.9 degrees.
+But of course, that number is not very helpful or informative.
+So let's make this program a little more interesting.
+So if we go over to operators, we can go down to this join block,
+and this helps join two pieces of text together.
+In computer science, text is often called string,
+so it will join strings together.
+And we can take this particular block and drop it in here,
+and we can say the temperature is now,
+and I'll put a space after that.
+And actually, I can click this little arrow
+and then put another space and say Fahrenheit like that.
+Let's pull this back so you can see the whole thing.
+Now, I've got a string here that will say the temperature is now,
+and then 67.9 degrees or whatever the temperature is where you are,
+Fahrenheit to make sure that we're not talking about Celsius.
+And if I click on that, it will report that information to me
+in the form now of a sentence.
+So you can see it's much more readable.
+And then I can bring this back into that slot here,
+and now I can have the sprite say that sentence for two seconds.
+If I wanted to stay on the screen a little bit longer,
+I could change that to five seconds.
+And there you go.
+Now, one last thing as we explore the utility in Nest Blocks,
+I'm going to bring out this when green flag clicked.
+This is called a hat block,
+and the hat block can sit on top of the stacks of blocks that you build,
+and then you can activate it by hitting this green flag.
+Oftentimes, people have a hat block in their program
+because it's the way that they kick off the computation of their program
+rather than just directly clicking on a stack of blocks.
+So let's try that.
+I'm going to click green.
+You see that the highlight is around it.
+There's a little bit of glow around it.
+And then the command makes the sprite say that information on the stage,
+and then it no longer is glowing.
+That means the computation is over.
+All right, so there's a lot more to learn about Nest Blocks,
+but the purpose here was just to show you how to write a very simple program
+as we explore the different parts of the Nest Blocks programming environment.
+I hope you've enjoyed this video,
+and I look forward to seeing you in the next episode.

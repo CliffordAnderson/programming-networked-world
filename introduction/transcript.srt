@@ -1,0 +1,824 @@
+1
+00:00:00,000 --> 00:00:03,680
+Hi, everyone. Welcome back to Programming for a Network World.
+
+2
+00:00:03,680 --> 00:00:08,780
+Today, we're going to explore the basics of the NetsBlox interface.
+
+3
+00:00:08,780 --> 00:00:12,320
+Our goal today is to help you to get oriented in NetsBlox,
+
+4
+00:00:12,320 --> 00:00:14,520
+so that you'll know where all the pieces
+
+5
+00:00:14,520 --> 00:00:17,760
+are as we continue our programming journey.
+
+6
+00:00:17,760 --> 00:00:20,640
+We'll explore how to write a simple program in
+
+7
+00:00:20,640 --> 00:00:23,440
+NetsBlox and look at the different components of
+
+8
+00:00:23,440 --> 00:00:29,440
+NetsBlox so that you'll know your way around as we go through this course.
+
+9
+00:00:29,440 --> 00:00:36,240
+Are you ready to find out how to program in NetsBlox? Let's get started.
+
+10
+00:00:42,120 --> 00:00:46,000
+Let's begin with just how to get to NetsBlox.
+
+11
+00:00:46,000 --> 00:00:48,200
+If you type NetsBlox into a browser,
+
+12
+00:00:48,200 --> 00:00:52,520
+www.netsblocks.org, you'll get to this page.
+
+13
+00:00:52,520 --> 00:00:55,400
+To get to the NetsBlox programming environment,
+
+14
+00:00:55,400 --> 00:00:57,280
+you can click Try Now.
+
+15
+00:00:57,280 --> 00:01:01,360
+That URL is editor.netsblocks.org.
+
+16
+00:01:01,360 --> 00:01:05,440
+That will bring you to this page where we'll do all of our programming.
+
+17
+00:01:05,440 --> 00:01:08,080
+Now, one of the things that you'll want to do is to
+
+18
+00:01:08,080 --> 00:01:10,880
+create your own account in NetsBlox.
+
+19
+00:01:10,880 --> 00:01:14,980
+An account allows you to keep your programs in one place,
+
+20
+00:01:14,980 --> 00:01:16,400
+they'll keep them private to you,
+
+21
+00:01:16,400 --> 00:01:20,120
+but you can also share out your programs with others.
+
+22
+00:01:20,120 --> 00:01:23,440
+To do that, we'll click here on this Cloud icon,
+
+23
+00:01:23,440 --> 00:01:25,640
+and you can see that I'm already logged in.
+
+24
+00:01:25,640 --> 00:01:27,240
+But if I were logged out,
+
+25
+00:01:27,240 --> 00:01:28,840
+I would have another option here,
+
+26
+00:01:28,840 --> 00:01:30,160
+and that is to sign up.
+
+27
+00:01:30,160 --> 00:01:31,480
+You can sign up here,
+
+28
+00:01:31,480 --> 00:01:33,120
+just put in this information,
+
+29
+00:01:33,120 --> 00:01:35,400
+and then click OK.
+
+30
+00:01:35,400 --> 00:01:37,720
+You'll have to agree to the terms of service,
+
+31
+00:01:37,720 --> 00:01:42,360
+and then you can log in with your username and password,
+
+32
+00:01:42,360 --> 00:01:44,120
+just like any normal site.
+
+33
+00:01:44,120 --> 00:01:51,080
+Let's try it again. There we go.
+
+34
+00:01:51,080 --> 00:01:54,280
+Now, I'm logged in under my name.
+
+35
+00:01:54,280 --> 00:01:57,760
+That's the first thing that you want to do is to create an account on
+
+36
+00:01:57,760 --> 00:01:59,800
+NetsBlox as you go through this course
+
+37
+00:01:59,800 --> 00:02:02,880
+to keep all of your exercises in one place.
+
+38
+00:02:02,880 --> 00:02:04,960
+Now, let's just talk about
+
+39
+00:02:04,960 --> 00:02:08,360
+the various parts of the NetsBlox interface.
+
+40
+00:02:08,360 --> 00:02:11,320
+Up here, we have the toolbar that we've already used,
+
+41
+00:02:11,320 --> 00:02:12,920
+and there are several important features up
+
+42
+00:02:12,920 --> 00:02:14,960
+there that we'll get to in a little while.
+
+43
+00:02:14,960 --> 00:02:18,600
+Then over here, we have the palette.
+
+44
+00:02:18,600 --> 00:02:20,760
+This is where you have the three main types
+
+45
+00:02:20,760 --> 00:02:22,680
+of blocks that we're going to be using,
+
+46
+00:02:22,680 --> 00:02:24,320
+namely command blocks.
+
+47
+00:02:24,320 --> 00:02:26,560
+Those have this notch right here.
+
+48
+00:02:26,560 --> 00:02:29,200
+Then reporter blocks, for example,
+
+49
+00:02:29,200 --> 00:02:31,360
+they have the rounded edges like these.
+
+50
+00:02:31,360 --> 00:02:33,000
+These are reporter blocks.
+
+51
+00:02:33,000 --> 00:02:36,240
+Reporter blocks differ from command blocks because
+
+52
+00:02:36,240 --> 00:02:39,440
+command blocks do things in the NetsBlox environment,
+
+53
+00:02:39,440 --> 00:02:43,040
+whereas reporter blocks report things about the environment.
+
+54
+00:02:43,040 --> 00:02:47,040
+That distinction will become clear as we go forward in this course.
+
+55
+00:02:47,040 --> 00:02:50,640
+The third type of block here is with this pointy arrows.
+
+56
+00:02:50,640 --> 00:02:53,440
+This is a special type of reporter called a Boolean,
+
+57
+00:02:53,440 --> 00:02:56,000
+and it always reports true or false.
+
+58
+00:02:56,000 --> 00:02:58,080
+Again, we'll learn more about Booleans
+
+59
+00:02:58,080 --> 00:03:00,960
+later in this particular unit.
+
+60
+00:03:00,960 --> 00:03:02,960
+These are your blocks,
+
+61
+00:03:02,960 --> 00:03:05,760
+and that will be the functionality that we'll use.
+
+62
+00:03:05,760 --> 00:03:08,120
+What we'll do is we're going to pull these blocks
+
+63
+00:03:08,120 --> 00:03:11,360
+out onto the scripting area.
+
+64
+00:03:11,360 --> 00:03:12,560
+This is what this is right here.
+
+65
+00:03:12,560 --> 00:03:16,200
+This is where we do our scripting or write our programs.
+
+66
+00:03:16,240 --> 00:03:20,320
+You can see we'll just create a simple program.
+
+67
+00:03:20,320 --> 00:03:22,640
+We're going to go to the Network tab here,
+
+68
+00:03:22,640 --> 00:03:25,840
+and I'm going to bring out this call block.
+
+69
+00:03:25,840 --> 00:03:30,600
+You can see because it has the rounded edges that it is a reporter.
+
+70
+00:03:30,600 --> 00:03:33,080
+I'll drop down and you'll see
+
+71
+00:03:33,080 --> 00:03:35,520
+that there's lots of different choices here.
+
+72
+00:03:35,520 --> 00:03:41,160
+Now, these are what are called RPCs, Remote Procedure Calls.
+
+73
+00:03:41,160 --> 00:03:43,880
+That is, they can get data from all over
+
+74
+00:03:43,880 --> 00:03:47,360
+the web and bring it back to your NetBlocks program.
+
+75
+00:03:47,360 --> 00:03:50,360
+We're going to be exploring RPCs in depth in this course
+
+76
+00:03:50,360 --> 00:03:53,800
+because it's one of the themes of programming in a network world.
+
+77
+00:03:53,800 --> 00:03:56,680
+But you may see as we go on that this menu
+
+78
+00:03:56,680 --> 00:03:58,760
+changes over the period of the course,
+
+79
+00:03:58,760 --> 00:04:00,920
+and it may actually change in your own environment.
+
+80
+00:04:00,920 --> 00:04:04,680
+That's simply because we're adding new RPCs all the time,
+
+81
+00:04:04,680 --> 00:04:06,920
+and sometimes we reorganize them to
+
+82
+00:04:06,920 --> 00:04:10,600
+just collect them and make them a little bit more clear.
+
+83
+00:04:10,600 --> 00:04:16,040
+I'm going to go down to GeoData and to weather and click on that,
+
+84
+00:04:16,040 --> 00:04:18,720
+and you'll see that now I've got this RPC.
+
+85
+00:04:18,720 --> 00:04:21,000
+It's a little bit different. It has a dropdown here.
+
+86
+00:04:21,000 --> 00:04:24,080
+I want to drop that down and you see that I've got several options.
+
+87
+00:04:24,080 --> 00:04:25,400
+I could get, for example,
+
+88
+00:04:25,400 --> 00:04:30,400
+the humidity, I can get icons representing the weather in a particular area.
+
+89
+00:04:30,400 --> 00:04:32,640
+What I want to do is get the temperature.
+
+90
+00:04:32,640 --> 00:04:36,880
+Now, two more spaces for blocks open up.
+
+91
+00:04:36,880 --> 00:04:40,880
+This is really one of the ways that you'll program in Nest Blocks.
+
+92
+00:04:40,880 --> 00:04:44,240
+When you have these particular spaces to fill in blocks,
+
+93
+00:04:44,240 --> 00:04:47,040
+then you'll look for other blocks that you want to use to fill them.
+
+94
+00:04:47,040 --> 00:04:48,640
+Now, in this particular one,
+
+95
+00:04:48,640 --> 00:04:50,880
+to get the temperature of where I'm located,
+
+96
+00:04:50,880 --> 00:04:53,080
+I want the latitude and longitude.
+
+97
+00:04:53,080 --> 00:04:57,120
+I can look that up in some service,
+
+98
+00:04:57,120 --> 00:04:58,760
+and it would tell me maybe on
+
+99
+00:04:58,760 --> 00:05:01,320
+Google Maps what my latitude and longitude is.
+
+100
+00:05:01,320 --> 00:05:04,440
+But I can also go over to sensing,
+
+101
+00:05:04,440 --> 00:05:08,840
+and I can find a block over here called my latitude and my longitude.
+
+102
+00:05:08,840 --> 00:05:12,880
+Again, I can bring these into the scripting area just like so,
+
+103
+00:05:12,880 --> 00:05:17,160
+and I can then bring them right into these slots.
+
+104
+00:05:17,160 --> 00:05:20,280
+Make sure you drop it in the right slot like that.
+
+105
+00:05:20,280 --> 00:05:22,840
+To test this, I simply click on it,
+
+106
+00:05:22,840 --> 00:05:25,400
+and you see here that there's a pop-up saying
+
+107
+00:05:25,400 --> 00:05:27,840
+that the editor wants to know my location.
+
+108
+00:05:27,840 --> 00:05:29,960
+Now again, in order for this to work,
+
+109
+00:05:29,960 --> 00:05:31,560
+you have to allow that,
+
+110
+00:05:31,560 --> 00:05:34,200
+and I've got that turned off in the Mac,
+
+111
+00:05:34,200 --> 00:05:36,720
+so let's make sure it's turned on,
+
+112
+00:05:36,720 --> 00:05:39,280
+and I'm going to go to location settings here.
+
+113
+00:05:39,280 --> 00:05:41,240
+This is Mac specific,
+
+114
+00:05:41,240 --> 00:05:48,120
+but let's get this done for this browser,
+
+115
+00:05:48,120 --> 00:05:51,080
+and let's see if I can do that.
+
+116
+00:05:51,080 --> 00:05:54,240
+There we go. That should have it done,
+
+117
+00:05:54,240 --> 00:05:56,520
+and let's try it again.
+
+118
+00:05:56,560 --> 00:06:05,720
+This time, it came back with 67.9 degrees Fahrenheit.
+
+119
+00:06:05,720 --> 00:06:10,080
+We are using Fahrenheit in this particular service.
+
+120
+00:06:10,080 --> 00:06:15,720
+You see that you may have some setup to do in your own browser simply to allow
+
+121
+00:06:15,720 --> 00:06:19,200
+the browser to fetch that information for you based on your location,
+
+122
+00:06:19,200 --> 00:06:21,480
+and that can differ between browsers.
+
+123
+00:06:21,480 --> 00:06:25,440
+But in any case, once you have that setup in Nest Blocks,
+
+124
+00:06:25,480 --> 00:06:30,280
+it will always return the temperature that it is right now,
+
+125
+00:06:30,280 --> 00:06:33,320
+67.9 where I am, it's a nice day.
+
+126
+00:06:33,320 --> 00:06:37,280
+Now, let's build a little program around that,
+
+127
+00:06:37,280 --> 00:06:39,880
+and I'll introduce as we build a program
+
+128
+00:06:39,880 --> 00:06:43,240
+to other parts of the Nest Block programming environment.
+
+129
+00:06:43,240 --> 00:06:45,160
+The first is the stage.
+
+130
+00:06:45,160 --> 00:06:49,880
+This is where in some sense your programs will show their results.
+
+131
+00:06:49,880 --> 00:06:52,720
+The stage is an important area where you can draw,
+
+132
+00:06:52,760 --> 00:06:55,800
+you can have what are called sprites or turtles,
+
+133
+00:06:55,800 --> 00:07:00,440
+and the stage is in some sense where the action happens in your program.
+
+134
+00:07:00,440 --> 00:07:03,840
+You can see here I've got this default little arrow, that's a turtle.
+
+135
+00:07:03,840 --> 00:07:06,560
+We'll learn about turtle graphics coming up in a little bit.
+
+136
+00:07:06,560 --> 00:07:09,720
+But this is also something important.
+
+137
+00:07:09,720 --> 00:07:11,280
+This is your sprite corral.
+
+138
+00:07:11,280 --> 00:07:14,160
+This is where your sprites for your program will be contained.
+
+139
+00:07:14,160 --> 00:07:18,960
+Now, sprites are how you organize your programs.
+
+140
+00:07:19,360 --> 00:07:23,560
+This code, for example, is inside of a particular sprite,
+
+141
+00:07:23,560 --> 00:07:24,800
+this sprite right here.
+
+142
+00:07:24,800 --> 00:07:28,720
+If I click on the stage, you'll see that the scripting area becomes blank,
+
+143
+00:07:28,720 --> 00:07:33,720
+and that's because I can also write programs that are specific to the stage.
+
+144
+00:07:33,720 --> 00:07:35,840
+But we're going to be writing here in this sprite,
+
+145
+00:07:35,840 --> 00:07:37,640
+and you may have many sprites,
+
+146
+00:07:37,640 --> 00:07:40,680
+and they may contain different types of code.
+
+147
+00:07:40,680 --> 00:07:43,520
+So you'll need to know where you're writing your code
+
+148
+00:07:43,520 --> 00:07:47,920
+and what sprite is going to be responding to the commands
+
+149
+00:07:47,920 --> 00:07:50,400
+that you use inside of your code.
+
+150
+00:07:50,400 --> 00:07:53,000
+So here, we'll just use this particular sprite.
+
+151
+00:07:53,000 --> 00:07:55,600
+That's the default sprite that looks like the arrow,
+
+152
+00:07:55,600 --> 00:07:59,880
+and you can see that it will respond,
+
+153
+00:07:59,880 --> 00:08:04,440
+but we need to use something other than a reporter to do that.
+
+154
+00:08:04,440 --> 00:08:06,160
+So this is just reporting this information.
+
+155
+00:08:06,160 --> 00:08:07,800
+This is why there's that pop-up.
+
+156
+00:08:07,800 --> 00:08:09,560
+But in order for the sprite to do something,
+
+157
+00:08:09,560 --> 00:08:11,320
+we need to use the command block.
+
+158
+00:08:11,320 --> 00:08:15,240
+And so the simplest command we can use is let's go under looks here,
+
+159
+00:08:15,240 --> 00:08:17,840
+and I'm going to take this C block out,
+
+160
+00:08:17,840 --> 00:08:21,840
+and let's drop this whole thing into say.
+
+161
+00:08:21,840 --> 00:08:24,880
+Now, what I can do is click on this,
+
+162
+00:08:24,880 --> 00:08:26,760
+and you'll see that it will fetch the information,
+
+163
+00:08:26,760 --> 00:08:32,160
+and then it will have the sprite say 67.9 degrees.
+
+164
+00:08:32,160 --> 00:08:35,160
+But of course, that number is not very helpful or informative.
+
+165
+00:08:35,160 --> 00:08:39,080
+So let's make this program a little more interesting.
+
+166
+00:08:39,080 --> 00:08:43,720
+So if we go over to operators, we can go down to this join block,
+
+167
+00:08:43,720 --> 00:08:47,800
+and this helps join two pieces of text together.
+
+168
+00:08:47,800 --> 00:08:50,280
+In computer science, text is often called string,
+
+169
+00:08:50,280 --> 00:08:53,200
+so it will join strings together.
+
+170
+00:08:53,200 --> 00:08:56,600
+And we can take this particular block and drop it in here,
+
+171
+00:08:56,600 --> 00:09:01,640
+and we can say the temperature is now,
+
+172
+00:09:01,640 --> 00:09:03,560
+and I'll put a space after that.
+
+173
+00:09:03,560 --> 00:09:05,960
+And actually, I can click this little arrow
+
+174
+00:09:05,960 --> 00:09:11,040
+and then put another space and say Fahrenheit like that.
+
+175
+00:09:11,040 --> 00:09:13,680
+Let's pull this back so you can see the whole thing.
+
+176
+00:09:13,680 --> 00:09:18,000
+Now, I've got a string here that will say the temperature is now,
+
+177
+00:09:18,000 --> 00:09:22,560
+and then 67.9 degrees or whatever the temperature is where you are,
+
+178
+00:09:22,560 --> 00:09:25,400
+Fahrenheit to make sure that we're not talking about Celsius.
+
+179
+00:09:25,400 --> 00:09:27,720
+And if I click on that, it will report that information to me
+
+180
+00:09:27,720 --> 00:09:29,800
+in the form now of a sentence.
+
+181
+00:09:29,800 --> 00:09:32,000
+So you can see it's much more readable.
+
+182
+00:09:32,000 --> 00:09:35,880
+And then I can bring this back into that slot here,
+
+183
+00:09:35,880 --> 00:09:41,080
+and now I can have the sprite say that sentence for two seconds.
+
+184
+00:09:41,080 --> 00:09:42,760
+If I wanted to stay on the screen a little bit longer,
+
+185
+00:09:42,760 --> 00:09:46,520
+I could change that to five seconds.
+
+186
+00:09:46,520 --> 00:09:50,000
+And there you go.
+
+187
+00:09:50,000 --> 00:09:54,040
+Now, one last thing as we explore the utility in Nest Blocks,
+
+188
+00:09:54,040 --> 00:09:56,320
+I'm going to bring out this when green flag clicked.
+
+189
+00:09:56,320 --> 00:09:57,920
+This is called a hat block,
+
+190
+00:09:57,920 --> 00:10:01,800
+and the hat block can sit on top of the stacks of blocks that you build,
+
+191
+00:10:01,800 --> 00:10:05,120
+and then you can activate it by hitting this green flag.
+
+192
+00:10:05,120 --> 00:10:08,080
+Oftentimes, people have a hat block in their program
+
+193
+00:10:08,080 --> 00:10:11,000
+because it's the way that they kick off the computation of their program
+
+194
+00:10:11,000 --> 00:10:14,000
+rather than just directly clicking on a stack of blocks.
+
+195
+00:10:14,000 --> 00:10:15,320
+So let's try that.
+
+196
+00:10:15,320 --> 00:10:17,360
+I'm going to click green.
+
+197
+00:10:17,360 --> 00:10:19,760
+You see that the highlight is around it.
+
+198
+00:10:19,760 --> 00:10:21,760
+There's a little bit of glow around it.
+
+199
+00:10:21,760 --> 00:10:27,520
+And then the command makes the sprite say that information on the stage,
+
+200
+00:10:27,520 --> 00:10:29,960
+and then it no longer is glowing.
+
+201
+00:10:29,960 --> 00:10:33,360
+That means the computation is over.
+
+202
+00:10:33,360 --> 00:10:36,600
+All right, so there's a lot more to learn about Nest Blocks,
+
+203
+00:10:36,600 --> 00:10:40,120
+but the purpose here was just to show you how to write a very simple program
+
+204
+00:10:40,120 --> 00:10:45,640
+as we explore the different parts of the Nest Blocks programming environment.
+
+205
+00:10:45,640 --> 00:10:47,280
+I hope you've enjoyed this video,
+
+206
+00:10:47,280 --> 00:10:50,880
+and I look forward to seeing you in the next episode.
+
