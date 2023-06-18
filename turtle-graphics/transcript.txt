@@ -1,0 +1,329 @@
+Hi, welcome back to Programming for a Network World.
+Today, we're going to be exploring
+turtle graphics in NetsBlox.
+Turtle graphics provides a way to express
+your creativity by drawing on
+a coordinate plane on the stage in NetsBlox.
+The ideas behind turtle graphics go back a long way to
+the 1960s when a professor named Seymour Papert
+invented a philosophy called constructionism that
+challenged kids to learn by expressing
+their creativity through drawing
+simple graphics using computer programs.
+We're going to be doing the same thing today and we'll explore
+how turtle graphics allow
+us to express our creativity within NetsBlox.
+Ready to bring out your inner artist? Let's get started.
+Here's what we're going to do today.
+We're going to draw just three simple shapes.
+First, a triangle, and then a square, and then a circle.
+But we're going to do it with some
+increasingly sophisticated techniques.
+But to begin with, let's just talk about what a turtle is.
+If you look on the stage right now,
+you'll see that Ada is here,
+and Ada is actually behind the scenes, a turtle.
+Now, you can have one or more turtles on your stage.
+But in this case, we're just going to start with
+the very simplest turtle representation.
+If I go to costumes,
+you'll see here that I get this option
+to change back to this turtle shape,
+this arrowhead-like shape.
+I'm going to press that and we'll say goodbye to Ada.
+You see here now that we have this turtle on our screen.
+Now, the other thing to understand about turtles
+is that they have two fundamental properties.
+They're located in a particular space on a coordinate plane,
+in this case, 0, 0,
+right at the center of this Cartesian plane.
+They also have a directionality.
+In this case, it's pointing 90 degrees.
+We have to be aware of both of
+those properties when we're drawing figures.
+Let's start by just drawing a triangle.
+How would we do that?
+Well, if we're drawing a triangle
+and we're going to make 120 degrees for each of the angles,
+we could do it this way.
+We'll take 10 steps.
+Let's change that to 50 just to make it a little bit bigger.
+And then we're going to turn
+and we're going to say 120 degrees.
+And then let's move this over here
+and we'll do the same thing again,
+50 and we'll turn 120 degrees.
+Then we'll do the same thing one more time,
+50 and we're going to turn 120 degrees.
+So that should make a nice triangle.
+Let's try it out.
+Nothing happened.
+So why did nothing happen?
+There's still one more important concept you need
+in order to draw with turtle graphics.
+And that is the idea of a pen.
+So you see here that there's this pen tab
+and you can bring over this two blocks,
+pen down and pen up.
+As they sound, the pen down will put a pen to the canvas,
+so to speak, and allow you to draw with your movements.
+And when you pull the pen up, the turtle will still move,
+but it won't leave any trace behind.
+So let's try that now.
+We're going to put pen down and pen up
+and we'll try the same thing.
+And now you see that we have a nice triangle.
+Now, one other thing is if we draw triangles like this,
+we'll probably want to come back to the same spot.
+In this case, we returned to the same spot,
+but I think it's a good practice to get into
+to always come back explicitly to the same part
+of the coordinate plane and then point
+in the same direction.
+So here we're pointing 90 degrees
+and we want to go to zero, zero, the center of our plane.
+All right, and let's try that again.
+And there we go.
+You'll see that if we point in different directions,
+here we can point, for example, to 270,
+we'll draw a different triangle.
+So we'll come back to the same place,
+but we're pointing in a different direction.
+Now, what do you notice about this stack of blocks?
+One thing that you'll see is that there's
+a lot of repetition here.
+So there must be another way that we can make this easier
+to draw shapes rather than just doing move, turn,
+move, turn over and over again.
+And we can do that using a control block called repeat.
+And you see down here that there's this repeat block
+and it allows us to specify how many times
+we want to repeat something.
+So if you want to draw a square,
+we would draw lengths of 50, turn 90 degrees
+and draw another length of 50 and so on and so forth
+four times.
+But rather than repeating this like we did for the triangle,
+why don't we, let's just go over here
+and duplicate some of this.
+So we'll bring this over, we'll duplicate that
+and put it on top here.
+And then we'll also, well, we can just
+pull this out ourselves.
+Don't have to be too lazy about it.
+So I'll go back over to motion and we're going to move
+and we're going to turn.
+So we'll move 50 and now we turn because it's a square, 90.
+But how many times to repeat?
+Four times.
+So let's do that here.
+And then we still need that pin up and pin down.
+So let's do that.
+We'll say pin down right before we start moving
+and we'll say pin up right after we start moving.
+And let's see if this is, in fact, a square.
+It is.
+And again, we can change our direction.
+Here we're still pointing in 270.
+We could change it back to 90.
+You can actually just type this in too.
+You don't have to click on it.
+And there we go.
+So now we've drawn a square and a triangle.
+So let's try for something a little more difficult, namely
+a circle.
+Now, we're not going to get a perfect circle,
+but we're going to do an approximation of a circle,
+a polygon that has enough edges that it looks very smooth.
+So how do we do that?
+Well, we need to review a little bit of math.
+We're going to start off by specifying the radius.
+And let's say it's going to be 50.
+So I'll make a variable for that.
+Let's make a variable to capture that information.
+We'll just call it radius.
+Here we go.
+And I'm going to set that radius to 50.
+So I'll drop down here and put 50.
+There we go, 50.
+Now, how do we get the circumference?
+Well, there's a formula for that.
+2 times pi times the radius, 2 pi r.
+And so we can calculate the circumference
+using that formula.
+So let's make a variable called circumference.
+Circumference, if I spell that correctly.
+There we go.
+And drop that down.
+And now we're going to get a math block
+to be able to do that calculation.
+And you see this little arrow?
+We can pop that out so that we have three slots.
+Now, the first slot that we need is going to be the 2.
+And then we're going to need pi.
+So we'll just make an approximation of this, 3.1459.
+And then we're going to put in our radius, which we
+have up here in our variable.
+So that should get us a circumference.
+And let's do the calculations here.
+So we have a radius of 50 and a circumference of approximately
+315, if you want to round it.
+And now we need to get the segment length.
+So the segments are going to be the number of the lines
+that we draw in this polygon.
+So let's create a variable, and we'll call it segments.
+There we go.
+And let's assign that over here.
+Now, how are we going to set the segments?
+Well, the segments, we're going to experiment
+with what makes this polygon smooth enough
+that it approximates a circle.
+And so one way we'll do that, it was just
+take the number of the circumference
+and divide it by, say, 10, and then see what that looks like.
+All right, so here we go.
+We're going to take the circumference.
+I can grab that from variables over here, drop it in,
+divide it by 10.
+And now, one thing that we want to do
+is we want to actually make sure that this
+is an integer, that is not a decimal.
+Because if you look on this right now,
+it's going to be 31.459.
+We'd rather just go with a straightforward integer,
+so a rounded number.
+So there is a function over here.
+Let's take a look at it.
+It's under Operators, and it's called round.
+And I think it's right there.
+So we can pull this in, and we pull our calculation
+inside of round and drop it back in.
+Now, when we click on that, you see
+we've got segments of 31 length.
+That's great.
+We just need a few more things here.
+So let's take a look at what else we need.
+Our segment length and our segment angle.
+Now, the segment length, let's take a look at that.
+The length, we've got 31 segments,
+but how long should they be?
+We'll calculate that by dividing the circumference
+by the number of segments.
+So let's go over here to set that and back to variables.
+And let's make a variable.
+And let's call it, let's say, segment length.
+Segment length.
+And then let's assign that here.
+Set that segment length.
+And we're going to set it, as I said,
+to circumference divided by the number of segments.
+So we'll need this operator over here for division.
+We'll drop it in, and then we need to go back to our variables.
+And we'll set it circumference divided
+by the number of segments.
+OK.
+Very good.
+And now we just need one more thing,
+which is the segment angle.
+So we need to make sure that this actually
+turns into a approximate circle.
+So let's work on that.
+Let's get the segment angle.
+And here we go.
+So I'm going to go set another variable called segment angle.
+And I'm going to set that here.
+And we'll set the segment angle to 360
+divided by the number of segments.
+So we'll take our operator over here again, drop it there.
+360 and the number of segments.
+So we've got that already.
+There.
+OK.
+That should be everything we need.
+Now, we just need to add in the other information
+that we had here.
+So let's do the same thing.
+We're just going to go.
+We can just grab it again.
+We want to go to 0, 0 like we've done before.
+We want to point in direction 90 or whatever else direction.
+And now we want to use a repeat block.
+So let's go to Control.
+And we'll go down to Repeat.
+And how many times do we repeat?
+Well, that's a good question.
+We repeat the number of times that we have segments.
+So let's go over here and grab segments.
+So you can see that you can use a variable here,
+just like we've created.
+And you don't have to just type in a number.
+OK, so we're going to repeat the number of times
+that we have segments.
+And what are we going to do for each of those times?
+It's the same process as we had before.
+So we're going to move.
+And we're going to rotate.
+Now, the question is, how much do we move
+and how much do we rotate?
+Well, you can see here with the information that we have,
+we want to move the segment length.
+And we want to rotate the segment angle.
+So I'll go back to our variables.
+And we're going to move the segment length.
+And we're going to rotate the segment angle.
+Here we go.
+And the last thing that we need to remember
+is to put our pen down and then bring our pen back up again.
+So that's over here.
+And let's see.
+So we'll do it right here at the beginning.
+And we'll do it again at the end.
+So this should do it.
+Ready?
+Let's see.
+There we go.
+We got a circle.
+Now, one fun thing that you can do,
+and I'll just end with this little flourish,
+is you don't have to always say what direction you want.
+You can actually click on random here.
+And so let's do that for these here.
+So we're going to say direction for each of these
+is going to be random.
+And I'll do that same thing here.
+Let's see.
+Direction is going to be random.
+Here we go.
+And we can put on some hat block to make it easier to press.
+So let's see.
+For example, when some key is pressed.
+So I guess to make a triangle, why don't we
+associate this with a T?
+And we can do the same thing here for our square.
+Let's make that an S. And for the circle,
+naturally, we will choose a C. Oops.
+I brought out the wrong one.
+Bring that back.
+And this one is the one I want.
+OK.
+Now we're going to press a C for this.
+And it will draw a circle starting at the same spot.
+We've always said go back to 0, 0.
+But it will appear in a different direction each time.
+So let's try this.
+So we can press T. And we can press S. And we can press C.
+And each time we do that, we're going
+to be in a different place.
+And you can see you can also click on these.
+And so you get some good random shapes.
+And if you keep doing this, you'll
+get some interesting designs.
+All right.
+So today, you've learned how to draw with turtle graphics
+and also save steps by using these loops
+so that you don't have to repeat those combination of blocks
+over and over again.
+I hope you'll experiment with some of the combinations
+you have here.
+And I look forward to seeing you in my next video.
+Thank you.

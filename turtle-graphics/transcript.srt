@@ -1,0 +1,1316 @@
+1
+00:00:00,000 --> 00:00:03,400
+Hi, welcome back to Programming for a Network World.
+
+2
+00:00:03,400 --> 00:00:05,520
+Today, we're going to be exploring
+
+3
+00:00:05,520 --> 00:00:07,800
+turtle graphics in NetsBlox.
+
+4
+00:00:07,800 --> 00:00:10,880
+Turtle graphics provides a way to express
+
+5
+00:00:10,880 --> 00:00:13,080
+your creativity by drawing on
+
+6
+00:00:13,080 --> 00:00:17,440
+a coordinate plane on the stage in NetsBlox.
+
+7
+00:00:17,440 --> 00:00:21,160
+The ideas behind turtle graphics go back a long way to
+
+8
+00:00:21,160 --> 00:00:24,640
+the 1960s when a professor named Seymour Papert
+
+9
+00:00:24,640 --> 00:00:28,260
+invented a philosophy called constructionism that
+
+10
+00:00:28,260 --> 00:00:31,340
+challenged kids to learn by expressing
+
+11
+00:00:31,340 --> 00:00:33,740
+their creativity through drawing
+
+12
+00:00:33,740 --> 00:00:36,460
+simple graphics using computer programs.
+
+13
+00:00:36,460 --> 00:00:40,460
+We're going to be doing the same thing today and we'll explore
+
+14
+00:00:40,460 --> 00:00:43,060
+how turtle graphics allow
+
+15
+00:00:43,060 --> 00:00:46,780
+us to express our creativity within NetsBlox.
+
+16
+00:00:46,780 --> 00:00:51,300
+Ready to bring out your inner artist? Let's get started.
+
+17
+00:00:51,300 --> 00:01:00,220
+Here's what we're going to do today.
+
+18
+00:01:00,220 --> 00:01:03,460
+We're going to draw just three simple shapes.
+
+19
+00:01:03,460 --> 00:01:06,900
+First, a triangle, and then a square, and then a circle.
+
+20
+00:01:06,900 --> 00:01:08,300
+But we're going to do it with some
+
+21
+00:01:08,300 --> 00:01:10,700
+increasingly sophisticated techniques.
+
+22
+00:01:10,700 --> 00:01:13,940
+But to begin with, let's just talk about what a turtle is.
+
+23
+00:01:13,940 --> 00:01:15,840
+If you look on the stage right now,
+
+24
+00:01:15,840 --> 00:01:18,120
+you'll see that Ada is here,
+
+25
+00:01:18,120 --> 00:01:21,840
+and Ada is actually behind the scenes, a turtle.
+
+26
+00:01:21,840 --> 00:01:25,640
+Now, you can have one or more turtles on your stage.
+
+27
+00:01:25,640 --> 00:01:27,640
+But in this case, we're just going to start with
+
+28
+00:01:27,640 --> 00:01:30,080
+the very simplest turtle representation.
+
+29
+00:01:30,080 --> 00:01:31,580
+If I go to costumes,
+
+30
+00:01:31,580 --> 00:01:34,120
+you'll see here that I get this option
+
+31
+00:01:34,120 --> 00:01:37,400
+to change back to this turtle shape,
+
+32
+00:01:37,400 --> 00:01:39,920
+this arrowhead-like shape.
+
+33
+00:01:39,920 --> 00:01:42,560
+I'm going to press that and we'll say goodbye to Ada.
+
+34
+00:01:42,560 --> 00:01:46,320
+You see here now that we have this turtle on our screen.
+
+35
+00:01:46,320 --> 00:01:49,080
+Now, the other thing to understand about turtles
+
+36
+00:01:49,080 --> 00:01:52,160
+is that they have two fundamental properties.
+
+37
+00:01:52,160 --> 00:01:55,640
+They're located in a particular space on a coordinate plane,
+
+38
+00:01:55,640 --> 00:01:57,520
+in this case, 0, 0,
+
+39
+00:01:57,520 --> 00:02:00,480
+right at the center of this Cartesian plane.
+
+40
+00:02:00,480 --> 00:02:02,520
+They also have a directionality.
+
+41
+00:02:02,520 --> 00:02:05,280
+In this case, it's pointing 90 degrees.
+
+42
+00:02:05,280 --> 00:02:07,080
+We have to be aware of both of
+
+43
+00:02:07,080 --> 00:02:10,120
+those properties when we're drawing figures.
+
+44
+00:02:10,120 --> 00:02:13,640
+Let's start by just drawing a triangle.
+
+45
+00:02:13,640 --> 00:02:14,840
+How would we do that?
+
+46
+00:02:15,000 --> 00:02:16,560
+Well, if we're drawing a triangle
+
+47
+00:02:16,560 --> 00:02:20,240
+and we're going to make 120 degrees for each of the angles,
+
+48
+00:02:20,240 --> 00:02:21,600
+we could do it this way.
+
+49
+00:02:21,600 --> 00:02:24,160
+We'll take 10 steps.
+
+50
+00:02:24,160 --> 00:02:26,840
+Let's change that to 50 just to make it a little bit bigger.
+
+51
+00:02:26,840 --> 00:02:28,820
+And then we're going to turn
+
+52
+00:02:28,820 --> 00:02:31,520
+and we're going to say 120 degrees.
+
+53
+00:02:31,520 --> 00:02:34,120
+And then let's move this over here
+
+54
+00:02:34,120 --> 00:02:37,520
+and we'll do the same thing again,
+
+55
+00:02:37,520 --> 00:02:42,080
+50 and we'll turn 120 degrees.
+
+56
+00:02:43,080 --> 00:02:45,960
+Then we'll do the same thing one more time,
+
+57
+00:02:45,960 --> 00:02:50,960
+50 and we're going to turn 120 degrees.
+
+58
+00:02:51,400 --> 00:02:53,120
+So that should make a nice triangle.
+
+59
+00:02:53,120 --> 00:02:54,200
+Let's try it out.
+
+60
+00:02:55,520 --> 00:02:57,120
+Nothing happened.
+
+61
+00:02:57,120 --> 00:02:59,360
+So why did nothing happen?
+
+62
+00:02:59,360 --> 00:03:02,360
+There's still one more important concept you need
+
+63
+00:03:02,360 --> 00:03:04,640
+in order to draw with turtle graphics.
+
+64
+00:03:04,640 --> 00:03:07,360
+And that is the idea of a pen.
+
+65
+00:03:07,360 --> 00:03:10,000
+So you see here that there's this pen tab
+
+66
+00:03:10,080 --> 00:03:12,960
+and you can bring over this two blocks,
+
+67
+00:03:12,960 --> 00:03:15,280
+pen down and pen up.
+
+68
+00:03:15,280 --> 00:03:19,120
+As they sound, the pen down will put a pen to the canvas,
+
+69
+00:03:19,120 --> 00:03:23,800
+so to speak, and allow you to draw with your movements.
+
+70
+00:03:23,800 --> 00:03:26,960
+And when you pull the pen up, the turtle will still move,
+
+71
+00:03:26,960 --> 00:03:29,560
+but it won't leave any trace behind.
+
+72
+00:03:29,560 --> 00:03:30,720
+So let's try that now.
+
+73
+00:03:30,720 --> 00:03:34,280
+We're going to put pen down and pen up
+
+74
+00:03:34,280 --> 00:03:36,060
+and we'll try the same thing.
+
+75
+00:03:36,060 --> 00:03:38,920
+And now you see that we have a nice triangle.
+
+76
+00:03:38,920 --> 00:03:42,440
+Now, one other thing is if we draw triangles like this,
+
+77
+00:03:42,440 --> 00:03:44,560
+we'll probably want to come back to the same spot.
+
+78
+00:03:44,560 --> 00:03:46,760
+In this case, we returned to the same spot,
+
+79
+00:03:46,760 --> 00:03:49,200
+but I think it's a good practice to get into
+
+80
+00:03:49,200 --> 00:03:52,920
+to always come back explicitly to the same part
+
+81
+00:03:52,920 --> 00:03:54,400
+of the coordinate plane and then point
+
+82
+00:03:54,400 --> 00:03:55,640
+in the same direction.
+
+83
+00:03:55,640 --> 00:03:58,640
+So here we're pointing 90 degrees
+
+84
+00:03:58,640 --> 00:04:03,640
+and we want to go to zero, zero, the center of our plane.
+
+85
+00:04:04,560 --> 00:04:06,160
+All right, and let's try that again.
+
+86
+00:04:06,160 --> 00:04:07,000
+And there we go.
+
+87
+00:04:07,000 --> 00:04:09,280
+You'll see that if we point in different directions,
+
+88
+00:04:09,280 --> 00:04:13,760
+here we can point, for example, to 270,
+
+89
+00:04:13,760 --> 00:04:15,640
+we'll draw a different triangle.
+
+90
+00:04:15,640 --> 00:04:18,120
+So we'll come back to the same place,
+
+91
+00:04:18,120 --> 00:04:20,240
+but we're pointing in a different direction.
+
+92
+00:04:20,240 --> 00:04:22,720
+Now, what do you notice about this stack of blocks?
+
+93
+00:04:22,720 --> 00:04:24,160
+One thing that you'll see is that there's
+
+94
+00:04:24,160 --> 00:04:25,760
+a lot of repetition here.
+
+95
+00:04:25,760 --> 00:04:28,780
+So there must be another way that we can make this easier
+
+96
+00:04:28,780 --> 00:04:31,720
+to draw shapes rather than just doing move, turn,
+
+97
+00:04:31,720 --> 00:04:33,600
+move, turn over and over again.
+
+98
+00:04:33,600 --> 00:04:38,040
+And we can do that using a control block called repeat.
+
+99
+00:04:38,040 --> 00:04:40,640
+And you see down here that there's this repeat block
+
+100
+00:04:40,640 --> 00:04:42,680
+and it allows us to specify how many times
+
+101
+00:04:42,680 --> 00:04:44,680
+we want to repeat something.
+
+102
+00:04:44,680 --> 00:04:46,880
+So if you want to draw a square,
+
+103
+00:04:46,880 --> 00:04:50,800
+we would draw lengths of 50, turn 90 degrees
+
+104
+00:04:50,800 --> 00:04:53,800
+and draw another length of 50 and so on and so forth
+
+105
+00:04:53,800 --> 00:04:55,160
+four times.
+
+106
+00:04:55,160 --> 00:04:58,760
+But rather than repeating this like we did for the triangle,
+
+107
+00:04:58,760 --> 00:05:00,640
+why don't we, let's just go over here
+
+108
+00:05:00,640 --> 00:05:01,600
+and duplicate some of this.
+
+109
+00:05:01,600 --> 00:05:04,520
+So we'll bring this over, we'll duplicate that
+
+110
+00:05:04,520 --> 00:05:07,760
+and put it on top here.
+
+111
+00:05:07,760 --> 00:05:12,000
+And then we'll also, well, we can just
+
+112
+00:05:12,000 --> 00:05:13,080
+pull this out ourselves.
+
+113
+00:05:13,080 --> 00:05:15,360
+Don't have to be too lazy about it.
+
+114
+00:05:15,360 --> 00:05:20,640
+So I'll go back over to motion and we're going to move
+
+115
+00:05:20,640 --> 00:05:22,640
+and we're going to turn.
+
+116
+00:05:22,640 --> 00:05:29,640
+So we'll move 50 and now we turn because it's a square, 90.
+
+117
+00:05:29,640 --> 00:05:31,320
+But how many times to repeat?
+
+118
+00:05:31,320 --> 00:05:32,120
+Four times.
+
+119
+00:05:32,120 --> 00:05:33,360
+So let's do that here.
+
+120
+00:05:33,360 --> 00:05:35,560
+And then we still need that pin up and pin down.
+
+121
+00:05:35,560 --> 00:05:36,600
+So let's do that.
+
+122
+00:05:36,600 --> 00:05:39,400
+We'll say pin down right before we start moving
+
+123
+00:05:39,400 --> 00:05:43,640
+and we'll say pin up right after we start moving.
+
+124
+00:05:43,640 --> 00:05:46,880
+And let's see if this is, in fact, a square.
+
+125
+00:05:46,880 --> 00:05:47,600
+It is.
+
+126
+00:05:47,600 --> 00:05:50,000
+And again, we can change our direction.
+
+127
+00:05:50,000 --> 00:05:51,680
+Here we're still pointing in 270.
+
+128
+00:05:51,680 --> 00:05:54,880
+We could change it back to 90.
+
+129
+00:05:54,880 --> 00:05:56,560
+You can actually just type this in too.
+
+130
+00:05:56,560 --> 00:05:58,600
+You don't have to click on it.
+
+131
+00:05:58,600 --> 00:05:59,760
+And there we go.
+
+132
+00:05:59,760 --> 00:06:02,600
+So now we've drawn a square and a triangle.
+
+133
+00:06:02,600 --> 00:06:06,000
+So let's try for something a little more difficult, namely
+
+134
+00:06:06,000 --> 00:06:07,040
+a circle.
+
+135
+00:06:07,040 --> 00:06:09,000
+Now, we're not going to get a perfect circle,
+
+136
+00:06:09,000 --> 00:06:11,120
+but we're going to do an approximation of a circle,
+
+137
+00:06:11,120 --> 00:06:15,600
+a polygon that has enough edges that it looks very smooth.
+
+138
+00:06:15,600 --> 00:06:16,560
+So how do we do that?
+
+139
+00:06:16,560 --> 00:06:19,320
+Well, we need to review a little bit of math.
+
+140
+00:06:19,320 --> 00:06:22,440
+We're going to start off by specifying the radius.
+
+141
+00:06:22,440 --> 00:06:24,400
+And let's say it's going to be 50.
+
+142
+00:06:24,400 --> 00:06:26,200
+So I'll make a variable for that.
+
+143
+00:06:26,200 --> 00:06:29,040
+Let's make a variable to capture that information.
+
+144
+00:06:29,040 --> 00:06:31,880
+We'll just call it radius.
+
+145
+00:06:31,880 --> 00:06:33,080
+Here we go.
+
+146
+00:06:33,080 --> 00:06:36,800
+And I'm going to set that radius to 50.
+
+147
+00:06:36,800 --> 00:06:40,080
+So I'll drop down here and put 50.
+
+148
+00:06:40,080 --> 00:06:41,920
+There we go, 50.
+
+149
+00:06:41,920 --> 00:06:45,360
+Now, how do we get the circumference?
+
+150
+00:06:45,360 --> 00:06:47,640
+Well, there's a formula for that.
+
+151
+00:06:47,640 --> 00:06:52,520
+2 times pi times the radius, 2 pi r.
+
+152
+00:06:52,520 --> 00:06:55,800
+And so we can calculate the circumference
+
+153
+00:06:55,800 --> 00:06:57,560
+using that formula.
+
+154
+00:06:57,560 --> 00:07:00,440
+So let's make a variable called circumference.
+
+155
+00:07:00,440 --> 00:07:03,760
+Circumference, if I spell that correctly.
+
+156
+00:07:03,760 --> 00:07:05,160
+There we go.
+
+157
+00:07:05,160 --> 00:07:06,920
+And drop that down.
+
+158
+00:07:06,920 --> 00:07:08,760
+And now we're going to get a math block
+
+159
+00:07:08,760 --> 00:07:10,760
+to be able to do that calculation.
+
+160
+00:07:10,760 --> 00:07:12,000
+And you see this little arrow?
+
+161
+00:07:12,000 --> 00:07:14,800
+We can pop that out so that we have three slots.
+
+162
+00:07:14,800 --> 00:07:21,520
+Now, the first slot that we need is going to be the 2.
+
+163
+00:07:21,520 --> 00:07:23,200
+And then we're going to need pi.
+
+164
+00:07:23,200 --> 00:07:29,160
+So we'll just make an approximation of this, 3.1459.
+
+165
+00:07:29,160 --> 00:07:31,840
+And then we're going to put in our radius, which we
+
+166
+00:07:31,840 --> 00:07:35,760
+have up here in our variable.
+
+167
+00:07:35,760 --> 00:07:37,360
+So that should get us a circumference.
+
+168
+00:07:37,360 --> 00:07:39,560
+And let's do the calculations here.
+
+169
+00:07:39,560 --> 00:07:42,800
+So we have a radius of 50 and a circumference of approximately
+
+170
+00:07:42,800 --> 00:07:46,480
+315, if you want to round it.
+
+171
+00:07:46,480 --> 00:07:50,000
+And now we need to get the segment length.
+
+172
+00:07:50,000 --> 00:07:53,680
+So the segments are going to be the number of the lines
+
+173
+00:07:53,680 --> 00:07:55,280
+that we draw in this polygon.
+
+174
+00:07:55,280 --> 00:07:58,360
+So let's create a variable, and we'll call it segments.
+
+175
+00:07:58,360 --> 00:07:59,520
+There we go.
+
+176
+00:07:59,520 --> 00:08:03,840
+And let's assign that over here.
+
+177
+00:08:03,840 --> 00:08:06,240
+Now, how are we going to set the segments?
+
+178
+00:08:06,240 --> 00:08:09,320
+Well, the segments, we're going to experiment
+
+179
+00:08:09,320 --> 00:08:11,480
+with what makes this polygon smooth enough
+
+180
+00:08:11,480 --> 00:08:13,360
+that it approximates a circle.
+
+181
+00:08:13,360 --> 00:08:15,120
+And so one way we'll do that, it was just
+
+182
+00:08:15,120 --> 00:08:19,080
+take the number of the circumference
+
+183
+00:08:19,120 --> 00:08:24,200
+and divide it by, say, 10, and then see what that looks like.
+
+184
+00:08:24,200 --> 00:08:25,560
+All right, so here we go.
+
+185
+00:08:25,560 --> 00:08:28,240
+We're going to take the circumference.
+
+186
+00:08:28,240 --> 00:08:32,880
+I can grab that from variables over here, drop it in,
+
+187
+00:08:32,880 --> 00:08:34,840
+divide it by 10.
+
+188
+00:08:34,840 --> 00:08:36,520
+And now, one thing that we want to do
+
+189
+00:08:36,520 --> 00:08:38,520
+is we want to actually make sure that this
+
+190
+00:08:38,520 --> 00:08:40,560
+is an integer, that is not a decimal.
+
+191
+00:08:40,560 --> 00:08:42,240
+Because if you look on this right now,
+
+192
+00:08:42,240 --> 00:08:45,920
+it's going to be 31.459.
+
+193
+00:08:45,920 --> 00:08:49,960
+We'd rather just go with a straightforward integer,
+
+194
+00:08:49,960 --> 00:08:51,000
+so a rounded number.
+
+195
+00:08:51,000 --> 00:08:53,120
+So there is a function over here.
+
+196
+00:08:53,120 --> 00:08:54,800
+Let's take a look at it.
+
+197
+00:08:54,800 --> 00:08:58,600
+It's under Operators, and it's called round.
+
+198
+00:08:58,600 --> 00:09:01,000
+And I think it's right there.
+
+199
+00:09:01,000 --> 00:09:03,400
+So we can pull this in, and we pull our calculation
+
+200
+00:09:03,400 --> 00:09:06,600
+inside of round and drop it back in.
+
+201
+00:09:06,600 --> 00:09:08,280
+Now, when we click on that, you see
+
+202
+00:09:08,280 --> 00:09:11,120
+we've got segments of 31 length.
+
+203
+00:09:11,120 --> 00:09:11,840
+That's great.
+
+204
+00:09:11,840 --> 00:09:13,360
+We just need a few more things here.
+
+205
+00:09:13,360 --> 00:09:15,160
+So let's take a look at what else we need.
+
+206
+00:09:15,160 --> 00:09:17,920
+Our segment length and our segment angle.
+
+207
+00:09:17,920 --> 00:09:23,200
+Now, the segment length, let's take a look at that.
+
+208
+00:09:23,200 --> 00:09:24,840
+The length, we've got 31 segments,
+
+209
+00:09:24,840 --> 00:09:27,360
+but how long should they be?
+
+210
+00:09:27,360 --> 00:09:30,760
+We'll calculate that by dividing the circumference
+
+211
+00:09:30,760 --> 00:09:32,960
+by the number of segments.
+
+212
+00:09:32,960 --> 00:09:37,640
+So let's go over here to set that and back to variables.
+
+213
+00:09:37,640 --> 00:09:38,880
+And let's make a variable.
+
+214
+00:09:38,880 --> 00:09:41,760
+And let's call it, let's say, segment length.
+
+215
+00:09:41,760 --> 00:09:45,280
+Segment length.
+
+216
+00:09:45,280 --> 00:09:50,080
+And then let's assign that here.
+
+217
+00:09:50,080 --> 00:09:54,160
+Set that segment length.
+
+218
+00:09:54,160 --> 00:09:57,000
+And we're going to set it, as I said,
+
+219
+00:09:57,000 --> 00:10:00,720
+to circumference divided by the number of segments.
+
+220
+00:10:00,720 --> 00:10:03,960
+So we'll need this operator over here for division.
+
+221
+00:10:03,960 --> 00:10:06,560
+We'll drop it in, and then we need to go back to our variables.
+
+222
+00:10:06,560 --> 00:10:09,520
+And we'll set it circumference divided
+
+223
+00:10:09,560 --> 00:10:10,960
+by the number of segments.
+
+224
+00:10:13,840 --> 00:10:14,480
+OK.
+
+225
+00:10:14,480 --> 00:10:15,000
+Very good.
+
+226
+00:10:15,000 --> 00:10:16,200
+And now we just need one more thing,
+
+227
+00:10:16,200 --> 00:10:17,360
+which is the segment angle.
+
+228
+00:10:17,360 --> 00:10:19,640
+So we need to make sure that this actually
+
+229
+00:10:19,640 --> 00:10:23,680
+turns into a approximate circle.
+
+230
+00:10:23,680 --> 00:10:24,880
+So let's work on that.
+
+231
+00:10:24,880 --> 00:10:26,760
+Let's get the segment angle.
+
+232
+00:10:26,760 --> 00:10:27,680
+And here we go.
+
+233
+00:10:27,680 --> 00:10:34,600
+So I'm going to go set another variable called segment angle.
+
+234
+00:10:34,640 --> 00:10:40,440
+And I'm going to set that here.
+
+235
+00:10:40,440 --> 00:10:44,280
+And we'll set the segment angle to 360
+
+236
+00:10:44,280 --> 00:10:47,160
+divided by the number of segments.
+
+237
+00:10:47,160 --> 00:10:53,440
+So we'll take our operator over here again, drop it there.
+
+238
+00:10:53,440 --> 00:10:57,080
+360 and the number of segments.
+
+239
+00:10:57,080 --> 00:10:58,240
+So we've got that already.
+
+240
+00:11:01,080 --> 00:11:01,600
+There.
+
+241
+00:11:01,600 --> 00:11:02,680
+OK.
+
+242
+00:11:02,720 --> 00:11:04,720
+That should be everything we need.
+
+243
+00:11:04,720 --> 00:11:07,680
+Now, we just need to add in the other information
+
+244
+00:11:07,680 --> 00:11:08,400
+that we had here.
+
+245
+00:11:08,400 --> 00:11:10,600
+So let's do the same thing.
+
+246
+00:11:10,600 --> 00:11:11,640
+We're just going to go.
+
+247
+00:11:11,640 --> 00:11:13,640
+We can just grab it again.
+
+248
+00:11:13,640 --> 00:11:16,400
+We want to go to 0, 0 like we've done before.
+
+249
+00:11:16,400 --> 00:11:20,840
+We want to point in direction 90 or whatever else direction.
+
+250
+00:11:20,840 --> 00:11:24,440
+And now we want to use a repeat block.
+
+251
+00:11:24,440 --> 00:11:26,360
+So let's go to Control.
+
+252
+00:11:26,360 --> 00:11:28,580
+And we'll go down to Repeat.
+
+253
+00:11:28,580 --> 00:11:30,680
+And how many times do we repeat?
+
+254
+00:11:30,680 --> 00:11:31,880
+Well, that's a good question.
+
+255
+00:11:31,880 --> 00:11:35,040
+We repeat the number of times that we have segments.
+
+256
+00:11:35,040 --> 00:11:38,440
+So let's go over here and grab segments.
+
+257
+00:11:38,440 --> 00:11:40,880
+So you can see that you can use a variable here,
+
+258
+00:11:40,880 --> 00:11:42,600
+just like we've created.
+
+259
+00:11:42,600 --> 00:11:45,800
+And you don't have to just type in a number.
+
+260
+00:11:45,800 --> 00:11:47,840
+OK, so we're going to repeat the number of times
+
+261
+00:11:47,840 --> 00:11:48,760
+that we have segments.
+
+262
+00:11:48,760 --> 00:11:51,000
+And what are we going to do for each of those times?
+
+263
+00:11:51,000 --> 00:11:53,360
+It's the same process as we had before.
+
+264
+00:11:53,360 --> 00:11:55,880
+So we're going to move.
+
+265
+00:11:55,880 --> 00:11:58,560
+And we're going to rotate.
+
+266
+00:11:58,560 --> 00:12:00,480
+Now, the question is, how much do we move
+
+267
+00:12:00,480 --> 00:12:01,800
+and how much do we rotate?
+
+268
+00:12:01,800 --> 00:12:04,140
+Well, you can see here with the information that we have,
+
+269
+00:12:04,140 --> 00:12:06,000
+we want to move the segment length.
+
+270
+00:12:06,000 --> 00:12:09,640
+And we want to rotate the segment angle.
+
+271
+00:12:09,640 --> 00:12:11,000
+So I'll go back to our variables.
+
+272
+00:12:11,000 --> 00:12:13,840
+And we're going to move the segment length.
+
+273
+00:12:13,840 --> 00:12:17,800
+And we're going to rotate the segment angle.
+
+274
+00:12:17,800 --> 00:12:20,280
+Here we go.
+
+275
+00:12:20,280 --> 00:12:22,640
+And the last thing that we need to remember
+
+276
+00:12:22,640 --> 00:12:26,520
+is to put our pen down and then bring our pen back up again.
+
+277
+00:12:26,520 --> 00:12:28,360
+So that's over here.
+
+278
+00:12:28,360 --> 00:12:29,240
+And let's see.
+
+279
+00:12:29,240 --> 00:12:32,000
+So we'll do it right here at the beginning.
+
+280
+00:12:32,000 --> 00:12:36,440
+And we'll do it again at the end.
+
+281
+00:12:36,440 --> 00:12:38,360
+So this should do it.
+
+282
+00:12:38,360 --> 00:12:39,480
+Ready?
+
+283
+00:12:39,480 --> 00:12:40,960
+Let's see.
+
+284
+00:12:40,960 --> 00:12:41,480
+There we go.
+
+285
+00:12:41,480 --> 00:12:43,560
+We got a circle.
+
+286
+00:12:43,560 --> 00:12:45,480
+Now, one fun thing that you can do,
+
+287
+00:12:45,480 --> 00:12:47,720
+and I'll just end with this little flourish,
+
+288
+00:12:47,720 --> 00:12:50,480
+is you don't have to always say what direction you want.
+
+289
+00:12:50,480 --> 00:12:53,040
+You can actually click on random here.
+
+290
+00:12:53,040 --> 00:12:54,840
+And so let's do that for these here.
+
+291
+00:12:54,840 --> 00:12:56,920
+So we're going to say direction for each of these
+
+292
+00:12:56,920 --> 00:12:59,440
+is going to be random.
+
+293
+00:12:59,440 --> 00:13:01,640
+And I'll do that same thing here.
+
+294
+00:13:01,640 --> 00:13:02,240
+Let's see.
+
+295
+00:13:02,240 --> 00:13:05,520
+Direction is going to be random.
+
+296
+00:13:05,520 --> 00:13:06,640
+Here we go.
+
+297
+00:13:06,640 --> 00:13:12,600
+And we can put on some hat block to make it easier to press.
+
+298
+00:13:12,600 --> 00:13:14,240
+So let's see.
+
+299
+00:13:14,240 --> 00:13:16,480
+For example, when some key is pressed.
+
+300
+00:13:16,480 --> 00:13:19,640
+So I guess to make a triangle, why don't we
+
+301
+00:13:19,640 --> 00:13:21,720
+associate this with a T?
+
+302
+00:13:21,720 --> 00:13:26,400
+And we can do the same thing here for our square.
+
+303
+00:13:26,400 --> 00:13:30,960
+Let's make that an S. And for the circle,
+
+304
+00:13:30,960 --> 00:13:35,040
+naturally, we will choose a C. Oops.
+
+305
+00:13:35,040 --> 00:13:36,480
+I brought out the wrong one.
+
+306
+00:13:36,480 --> 00:13:37,680
+Bring that back.
+
+307
+00:13:37,680 --> 00:13:39,560
+And this one is the one I want.
+
+308
+00:13:39,560 --> 00:13:40,840
+OK.
+
+309
+00:13:40,840 --> 00:13:43,680
+Now we're going to press a C for this.
+
+310
+00:13:43,680 --> 00:13:46,920
+And it will draw a circle starting at the same spot.
+
+311
+00:13:46,920 --> 00:13:49,240
+We've always said go back to 0, 0.
+
+312
+00:13:49,240 --> 00:13:52,320
+But it will appear in a different direction each time.
+
+313
+00:13:52,320 --> 00:13:53,560
+So let's try this.
+
+314
+00:13:53,560 --> 00:13:58,400
+So we can press T. And we can press S. And we can press C.
+
+315
+00:13:58,400 --> 00:14:00,040
+And each time we do that, we're going
+
+316
+00:14:00,040 --> 00:14:01,200
+to be in a different place.
+
+317
+00:14:01,200 --> 00:14:03,680
+And you can see you can also click on these.
+
+318
+00:14:03,680 --> 00:14:05,320
+And so you get some good random shapes.
+
+319
+00:14:05,320 --> 00:14:07,240
+And if you keep doing this, you'll
+
+320
+00:14:07,240 --> 00:14:10,080
+get some interesting designs.
+
+321
+00:14:10,080 --> 00:14:11,360
+All right.
+
+322
+00:14:11,360 --> 00:14:15,640
+So today, you've learned how to draw with turtle graphics
+
+323
+00:14:15,640 --> 00:14:19,320
+and also save steps by using these loops
+
+324
+00:14:19,320 --> 00:14:22,280
+so that you don't have to repeat those combination of blocks
+
+325
+00:14:22,280 --> 00:14:24,120
+over and over again.
+
+326
+00:14:24,120 --> 00:14:26,400
+I hope you'll experiment with some of the combinations
+
+327
+00:14:26,400 --> 00:14:27,320
+you have here.
+
+328
+00:14:27,320 --> 00:14:30,960
+And I look forward to seeing you in my next video.
+
+329
+00:14:30,960 --> 00:14:32,720
+Thank you.
+
