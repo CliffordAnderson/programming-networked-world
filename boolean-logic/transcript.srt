@@ -1,0 +1,328 @@
+1
+00:00:00,000 --> 00:00:04,000
+Hi everyone, welcome back to Programming for a Networked World.
+
+2
+00:00:04,000 --> 00:00:06,000
+Today's topic is Boolean logic.
+
+3
+00:00:06,000 --> 00:00:13,000
+We'll be exploring a logic that the mathematician George Boole invented in the 19th century,
+
+4
+00:00:13,000 --> 00:00:15,000
+and it's fundamentally simple at its core.
+
+5
+00:00:15,000 --> 00:00:22,000
+It's about ways of combining true and false, zero and one, on or off.
+
+6
+00:00:22,000 --> 00:00:26,000
+Boolean logic is at the heart of how computers operate,
+
+7
+00:00:26,000 --> 00:00:30,000
+and it's also used almost everywhere in computer science.
+
+8
+00:00:30,000 --> 00:00:37,000
+So today we'll just begin by exploring the simple operators you can use to combine Boolean values.
+
+9
+00:00:37,000 --> 00:00:40,000
+Okay, ready or not, here we go.
+
+10
+00:00:47,000 --> 00:00:52,000
+Okay, let's get started by just seeing where to find Booleans in nets blocks.
+
+11
+00:00:52,000 --> 00:01:00,000
+So if you go to operators here, this green tab, you'll see that we've got several options here that have pointy ends.
+
+12
+00:01:00,000 --> 00:01:02,000
+Those are the Boolean operators.
+
+13
+00:01:02,000 --> 00:01:08,000
+So let's just draw the first one onto the stage, and you see here it's true.
+
+14
+00:01:08,000 --> 00:01:13,000
+Now these are reporters, and so that means that they will report their value.
+
+15
+00:01:13,000 --> 00:01:18,000
+And in this case, if you click on it, it will report the value true.
+
+16
+00:01:18,000 --> 00:01:23,000
+And if you hit this slider, you can see that you can also make this true into a false.
+
+17
+00:01:23,000 --> 00:01:31,000
+And if you click on that in the right spot, it will report false.
+
+18
+00:01:31,000 --> 00:01:33,000
+Okay, so far so good.
+
+19
+00:01:33,000 --> 00:01:42,000
+Now with Booleans, the trick is that there are operators to allow you to combine them to model complex logic.
+
+20
+00:01:42,000 --> 00:01:45,000
+So let's start with a simple one here, which is AND.
+
+21
+00:01:46,000 --> 00:01:57,000
+AND allows you to put two Boolean values together and then make a decision based on the values of the Boolean operators on both sides.
+
+22
+00:01:57,000 --> 00:02:02,000
+So let's put in, for example, one here, and then we'll put another one right here.
+
+23
+00:02:02,000 --> 00:02:05,000
+And we'll switch that like this.
+
+24
+00:02:05,000 --> 00:02:10,000
+Okay, so AND, if both sides are true, will report true.
+
+25
+00:02:10,000 --> 00:02:12,000
+And you see that it does.
+
+26
+00:02:12,000 --> 00:02:17,000
+But if one side is false, then it's going to report false.
+
+27
+00:02:17,000 --> 00:02:22,000
+And that's true even if both are false, it's going to also report false.
+
+28
+00:02:22,000 --> 00:02:26,000
+OR is the opposite, in some ways, of AND.
+
+29
+00:02:26,000 --> 00:02:29,000
+And we'll put these together here.
+
+30
+00:02:29,000 --> 00:02:36,000
+Now when you have OR, like that, and you click on this, it's going to be true.
+
+31
+00:02:36,000 --> 00:02:44,000
+But if one side is also false, it's still going to report true as long as one side or the other is true.
+
+32
+00:02:44,000 --> 00:02:53,000
+So that's true, and you can see if we switch this like that, and click on that, it's also true.
+
+33
+00:02:53,000 --> 00:03:04,000
+Okay, the only time that OR is going to be false is when both sides are listed as false, and in that case it's going to report false.
+
+34
+00:03:05,000 --> 00:03:13,000
+Now, one way of visualizing how these Boolean operators work is by using something called truth tables.
+
+35
+00:03:13,000 --> 00:03:19,000
+And so I've created a netsbox project that does have these modelist truth tables.
+
+36
+00:03:19,000 --> 00:03:21,000
+Let me just open that now.
+
+37
+00:03:21,000 --> 00:03:23,000
+Here we go.
+
+38
+00:03:23,000 --> 00:03:25,000
+Boolean operators.
+
+39
+00:03:25,000 --> 00:03:29,000
+Okay, as you can see, this project looks more complicated.
+
+40
+00:03:29,000 --> 00:03:32,000
+It's using lists, which we're going to come to later in this course.
+
+41
+00:03:32,000 --> 00:03:39,000
+But for the purpose of this exercise, all I want to show you is how you can combine these Boolean values to create a truth table.
+
+42
+00:03:39,000 --> 00:03:41,000
+So let's explore that.
+
+43
+00:03:41,000 --> 00:03:49,000
+We've seen the AND block, and we know that if a true is on the left and a true is on the right, then it's going to report true.
+
+44
+00:03:49,000 --> 00:04:00,000
+But what the truth table tells us is all the possible combinations of left and right, and what they result in, what is going to be reported.
+
+45
+00:04:00,000 --> 00:04:07,000
+So here, if we click on this list, we see three columns, the A, B, and C.
+
+46
+00:04:07,000 --> 00:04:12,000
+Now, the way to interpret this is the A column is the Boolean value that you're passing in on the left.
+
+47
+00:04:12,000 --> 00:04:16,000
+The B column is the Boolean value that you're passing in on the right.
+
+48
+00:04:16,000 --> 00:04:19,000
+And the C column is the result.
+
+49
+00:04:19,000 --> 00:04:29,000
+So you can see that now we look at all the possible combinations of AND, and we see if you have a true and a true, it will report true.
+
+50
+00:04:29,000 --> 00:04:34,000
+Otherwise, any other combination is going to report false.
+
+51
+00:04:34,000 --> 00:04:38,000
+And the same thing down here with the OR.
+
+52
+00:04:38,000 --> 00:04:41,000
+If I click on this, we see the truth table for OR.
+
+53
+00:04:41,000 --> 00:04:52,000
+And what I see is every combination is going to be true, except for the case in which both sides, the left and the right, have false.
+
+54
+00:04:52,000 --> 00:04:55,000
+And in that case, the OR is going to report false.
+
+55
+00:04:55,000 --> 00:04:59,000
+So this is the inverse of AND.
+
+56
+00:04:59,000 --> 00:05:06,000
+Now, you can also create Boolean operators that don't exist in the next box palette.
+
+57
+00:05:06,000 --> 00:05:09,000
+We'll get into how to do that later in this course.
+
+58
+00:05:09,000 --> 00:05:18,000
+But I thought I would show you just one other example of a very common Boolean operator called XOR or exclusive OR.
+
+59
+00:05:18,000 --> 00:05:24,000
+The idea here is that OR actually in everyday language has a bit of an ambiguity.
+
+60
+00:05:24,000 --> 00:05:27,000
+If I say to you, would you like tea or coffee?
+
+61
+00:05:27,000 --> 00:05:33,000
+You don't interpret that as meaning you can have tea and you can have coffee or you can have both.
+
+62
+00:05:33,000 --> 00:05:38,000
+What you usually interpret that to mean is you need to pick one or the other.
+
+63
+00:05:38,000 --> 00:05:40,000
+So that's an exclusive OR.
+
+64
+00:05:40,000 --> 00:05:46,000
+And if you look at the truth table here, you'll see that the truth table models that situation.
+
+65
+00:05:46,000 --> 00:05:52,000
+So in this case, we're not going to ask for both coffee or tea and expect to get both.
+
+66
+00:05:52,000 --> 00:05:53,000
+That would be false.
+
+67
+00:05:53,000 --> 00:05:55,000
+We're going to ask for one or the other.
+
+68
+00:05:55,000 --> 00:06:02,000
+So either coffee or tea will report true.
+
+69
+00:06:02,000 --> 00:06:04,000
+But not if you ask for neither.
+
+70
+00:06:04,000 --> 00:06:05,000
+Then you will get nothing.
+
+71
+00:06:05,000 --> 00:06:10,000
+Or if you ask for both, then the waiter will politely bring you nothing in this scenario.
+
+72
+00:06:10,000 --> 00:06:14,000
+So the XOR is also used quite commonly in computer programming.
+
+73
+00:06:14,000 --> 00:06:15,000
+And we'll come across it later.
+
+74
+00:06:15,000 --> 00:06:30,000
+But the point is that the base Boolean operators that are provided in the nets blocks palette can be used to make even more intricate Boolean operators that you may want to create yourself for whatever programming exercise you're undertaking.
+
+75
+00:06:30,000 --> 00:06:33,000
+Okay, so that's the basic introduction to Boolean operators.
+
+76
+00:06:33,000 --> 00:06:35,000
+As you've seen, Boolean operators are very simple.
+
+77
+00:06:35,000 --> 00:06:37,000
+They're always about true or false.
+
+78
+00:06:37,000 --> 00:06:44,000
+But these operators allow you to combine them in very intricate ways to model complex situations.
+
+79
+00:06:45,000 --> 00:06:47,000
+We'll be seeing them a lot more in this course.
+
+80
+00:06:47,000 --> 00:06:50,000
+So you'll have plenty of opportunity to become familiar with them.
+
+81
+00:06:50,000 --> 00:06:52,000
+But for today, we'll stop there.
+
+82
+00:06:52,000 --> 00:06:55,000
+And I look forward to seeing you in my next episode.
+

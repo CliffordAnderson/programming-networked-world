@@ -1,0 +1,82 @@
+Hi everyone, welcome back to Programming for a Networked World.
+Today's topic is Boolean logic.
+We'll be exploring a logic that the mathematician George Boole invented in the 19th century,
+and it's fundamentally simple at its core.
+It's about ways of combining true and false, zero and one, on or off.
+Boolean logic is at the heart of how computers operate,
+and it's also used almost everywhere in computer science.
+So today we'll just begin by exploring the simple operators you can use to combine Boolean values.
+Okay, ready or not, here we go.
+Okay, let's get started by just seeing where to find Booleans in nets blocks.
+So if you go to operators here, this green tab, you'll see that we've got several options here that have pointy ends.
+Those are the Boolean operators.
+So let's just draw the first one onto the stage, and you see here it's true.
+Now these are reporters, and so that means that they will report their value.
+And in this case, if you click on it, it will report the value true.
+And if you hit this slider, you can see that you can also make this true into a false.
+And if you click on that in the right spot, it will report false.
+Okay, so far so good.
+Now with Booleans, the trick is that there are operators to allow you to combine them to model complex logic.
+So let's start with a simple one here, which is AND.
+AND allows you to put two Boolean values together and then make a decision based on the values of the Boolean operators on both sides.
+So let's put in, for example, one here, and then we'll put another one right here.
+And we'll switch that like this.
+Okay, so AND, if both sides are true, will report true.
+And you see that it does.
+But if one side is false, then it's going to report false.
+And that's true even if both are false, it's going to also report false.
+OR is the opposite, in some ways, of AND.
+And we'll put these together here.
+Now when you have OR, like that, and you click on this, it's going to be true.
+But if one side is also false, it's still going to report true as long as one side or the other is true.
+So that's true, and you can see if we switch this like that, and click on that, it's also true.
+Okay, the only time that OR is going to be false is when both sides are listed as false, and in that case it's going to report false.
+Now, one way of visualizing how these Boolean operators work is by using something called truth tables.
+And so I've created a netsbox project that does have these modelist truth tables.
+Let me just open that now.
+Here we go.
+Boolean operators.
+Okay, as you can see, this project looks more complicated.
+It's using lists, which we're going to come to later in this course.
+But for the purpose of this exercise, all I want to show you is how you can combine these Boolean values to create a truth table.
+So let's explore that.
+We've seen the AND block, and we know that if a true is on the left and a true is on the right, then it's going to report true.
+But what the truth table tells us is all the possible combinations of left and right, and what they result in, what is going to be reported.
+So here, if we click on this list, we see three columns, the A, B, and C.
+Now, the way to interpret this is the A column is the Boolean value that you're passing in on the left.
+The B column is the Boolean value that you're passing in on the right.
+And the C column is the result.
+So you can see that now we look at all the possible combinations of AND, and we see if you have a true and a true, it will report true.
+Otherwise, any other combination is going to report false.
+And the same thing down here with the OR.
+If I click on this, we see the truth table for OR.
+And what I see is every combination is going to be true, except for the case in which both sides, the left and the right, have false.
+And in that case, the OR is going to report false.
+So this is the inverse of AND.
+Now, you can also create Boolean operators that don't exist in the next box palette.
+We'll get into how to do that later in this course.
+But I thought I would show you just one other example of a very common Boolean operator called XOR or exclusive OR.
+The idea here is that OR actually in everyday language has a bit of an ambiguity.
+If I say to you, would you like tea or coffee?
+You don't interpret that as meaning you can have tea and you can have coffee or you can have both.
+What you usually interpret that to mean is you need to pick one or the other.
+So that's an exclusive OR.
+And if you look at the truth table here, you'll see that the truth table models that situation.
+So in this case, we're not going to ask for both coffee or tea and expect to get both.
+That would be false.
+We're going to ask for one or the other.
+So either coffee or tea will report true.
+But not if you ask for neither.
+Then you will get nothing.
+Or if you ask for both, then the waiter will politely bring you nothing in this scenario.
+So the XOR is also used quite commonly in computer programming.
+And we'll come across it later.
+But the point is that the base Boolean operators that are provided in the nets blocks palette can be used to make even more intricate Boolean operators that you may want to create yourself for whatever programming exercise you're undertaking.
+Okay, so that's the basic introduction to Boolean operators.
+As you've seen, Boolean operators are very simple.
+They're always about true or false.
+But these operators allow you to combine them in very intricate ways to model complex situations.
+We'll be seeing them a lot more in this course.
+So you'll have plenty of opportunity to become familiar with them.
+But for today, we'll stop there.
+And I look forward to seeing you in my next episode.
