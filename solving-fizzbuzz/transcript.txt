@@ -1,0 +1,202 @@
+Hi, everyone.
+Welcome back to Programming for a Network World.
+Today, we're going to solve the hardest
+problem in computer science.
+That is FizzBuzz.
+I'm just kidding, actually.
+FizzBuzz is a children's game.
+And we'll show in this episode how
+to solve it using the tools that you already
+have in your toolkit.
+But FizzBuzz gained a reputation about 10 years ago
+of being a difficult problem for aspiring programmers
+to solve during coding interviews.
+So ready to put on your interviewing hat
+and learn how to solve FizzBuzz?
+Let's get started.
+So let's review the rules of FizzBuzz.
+FizzBuzz is basically a substitution game.
+So you're going to count from 1 to 15.
+And whenever a number is cleanly divisible by 3,
+that is divisible by 3 without remainder, you'll say Fizz.
+If it's divisible by 5 without remainder, you'll say Buzz.
+And if it's divisible by both 3 and 5, then you'll say FizzBuzz.
+Now, let's start by just establishing
+a loop that will have a counter to count
+those numbers as we go through.
+So we can do that by going over here to Control.
+And let's go over and bring out the block
+we've already used called Repeat and change this to 15.
+And then let's make a variable that we'll
+put on top of this under Variables.
+And we'll make one called Count.
+And then let's set Count over here to 1.
+So we'll start at 1.
+And then as we go through, we're going
+to change Count by 1 each time.
+Now, you'll see if I click on this
+that it will actually reach 16.
+But that's OK because that final increment will not
+be used in our program.
+It'll just be the final state of the counter.
+But it's something to be aware of when you're programming.
+OK.
+Now, the next thing is to set up our Boolean conditionals.
+So let's go over to Operators again.
+And we're going to pull in our conditionals.
+So the question is, we know that we need this Boolean operator.
+It's something equal to something else.
+And we know that we want to test Count.
+But the question is, what are we testing Count?
+And what are we saying it should be equal to?
+Well, we know that you can divide a number,
+say 9 divided by 3.
+And that's going to give you 3.
+But how can you say 9 divided by 3 has no remainder?
+If you remember from elementary school,
+there's something called modular arithmetic.
+And the idea is use what's called a modulus operator.
+And you can perform the same operation, 9 modulus 3.
+And it will give you the remainder.
+So let's pull that out here.
+And here's the modulus operator, shortened to mod.
+And so we can say 9 and 3.
+And it will say 0, because there's no remainder.
+Now, if we'd said, for example, 10, let's change it to that,
+mod 3, we should get 1, because there is a remainder.
+So OK, we've got that working.
+But this is reporting an actual value.
+We wanted to report a Boolean here.
+So let's put it in this.
+And we're going to take this 10 out and put the count there.
+And we're going to say this is equal to 0.
+So that will be our first condition.
+And let's just duplicate this.
+And we're going to put 5 in for this one.
+Now, how do we test 3 and 5?
+Well, we could say that mathematically,
+anything that's divisible by both 3 and by 5,
+there's a way to test that to see if it's divisible by 15.
+But if we wanted to use the Boolean operators,
+we could do this by just bringing out the and block,
+taking these two conditions.
+Let's duplicate them here, putting 1 on one side
+and putting 1 on the other side.
+And there we go.
+So now we have fizz.
+If this is going to be true, that will be fizz.
+This will be buzz.
+And this will be fizzbuzz.
+All right, now how do we integrate these into our program?
+Well, we need to use conditional expressions.
+These are expressions that allow us to do something differently
+if a certain Boolean condition reports that it's true.
+And we have two options here.
+We can use if or we can use if then else.
+Now, you might be tempted just to reach for the if block
+because we want to say if it's, for example, divisible by 3,
+then we should have a to say.
+Let's go to looks here.
+We should have a to say fizz.
+And otherwise, let's go down here.
+a should just say the number.
+So let's grab that number, put it over here.
+Now, I'm going to run this to 4.
+And the answer should be 1, 2, fizz, 4.
+But you'll see that that doesn't quite work.
+So 1, 2, fizz, 3, 4.
+So what's wrong?
+Well, the problem is that this Boolean conditional,
+when it passes, does indeed produce fizz.
+But it falls through to the expression or the statement
+below.
+And so that's a problem.
+We need to make sure that if fizz is reported,
+if this Boolean condition is true,
+then we don't actually say the number.
+So to do that, we're going to have to pull this back out.
+Let me do that.
+Put these things back in.
+And we're going to change this to an if then else.
+So let me grab that over here.
+And let's just put these back together.
+So that's still a condition.
+But now, if that condition is met, then it will do this.
+Otherwise, if it's not met, then it's
+going to do this part right here.
+And the change stays outside this
+because we still want to increment each time we go
+through.
+So that should be good.
+And it should solve our problem of 1, 2, 3, 4.
+Let's see.
+1, 2, fizz, 4.
+Perfect.
+So let's stop there.
+Now, how do we integrate the next one?
+Well, that also needs to have an if then else.
+But where do we place it?
+Let's put the condition in first.
+So what we want to do is we want to test this
+after we test the 3.
+So we're going to just drop this in right here.
+And now we see that we've got this else we don't need.
+We can put it right there.
+And we've got a spot here to put in another say block.
+Let's do that.
+And we're going to say buzz.
+Now, it should be the same thing.
+When we count up to 5, it should be 1, 2, fizz, 4, buzz.
+Let's see.
+1, 2, fizz, 4, buzz.
+Perfect.
+OK.
+Now, the last one is the most complicated one.
+I'm going to just move this out of the way
+so we don't get confused by this if block hanging around.
+And the question is, where does this one fit?
+We could put it at the end here after testing for 3 and 5.
+And that might be the natural way you think about it.
+But if you think about the logic of that, we'd have a problem.
+Because by definition, anything that's divisible by 3
+will be met before we test whether it's
+divisible by 3 and 5.
+And the same thing, anything that's divisible by 5,
+the condition that is divisible by 5
+will be met before we get to whether it's
+divisible by 3 and 5.
+So we need to actually place this at the top.
+This is the first condition that we need to check.
+And we're going to do that by, again, grabbing this,
+grabbing this whole block, putting it into the else,
+putting this here, making sure we
+get the change that stays on the right part of it,
+and then dropping this here.
+OK.
+So it should look like this.
+And then at the top here, we're going to use looks.
+And we're going to say, again, fizz buzz.
+OK.
+Now, I think we're ready to go through the whole circuit.
+Let's just put a nice hat block on the top
+so that we have the green flag is clicked.
+That looks great.
+And are we ready to go?
+Let's test it out.
+All right.
+Here we go.
+1, 2, fizz, 4, buzz, fizz, 7, 8, fizz, buzz, 11, fizz, 13, 14,
+and fizz, buzz.
+And then it stops.
+All right.
+So there you have it.
+So today, we've learned several things.
+We've learned how to use Boolean operators in practice.
+We've seen how to differentiate when
+you need to use a conditional if or a conditional if-then-else.
+And we've also learned about how to use modular arithmetic
+and the modulus operator in NetsBlocks programs.
+All right.
+You've already come a long way in this course.
+And I look forward to seeing you in the next episode.
+Thank you very much.

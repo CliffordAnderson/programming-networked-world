@@ -1,0 +1,808 @@
+1
+00:00:00,000 --> 00:00:00,800
+Hi, everyone.
+
+2
+00:00:00,800 --> 00:00:03,200
+Welcome back to Programming for a Network World.
+
+3
+00:00:03,200 --> 00:00:05,120
+Today, we're going to solve the hardest
+
+4
+00:00:05,120 --> 00:00:07,760
+problem in computer science.
+
+5
+00:00:07,760 --> 00:00:10,680
+That is FizzBuzz.
+
+6
+00:00:10,680 --> 00:00:12,240
+I'm just kidding, actually.
+
+7
+00:00:12,240 --> 00:00:14,560
+FizzBuzz is a children's game.
+
+8
+00:00:14,560 --> 00:00:17,080
+And we'll show in this episode how
+
+9
+00:00:17,080 --> 00:00:19,520
+to solve it using the tools that you already
+
+10
+00:00:19,520 --> 00:00:21,600
+have in your toolkit.
+
+11
+00:00:21,600 --> 00:00:25,600
+But FizzBuzz gained a reputation about 10 years ago
+
+12
+00:00:25,600 --> 00:00:29,600
+of being a difficult problem for aspiring programmers
+
+13
+00:00:29,600 --> 00:00:32,760
+to solve during coding interviews.
+
+14
+00:00:32,760 --> 00:00:36,240
+So ready to put on your interviewing hat
+
+15
+00:00:36,240 --> 00:00:38,680
+and learn how to solve FizzBuzz?
+
+16
+00:00:38,680 --> 00:00:39,600
+Let's get started.
+
+17
+00:00:46,760 --> 00:00:50,200
+So let's review the rules of FizzBuzz.
+
+18
+00:00:50,200 --> 00:00:53,480
+FizzBuzz is basically a substitution game.
+
+19
+00:00:53,480 --> 00:00:56,120
+So you're going to count from 1 to 15.
+
+20
+00:00:56,120 --> 00:00:59,520
+And whenever a number is cleanly divisible by 3,
+
+21
+00:00:59,520 --> 00:01:04,160
+that is divisible by 3 without remainder, you'll say Fizz.
+
+22
+00:01:04,160 --> 00:01:09,160
+If it's divisible by 5 without remainder, you'll say Buzz.
+
+23
+00:01:09,160 --> 00:01:16,720
+And if it's divisible by both 3 and 5, then you'll say FizzBuzz.
+
+24
+00:01:16,720 --> 00:01:20,200
+Now, let's start by just establishing
+
+25
+00:01:20,200 --> 00:01:22,880
+a loop that will have a counter to count
+
+26
+00:01:22,880 --> 00:01:25,320
+those numbers as we go through.
+
+27
+00:01:25,320 --> 00:01:29,040
+So we can do that by going over here to Control.
+
+28
+00:01:29,040 --> 00:01:31,800
+And let's go over and bring out the block
+
+29
+00:01:31,800 --> 00:01:36,320
+we've already used called Repeat and change this to 15.
+
+30
+00:01:36,320 --> 00:01:38,800
+And then let's make a variable that we'll
+
+31
+00:01:38,800 --> 00:01:42,720
+put on top of this under Variables.
+
+32
+00:01:42,720 --> 00:01:45,680
+And we'll make one called Count.
+
+33
+00:01:45,680 --> 00:01:52,240
+And then let's set Count over here to 1.
+
+34
+00:01:52,240 --> 00:01:53,520
+So we'll start at 1.
+
+35
+00:01:53,520 --> 00:01:55,120
+And then as we go through, we're going
+
+36
+00:01:55,120 --> 00:01:59,520
+to change Count by 1 each time.
+
+37
+00:01:59,520 --> 00:02:01,040
+Now, you'll see if I click on this
+
+38
+00:02:01,040 --> 00:02:03,520
+that it will actually reach 16.
+
+39
+00:02:03,520 --> 00:02:06,880
+But that's OK because that final increment will not
+
+40
+00:02:06,880 --> 00:02:07,920
+be used in our program.
+
+41
+00:02:07,920 --> 00:02:10,520
+It'll just be the final state of the counter.
+
+42
+00:02:10,520 --> 00:02:13,600
+But it's something to be aware of when you're programming.
+
+43
+00:02:13,600 --> 00:02:14,280
+OK.
+
+44
+00:02:14,280 --> 00:02:17,440
+Now, the next thing is to set up our Boolean conditionals.
+
+45
+00:02:17,440 --> 00:02:19,640
+So let's go over to Operators again.
+
+46
+00:02:19,640 --> 00:02:22,000
+And we're going to pull in our conditionals.
+
+47
+00:02:22,000 --> 00:02:24,880
+So the question is, we know that we need this Boolean operator.
+
+48
+00:02:24,880 --> 00:02:27,240
+It's something equal to something else.
+
+49
+00:02:27,240 --> 00:02:30,120
+And we know that we want to test Count.
+
+50
+00:02:30,120 --> 00:02:32,360
+But the question is, what are we testing Count?
+
+51
+00:02:32,360 --> 00:02:34,600
+And what are we saying it should be equal to?
+
+52
+00:02:34,600 --> 00:02:37,760
+Well, we know that you can divide a number,
+
+53
+00:02:37,760 --> 00:02:39,320
+say 9 divided by 3.
+
+54
+00:02:39,320 --> 00:02:40,880
+And that's going to give you 3.
+
+55
+00:02:40,880 --> 00:02:45,400
+But how can you say 9 divided by 3 has no remainder?
+
+56
+00:02:45,400 --> 00:02:47,120
+If you remember from elementary school,
+
+57
+00:02:47,120 --> 00:02:50,120
+there's something called modular arithmetic.
+
+58
+00:02:50,120 --> 00:02:54,040
+And the idea is use what's called a modulus operator.
+
+59
+00:02:54,040 --> 00:02:58,200
+And you can perform the same operation, 9 modulus 3.
+
+60
+00:02:58,200 --> 00:03:00,040
+And it will give you the remainder.
+
+61
+00:03:00,040 --> 00:03:02,160
+So let's pull that out here.
+
+62
+00:03:02,160 --> 00:03:07,200
+And here's the modulus operator, shortened to mod.
+
+63
+00:03:07,200 --> 00:03:09,680
+And so we can say 9 and 3.
+
+64
+00:03:09,680 --> 00:03:12,320
+And it will say 0, because there's no remainder.
+
+65
+00:03:12,320 --> 00:03:15,800
+Now, if we'd said, for example, 10, let's change it to that,
+
+66
+00:03:15,800 --> 00:03:18,960
+mod 3, we should get 1, because there is a remainder.
+
+67
+00:03:18,960 --> 00:03:21,600
+So OK, we've got that working.
+
+68
+00:03:21,600 --> 00:03:23,920
+But this is reporting an actual value.
+
+69
+00:03:24,800 --> 00:03:26,400
+We wanted to report a Boolean here.
+
+70
+00:03:26,400 --> 00:03:28,840
+So let's put it in this.
+
+71
+00:03:28,840 --> 00:03:32,040
+And we're going to take this 10 out and put the count there.
+
+72
+00:03:32,040 --> 00:03:34,360
+And we're going to say this is equal to 0.
+
+73
+00:03:34,360 --> 00:03:37,440
+So that will be our first condition.
+
+74
+00:03:37,440 --> 00:03:40,200
+And let's just duplicate this.
+
+75
+00:03:40,200 --> 00:03:42,680
+And we're going to put 5 in for this one.
+
+76
+00:03:42,680 --> 00:03:44,840
+Now, how do we test 3 and 5?
+
+77
+00:03:44,840 --> 00:03:47,560
+Well, we could say that mathematically,
+
+78
+00:03:47,560 --> 00:03:50,760
+anything that's divisible by both 3 and by 5,
+
+79
+00:03:50,760 --> 00:03:55,280
+there's a way to test that to see if it's divisible by 15.
+
+80
+00:03:55,280 --> 00:03:57,880
+But if we wanted to use the Boolean operators,
+
+81
+00:03:57,880 --> 00:04:00,760
+we could do this by just bringing out the and block,
+
+82
+00:04:00,760 --> 00:04:02,040
+taking these two conditions.
+
+83
+00:04:02,040 --> 00:04:05,800
+Let's duplicate them here, putting 1 on one side
+
+84
+00:04:05,800 --> 00:04:08,880
+and putting 1 on the other side.
+
+85
+00:04:08,880 --> 00:04:10,400
+And there we go.
+
+86
+00:04:10,400 --> 00:04:12,520
+So now we have fizz.
+
+87
+00:04:12,520 --> 00:04:14,760
+If this is going to be true, that will be fizz.
+
+88
+00:04:14,760 --> 00:04:16,640
+This will be buzz.
+
+89
+00:04:16,640 --> 00:04:18,640
+And this will be fizzbuzz.
+
+90
+00:04:18,640 --> 00:04:21,680
+All right, now how do we integrate these into our program?
+
+91
+00:04:21,680 --> 00:04:25,840
+Well, we need to use conditional expressions.
+
+92
+00:04:25,840 --> 00:04:30,920
+These are expressions that allow us to do something differently
+
+93
+00:04:30,920 --> 00:04:34,560
+if a certain Boolean condition reports that it's true.
+
+94
+00:04:34,560 --> 00:04:35,760
+And we have two options here.
+
+95
+00:04:35,760 --> 00:04:39,880
+We can use if or we can use if then else.
+
+96
+00:04:39,880 --> 00:04:42,480
+Now, you might be tempted just to reach for the if block
+
+97
+00:04:42,480 --> 00:04:47,600
+because we want to say if it's, for example, divisible by 3,
+
+98
+00:04:47,600 --> 00:04:49,480
+then we should have a to say.
+
+99
+00:04:49,480 --> 00:04:52,040
+Let's go to looks here.
+
+100
+00:04:52,040 --> 00:04:55,480
+We should have a to say fizz.
+
+101
+00:04:55,480 --> 00:04:59,600
+And otherwise, let's go down here.
+
+102
+00:04:59,600 --> 00:05:01,160
+a should just say the number.
+
+103
+00:05:01,160 --> 00:05:05,600
+So let's grab that number, put it over here.
+
+104
+00:05:05,600 --> 00:05:07,760
+Now, I'm going to run this to 4.
+
+105
+00:05:07,760 --> 00:05:13,080
+And the answer should be 1, 2, fizz, 4.
+
+106
+00:05:13,080 --> 00:05:15,440
+But you'll see that that doesn't quite work.
+
+107
+00:05:15,440 --> 00:05:23,720
+So 1, 2, fizz, 3, 4.
+
+108
+00:05:23,720 --> 00:05:24,920
+So what's wrong?
+
+109
+00:05:24,920 --> 00:05:27,400
+Well, the problem is that this Boolean conditional,
+
+110
+00:05:27,400 --> 00:05:30,640
+when it passes, does indeed produce fizz.
+
+111
+00:05:30,640 --> 00:05:34,320
+But it falls through to the expression or the statement
+
+112
+00:05:34,320 --> 00:05:35,480
+below.
+
+113
+00:05:35,480 --> 00:05:36,720
+And so that's a problem.
+
+114
+00:05:36,720 --> 00:05:40,240
+We need to make sure that if fizz is reported,
+
+115
+00:05:40,240 --> 00:05:43,320
+if this Boolean condition is true,
+
+116
+00:05:43,320 --> 00:05:46,960
+then we don't actually say the number.
+
+117
+00:05:46,960 --> 00:05:49,520
+So to do that, we're going to have to pull this back out.
+
+118
+00:05:49,520 --> 00:05:50,560
+Let me do that.
+
+119
+00:05:50,560 --> 00:05:53,200
+Put these things back in.
+
+120
+00:05:53,200 --> 00:05:57,280
+And we're going to change this to an if then else.
+
+121
+00:05:57,280 --> 00:06:00,400
+So let me grab that over here.
+
+122
+00:06:00,400 --> 00:06:02,880
+And let's just put these back together.
+
+123
+00:06:02,880 --> 00:06:05,960
+So that's still a condition.
+
+124
+00:06:05,960 --> 00:06:10,280
+But now, if that condition is met, then it will do this.
+
+125
+00:06:10,280 --> 00:06:12,840
+Otherwise, if it's not met, then it's
+
+126
+00:06:12,840 --> 00:06:17,040
+going to do this part right here.
+
+127
+00:06:17,040 --> 00:06:18,760
+And the change stays outside this
+
+128
+00:06:18,760 --> 00:06:20,880
+because we still want to increment each time we go
+
+129
+00:06:20,880 --> 00:06:22,520
+through.
+
+130
+00:06:22,520 --> 00:06:23,400
+So that should be good.
+
+131
+00:06:23,400 --> 00:06:25,360
+And it should solve our problem of 1, 2, 3, 4.
+
+132
+00:06:25,360 --> 00:06:26,480
+Let's see.
+
+133
+00:06:26,480 --> 00:06:32,720
+1, 2, fizz, 4.
+
+134
+00:06:32,720 --> 00:06:33,320
+Perfect.
+
+135
+00:06:33,320 --> 00:06:34,640
+So let's stop there.
+
+136
+00:06:34,640 --> 00:06:37,720
+Now, how do we integrate the next one?
+
+137
+00:06:37,720 --> 00:06:41,320
+Well, that also needs to have an if then else.
+
+138
+00:06:41,320 --> 00:06:43,160
+But where do we place it?
+
+139
+00:06:43,160 --> 00:06:46,400
+Let's put the condition in first.
+
+140
+00:06:46,400 --> 00:06:48,960
+So what we want to do is we want to test this
+
+141
+00:06:48,960 --> 00:06:51,160
+after we test the 3.
+
+142
+00:06:51,160 --> 00:06:54,400
+So we're going to just drop this in right here.
+
+143
+00:06:54,400 --> 00:06:58,360
+And now we see that we've got this else we don't need.
+
+144
+00:06:58,360 --> 00:07:00,200
+We can put it right there.
+
+145
+00:07:00,200 --> 00:07:03,520
+And we've got a spot here to put in another say block.
+
+146
+00:07:03,520 --> 00:07:05,200
+Let's do that.
+
+147
+00:07:05,200 --> 00:07:09,320
+And we're going to say buzz.
+
+148
+00:07:09,320 --> 00:07:10,700
+Now, it should be the same thing.
+
+149
+00:07:10,700 --> 00:07:18,660
+When we count up to 5, it should be 1, 2, fizz, 4, buzz.
+
+150
+00:07:18,660 --> 00:07:20,340
+Let's see.
+
+151
+00:07:20,340 --> 00:07:28,700
+1, 2, fizz, 4, buzz.
+
+152
+00:07:28,700 --> 00:07:29,860
+Perfect.
+
+153
+00:07:29,860 --> 00:07:30,740
+OK.
+
+154
+00:07:30,740 --> 00:07:33,220
+Now, the last one is the most complicated one.
+
+155
+00:07:33,220 --> 00:07:34,980
+I'm going to just move this out of the way
+
+156
+00:07:34,980 --> 00:07:37,780
+so we don't get confused by this if block hanging around.
+
+157
+00:07:37,780 --> 00:07:41,180
+And the question is, where does this one fit?
+
+158
+00:07:41,180 --> 00:07:44,140
+We could put it at the end here after testing for 3 and 5.
+
+159
+00:07:44,140 --> 00:07:46,500
+And that might be the natural way you think about it.
+
+160
+00:07:46,500 --> 00:07:49,740
+But if you think about the logic of that, we'd have a problem.
+
+161
+00:07:49,740 --> 00:07:56,480
+Because by definition, anything that's divisible by 3
+
+162
+00:07:56,480 --> 00:07:59,060
+will be met before we test whether it's
+
+163
+00:07:59,060 --> 00:08:01,780
+divisible by 3 and 5.
+
+164
+00:08:01,780 --> 00:08:04,900
+And the same thing, anything that's divisible by 5,
+
+165
+00:08:04,900 --> 00:08:06,660
+the condition that is divisible by 5
+
+166
+00:08:06,660 --> 00:08:09,060
+will be met before we get to whether it's
+
+167
+00:08:09,060 --> 00:08:12,140
+divisible by 3 and 5.
+
+168
+00:08:12,140 --> 00:08:14,820
+So we need to actually place this at the top.
+
+169
+00:08:14,820 --> 00:08:17,300
+This is the first condition that we need to check.
+
+170
+00:08:17,300 --> 00:08:21,220
+And we're going to do that by, again, grabbing this,
+
+171
+00:08:21,220 --> 00:08:24,860
+grabbing this whole block, putting it into the else,
+
+172
+00:08:24,860 --> 00:08:26,580
+putting this here, making sure we
+
+173
+00:08:26,580 --> 00:08:29,260
+get the change that stays on the right part of it,
+
+174
+00:08:29,260 --> 00:08:30,820
+and then dropping this here.
+
+175
+00:08:30,820 --> 00:08:32,100
+OK.
+
+176
+00:08:32,100 --> 00:08:33,660
+So it should look like this.
+
+177
+00:08:33,660 --> 00:08:36,220
+And then at the top here, we're going to use looks.
+
+178
+00:08:36,300 --> 00:08:41,660
+And we're going to say, again, fizz buzz.
+
+179
+00:08:41,660 --> 00:08:42,620
+OK.
+
+180
+00:08:42,620 --> 00:08:45,900
+Now, I think we're ready to go through the whole circuit.
+
+181
+00:08:45,900 --> 00:08:48,580
+Let's just put a nice hat block on the top
+
+182
+00:08:48,580 --> 00:08:51,460
+so that we have the green flag is clicked.
+
+183
+00:08:51,460 --> 00:08:53,180
+That looks great.
+
+184
+00:08:53,180 --> 00:08:54,940
+And are we ready to go?
+
+185
+00:08:54,940 --> 00:08:56,500
+Let's test it out.
+
+186
+00:08:56,500 --> 00:08:57,260
+All right.
+
+187
+00:08:57,260 --> 00:08:59,580
+Here we go.
+
+188
+00:08:59,580 --> 00:09:25,180
+1, 2, fizz, 4, buzz, fizz, 7, 8, fizz, buzz, 11, fizz, 13, 14,
+
+189
+00:09:25,180 --> 00:09:28,580
+and fizz, buzz.
+
+190
+00:09:28,580 --> 00:09:30,420
+And then it stops.
+
+191
+00:09:30,420 --> 00:09:31,660
+All right.
+
+192
+00:09:31,660 --> 00:09:33,020
+So there you have it.
+
+193
+00:09:33,020 --> 00:09:35,140
+So today, we've learned several things.
+
+194
+00:09:35,140 --> 00:09:39,100
+We've learned how to use Boolean operators in practice.
+
+195
+00:09:39,100 --> 00:09:41,100
+We've seen how to differentiate when
+
+196
+00:09:41,100 --> 00:09:46,980
+you need to use a conditional if or a conditional if-then-else.
+
+197
+00:09:46,980 --> 00:09:50,860
+And we've also learned about how to use modular arithmetic
+
+198
+00:09:50,860 --> 00:09:54,980
+and the modulus operator in NetsBlocks programs.
+
+199
+00:09:54,980 --> 00:09:55,500
+All right.
+
+200
+00:09:55,500 --> 00:09:57,460
+You've already come a long way in this course.
+
+201
+00:09:57,460 --> 00:10:01,620
+And I look forward to seeing you in the next episode.
+
+202
+00:10:01,620 --> 00:10:03,580
+Thank you very much.
+
