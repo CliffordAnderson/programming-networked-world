@@ -1,0 +1,152 @@
+1
+00:00:00,000 --> 00:00:04,640
+Hello everyone, Brian here. So today I'm going to show you how we can get started
+
+2
+00:00:04,640 --> 00:00:07,440
+doing the assignments for our our course.
+
+3
+00:00:14,080 --> 00:00:19,120
+So first of all we're going to click the link that we can find in the assignment description
+
+4
+00:00:19,120 --> 00:00:24,960
+and it'll pull up Netsbox as shown here. Now this might look like your kind of standard Netsbox
+
+5
+00:00:25,200 --> 00:00:31,520
+setup, except you might notice if you look in the top center, a little bit off to the right,
+
+6
+00:00:31,520 --> 00:00:36,400
+we have this extensions button. Now this extensions button, which is shown with this
+
+7
+00:00:36,400 --> 00:00:43,520
+little kind of puzzle piece, has an option underneath when we select it for programming
+
+8
+00:00:43,520 --> 00:00:50,400
+for network world, in other words for this course. Now for now, at the time of this recording anyway,
+
+9
+00:00:50,400 --> 00:00:54,000
+we're just showing one assignment here because this is the example assignment that
+
+10
+00:00:54,960 --> 00:00:58,960
+I'm going to use to just kind of demonstrate how to submit, but you should see a list of all the
+
+11
+00:00:58,960 --> 00:01:03,760
+assignments that are available for the course. When you want to start an assignment, first you
+
+12
+00:01:03,760 --> 00:01:08,720
+just select it from this menu and you'll be prompted about starting, you know, the selected
+
+13
+00:01:08,720 --> 00:01:15,280
+assignment. If you decide to start it, it will open up kind of the starter template or starter
+
+14
+00:01:15,280 --> 00:01:21,200
+project that we'll be working from, and most of them have a similar structure to this one,
+
+15
+00:01:21,200 --> 00:01:27,280
+where we'll have some sort of custom block that we want to open and actually implement.
+
+16
+00:01:28,080 --> 00:01:32,320
+So in this case, we can see we have this helpful little comment to look inside the block to find
+
+17
+00:01:32,320 --> 00:01:40,560
+the problem. The way that we can actually get started on implementing this block, or in other
+
+18
+00:01:40,560 --> 00:01:45,040
+words, looking inside the block and finding the problem, is by right clicking on the block and
+
+19
+00:01:45,040 --> 00:01:51,600
+selecting edit. This will open up a block editor where we can just kind of write the code that we
+
+20
+00:01:51,600 --> 00:01:57,280
+want to, or that's necessary to be able to implement the given block. In this case, the
+
+21
+00:01:57,280 --> 00:02:04,400
+block is just testing if a given number is between some lower and upper bound. So, you know, maybe
+
+22
+00:02:04,400 --> 00:02:10,080
+just as a first pass, I'll just, you know, say that nothing is within the range. Of course, this isn't
+
+23
+00:02:10,640 --> 00:02:17,200
+this isn't going to be an answer we expect to do very well, but it should at least illustrate
+
+24
+00:02:17,200 --> 00:02:24,960
+how we can actually then evaluate our kind of intermediate solution. If we select the extensions
+
+25
+00:02:24,960 --> 00:02:29,920
+button and go to the, you know, programming for a networked world, you know, option, we can now see
+
+26
+00:02:29,920 --> 00:02:34,640
+that this menu is updated, so we can see we have two options. We can grade our assignment or we can
+
+27
+00:02:34,640 --> 00:02:40,000
+submit the assignment. If we select grade the assignment, we'll see that we have a list of tests,
+
+28
+00:02:40,960 --> 00:02:49,520
+one on which only has one passing right now. If I change this from false to true and then
+
+29
+00:02:49,520 --> 00:02:55,120
+rerun the tests, now we can see we have four out of five tests passing. Of course, if this were
+
+30
+00:02:55,120 --> 00:02:57,920
+an assignment that we were actually using in the course, we probably would like
+
+31
+00:02:58,320 --> 00:03:04,480
+a better solution to get 80 percent, but for this example, this is sufficient.
+
+32
+00:03:05,360 --> 00:03:11,360
+So if I'm happy with the results that I'm getting, I can either select submit here in this
+
+33
+00:03:11,360 --> 00:03:18,080
+grade assignment window, or there is also a submit option up here. I'm going to select it from this
+
+34
+00:03:18,080 --> 00:03:24,000
+window, and when I click submit, now it'll ask us for our Coursera submission info. So this is where
+
+35
+00:03:24,000 --> 00:03:31,040
+we can enter our Coursera email address and then the token that's provided on the Coursera website
+
+36
+00:03:31,040 --> 00:03:37,680
+when we go to submit our assignment. All right, and then once you actually select okay, you should
+
+37
+00:03:37,680 --> 00:03:42,960
+be able to see your results posted on the Coursera website and be ready to jump into the next lesson.
+
+38
+00:03:42,960 --> 00:03:46,560
+Awesome. See you in the next video.
+

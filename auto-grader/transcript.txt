@@ -1,0 +1,38 @@
+Hello everyone, Brian here. So today I'm going to show you how we can get started
+doing the assignments for our our course.
+So first of all we're going to click the link that we can find in the assignment description
+and it'll pull up Netsbox as shown here. Now this might look like your kind of standard Netsbox
+setup, except you might notice if you look in the top center, a little bit off to the right,
+we have this extensions button. Now this extensions button, which is shown with this
+little kind of puzzle piece, has an option underneath when we select it for programming
+for network world, in other words for this course. Now for now, at the time of this recording anyway,
+we're just showing one assignment here because this is the example assignment that
+I'm going to use to just kind of demonstrate how to submit, but you should see a list of all the
+assignments that are available for the course. When you want to start an assignment, first you
+just select it from this menu and you'll be prompted about starting, you know, the selected
+assignment. If you decide to start it, it will open up kind of the starter template or starter
+project that we'll be working from, and most of them have a similar structure to this one,
+where we'll have some sort of custom block that we want to open and actually implement.
+So in this case, we can see we have this helpful little comment to look inside the block to find
+the problem. The way that we can actually get started on implementing this block, or in other
+words, looking inside the block and finding the problem, is by right clicking on the block and
+selecting edit. This will open up a block editor where we can just kind of write the code that we
+want to, or that's necessary to be able to implement the given block. In this case, the
+block is just testing if a given number is between some lower and upper bound. So, you know, maybe
+just as a first pass, I'll just, you know, say that nothing is within the range. Of course, this isn't
+this isn't going to be an answer we expect to do very well, but it should at least illustrate
+how we can actually then evaluate our kind of intermediate solution. If we select the extensions
+button and go to the, you know, programming for a networked world, you know, option, we can now see
+that this menu is updated, so we can see we have two options. We can grade our assignment or we can
+submit the assignment. If we select grade the assignment, we'll see that we have a list of tests,
+one on which only has one passing right now. If I change this from false to true and then
+rerun the tests, now we can see we have four out of five tests passing. Of course, if this were
+an assignment that we were actually using in the course, we probably would like
+a better solution to get 80 percent, but for this example, this is sufficient.
+So if I'm happy with the results that I'm getting, I can either select submit here in this
+grade assignment window, or there is also a submit option up here. I'm going to select it from this
+window, and when I click submit, now it'll ask us for our Coursera submission info. So this is where
+we can enter our Coursera email address and then the token that's provided on the Coursera website
+when we go to submit our assignment. All right, and then once you actually select okay, you should
+be able to see your results posted on the Coursera website and be ready to jump into the next lesson.
+Awesome. See you in the next video.
