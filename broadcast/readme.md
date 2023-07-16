@@ -1,4 +1,4 @@
-# Introduction to Broadcast Block in Nets Blocks
+# Broadcast Blocks in NetsBlox
 
 Welcome back! In this section, we'll discuss the *broadcast block* that allows you to send messages across projects and let other sprites or blocks pick up those messages. Just like broadcasting in daily life, you can broadcast a message in Nets blocks, and other blocks will pick up that message and respond to it.
 
