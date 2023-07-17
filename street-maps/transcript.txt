@@ -1,0 +1,412 @@
+Hi, everyone.
+Welcome back to Programming for a Network World.
+Today, we're going to continue our exploration of mapping.
+In particular, we're going to explore Google Street
+View within Netsblocks.
+So as you know, Google Street View
+allows you to see images of locations in cities and places
+around the world.
+So ready to explore the world with Netsblocks?
+Let's get started.
+So today's project will be we're going to build a city
+explorer.
+We're going to take a list of cities,
+and then we're going to take a random city
+and then show it in Netsblocks.
+So this could be the beginning of a game
+that you would make, like a guess the city game.
+So we'll set up the structure for that,
+and then if you want to continue with it,
+please feel free to do so.
+All right, so how do we get started?
+First, we're going to go over and explore the RPC tab again.
+And we'll bring out our normal call block.
+I'm going to drop this down, and you see here
+that we have Google Street View.
+Now, when I expand that and I look at the dropdown,
+I see that we have a number of options.
+Get info, get info from address, get view, get view from address
+is available, is available from address.
+Today, we're going to use the get view from address
+and is available from address.
+So the goal is we're going to pass in the name of a city,
+we're going to pass in a few additional pieces
+of information, and then we're going to get an image back
+of that city, just some random image,
+and then we'll leave it up to the viewer
+to see if he or she can guess what that city is.
+So now, let's just try to test this out to begin.
+So we're going to get view from address,
+and you see here that we've now got a bunch of slots to fill.
+The first one we'll slot, the first slot
+we'll fill, which is Nashville.
+And then we'll do our normal thing
+of going over to Sensing to get the height of the stage
+and the width of the stage.
+There we go.
+Let's bring that over.
+OK.
+Now, field of view, heading, and pitch
+are specific to the Google Street Images RPC.
+And so if you look at this, you can click Help,
+and it will give you some more detail
+about what those particular parameters mean.
+In this case, though, I'm just going
+to fill this in with 90, 90, and 0.
+And if you want to explore using different parameters,
+feel free to do so.
+So let's try that out.
+We should get an image of Nashville.
+There we did.
+But as you know, we need to put this on the stage.
+So let's go do that.
+Under the Looks category, we'll switch to Costume.
+I can bring this over if I can.
+There we go.
+And I'm going to drop that in here, switch the costume,
+and then there is a random spot in Nashville.
+Now, how do we explore other cities?
+Well, we need to have the names of the city
+if we want to look them up by name.
+So in order to do that, we could develop our own list.
+We could just type in a list of names.
+Or even better, we could find a list
+that someone else has put together.
+So there is such a list.
+And I've got it right here in this tab.
+This is a list from GitHub of, I think, probably hundreds
+or maybe even thousands of cities from a mapping service.
+And so I'm going to use that.
+But how do I bring that into Nest Blocks?
+Well, there are a couple of ways.
+And this is one of the things we'll be exploring today.
+If you find data that is not packaged up as an RPC,
+how do you get to it?
+Under the Sensing tab here, you'll
+see that there is a URL block.
+So let's put that in here.
+There we go.
+So that's the link to the data on GitHub.
+And if I click on this, you'll see
+that it brings back that data.
+And you can see that it's in the JSON format.
+But the problem is it's just coming back as a giant string.
+So what do we do here if this is the case,
+if we just get data like this, but we actually
+want to compute with it?
+This won't work in Nest Blocks unless we
+do some kind of hairy parsing.
+So what we want to do, then, is go to a library that's up here.
+And we're going to open this library under the Libraries
+tab.
+And we're going to put HTTP.
+And it says Web Services Access HTTPS.
+We're going to click on that.
+And as you know, when we bring in a library,
+it appears under the Custom tab as well as
+in the location where the blocks belong by color.
+And so here, we see that we've got this nice tool
+called Listify.
+So what Listify will do is take this list
+of data that's in string format and convert it
+into the nice list of list formats
+that we're used to working with.
+So let's try that again.
+So I click on that.
+And now we get this big list of lists.
+So that is excellent.
+But now the next thing that we need to do
+is to convert this list of lists into something that
+is a little bit more easy to use.
+So you can see, if you click on one of the list of lists,
+you see that it's country.
+And then you can see here that the next one
+is going to be name.
+And then this is going to be latitude and longitude.
+So we want to pull out the names right now.
+So in order to do that, let's develop a block that
+will pull out all the names and just make
+a list only of the names.
+OK, so let's go over to Variables here.
+And remember, if we want to get an item of this list,
+like item 2, which is going to be the first item here,
+we don't want just the item 2 of the list.
+We actually want item 2 of every item in the list.
+So in order to do that, we're going
+to have to use the Map block.
+So let's go down to Map, which should be here.
+Let's see here.
+Map.
+And we're going to map this item 2 over the entire list.
+I can get that list.
+Actually, sorry, it goes in here.
+I'm going to move this over here.
+I'm having trouble moving things today, obviously.
+There we go.
+Now, when we click this, notice that the empty slot is here.
+So that's going to put each of these items in turn
+into this map.
+And we're going to pull out item 2, which should be the name.
+So now we've got a list of all the names.
+And you can see here just the names, no other detail.
+But it's still a list of lists, even though it's
+shown in tabular format.
+And we'd really like to just get to a simple list of names.
+So we can do that by doing another map if we want.
+And let's do this here.
+We're going to take this and put item here, item 2 of.
+There we go.
+Put it back into the map.
+Let's run this.
+And now we just have a list of 126,769 city names.
+So that's perfect.
+That's what we'll use as a basis of our exploration
+of the cities of the world.
+So now we just need to start setting up
+the environment for this.
+We're going to create a couple of variables to do that.
+So I'm going to go over here.
+And I'm going to make a variable called city.
+And I'm also going to make a variable called cities.
+Let's do that.
+All right.
+See if I can still click on this.
+OK, there we go, cities.
+And I don't need to show cities, per se.
+I'm just going to show city.
+Now, because this particular map is calling out
+to this long list, we only want to call out to it once.
+Basically, when the program starts,
+we want to just call out and get that list.
+So I'm going to go over to here.
+And I'm going to say, when green flag is clicked.
+And I'm going to set this variable here to this map.
+OK, I'm going to drop this down.
+I'm going to set cities to this map.
+And so now, when the green flag is clicked,
+we're going to populate this variable cities
+with that list of 126,000 cities.
+OK, so that's good.
+And then we want to now start finding a random city
+in that list to display.
+So in our next set of blocks here,
+let's do this one when we press the Space key.
+So when we press the Space key, we
+want to pull out a random city.
+So let's get our variables here.
+And we're going to set, here we go.
+We're going to set city to.
+And now, here's the question.
+What do we set it to?
+Well, we want to set it to a random item in that list.
+So let's go over to our variables here.
+We're already there.
+And let's get to item.
+Pull that over.
+So item something of city.
+So that far, we know.
+OK, bring that over.
+There we go.
+OK, so we're going to do item something of cities.
+But it should be a random number in the city list,
+not just one or some other number that we pick.
+Otherwise, we'll just do everything
+in the same order, which wouldn't be any fun.
+So to find a random, let's go over to Operators.
+And here's a pick random.
+Now, this will pick random numbers between 1 and 10.
+But we need it to be between 1 and the 126,000.
+So actually, to get the full list,
+the full length of the list, we can go to Variables here.
+And we can get length of.
+And let's pull this over.
+OK, there we go.
+OK, so we've got length of.
+And now, we want to put in length of the list of cities.
+So now, it's going to pick a random between 1
+and the length of the list of cities.
+So if we click on this, we're expecting list,
+but getting a number.
+Oh, I think we need to set it first.
+We haven't done that.
+So now, it's set.
+And let's see if we can pick it up.
+There we go.
+We should be getting random numbers.
+And we are.
+OK, so this is working.
+And we're going to drop this in here.
+So that will get us a random city from our list
+and set it to the city variable.
+Now, it should be as easy.
+But I'll warn you in advance, not quite.
+We're going to have to do one more piece of coding
+to make this really work well.
+So let's just try the naive approach, which
+is going to drop city into here instead of Nashville.
+And then we'll display it.
+So let's see how that works.
+OK, so we're immediately hitting a problem,
+which says right here, sorry, we don't
+have imagery for the city.
+Sorry, sorry, there is an image.
+So the problem is that there isn't a Google Street
+View for every city in the world, sadly.
+Not every city has been imaged by Google.
+So for that reason, we need to filter our list
+and remove the particular locations
+in the world for which Google doesn't have images.
+But we don't know that in advance.
+We have to be able to query Google for that information.
+So the way to query Google is to go back to our RPC
+over here under Network.
+And let's bring out this call block again.
+And we're going to drop it back down to the Google Street View.
+And then under Google Street View,
+we're going to say isAvailableFromAddress.
+Here we go, isAvailableFromAddress.
+If I can get this to click, there we go.
+OK, so isAvailableFromAddress will tell us, for example,
+if we put in Nashville, and we'll do the 90, 90, 0,
+it should come back as true.
+But if we put in a city that doesn't exist, like Atlantis,
+click on that, well, there must be an Atlantis
+somewhere in the world.
+How about Porcupine, if I can spell that correctly?
+OK, so a city of Porcupine does not exist.
+So it should come back false.
+So now we want to test, when we look up this random city,
+does it exist?
+And then show, and only then show,
+that the city, the image of the city from Google Street View.
+So in order to do that, we need to start by querying that first.
+So I'm going to move this out of the way.
+And here's what we need to do.
+We need to do a loop, basically.
+We're going to loop through until we
+find a city for which Google says it has imagery.
+Now, if you look under our control structures,
+we have several loops that we can choose from.
+So we have this repeatUntil block.
+The question about this, though, is
+we want to repeatUntil we meet a condition,
+but we won't know what that condition is until we've
+actually executed the block.
+So we'd rather check for that Boolean flag
+after we've run the code rather than before we've run the code.
+Now, there are ways that we could make this repeatUntil block
+work for us, but we don't have to, fortunately.
+We can actually just go here into libraries again
+and pick iteration composition.
+I typed L-O-L for loop.
+And we'll bring that in.
+And you'll see that under the Custom tab here,
+we now have a, let's see here.
+repeatUntil that tests at the end
+of the loop for a condition.
+And that's what we'd like to use.
+So let me bring that over here and plug it in.
+And so what we're going to do then
+is we're going to repeat this switch to costume.
+Actually, let's set a variable here
+so that we don't have to keep going through it again
+and again.
+Let's set a variable.
+Let's do it as a script variable here.
+And well, actually, I think we could just use city here.
+So let's try this.
+We'll just reuse it twice.
+So OK, so we're going to set city to this.
+And now we're going to ask, is that city available?
+So we're going to put this block in here.
+I'm going to bring this up here again.
+Oh, there we go.
+OK, so now we're going to repeat that particular operation
+of looking to see if that city is available.
+And then as soon as we get that this is true,
+we'll pass on to the next block.
+Now, the trick is we do need to do that Boolean comparison
+here, so let's do that.
+So we want to say until the city that we've called.
+Here we go.
+And let's move this over a little bit more
+so you can see it is true.
+So let's grab the true, false.
+Here we go.
+Here's true.
+OK, there we go.
+OK, so we're going to test to see if this is true.
+But now, porcupine, as we've discovered, will never be true.
+So we don't really want that.
+We want to go back to our variables
+and bring in city here.
+So once we know that a city is true, then we can move on.
+But it will repeat looking for cities randomly
+until we know that there is a city at that address.
+And then, and only then, will we switch to it.
+So let's do that.
+OK, so keep the same city variable.
+That's why we didn't need to create a new one.
+Let's try it.
+So OK, we're going to populate our list again.
+And then I'll hit a space key.
+And I think we were in luck on the first one.
+That was fine.
+El Bon Pastor.
+Delano.
+Looks like someone's house in Delano.
+OK, another city.
+All going well.
+Ah, but you notice here now we see some cycling going on.
+It's looking for a city.
+And finally, I think it found Stanford that it could pick.
+And so there were several cities in a row
+that it saw but didn't have information about.
+So in order to prevent that kind of appearance of cycling,
+although it's kind of a cool effect in itself,
+we can just hide and show the variable.
+So let me bring this over here.
+Let's do show variable down here.
+And let's do hide variable over here.
+Here we go.
+And I'm going to drop this down.
+And it's the city variable that we want to hide.
+And it's the city variable here that we want to show.
+OK, now when I hit space key, it's still cycling a little bit.
+Let's see why.
+OK, so hide city variable.
+Let's just try it here.
+Should.
+Oh, oh, oh, I think I've got it in the wrong spot.
+We've reversed it, or I reversed it.
+So let's take it and switch it around.
+So there we go.
+So we want to show the variable here.
+Then we want to display the image on the stage.
+And here is probably where we want to hide it
+when we hit space key.
+OK, so let's try that again.
+So now it's showing a variable that actually has a city.
+There we go.
+There's another city.
+There's another city.
+There's a little bit of like you're
+switching from the old variable name to the new variable name.
+So we could probably fix that if we
+wanted to just print this particular city
+name on the screen.
+But I think, in effect, we've got it working now.
+So again, you could take this further
+and make it into an actual game by adding an input block
+and saying, can you guess what city this is?
+With a list of 126,000 cities, that might be a difficult game.
+But there are ways that you could perhaps
+make it more interesting or more playable
+by suggesting three names at random, one of them
+being the true name, and then allow the players
+to guess which name it is out of those three.
+That would be, I think, a fairer game to play.
+All right, but that's it for today.
+Thank you very much.
+And we'll continue this exploration
+of mapping in Nest Blocks in our next video.
