@@ -1,0 +1,213 @@
+Hi, everyone. Welcome back to Programming for a Networked World.
+Today, we're going to be talking about
+a fundamental control structure called loops.
+Loops help you to automate repetitive tasks,
+so that you don't have to have blocks that
+just repeat themselves over and over again.
+You can put them inside a loop and have the loop do the work for you.
+But it's also important to know how to
+stop a loop when you want to move on to another task.
+So, ready to loop-de-loop the way through nets blocks?
+Let's get started.
+Okay. So today,
+we're going to be talking about four types of loops,
+and let's just find where the loops are.
+So if we go over here to control structures,
+you'll see, there we go, control structures.
+You'll see that we've got down here four types of loops,
+and we're going to spring them out.
+So forever, then there's the repeat,
+repeat until, and this last one,
+which has this strange looking variable in it.
+Okay. So let's just start at the top and see how a forever loop works.
+Now, a forever loop, as the name implies,
+just keeps going forever.
+So let's imagine that we wanted Ada to count up as high as she possibly could,
+just count until the end of the world, let's say.
+How would we do that?
+Well, we would start with a variable.
+So let's create a variable over here,
+and we're going to make this variable count.
+Okay. Then we'll set count at the beginning here,
+right like that, and we'll set count to one.
+I'm not going to have count up here on the stage because we'll have Ada actually say it.
+Now, we want to change the count by one as we go through the loop.
+There we go. We need to have Ada say the count.
+So that should actually be under looks.
+There we go. Let's say this here.
+To do that, I'm going to just make a little more space for myself.
+To do that, we need to bring that variable count here into the say block,
+and we're going to reduce the time so it's a little bit faster.
+We'll put a nice hat block on the top to start it all off.
+Okay. So this will just have Ada counting forever,
+at least until the end of the program.
+Ready? So there you go.
+Ada's counting, and you can see that it's still executing,
+and it'll just repeat what's inside of this forever block until we stop it.
+So I'm going to click on again to stop it.
+Okay. But sometimes you don't want to do something forever.
+You want to do something like a defined number of times.
+So here, for example,
+we have repeat 10,
+and this could be repeat any number of times,
+but we'll just stay with 10.
+We can actually just take most of what we've written over here and duplicate it.
+So I'm going to pull this part out.
+I'm going to click on it,
+and then I'm going to say duplicate,
+and drop that back in,
+and drop it over here,
+and let's do the same thing with this part right here.
+So I'm going to, there we go.
+Let's duplicate this and bring it over here,
+put it back together like that.
+Okay. Then we want a nice hat block here too.
+All right. So we want to set this count though to 0.
+This is actually supposed to be set to 0.
+So let's do that.
+Okay. Or 1, let's say.
+I've got to start it again.
+Okay. So now let's try this other one.
+Now, what you see here is that this will repeat 10 times.
+So it really doesn't matter what the count variable is.
+It will just repeat it 10 times.
+So for this one, in order to not confuse it with the other one,
+we won't have space for the hat block.
+Let's use just 1.
+Okay. So when I press 1 and I click on this,
+you see that it counts up to 10 and then it stops.
+Now, we could actually have a count from any number we wanted.
+It doesn't have to be 10. It could start counting from 20,
+for example, and the same block.
+Oops. Let's do that right there.
+The same block will count up just another 10 times.
+So the point is it will repeat itself 10 times and then stop.
+Now, there may be times when you want to stop the loop based
+on a particular condition that you encounter within the loop.
+It's a very common scenario, for example,
+to have a loop until you reach some kind of threshold.
+So for example, here,
+we might say let's count up,
+but when you get to 15, then stop.
+But it may not be 15 repetitions.
+It may just be until you reach 15.
+So let's set that up.
+So the way that we'll do that,
+we'll duplicate this part here like this and drop this back in.
+Now, we need to set that condition.
+So to do that, we're going to go over to our Boolean operators here.
+Let's just say if it's greater than or equal to,
+here we go, like this.
+Greater than 15 or equal to 15,
+then that will be what we use to decide when to stop this loop.
+So what we need here then is that variable again.
+We're going to throw a count in the front here,
+count here, and drop that into our Boolean condition.
+Let's put a hat block on this one,
+but just get this out of the way.
+We're going to have a different key to start this one.
+We'll say this one will be 2.
+So when I press 2,
+this is going to start counting.
+We should actually make sure that we reset count.
+So let's do that and let's set it to 1.
+Now, this will count up until 15.
+So we can just try that out.
+Let's see how it works.
+Oops, I had it set for 12.
+So you can see it reached actually 15 and stopped.
+So if we do it for 1 now,
+let's try that.
+There we go. 1, 2, 3, 4, 5, 6, 7,
+it counts pretty fast.
+But you can see that as we approach 15, it stopped.
+Now, the thing is it actually didn't say 15.
+Did you notice that? Let's just try this again at,
+let's say, 13, 13, 14, and then it stops.
+The reason is, it's checking that condition
+before it goes into the loop.
+So if you actually want it to reach 15 and then stop,
+you need to set this for 1 higher.
+So for example, if it's greater than 15 or equal to 16.
+So let's try that now.
+13, 14, 15, and then it stops.
+Okay. So you can see that this particular loop
+checks its condition before it enters the loop,
+and if the condition is met,
+then it moves on and skips the loop,
+goes to the next set of blocks that are below the loop.
+There are other control structures
+that check the condition at the end of the loop.
+So to get to those,
+you'd have to go over here,
+click on this white page,
+and then go to libraries and type in iteration,
+and you get iteration composition.
+You'll see that it brings up,
+if I can open this up a little bit more,
+several other types of iterators or loops,
+and you can see that one of them is
+going to be repeat until at the bottom.
+So this one will actually always execute
+and then check the condition at the bottom.
+So depending on what type of loop you're setting up,
+that is an option.
+If you do want to use this option,
+then you need to open this library,
+and you can import it here,
+and you'll see those blocks now under the custom tab.
+So we could pull in this repeat until right here,
+and we can set up that loop,
+but now check the condition at the exit of the loop.
+All right, the last loop that I want to talk
+about is this for loop here.
+This is a bit of a different loop,
+and it really just incorporates a shortcut.
+You know we've been creating
+this count variable for each one of these loops,
+but the for loop allows you to create a loop without
+making a specific variable in advance.
+It actually just has a variable built in.
+Typically that variable is called I,
+but if you wanted to, you could change it to count
+just by clicking on it and renaming it.
+It doesn't have any special meaning.
+And here you can see count from one to 10,
+and it's going to loop,
+and it's going to count each time it goes through.
+So what that allows you to do is to save this extra step
+of setting the counter and then incrementing the counter
+as you go through the loop.
+So all we need to do to use this block
+is to copy this piece here.
+Let me do that.
+I'm going to duplicate this, bring it down here.
+Let's put this one back together where it should be.
+Okay, and let's put a hat block on this one too,
+if I can get enough space here in the scripting area.
+All right, and I'm going to put a hat block
+on this for loop, and let's call this one three.
+So when I press three, then I'll go through that loop,
+and you can see that this counter will automatically
+take care of where it is in the loop.
+And let's just see how that works.
+One, two, three, four, five, six, seven, eight, nine,
+and it goes to 10, and then it stops.
+So all these loops are available to you,
+and as you saw, there are even more loops
+behind the scenes in libraries and nets blocks
+that you can use.
+And the purpose of all of the loops
+is to make your programs more efficient.
+Whether you're going to be counting up to a certain number
+or performing an operation a certain number of times,
+the loops help you to set conditions about when to stop,
+when to move on to something else.
+It could just be a certain number of repetitions.
+It could be when you meet a particular threshold,
+and it helps to organize your program
+and stop you from having to repeat blocks
+over and over again in series.
+All right, so that's everything we had to say today
+about looping, and I look forward to seeing you
+in my next video.
