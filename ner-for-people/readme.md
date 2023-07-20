@@ -1,8 +1,8 @@
 # Introduction to Named Entity Recognition (NER)
 
-Welcome to today's session on natural language processing. We will be focusing on a technique known as *Named Entity Recognition (NER)* to extract information from news headlines. We will be using two RPCs: the first one retrieving news articles from the New York Times and the second one will be the Core NLP library that contains the Named Entity Recognition Annotator (NER). Our goal will be to extract names of people mentioned in the most popular news headlines during the past week.
+Welcome to today's session on natural language processing. We will focus on a technique called *Named Entity Recognition (NER)* to extract information from news headlines. We will be using two RPCs: the first retrieving news articles from the New York Times, and the second one will be the Core NLP library containing the Named Entity Recognition Annotator (NER). Our goal will be to extract the names of people mentioned in the most popular news headlines of the past week.
 
-To process the information, we will be making use of higher order functions working with lists such as *map*, *keep*, and *combine*. Using these functions, we will efficiently extract and filter the required data. After setting up our RPCs, extracting titles, and combining them into a single list, we will call the Core NLP library to receive a list of named entities.
+To process the information, we will use higher-order functions working with lists such as *map*, *keep*, and *combine*. Using these functions, we will efficiently extract and filter the required data. After setting up our RPCs, extracting titles, and combining them into a single list, we will call the Core NLP library to receive a list of named entities.
 
 From the list of entities, we will filter it to keep only those that are marked as "persons" using the condition that `NER` value equals "PERSON". Finally, by mapping over the rows in the list and taking the value portion of each column, we will be left with a table consisting of the names of people, their confidence scores, and other relevant information about where those items are found in the text.
 
