@@ -1,4 +1,4 @@
-Frequency Analysis, Part Two
+## Frequency Analysis, Part Two
 
 In this lesson, we will continue our exploration of textual analysis with a focus on *frequency analysis* over letters in various texts. We will compare the frequency of letters in these texts to the overall frequency of letters in particular languages. By the end of this lesson, you will have learned how to visualize these patterns and compare the results using charts in NetsBlox.
 
@@ -6,7 +6,7 @@ Initially, we gather the letter frequencies for our chosen languages and obtain 
 
 To achieve this, we first create a baseline letter frequency variable and assign frequencies to it. Then, we need to graph the percentage of letter frequency from the analyzed text as well as the baseline letter frequencies. We will visualize these results on the stage by removing charts that don't fit our criteria and keep refining the chart to display our data accurately and concisely.
 
-## Key takeaways from this lesson:
+## Key Takeaways
 - Frequency analysis helps in comparing the patterns of letter usage in texts and languages.
 - Project Gutenberg can be used as a data source for textual analysis.
 - NetsBlox allows you to create charts to visualize comparative data.
