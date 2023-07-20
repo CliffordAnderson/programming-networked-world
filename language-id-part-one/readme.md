@@ -4,7 +4,7 @@ Welcome back! In today's lesson, we'll explore *frequency analysis* in NetBlox, 
 
 First, we'll need two data sources: one with the frequency of letters in various languages and a source for texts to analyze. We'll start by pulling in our data source on letter frequencies from a list available on GitHub. With that, we can get an overview of how often different letters should appear in different languages' texts. Next, we'll use Project Gutenberg as our source for text documents. Using built-in RPCs, we can search for and retrieve the full text of a book in the NetBlox environment.
 
-Once we have both sources, we'll work on analyzing the letter frequencies in the chosen book. We'll create a block in NetSplox to count the frequency of each letter (A to Z) in the given text, then calculate the percentage of each letter's appearance. This will give us a list to compare against our expected letter frequencies for different languages.
+Once we have both sources, we'll work on analyzing the letter frequencies in the chosen book. We'll create a block in NetBlox to count the frequency of each letter (A to Z) in the given text, then calculate the percentage of each letter's appearance. This will give us a list to compare against our expected letter frequencies for different languages.
 
 ## Key takeaways from this lesson:
 - Frequency analysis can be used to identify the language of a document by analyzing the frequency of letters.
